@@ -90,6 +90,13 @@ def buscar_pagina(token: str, params: dict) -> dict:
     url = f"{API_BASE}/search/processes"
     resp = requests.get(url, headers=headers, params=params, timeout=45)
 
+    if resp.status_code == 404:
+        # Esta API parece devolver 404 cuando la busqueda no encuentra
+        # resultados para el rango pedido, en vez de un 200 con lista vacia.
+        # Se trata como "sin resultados" en vez de como un error fatal.
+        print(f"  (sin resultados para este rango -- la API devolvio 404, se interpreta como lista vacia)")
+        return {"records": []}
+
     if resp.status_code != 200:
         raise RuntimeError(f"Error HTTP {resp.status_code} en {url}: {resp.text[:500]}")
 
