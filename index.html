@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard DNCP · Contrataciones Públicas</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{
+    --ink:#12203D; --ink-soft:#3C4B6B; --paper:#F5F4F0; --panel:#FFFFFF; --line:#DEDCD4;
+    --amber:#B5792A; --amber-dark:#8F5E1E; --teal:#0F6B63; --teal-soft:#E4F0EE;
+    --red:#A23B3B; --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"SF Mono","Courier New",monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:var(--sans);background:var(--paper);color:var(--ink);}
+  .topbar{
+    background:var(--ink); color:#F5F4F0; padding:18px 28px; border-bottom:3px solid var(--amber);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+  }
+  .topbar h1{font-size:17px;margin:0;font-weight:600;}
+  .topbar .sub{font-size:11px;color:#C7CEDD;text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+  .last-update{font-size:12px;background:#1C2E52;padding:7px 12px;border-radius:6px;border:1px solid #2C4270;}
+  .wrap{max-width:1200px;margin:0 auto;padding:24px 20px 60px;}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+  @media (max-width:800px){.kpis{grid-template-columns:1fr 1fr;}}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;}
+  .kpi .label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);font-weight:600;margin-bottom:6px;}
+  .kpi .value{font-size:24px;font-weight:700;font-family:var(--mono);}
+  .kpi.amber .value{color:var(--amber-dark);}
+  .kpi.teal .value{color:var(--teal);}
+
+  .filters{
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:20px;
+    display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:12px;align-items:end;
+  }
+  @media (max-width:900px){.filters{grid-template-columns:1fr 1fr;}}
+  label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);margin-bottom:5px;font-weight:600;}
+  input,select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:6px;font-size:13px;font-family:var(--sans);background:#FDFDFC;color:var(--ink);}
+  input:focus,select:focus{outline:2px solid var(--amber);outline-offset:1px;}
+  button{font-family:var(--sans);font-weight:600;font-size:13px;border-radius:6px;border:none;padding:10px 16px;cursor:pointer;}
+  .btn-primary{background:var(--amber);color:#fff;}
+  .btn-primary:hover{background:var(--amber-dark);}
+  .btn-ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line);}
+
+  .charts{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:20px;}
+  @media (max-width:900px){.charts{grid-template-columns:1fr;}}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;}
+  .panel h2{font-size:13px;margin:0 0 14px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-soft);}
+  .chart-holder{position:relative;height:280px;}
+
+  .table-panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;}
+  .table-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;}
+  .table-top .count{font-size:12px;color:var(--ink-soft);}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  th{text-align:left;padding:9px 10px;background:#EFEDE6;color:var(--ink-soft);font-weight:600;font-size:11px;text-transform:uppercase;border-bottom:1px solid var(--line);cursor:pointer;user-select:none;}
+  th:hover{color:var(--ink);}
+  td{padding:9px 10px;border-bottom:1px solid #EEEDE7;}
+  tr:hover td{background:#FBFAF7;}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;}
+  .badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10.5px;font-weight:700;text-transform:uppercase;}
+  .badge.adj{background:var(--teal-soft);color:var(--teal);}
+  .badge.pub{background:#FCEFDB;color:var(--amber-dark);}
+  .badge.other{background:#EFEDE6;color:var(--ink-soft);}
+  .empty-state{text-align:center;padding:40px 20px;color:var(--ink-soft);font-size:13.5px;}
+  .empty-state code{background:#EFEDE6;padding:2px 6px;border-radius:4px;}
+  .pager{display:flex;justify-content:center;gap:10px;margin-top:14px;align-items:center;font-size:12.5px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>
+    <h1>Dashboard DNCP · Contrataciones Públicas</h1>
+    <div class="sub">Datos actualizados automáticamente todos los días</div>
+  </div>
+  <div class="last-update" id="lastUpdate">Cargando...</div>
+</div>
+
+<div class="wrap">
+
+  <div class="kpis">
+    <div class="kpi"><div class="label">Procesos totales</div><div class="value" id="kpiTotal">—</div></div>
+    <div class="kpi teal"><div class="label">Adjudicados</div><div class="value" id="kpiAdjudicados">—</div></div>
+    <div class="kpi amber"><div class="label">En proceso / publicados</div><div class="value" id="kpiPublicados">—</div></div>
+    <div class="kpi"><div class="label">Monto adjudicado (Gs.)</div><div class="value" id="kpiMonto">—</div></div>
+  </div>
+
+  <div class="filters">
+    <div>
+      <label>Buscar</label>
+      <input type="text" id="fBuscar" placeholder="Nombre, convocante...">
+    </div>
+    <div>
+      <label>Estado</label>
+      <select id="fEstado"><option value="">Todos</option></select>
+    </div>
+    <div>
+      <label>Convocante</label>
+      <select id="fConvocante"><option value="">Todos</option></select>
+    </div>
+    <div>
+      <label>Categoría</label>
+      <select id="fCategoria"><option value="">Todas</option></select>
+    </div>
+    <div>
+      <button class="btn-ghost" onclick="limpiarFiltros()">Limpiar filtros</button>
+    </div>
+  </div>
+
+  <div class="charts">
+    <div class="panel">
+      <h2>Monto adjudicado por mes</h2>
+      <div class="chart-holder"><canvas id="chartMonto"></canvas></div>
+    </div>
+    <div class="panel">
+      <h2>Distribución por estado</h2>
+      <div class="chart-holder"><canvas id="chartEstado"></canvas></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:20px;">
+    <h2>Top 10 convocantes por cantidad de procesos</h2>
+    <div class="chart-holder" style="height:240px;"><canvas id="chartConvocantes"></canvas></div>
+  </div>
+
+  <div class="table-panel">
+    <div class="table-top">
+      <span class="count" id="tableCount">0 procesos</span>
+      <button class="btn-ghost" onclick="descargarCSV()">Descargar CSV filtrado</button>
+    </div>
+    <div id="tableHolder"></div>
+    <div class="pager" id="pager"></div>
+  </div>
+
+</div>
+
+<script>
+let TODOS = [];
+let FILTRADOS = [];
+let charts = {};
+let ordenColumna = null, ordenAsc = true;
+let paginaActual = 1;
+const PAGE_SIZE = 25;
+
+async function cargar(){
+  try{
+    const resp = await fetch('data/procesos.json?_=' + Date.now());
+    if(!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    TODOS = Object.values(data.procesos || {});
+    document.getElementById('lastUpdate').textContent = 'Última actualización: ' + (data.last_updated || '—');
+    poblarFiltros();
+    aplicarFiltros();
+  }catch(err){
+    document.getElementById('tableHolder').innerHTML =
+      '<div class="empty-state">Todavía no hay datos generados. Corré el workflow una vez desde la pestaña ' +
+      '<strong>Actions</strong> de tu repositorio de GitHub (botón "Run workflow"), o esperá a la próxima corrida programada.<br><br>' +
+      'Detalle técnico: ' + err.message + '</div>';
+    document.getElementById('lastUpdate').textContent = 'Sin datos aún';
+  }
+}
+
+function valor(item, campo){
+  const v = item[campo];
+  if(v === null || v === undefined) return '';
+  return typeof v === 'object' ? (v.nombre || v.codigo || '') : v;
+}
+
+function poblarFiltros(){
+  const estados = new Set(), convocantes = new Set(), categorias = new Set();
+  TODOS.forEach(it => {
+    if(valor(it,'estado')) estados.add(valor(it,'estado'));
+    if(valor(it,'convocante')) convocantes.add(valor(it,'convocante'));
+    if(valor(it,'categoria')) categorias.add(valor(it,'categoria'));
+  });
+  llenarSelect('fEstado', estados);
+  llenarSelect('fConvocante', convocantes);
+  llenarSelect('fCategoria', categorias);
+}
+
+function llenarSelect(id, valores){
+  const sel = document.getElementById(id);
+  Array.from(valores).sort().forEach(v => {
+    const opt = document.createElement('option');
+    opt.value = v; opt.textContent = v;
+    sel.appendChild(opt);
+  });
+}
+
+['fBuscar','fEstado','fConvocante','fCategoria'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => { paginaActual = 1; aplicarFiltros(); });
+});
+
+function limpiarFiltros(){
+  document.getElementById('fBuscar').value = '';
+  document.getElementById('fEstado').value = '';
+  document.getElementById('fConvocante').value = '';
+  document.getElementById('fCategoria').value = '';
+  paginaActual = 1;
+  aplicarFiltros();
+}
+
+function aplicarFiltros(){
+  const texto = document.getElementById('fBuscar').value.toLowerCase();
+  const estado = document.getElementById('fEstado').value;
+  const convocante = document.getElementById('fConvocante').value;
+  const categoria = document.getElementById('fCategoria').value;
+
+  FILTRADOS = TODOS.filter(it => {
+    if(estado && valor(it,'estado') !== estado) return false;
+    if(convocante && valor(it,'convocante') !== convocante) return false;
+    if(categoria && valor(it,'categoria') !== categoria) return false;
+    if(texto){
+      const campo = ((it.nombre_licitacion||'') + ' ' + valor(it,'convocante')).toLowerCase();
+      if(!campo.includes(texto)) return false;
+    }
+    return true;
+  });
+
+  actualizarKPIs();
+  actualizarGraficos();
+  renderTabla();
+}
+
+function actualizarKPIs(){
+  document.getElementById('kpiTotal').textContent = FILTRADOS.length.toLocaleString('es-PY');
+  const adjudicados = FILTRADOS.filter(it => (valor(it,'estado')||'').toLowerCase().includes('adjud'));
+  const publicados = FILTRADOS.filter(it => (valor(it,'estado')||'').toLowerCase().includes('public'));
+  document.getElementById('kpiAdjudicados').textContent = adjudicados.length.toLocaleString('es-PY');
+  document.getElementById('kpiPublicados').textContent = publicados.length.toLocaleString('es-PY');
+
+  const montoTotal = FILTRADOS.reduce((acc, it) => {
+    const m = Number(it.monto_adjudicado || it.monto_estimado || 0);
+    return acc + (isNaN(m) ? 0 : m);
+  }, 0);
+  document.getElementById('kpiMonto').textContent = montoTotal.toLocaleString('es-PY', {maximumFractionDigits:0});
+}
+
+function colorSet(n){
+  const base = ['#B5792A','#0F6B63','#3C4B6B','#A23B3B','#8F5E1E','#4E8C82','#6C7A9C','#C4926A'];
+  const out = [];
+  for(let i=0;i<n;i++) out.push(base[i % base.length]);
+  return out;
+}
+
+function actualizarGraficos(){
+  // Monto por mes
+  const porMes = {};
+  FILTRADOS.forEach(it => {
+    const fecha = it.fecha_publicacion || it.fecha_estimada || it.fecha_firma;
+    if(!fecha) return;
+    const mes = String(fecha).slice(0,7);
+    const monto = Number(it.monto_adjudicado || it.monto_estimado || 0) || 0;
+    porMes[mes] = (porMes[mes] || 0) + monto;
+  });
+  const mesesOrdenados = Object.keys(porMes).sort();
+
+  renderChart('chartMonto', 'bar', {
+    labels: mesesOrdenados,
+    datasets: [{ label: 'Monto (Gs.)', data: mesesOrdenados.map(m => porMes[m]), backgroundColor: '#B5792A' }]
+  }, { plugins:{legend:{display:false}}, scales:{ y:{ ticks:{ callback:v=>Number(v).toLocaleString('es-PY') } } } });
+
+  // Distribucion por estado
+  const porEstado = {};
+  FILTRADOS.forEach(it => {
+    const e = valor(it,'estado') || 'Sin estado';
+    porEstado[e] = (porEstado[e] || 0) + 1;
+  });
+  const estadosKeys = Object.keys(porEstado);
+  renderChart('chartEstado', 'doughnut', {
+    labels: estadosKeys,
+    datasets: [{ data: estadosKeys.map(k => porEstado[k]), backgroundColor: colorSet(estadosKeys.length) }]
+  }, { plugins:{legend:{position:'bottom', labels:{boxWidth:10,font:{size:10.5}}}} });
+
+  // Top convocantes
+  const porConvocante = {};
+  FILTRADOS.forEach(it => {
+    const c = valor(it,'convocante') || 'Desconocido';
+    porConvocante[c] = (porConvocante[c] || 0) + 1;
+  });
+  const topConv = Object.entries(porConvocante).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  renderChart('chartConvocantes', 'bar', {
+    labels: topConv.map(x => x[0].length > 28 ? x[0].slice(0,28)+'…' : x[0]),
+    datasets: [{ label: 'Procesos', data: topConv.map(x => x[1]), backgroundColor: '#0F6B63' }]
+  }, { indexAxis:'y', plugins:{legend:{display:false}} });
+}
+
+function renderChart(canvasId, type, data, extraOptions){
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  if(charts[canvasId]) charts[canvasId].destroy();
+  charts[canvasId] = new Chart(ctx, {
+    type, data,
+    options: Object.assign({ responsive:true, maintainAspectRatio:false }, extraOptions || {})
+  });
+}
+
+function estadoBadgeHtml(estado){
+  const e = (estado||'').toLowerCase();
+  let cls = 'other';
+  if(e.includes('adjud')) cls = 'adj';
+  else if(e.includes('public')) cls = 'pub';
+  return estado ? `<span class="badge ${cls}">${estado}</span>` : '—';
+}
+
+function ordenarPor(campo){
+  if(ordenColumna === campo){ ordenAsc = !ordenAsc; } else { ordenColumna = campo; ordenAsc = true; }
+  renderTabla();
+}
+
+function renderTabla(){
+  const holder = document.getElementById('tableHolder');
+  document.getElementById('tableCount').textContent = FILTRADOS.length.toLocaleString('es-PY') + ' procesos';
+
+  if(FILTRADOS.length === 0){
+    holder.innerHTML = '<div class="empty-state">No hay procesos que coincidan con estos filtros.</div>';
+    document.getElementById('pager').innerHTML = '';
+    return;
+  }
+
+  let datos = [...FILTRADOS];
+  if(ordenColumna){
+    datos.sort((a,b) => {
+      let va = valor(a, ordenColumna), vb = valor(b, ordenColumna);
+      if(typeof va === 'string') va = va.toLowerCase();
+      if(typeof vb === 'string') vb = vb.toLowerCase();
+      if(va < vb) return ordenAsc ? -1 : 1;
+      if(va > vb) return ordenAsc ? 1 : -1;
+      return 0;
+    });
+  }
+
+  const totalPaginas = Math.max(1, Math.ceil(datos.length / PAGE_SIZE));
+  paginaActual = Math.min(paginaActual, totalPaginas);
+  const inicio = (paginaActual - 1) * PAGE_SIZE;
+  const pagina = datos.slice(inicio, inicio + PAGE_SIZE);
+
+  let html = '<table><thead><tr>' +
+    '<th onclick="ordenarPor(\'id_llamado\')">ID</th>' +
+    '<th onclick="ordenarPor(\'nombre_licitacion\')">Nombre</th>' +
+    '<th onclick="ordenarPor(\'convocante\')">Convocante</th>' +
+    '<th onclick="ordenarPor(\'fecha_publicacion\')">Fecha</th>' +
+    '<th onclick="ordenarPor(\'monto_adjudicado\')">Monto</th>' +
+    '<th onclick="ordenarPor(\'estado\')">Estado</th>' +
+    '</tr></thead><tbody>';
+
+  pagina.forEach(it => {
+    const monto = Number(it.monto_adjudicado || it.monto_estimado || 0);
+    html += '<tr>' +
+      `<td class="num">${valor(it,'id_llamado') || valor(it,'id') || '—'}</td>` +
+      `<td>${it.nombre_licitacion || it.objeto_licitacion || '—'}</td>` +
+      `<td>${valor(it,'convocante') || '—'}</td>` +
+      `<td class="num">${it.fecha_publicacion || it.fecha_estimada || '—'}</td>` +
+      `<td class="num">${monto ? monto.toLocaleString('es-PY') : '—'}</td>` +
+      `<td>${estadoBadgeHtml(valor(it,'estado'))}</td>` +
+      '</tr>';
+  });
+  html += '</tbody></table>';
+  holder.innerHTML = html;
+
+  document.getElementById('pager').innerHTML =
+    `<button class="btn-ghost" ${paginaActual<=1?'disabled':''} onclick="cambiarPagina(-1)">‹ Anterior</button>` +
+    `<span>Página ${paginaActual} de ${totalPaginas}</span>` +
+    `<button class="btn-ghost" ${paginaActual>=totalPaginas?'disabled':''} onclick="cambiarPagina(1)">Siguiente ›</button>`;
+}
+
+function cambiarPagina(delta){
+  paginaActual += delta;
+  renderTabla();
+}
+
+function descargarCSV(){
+  if(FILTRADOS.length === 0) return;
+  const cols = ['id_llamado','nombre_licitacion','convocante','fecha_publicacion','monto_adjudicado','estado','categoria'];
+  const filas = [cols.join(',')];
+  FILTRADOS.forEach(it => {
+    const fila = cols.map(c => {
+      let v = valor(it, c);
+      v = String(v ?? '').replace(/"/g,'""');
+      return `"${v}"`;
+    });
+    filas.push(fila.join(','));
+  });
+  const blob = new Blob(["\uFEFF" + filas.join('\n')], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'dncp_dashboard_filtrado.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+cargar();
+</script>
+</body>
+</html>
