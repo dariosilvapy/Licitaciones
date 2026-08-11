@@ -134,40 +134,63 @@ def get_in(d, *paths):
 
 def normalizar(registro: dict) -> dict:
     """Aplana un record/release OCDS al esquema plano que usa el dashboard
-    (index.html): id_llamado, nombre_licitacion, convocante,
-    fecha_publicacion, monto_adjudicado, estado, categoria."""
+    (index.html). Mapeo confirmado con una respuesta real de
+    /search/processes (agosto 2026):
 
-    # El "compiledRelease" es donde suele estar la info consolidada; si no
-    # viene, probamos el propio registro como si ya fuera el release.
+      - El numero corto de licitacion (6 digitos) esta en
+        compiledRelease.planning.identifier -- NO en tender.id, que a veces
+        viene como UUID interno en vez del formato clasico "NNNNNN-titulo".
+      - No hay montos (value/amount) en esta respuesta -- ver aviso en
+        MUESTRA_FILE. Se deja vacio por ahora.
+    """
+
     release = registro.get("compiledRelease") if isinstance(registro.get("compiledRelease"), dict) else registro
 
     ocid = registro.get("ocid") or release.get("ocid") or ""
     tender = release.get("tender", {}) if isinstance(release.get("tender"), dict) else {}
+    planning = release.get("planning", {}) if isinstance(release.get("planning"), dict) else {}
+    buyer = release.get("buyer", {}) if isinstance(release.get("buyer"), dict) else {}
     awards = release.get("awards", [])
     if not isinstance(awards, list):
         awards = [awards] if awards else []
+    contracts = release.get("contracts", [])
+    if not isinstance(contracts, list):
+        contracts = [contracts] if contracts else []
 
-    monto_adjudicado = get_in(
-        {"awards": awards},
-        ["awards", "value", "amount"],
-    )
+    # El numero de licitacion "lindo" (6 digitos): primero planning.identifier
+    # (siempre numerico), si no esta se intenta sacar del ocid, y como ultimo
+    # recurso se usa tender.id (que a veces es un UUID, mejor que nada).
+    numero_licitacion = planning.get("identifier") or ""
+    if not numero_licitacion and ocid:
+        # ocid tiene forma "ocds-03ad3f-405062" o "ocds-03ad3f-405062-1"
+        partes = ocid.split("-")
+        numeros = [p for p in partes if p.isdigit()]
+        numero_licitacion = numeros[0] if numeros else ""
 
-    proveedor_adjudicado = get_in(
-        {"awards": awards},
-        ["awards", "suppliers", "name"],
-    )
+    proveedores = []
+    for a in awards:
+        if isinstance(a, dict):
+            for s in a.get("suppliers", []):
+                if isinstance(s, dict) and s.get("name"):
+                    proveedores.append(s["name"])
 
     plano = {
         "ocid": ocid,
-        "id_llamado": tender.get("id") or ocid,
+        "id_llamado": numero_licitacion or tender.get("id") or ocid,
+        "tender_id_completo": tender.get("id") or "",
         "nombre_licitacion": tender.get("title") or "",
-        "convocante": get_in(tender, ["procuringEntity", "name"]) or "",
-        "estado": tender.get("statusDetails") or tender.get("status") or "",
-        "categoria": tender.get("mainProcurementCategory") or "",
-        "fecha_publicacion": tender.get("datePublished") or release.get("date") or "",
-        "monto_adjudicado": monto_adjudicado,
-        "proveedor_adjudicado": proveedor_adjudicado,
+        "convocante": get_in(tender, ["procuringEntity", "name"]) or buyer.get("name") or "",
+        "estado": tender.get("statusDetails") or "",
+        "categoria": tender.get("mainProcurementCategoryDetails") or "",
+        "fecha_publicacion": get_in(tender, ["tenderPeriod", "startDate"]) or release.get("date") or "",
         "modalidad": tender.get("procurementMethodDetails") or "",
+        "cantidad_adjudicaciones": len(awards),
+        "cantidad_contratos": len(contracts),
+        "proveedores_adjudicados": ", ".join(sorted(set(proveedores))) if proveedores else "",
+        # Todavia no confirmado si /search/processes trae montos en algun
+        # caso -- por ahora queda vacio. Ver charla sobre como resolverlo
+        # (llamada adicional por contrato/adjudicacion, o via CSV masivo).
+        "monto_adjudicado": None,
     }
     return plano
 
