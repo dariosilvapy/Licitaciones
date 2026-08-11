@@ -84,7 +84,7 @@
     <div class="kpi"><div class="label">Procesos totales</div><div class="value" id="kpiTotal">—</div></div>
     <div class="kpi teal"><div class="label">Adjudicados</div><div class="value" id="kpiAdjudicados">—</div></div>
     <div class="kpi amber"><div class="label">En proceso / publicados</div><div class="value" id="kpiPublicados">—</div></div>
-    <div class="kpi"><div class="label">Monto adjudicado (Gs.)</div><div class="value" id="kpiMonto">—</div></div>
+    <div class="kpi"><div class="label">Proveedores distintos</div><div class="value" id="kpiProveedores">—</div></div>
   </div>
 
   <div class="filters">
@@ -111,7 +111,7 @@
 
   <div class="charts">
     <div class="panel">
-      <h2>Monto adjudicado por mes</h2>
+      <h2>Procesos por mes</h2>
       <div class="chart-holder"><canvas id="chartMonto"></canvas></div>
     </div>
     <div class="panel">
@@ -120,9 +120,15 @@
     </div>
   </div>
 
-  <div class="panel" style="margin-bottom:20px;">
-    <h2>Top 10 convocantes por cantidad de procesos</h2>
-    <div class="chart-holder" style="height:240px;"><canvas id="chartConvocantes"></canvas></div>
+  <div class="charts">
+    <div class="panel">
+      <h2>Top 10 convocantes por cantidad de procesos</h2>
+      <div class="chart-holder"><canvas id="chartConvocantes"></canvas></div>
+    </div>
+    <div class="panel">
+      <h2>Top 10 proveedores adjudicados</h2>
+      <div class="chart-holder"><canvas id="chartProveedores"></canvas></div>
+    </div>
   </div>
 
   <div class="table-panel">
@@ -227,15 +233,19 @@ function aplicarFiltros(){
 function actualizarKPIs(){
   document.getElementById('kpiTotal').textContent = FILTRADOS.length.toLocaleString('es-PY');
   const adjudicados = FILTRADOS.filter(it => (valor(it,'estado')||'').toLowerCase().includes('adjud'));
-  const publicados = FILTRADOS.filter(it => (valor(it,'estado')||'').toLowerCase().includes('public'));
+  const publicados = FILTRADOS.filter(it => {
+    const e = (valor(it,'estado')||'').toLowerCase();
+    return e.includes('convocatoria') || e.includes('public') || e.includes('evaluacion');
+  });
   document.getElementById('kpiAdjudicados').textContent = adjudicados.length.toLocaleString('es-PY');
   document.getElementById('kpiPublicados').textContent = publicados.length.toLocaleString('es-PY');
 
-  const montoTotal = FILTRADOS.reduce((acc, it) => {
-    const m = Number(it.monto_adjudicado || it.monto_estimado || 0);
-    return acc + (isNaN(m) ? 0 : m);
-  }, 0);
-  document.getElementById('kpiMonto').textContent = montoTotal.toLocaleString('es-PY', {maximumFractionDigits:0});
+  const proveedoresUnicos = new Set();
+  FILTRADOS.forEach(it => {
+    (it.proveedores_adjudicados || '').split(',').map(s => s.trim()).filter(Boolean)
+      .forEach(p => proveedoresUnicos.add(p));
+  });
+  document.getElementById('kpiProveedores').textContent = proveedoresUnicos.size.toLocaleString('es-PY');
 }
 
 function colorSet(n){
@@ -246,21 +256,20 @@ function colorSet(n){
 }
 
 function actualizarGraficos(){
-  // Monto por mes
+  // Procesos por mes (cantidad, ya que no tenemos monto en esta respuesta)
   const porMes = {};
   FILTRADOS.forEach(it => {
-    const fecha = it.fecha_publicacion || it.fecha_estimada || it.fecha_firma;
+    const fecha = it.fecha_publicacion;
     if(!fecha) return;
     const mes = String(fecha).slice(0,7);
-    const monto = Number(it.monto_adjudicado || it.monto_estimado || 0) || 0;
-    porMes[mes] = (porMes[mes] || 0) + monto;
+    porMes[mes] = (porMes[mes] || 0) + 1;
   });
   const mesesOrdenados = Object.keys(porMes).sort();
 
   renderChart('chartMonto', 'bar', {
     labels: mesesOrdenados,
-    datasets: [{ label: 'Monto (Gs.)', data: mesesOrdenados.map(m => porMes[m]), backgroundColor: '#B5792A' }]
-  }, { plugins:{legend:{display:false}}, scales:{ y:{ ticks:{ callback:v=>Number(v).toLocaleString('es-PY') } } } });
+    datasets: [{ label: 'Procesos', data: mesesOrdenados.map(m => porMes[m]), backgroundColor: '#B5792A' }]
+  }, { plugins:{legend:{display:false}} });
 
   // Distribucion por estado
   const porEstado = {};
@@ -284,6 +293,19 @@ function actualizarGraficos(){
   renderChart('chartConvocantes', 'bar', {
     labels: topConv.map(x => x[0].length > 28 ? x[0].slice(0,28)+'…' : x[0]),
     datasets: [{ label: 'Procesos', data: topConv.map(x => x[1]), backgroundColor: '#0F6B63' }]
+  }, { indexAxis:'y', plugins:{legend:{display:false}} });
+
+  // Top proveedores adjudicados
+  const porProveedor = {};
+  FILTRADOS.forEach(it => {
+    (it.proveedores_adjudicados || '').split(',').map(s => s.trim()).filter(Boolean).forEach(p => {
+      porProveedor[p] = (porProveedor[p] || 0) + 1;
+    });
+  });
+  const topProv = Object.entries(porProveedor).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  renderChart('chartProveedores', 'bar', {
+    labels: topProv.map(x => x[0].length > 28 ? x[0].slice(0,28)+'…' : x[0]),
+    datasets: [{ label: 'Adjudicaciones', data: topProv.map(x => x[1]), backgroundColor: '#8F5E1E' }]
   }, { indexAxis:'y', plugins:{legend:{display:false}} });
 }
 
@@ -341,18 +363,17 @@ function renderTabla(){
     '<th onclick="ordenarPor(\'nombre_licitacion\')">Nombre</th>' +
     '<th onclick="ordenarPor(\'convocante\')">Convocante</th>' +
     '<th onclick="ordenarPor(\'fecha_publicacion\')">Fecha</th>' +
-    '<th onclick="ordenarPor(\'monto_adjudicado\')">Monto</th>' +
+    '<th onclick="ordenarPor(\'proveedores_adjudicados\')">Proveedor(es) adjudicado(s)</th>' +
     '<th onclick="ordenarPor(\'estado\')">Estado</th>' +
     '</tr></thead><tbody>';
 
   pagina.forEach(it => {
-    const monto = Number(it.monto_adjudicado || it.monto_estimado || 0);
     html += '<tr>' +
-      `<td class="num">${valor(it,'id_llamado') || valor(it,'id') || '—'}</td>` +
-      `<td>${it.nombre_licitacion || it.objeto_licitacion || '—'}</td>` +
+      `<td class="num">${valor(it,'id_llamado') || '—'}</td>` +
+      `<td>${it.nombre_licitacion || '—'}</td>` +
       `<td>${valor(it,'convocante') || '—'}</td>` +
-      `<td class="num">${it.fecha_publicacion || it.fecha_estimada || '—'}</td>` +
-      `<td class="num">${monto ? monto.toLocaleString('es-PY') : '—'}</td>` +
+      `<td class="num">${it.fecha_publicacion || '—'}</td>` +
+      `<td>${it.proveedores_adjudicados || '—'}</td>` +
       `<td>${estadoBadgeHtml(valor(it,'estado'))}</td>` +
       '</tr>';
   });
@@ -372,7 +393,7 @@ function cambiarPagina(delta){
 
 function descargarCSV(){
   if(FILTRADOS.length === 0) return;
-  const cols = ['id_llamado','nombre_licitacion','convocante','fecha_publicacion','monto_adjudicado','estado','categoria'];
+  const cols = ['id_llamado','nombre_licitacion','convocante','fecha_publicacion','estado','categoria','proveedores_adjudicados'];
   const filas = [cols.join(',')];
   FILTRADOS.forEach(it => {
     const fila = cols.map(c => {
