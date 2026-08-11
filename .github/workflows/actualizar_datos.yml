@@ -1,0 +1,40 @@
+name: Actualizar datos DNCP
+
+on:
+  schedule:
+    # 09:00 UTC = 05:00 o 06:00 en Paraguay segun epoca del anio.
+    # Cambia la hora aqui si queres que corra en otro momento.
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}   # permite tambien correrlo manualmente desde la pestana "Actions"
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Ejecutar actualizacion
+        env:
+          DNCP_CONSUMER_KEY: ${{ secrets.DNCP_CONSUMER_KEY }}
+          DNCP_CONSUMER_SECRET: ${{ secrets.DNCP_CONSUMER_SECRET }}
+        run: python scripts/fetch_dncp.py
+
+      - name: Guardar cambios en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/procesos.json data/muestra_respuesta_busqueda.json
+          git diff --quiet --cached || git commit -m "Actualizacion automatica de datos DNCP - $(date -u +%Y-%m-%d)"
+          git push
