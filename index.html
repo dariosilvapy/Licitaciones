@@ -33,9 +33,9 @@
 
   .filters{
     background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:20px;
-    display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:12px;align-items:end;
+    display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr auto;gap:12px;align-items:end;
   }
-  @media (max-width:900px){.filters{grid-template-columns:1fr 1fr;}}
+  @media (max-width:1000px){.filters{grid-template-columns:1fr 1fr;}}
   label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);margin-bottom:5px;font-weight:600;}
   input,select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:6px;font-size:13px;font-family:var(--sans);background:#FDFDFC;color:var(--ink);}
   input:focus,select:focus{outline:2px solid var(--amber);outline-offset:1px;}
@@ -66,6 +66,11 @@
   .empty-state{text-align:center;padding:40px 20px;color:var(--ink-soft);font-size:13.5px;}
   .empty-state code{background:#EFEDE6;padding:2px 6px;border-radius:4px;}
   .pager{display:flex;justify-content:center;gap:10px;margin-top:14px;align-items:center;font-size:12.5px;}
+  .tabs{display:flex;gap:6px;margin-bottom:16px;}
+  .tab{padding:9px 16px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;background:var(--panel);border:1px solid var(--line);color:var(--ink-soft);}
+  .tab.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+  a.link-cell{color:var(--amber-dark);text-decoration:none;font-size:12px;}
+  a.link-cell:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -105,39 +110,75 @@
       <select id="fCategoria"><option value="">Todas</option></select>
     </div>
     <div>
+      <label>Proveedor adjudicado</label>
+      <select id="fProveedor"><option value="">Todos</option></select>
+    </div>
+    <div>
       <button class="btn-ghost" onclick="limpiarFiltros()">Limpiar filtros</button>
     </div>
   </div>
 
-  <div class="charts">
-    <div class="panel">
-      <h2>Procesos por mes</h2>
-      <div class="chart-holder"><canvas id="chartMonto"></canvas></div>
-    </div>
-    <div class="panel">
-      <h2>Distribución por estado</h2>
-      <div class="chart-holder"><canvas id="chartEstado"></canvas></div>
-    </div>
+  <div class="tabs">
+    <div class="tab active" data-vista="procesos" onclick="cambiarVista('procesos')">Procesos</div>
+    <div class="tab" data-vista="proveedores" onclick="cambiarVista('proveedores')">Proveedores</div>
   </div>
 
-  <div class="charts">
-    <div class="panel">
-      <h2>Top 10 convocantes por cantidad de procesos</h2>
-      <div class="chart-holder"><canvas id="chartConvocantes"></canvas></div>
+  <div id="vistaProcesos">
+
+    <div class="charts">
+      <div class="panel">
+        <h2>Procesos por mes</h2>
+        <div class="chart-holder"><canvas id="chartMonto"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>Distribución por estado</h2>
+        <div class="chart-holder"><canvas id="chartEstado"></canvas></div>
+      </div>
     </div>
-    <div class="panel">
-      <h2>Top 10 proveedores adjudicados</h2>
-      <div class="chart-holder"><canvas id="chartProveedores"></canvas></div>
+
+    <div class="charts">
+      <div class="panel">
+        <h2>Top 10 convocantes por cantidad de procesos</h2>
+        <div class="chart-holder"><canvas id="chartConvocantes"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>Top 10 proveedores adjudicados</h2>
+        <div class="chart-holder"><canvas id="chartProveedores"></canvas></div>
+      </div>
     </div>
+
+    <div class="table-panel">
+      <div class="table-top">
+        <span class="count" id="tableCount">0 procesos</span>
+        <button class="btn-ghost" onclick="descargarCSV()">Descargar CSV filtrado</button>
+      </div>
+      <div id="tableHolder" style="overflow-x:auto;"></div>
+      <div class="pager" id="pager"></div>
+    </div>
+
   </div>
 
-  <div class="table-panel">
-    <div class="table-top">
-      <span class="count" id="tableCount">0 procesos</span>
-      <button class="btn-ghost" onclick="descargarCSV()">Descargar CSV filtrado</button>
+  <div id="vistaProveedores" style="display:none;">
+
+    <p class="hint" style="color:var(--ink-soft);font-size:12.5px;margin:0 0 16px;">
+      Nota: todavía no tenemos el monto adjudicado en los datos (la API de búsqueda no lo incluye),
+      así que este ranking es por cantidad de adjudicaciones y procesos, no por monto. Se puede sumar
+      el monto más adelante cuando resolvamos esa fuente de datos.
+    </p>
+
+    <div class="kpis">
+      <div class="kpi"><div class="label">Proveedores distintos</div><div class="value" id="kpiProvTotal">—</div></div>
+      <div class="kpi teal"><div class="label">Proveedor con más adjudicaciones</div><div class="value" id="kpiProvTop" style="font-size:14px;">—</div></div>
     </div>
-    <div id="tableHolder"></div>
-    <div class="pager" id="pager"></div>
+
+    <div class="table-panel">
+      <div class="table-top">
+        <span class="count" id="tableProvCount">0 proveedores</span>
+        <button class="btn-ghost" onclick="descargarCSVProveedores()">Descargar CSV de proveedores</button>
+      </div>
+      <div id="tableProvHolder" style="overflow-x:auto;"></div>
+    </div>
+
   </div>
 
 </div>
@@ -174,16 +215,24 @@ function valor(item, campo){
   return typeof v === 'object' ? (v.nombre || v.codigo || '') : v;
 }
 
+function soloFecha(v){
+  if(!v) return '—';
+  return String(v).slice(0,10);
+}
+
 function poblarFiltros(){
-  const estados = new Set(), convocantes = new Set(), categorias = new Set();
+  const estados = new Set(), convocantes = new Set(), categorias = new Set(), proveedores = new Set();
   TODOS.forEach(it => {
     if(valor(it,'estado')) estados.add(valor(it,'estado'));
     if(valor(it,'convocante')) convocantes.add(valor(it,'convocante'));
     if(valor(it,'categoria')) categorias.add(valor(it,'categoria'));
+    (it.proveedores_adjudicados || '').split(',').map(s => s.trim()).filter(Boolean)
+      .forEach(p => proveedores.add(p));
   });
   llenarSelect('fEstado', estados);
   llenarSelect('fConvocante', convocantes);
   llenarSelect('fCategoria', categorias);
+  llenarSelect('fProveedor', proveedores);
 }
 
 function llenarSelect(id, valores){
@@ -195,15 +244,23 @@ function llenarSelect(id, valores){
   });
 }
 
-['fBuscar','fEstado','fConvocante','fCategoria'].forEach(id => {
+['fBuscar','fEstado','fConvocante','fCategoria','fProveedor'].forEach(id => {
   document.getElementById(id).addEventListener('input', () => { paginaActual = 1; aplicarFiltros(); });
 });
+
+function cambiarVista(vista){
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.vista === vista));
+  document.getElementById('vistaProcesos').style.display = vista === 'procesos' ? '' : 'none';
+  document.getElementById('vistaProveedores').style.display = vista === 'proveedores' ? '' : 'none';
+  if(vista === 'proveedores') renderProveedores();
+}
 
 function limpiarFiltros(){
   document.getElementById('fBuscar').value = '';
   document.getElementById('fEstado').value = '';
   document.getElementById('fConvocante').value = '';
   document.getElementById('fCategoria').value = '';
+  document.getElementById('fProveedor').value = '';
   paginaActual = 1;
   aplicarFiltros();
 }
@@ -213,11 +270,16 @@ function aplicarFiltros(){
   const estado = document.getElementById('fEstado').value;
   const convocante = document.getElementById('fConvocante').value;
   const categoria = document.getElementById('fCategoria').value;
+  const proveedor = document.getElementById('fProveedor').value;
 
   FILTRADOS = TODOS.filter(it => {
     if(estado && valor(it,'estado') !== estado) return false;
     if(convocante && valor(it,'convocante') !== convocante) return false;
     if(categoria && valor(it,'categoria') !== categoria) return false;
+    if(proveedor){
+      const lista = (it.proveedores_adjudicados || '').split(',').map(s => s.trim());
+      if(!lista.includes(proveedor)) return false;
+    }
     if(texto){
       const campo = ((it.nombre_licitacion||'') + ' ' + valor(it,'convocante')).toLowerCase();
       if(!campo.includes(texto)) return false;
@@ -228,6 +290,7 @@ function aplicarFiltros(){
   actualizarKPIs();
   actualizarGraficos();
   renderTabla();
+  if(document.getElementById('vistaProveedores').style.display !== 'none') renderProveedores();
 }
 
 function actualizarKPIs(){
@@ -362,19 +425,24 @@ function renderTabla(){
     '<th onclick="ordenarPor(\'id_llamado\')">ID</th>' +
     '<th onclick="ordenarPor(\'nombre_licitacion\')">Nombre</th>' +
     '<th onclick="ordenarPor(\'convocante\')">Convocante</th>' +
-    '<th onclick="ordenarPor(\'fecha_publicacion\')">Fecha</th>' +
+    '<th onclick="ordenarPor(\'fecha_publicacion\')">Fecha publicación</th>' +
+    '<th onclick="ordenarPor(\'fecha_apertura_ofertas\')">Fecha apertura ofertas</th>' +
     '<th onclick="ordenarPor(\'proveedores_adjudicados\')">Proveedor(es) adjudicado(s)</th>' +
     '<th onclick="ordenarPor(\'estado\')">Estado</th>' +
+    '<th>Link</th>' +
     '</tr></thead><tbody>';
 
   pagina.forEach(it => {
+    const link = it.link ? `<a class="link-cell" href="${it.link}" target="_blank" rel="noopener">Ver ↗</a>` : '—';
     html += '<tr>' +
       `<td class="num">${valor(it,'id_llamado') || '—'}</td>` +
       `<td>${it.nombre_licitacion || '—'}</td>` +
       `<td>${valor(it,'convocante') || '—'}</td>` +
-      `<td class="num">${it.fecha_publicacion || '—'}</td>` +
+      `<td class="num">${soloFecha(it.fecha_publicacion)}</td>` +
+      `<td class="num">${soloFecha(it.fecha_apertura_ofertas)}</td>` +
       `<td>${it.proveedores_adjudicados || '—'}</td>` +
       `<td>${estadoBadgeHtml(valor(it,'estado'))}</td>` +
+      `<td>${link}</td>` +
       '</tr>';
   });
   html += '</tbody></table>';
@@ -393,7 +461,7 @@ function cambiarPagina(delta){
 
 function descargarCSV(){
   if(FILTRADOS.length === 0) return;
-  const cols = ['id_llamado','nombre_licitacion','convocante','fecha_publicacion','estado','categoria','proveedores_adjudicados'];
+  const cols = ['id_llamado','nombre_licitacion','convocante','fecha_publicacion','fecha_apertura_ofertas','estado','categoria','proveedores_adjudicados','link'];
   const filas = [cols.join(',')];
   FILTRADOS.forEach(it => {
     const fila = cols.map(c => {
@@ -407,6 +475,70 @@ function descargarCSV(){
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url; a.download = 'dncp_dashboard_filtrado.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function calcularRankingProveedores(){
+  const porProveedor = {}; // nombre -> {adjudicaciones, procesos: Set, estados: Set}
+  FILTRADOS.forEach(it => {
+    const lista = (it.proveedores_adjudicados || '').split(',').map(s => s.trim()).filter(Boolean);
+    lista.forEach(p => {
+      if(!porProveedor[p]) porProveedor[p] = { adjudicaciones: 0, procesos: new Set() };
+      porProveedor[p].adjudicaciones += 1;
+      porProveedor[p].procesos.add(it.ocid || it.id_llamado);
+    });
+  });
+  return Object.entries(porProveedor)
+    .map(([nombre, datos]) => ({
+      nombre,
+      adjudicaciones: datos.adjudicaciones,
+      procesos: datos.procesos.size,
+    }))
+    .sort((a,b) => b.adjudicaciones - a.adjudicaciones);
+}
+
+let RANKING_PROVEEDORES = [];
+
+function renderProveedores(){
+  RANKING_PROVEEDORES = calcularRankingProveedores();
+
+  document.getElementById('kpiProvTotal').textContent = RANKING_PROVEEDORES.length.toLocaleString('es-PY');
+  document.getElementById('kpiProvTop').textContent = RANKING_PROVEEDORES.length
+    ? `${RANKING_PROVEEDORES[0].nombre} (${RANKING_PROVEEDORES[0].adjudicaciones})`
+    : '—';
+  document.getElementById('tableProvCount').textContent = RANKING_PROVEEDORES.length.toLocaleString('es-PY') + ' proveedores';
+
+  const holder = document.getElementById('tableProvHolder');
+  if(RANKING_PROVEEDORES.length === 0){
+    holder.innerHTML = '<div class="empty-state">No hay proveedores adjudicados en los procesos filtrados.</div>';
+    return;
+  }
+
+  let html = '<table><thead><tr>' +
+    '<th>#</th><th>Proveedor</th><th>Cantidad de adjudicaciones</th><th>Cantidad de procesos distintos</th>' +
+    '</tr></thead><tbody>';
+  RANKING_PROVEEDORES.slice(0, 200).forEach((p, i) => {
+    html += '<tr>' +
+      `<td class="num">${i+1}</td>` +
+      `<td>${p.nombre}</td>` +
+      `<td class="num">${p.adjudicaciones}</td>` +
+      `<td class="num">${p.procesos}</td>` +
+      '</tr>';
+  });
+  html += '</tbody></table>';
+  holder.innerHTML = html;
+}
+
+function descargarCSVProveedores(){
+  if(RANKING_PROVEEDORES.length === 0) return;
+  const filas = ['proveedor,cantidad_adjudicaciones,cantidad_procesos'];
+  RANKING_PROVEEDORES.forEach(p => {
+    filas.push(`"${p.nombre.replace(/"/g,'""')}",${p.adjudicaciones},${p.procesos}`);
+  });
+  const blob = new Blob(["\uFEFF" + filas.join('\n')], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'dncp_proveedores.csv'; a.click();
   URL.revokeObjectURL(url);
 }
 
