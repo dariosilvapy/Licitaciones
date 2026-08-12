@@ -33,7 +33,7 @@
 
   .filters{
     background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:20px;
-    display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr auto;gap:12px;align-items:end;
+    display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr .7fr auto;gap:12px;align-items:end;
   }
   @media (max-width:1000px){.filters{grid-template-columns:1fr 1fr;}}
   label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);margin-bottom:5px;font-weight:600;}
@@ -112,6 +112,10 @@
     <div>
       <label>Proveedor adjudicado</label>
       <select id="fProveedor"><option value="">Todos</option></select>
+    </div>
+    <div>
+      <label>Año</label>
+      <select id="fAnio"><option value="">Todos</option></select>
     </div>
     <div>
       <button class="btn-ghost" onclick="limpiarFiltros()">Limpiar filtros</button>
@@ -221,18 +225,27 @@ function soloFecha(v){
 }
 
 function poblarFiltros(){
-  const estados = new Set(), convocantes = new Set(), categorias = new Set(), proveedores = new Set();
+  const estados = new Set(), convocantes = new Set(), categorias = new Set(), proveedores = new Set(), anios = new Set();
   TODOS.forEach(it => {
     if(valor(it,'estado')) estados.add(valor(it,'estado'));
     if(valor(it,'convocante')) convocantes.add(valor(it,'convocante'));
     if(valor(it,'categoria')) categorias.add(valor(it,'categoria'));
     (it.proveedores_adjudicados || '').split(',').map(s => s.trim()).filter(Boolean)
       .forEach(p => proveedores.add(p));
+    const anio = String(it.fecha_publicacion || '').slice(0,4);
+    if(/^\d{4}$/.test(anio)) anios.add(anio);
   });
   llenarSelect('fEstado', estados);
   llenarSelect('fConvocante', convocantes);
   llenarSelect('fCategoria', categorias);
   llenarSelect('fProveedor', proveedores);
+  // Anios ordenados de mas reciente a mas viejo
+  const sel = document.getElementById('fAnio');
+  Array.from(anios).sort().reverse().forEach(a => {
+    const opt = document.createElement('option');
+    opt.value = a; opt.textContent = a;
+    sel.appendChild(opt);
+  });
 }
 
 function llenarSelect(id, valores){
@@ -244,7 +257,7 @@ function llenarSelect(id, valores){
   });
 }
 
-['fBuscar','fEstado','fConvocante','fCategoria','fProveedor'].forEach(id => {
+['fBuscar','fEstado','fConvocante','fCategoria','fProveedor','fAnio'].forEach(id => {
   document.getElementById(id).addEventListener('input', () => { paginaActual = 1; aplicarFiltros(); });
 });
 
@@ -261,6 +274,7 @@ function limpiarFiltros(){
   document.getElementById('fConvocante').value = '';
   document.getElementById('fCategoria').value = '';
   document.getElementById('fProveedor').value = '';
+  document.getElementById('fAnio').value = '';
   paginaActual = 1;
   aplicarFiltros();
 }
@@ -271,11 +285,13 @@ function aplicarFiltros(){
   const convocante = document.getElementById('fConvocante').value;
   const categoria = document.getElementById('fCategoria').value;
   const proveedor = document.getElementById('fProveedor').value;
+  const anio = document.getElementById('fAnio').value;
 
   FILTRADOS = TODOS.filter(it => {
     if(estado && valor(it,'estado') !== estado) return false;
     if(convocante && valor(it,'convocante') !== convocante) return false;
     if(categoria && valor(it,'categoria') !== categoria) return false;
+    if(anio && String(it.fecha_publicacion || '').slice(0,4) !== anio) return false;
     if(proveedor){
       const lista = (it.proveedores_adjudicados || '').split(',').map(s => s.trim());
       if(!lista.includes(proveedor)) return false;
