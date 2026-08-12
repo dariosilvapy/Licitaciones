@@ -129,9 +129,9 @@ def normalizar(registro: dict) -> dict:
                     proveedores.append(s["name"])
 
     tender_id_completo = tender.get("id") or ""
-    # Link directo a la convocatoria en el portal (solo es un link valido si
-    # tender_id_completo es el slug clasico y no un UUID interno).
-    link = f"{SITE_BASE}/datos/id/convocatorias/{tender_id_completo}" if tender_id_completo else ""
+    # Link directo a la convocatoria en el portal (confirmado con ejemplos reales).
+    # Solo es un link valido si tender_id_completo es el slug clasico y no un UUID interno.
+    link = f"{SITE_BASE}/licitaciones/convocatoria/{tender_id_completo}.html" if tender_id_completo else ""
 
     tender_period = tender.get("tenderPeriod", {}) if isinstance(tender.get("tenderPeriod"), dict) else {}
 
