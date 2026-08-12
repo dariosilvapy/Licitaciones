@@ -77,7 +77,7 @@ def procesar_csv(ruta: str) -> dict:
                 "fecha_publicacion": parsear_fecha(fila.get("fecha_publicacion_convocatoria", "")),
                 "fecha_apertura_ofertas": parsear_fecha(fila.get("fecha_entrega_oferta", "")),
                 "fecha_estimada": parsear_fecha(fila.get("fecha_estimada", "")),
-                "link": f"https://www.contrataciones.gov.py/datos/id/convocatorias/{fila.get('convocatoria_slug', '').strip()}" if fila.get("convocatoria_slug") else "",
+                "link": f"https://www.contrataciones.gov.py/licitaciones/convocatoria/{fila.get('convocatoria_slug', '').strip()}.html" if fila.get("convocatoria_slug") else "",
                 "proveedores_adjudicados": "",  # no viene en este formato de CSV
                 "cantidad_adjudicaciones": 1 if (fila.get("etapa_licitacion") or "").strip().lower() == "adjudicada" else 0,
                 "cantidad_contratos": 0,
@@ -110,7 +110,7 @@ def main():
     procesos = cargar_datos_existentes()
     total_previo = len(procesos)
 
-    agregados, ya_existian = 0, 0
+    agregados, actualizados, protegidos = 0, 0, 0
 
     for archivo in archivos:
         print(f"Procesando {archivo} ...")
@@ -118,11 +118,20 @@ def main():
         print(f"  {len(registros)} registros leidos.")
 
         for clave, registro in registros.items():
-            if clave in procesos:
-                ya_existian += 1
-                continue  # no pisar datos que ya vinieron (probablemente mas ricos) de la API
-            procesos[clave] = registro
-            agregados += 1
+            existente = procesos.get(clave)
+            if existente is None:
+                procesos[clave] = registro
+                agregados += 1
+            elif existente.get("fuente") == "csv_historico":
+                # Ya lo habiamos cargado nosotros mismos desde un CSV antes
+                # (por ejemplo con un link roto de una version vieja de este
+                # script) -- es seguro corregirlo con los datos actuales.
+                procesos[clave] = registro
+                actualizados += 1
+            else:
+                # Vino de la API (mas rico: proveedores, awards, etc.) -- no
+                # se pisa nunca con datos de un CSV historico mas pobre.
+                protegidos += 1
 
     salida = {
         "last_updated": datetime.now().date().isoformat(),
@@ -135,7 +144,9 @@ def main():
         json.dump(salida, f, ensure_ascii=False, indent=2)
 
     print(f"\nListo. Antes: {total_previo} | Agregados: {agregados} | "
-          f"Ya existian (no se tocaron): {ya_existian} | Total ahora: {len(procesos)}")
+          f"Actualizados (corregidos): {actualizados} | "
+          f"Protegidos (ya venian de la API, no tocados): {protegidos} | "
+          f"Total ahora: {len(procesos)}")
 
 
 if __name__ == "__main__":
