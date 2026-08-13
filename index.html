@@ -165,14 +165,15 @@
   <div id="vistaProveedores" style="display:none;">
 
     <p class="hint" style="color:var(--ink-soft);font-size:12.5px;margin:0 0 16px;">
-      Nota: todavía no tenemos el monto adjudicado en los datos (la API de búsqueda no lo incluye),
-      así que este ranking es por cantidad de adjudicaciones y procesos, no por monto. Se puede sumar
-      el monto más adelante cuando resolvamos esa fuente de datos.
+      Los montos se completan gradualmente en segundo plano (requieren una consulta extra por licitación,
+      así que no están todos desde el primer momento). Si un proveedor muestra monto en $0 o vacío,
+      probablemente todavía no le tocó el turno al enriquecimiento — va a aparecer solo en las próximas horas.
     </p>
 
     <div class="kpis">
       <div class="kpi"><div class="label">Proveedores distintos</div><div class="value" id="kpiProvTotal">—</div></div>
       <div class="kpi teal"><div class="label">Proveedor con más adjudicaciones</div><div class="value" id="kpiProvTop" style="font-size:14px;">—</div></div>
+      <div class="kpi amber"><div class="label">Mayor monto adjudicado</div><div class="value" id="kpiProvTopMonto" style="font-size:14px;">—</div></div>
     </div>
 
     <div class="table-panel">
@@ -455,7 +456,7 @@ function renderTabla(){
       `<td>${it.nombre_licitacion || '—'}</td>` +
       `<td>${valor(it,'convocante') || '—'}</td>` +
       `<td class="num">${soloFecha(it.fecha_publicacion)}</td>` +
-      `<td class="num">${soloFecha(it.fecha_apertura_ofertas)}</td>` +
+      `<td class="num">${soloFecha(it.fecha_apertura_real || it.fecha_apertura_ofertas)}</td>` +
       `<td>${it.proveedores_adjudicados || '—'}</td>` +
       `<td>${estadoBadgeHtml(valor(it,'estado'))}</td>` +
       `<td>${link}</td>` +
@@ -495,22 +496,37 @@ function descargarCSV(){
 }
 
 function calcularRankingProveedores(){
-  const porProveedor = {}; // nombre -> {adjudicaciones, procesos: Set, estados: Set}
+  const porProveedor = {}; // nombre -> {adjudicaciones, procesos: Set, monto}
   FILTRADOS.forEach(it => {
-    const lista = (it.proveedores_adjudicados || '').split(',').map(s => s.trim()).filter(Boolean);
-    lista.forEach(p => {
-      if(!porProveedor[p]) porProveedor[p] = { adjudicaciones: 0, procesos: new Set() };
-      porProveedor[p].adjudicaciones += 1;
-      porProveedor[p].procesos.add(it.ocid || it.id_llamado);
-    });
+    // Si ya tenemos montos por proveedor (enriquecido), usamos eso -- es mas preciso
+    // porque separa el monto real de cada proveedor dentro de la misma licitacion.
+    if(Array.isArray(it.proveedores_montos) && it.proveedores_montos.length){
+      it.proveedores_montos.forEach(pm => {
+        const p = pm.nombre;
+        if(!porProveedor[p]) porProveedor[p] = { adjudicaciones: 0, procesos: new Set(), monto: 0 };
+        porProveedor[p].adjudicaciones += 1;
+        porProveedor[p].procesos.add(it.ocid || it.id_llamado);
+        porProveedor[p].monto += (pm.monto || 0);
+      });
+    } else {
+      // Fallback mientras no esta enriquecido: solo nombres, sin monto.
+      const lista = (it.proveedores_adjudicados || '').split(',').map(s => s.trim()).filter(Boolean);
+      lista.forEach(p => {
+        if(!porProveedor[p]) porProveedor[p] = { adjudicaciones: 0, procesos: new Set(), monto: 0 };
+        porProveedor[p].adjudicaciones += 1;
+        porProveedor[p].procesos.add(it.ocid || it.id_llamado);
+      });
+    }
   });
   return Object.entries(porProveedor)
     .map(([nombre, datos]) => ({
       nombre,
       adjudicaciones: datos.adjudicaciones,
       procesos: datos.procesos.size,
+      monto: datos.monto,
+      link: 'https://www.contrataciones.gov.py/buscador/proveedores.html?proveedor=' + encodeURIComponent(nombre),
     }))
-    .sort((a,b) => b.adjudicaciones - a.adjudicaciones);
+    .sort((a,b) => b.monto - a.monto || b.adjudicaciones - a.adjudicaciones);
 }
 
 let RANKING_PROVEEDORES = [];
@@ -522,6 +538,12 @@ function renderProveedores(){
   document.getElementById('kpiProvTop').textContent = RANKING_PROVEEDORES.length
     ? `${RANKING_PROVEEDORES[0].nombre} (${RANKING_PROVEEDORES[0].adjudicaciones})`
     : '—';
+
+  const topPorMonto = [...RANKING_PROVEEDORES].sort((a,b) => b.monto - a.monto)[0];
+  document.getElementById('kpiProvTopMonto').textContent = (topPorMonto && topPorMonto.monto)
+    ? `${topPorMonto.nombre} (₲ ${topPorMonto.monto.toLocaleString('es-PY')})`
+    : 'Aún sin datos suficientes';
+
   document.getElementById('tableProvCount').textContent = RANKING_PROVEEDORES.length.toLocaleString('es-PY') + ' proveedores';
 
   const holder = document.getElementById('tableProvHolder');
@@ -531,14 +553,16 @@ function renderProveedores(){
   }
 
   let html = '<table><thead><tr>' +
-    '<th>#</th><th>Proveedor</th><th>Cantidad de adjudicaciones</th><th>Cantidad de procesos distintos</th>' +
+    '<th>#</th><th>Proveedor</th><th>Monto adjudicado (₲)</th><th>Cantidad de adjudicaciones</th><th>Cantidad de procesos distintos</th><th>Link</th>' +
     '</tr></thead><tbody>';
   RANKING_PROVEEDORES.slice(0, 200).forEach((p, i) => {
     html += '<tr>' +
       `<td class="num">${i+1}</td>` +
       `<td>${p.nombre}</td>` +
+      `<td class="num">${p.monto ? p.monto.toLocaleString('es-PY') : '—'}</td>` +
       `<td class="num">${p.adjudicaciones}</td>` +
       `<td class="num">${p.procesos}</td>` +
+      `<td><a class="link-cell" href="${p.link}" target="_blank" rel="noopener">Buscar ↗</a></td>` +
       '</tr>';
   });
   html += '</tbody></table>';
@@ -547,9 +571,9 @@ function renderProveedores(){
 
 function descargarCSVProveedores(){
   if(RANKING_PROVEEDORES.length === 0) return;
-  const filas = ['proveedor,cantidad_adjudicaciones,cantidad_procesos'];
+  const filas = ['proveedor,monto_adjudicado,cantidad_adjudicaciones,cantidad_procesos'];
   RANKING_PROVEEDORES.forEach(p => {
-    filas.push(`"${p.nombre.replace(/"/g,'""')}",${p.adjudicaciones},${p.procesos}`);
+    filas.push(`"${p.nombre.replace(/"/g,'""')}",${p.monto||0},${p.adjudicaciones},${p.procesos}`);
   });
   const blob = new Blob(["\uFEFF" + filas.join('\n')], {type:'text/csv;charset=utf-8;'});
   const url = URL.createObjectURL(blob);
