@@ -100,7 +100,10 @@ def enriquecer_registro(token: str, clave: str, registro: dict, llamadas_hechas:
             tuvo_error_award = True
             continue
 
-        award = datos_award.get("award", datos_award) if isinstance(datos_award.get("award", datos_award), dict) else {}
+        # La respuesta viene como {"awards": [ {...} ]} -- una lista con un
+        # solo elemento, no un objeto unico bajo la clave "award".
+        lista_awards = datos_award.get("awards", [])
+        award = lista_awards[0] if lista_awards and isinstance(lista_awards[0], dict) else {}
         valor_award = award.get("value", {}) if isinstance(award.get("value"), dict) else {}
         monto = valor_award.get("amount")
 
