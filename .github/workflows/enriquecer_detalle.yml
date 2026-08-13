@@ -1,0 +1,38 @@
+name: Enriquecer detalle (montos y fechas)
+
+on:
+  schedule:
+    - cron: "20 * * * *"   # cada hora, en el minuto 20 (para no chocar con los otros workflows que corren en punto)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  enriquecer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Enriquecer un lote
+        env:
+          DNCP_CONSUMER_KEY: ${{ secrets.DNCP_CONSUMER_KEY }}
+          DNCP_CONSUMER_SECRET: ${{ secrets.DNCP_CONSUMER_SECRET }}
+        run: python scripts/enriquecer_detalle.py
+
+      - name: Guardar cambios en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/procesos.json
+          git diff --quiet --cached || git commit -m "Enriquecer detalle - $(date -u +%Y-%m-%dT%H:%M)"
+          git push
