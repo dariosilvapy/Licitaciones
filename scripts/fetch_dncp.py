@@ -52,7 +52,7 @@ def main():
             actualizados += 1
         else:
             nuevos += 1
-        procesos[clave] = plano
+        procesos[clave] = core.combinar_con_enriquecimiento(procesos.get(clave), plano)
 
     core.guardar_datos(procesos)
 
