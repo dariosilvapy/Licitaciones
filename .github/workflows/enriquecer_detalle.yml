@@ -3,7 +3,20 @@ name: Enriquecer detalle (montos y fechas)
 on:
   schedule:
     - cron: "20 * * * *"   # cada hora, en el minuto 20 (para no chocar con los otros workflows que corren en punto)
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: "Cuantos registros procesar en esta corrida"
+        required: false
+        default: "150"
+      proveedores:
+        description: "Proveedores a priorizar, separados por coma (dejar vacio = todos, mas recientes primero)"
+        required: false
+        default: ""
+      solo_prioritarios:
+        description: "Procesar SOLO los proveedores de arriba (true) o esos primero y despues el resto (false)"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -27,6 +40,9 @@ jobs:
         env:
           DNCP_CONSUMER_KEY: ${{ secrets.DNCP_CONSUMER_KEY }}
           DNCP_CONSUMER_SECRET: ${{ secrets.DNCP_CONSUMER_SECRET }}
+          ENRIQUECER_BATCH_SIZE: ${{ inputs.batch_size || '150' }}
+          ENRIQUECER_PROVEEDORES: ${{ inputs.proveedores || '' }}
+          ENRIQUECER_SOLO_PRIORITARIOS: ${{ inputs.solo_prioritarios || 'false' }}
         run: python scripts/enriquecer_detalle.py
 
       - name: Guardar cambios en el repositorio
