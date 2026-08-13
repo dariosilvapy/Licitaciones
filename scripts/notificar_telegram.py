@@ -117,7 +117,7 @@ def main():
         clave = plano["ocid"] or plano["id_llamado"]
         if not clave:
             continue
-        procesos[clave] = plano  # upsert, igual que la corrida diaria
+        procesos[clave] = core.combinar_con_enriquecimiento(procesos.get(clave), plano)  # upsert, igual que la corrida diaria
 
     core.guardar_datos(procesos)
 
