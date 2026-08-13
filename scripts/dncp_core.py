@@ -122,8 +122,11 @@ def normalizar(registro: dict) -> dict:
         numero_licitacion = numeros[0] if numeros else ""
 
     proveedores = []
+    award_ids = []
     for a in awards:
         if isinstance(a, dict):
+            if a.get("id"):
+                award_ids.append(a["id"])
             for s in a.get("suppliers", []):
                 if isinstance(s, dict) and s.get("name"):
                     proveedores.append(s["name"])
@@ -135,7 +138,7 @@ def normalizar(registro: dict) -> dict:
 
     tender_period = tender.get("tenderPeriod", {}) if isinstance(tender.get("tenderPeriod"), dict) else {}
 
-    return {
+    resultado = {
         "ocid": ocid,
         "id_llamado": numero_licitacion or tender_id_completo or ocid,
         "tender_id_completo": tender_id_completo,
@@ -150,7 +153,14 @@ def normalizar(registro: dict) -> dict:
         "cantidad_contratos": len(contracts),
         "proveedores_adjudicados": ", ".join(sorted(set(proveedores))) if proveedores else "",
         "link": link,
+        "award_ids": award_ids,
     }
+
+    # Campos que llena el enriquecimiento posterior (enriquecer_detalle.py).
+    # Si el registro ya estaba enriquecido de una corrida anterior, esos
+    # valores se preservan aparte (no se pisan por una simple actualizacion
+    # de busqueda) -- ver merge en fetch_dncp.py / notificar_telegram.py.
+    return resultado
 
 
 def cargar_datos_existentes() -> dict:
@@ -162,6 +172,28 @@ def cargar_datos_existentes() -> dict:
         except (json.JSONDecodeError, OSError):
             print("Aviso: no se pudo leer procesos.json existente, se arranca de cero.")
     return {}
+
+
+# Campos que llena enriquecer_detalle.py (monto, proveedores con monto,
+# fecha de apertura real). Cuando fetch_dncp.py / notificar_telegram.py /
+# backfill_periodo.py vuelven a normalizar un registro ya enriquecido, estos
+# campos se preservan en vez de perderse.
+CAMPOS_ENRIQUECIMIENTO = [
+    "enriquecido", "monto_adjudicado", "monto_estimado",
+    "proveedores_montos", "fecha_apertura_real",
+]
+
+
+def combinar_con_enriquecimiento(existente, nuevo: dict) -> dict:
+    """Fusiona un registro recien normalizado con lo que ya habia, sin
+    perder los datos que puso el enriquecimiento (que es mas caro de
+    recalcular que una simple re-normalizacion de busqueda)."""
+    resultado = dict(nuevo)
+    if existente:
+        for campo in CAMPOS_ENRIQUECIMIENTO:
+            if campo in existente:
+                resultado[campo] = existente[campo]
+    return resultado
 
 
 def guardar_datos(procesos: dict):
