@@ -20,18 +20,26 @@ def main():
 
     revertidos = 0
     for clave, registro in procesos.items():
+        if not registro.get("enriquecido"):
+            continue
+
+        tiene_award_ids = bool(registro.get("award_ids"))
+        monto_nulo = registro.get("monto_adjudicado") is None
+        proveedores_montos = registro.get("proveedores_montos") or []
+        falta_moneda = any("moneda" not in pm for pm in proveedores_montos) if proveedores_montos else False
+
         # Casos a revertir:
         #  a) tiene award_ids pero monto null (bug original de extraccion), o
         #  b) fue marcado "sin award_ids" y ahora SI tiene award_ids porque
-        #     se re-corrio el backfill de su rango de fechas.
-        if not registro.get("enriquecido"):
-            continue
-        tiene_award_ids = bool(registro.get("award_ids"))
-        monto_nulo = registro.get("monto_adjudicado") is None
-        if tiene_award_ids and monto_nulo:
+        #     se re-corrio el backfill de su rango de fechas, o
+        #  c) tiene montos guardados de una version vieja que no separaba
+        #     guaranies de dolares (mezclados en una sola suma sin sentido).
+        if (tiene_award_ids and monto_nulo) or falta_moneda:
             registro["enriquecido"] = False
             registro.pop("proveedores_montos", None)
             registro.pop("monto_estimado", None)
+            registro.pop("monto_adjudicado_gs", None)
+            registro.pop("monto_adjudicado_usd", None)
             registro.pop("enriquecimiento_nota", None)
             revertidos += 1
 
