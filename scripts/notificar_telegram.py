@@ -34,6 +34,14 @@ import dncp_core as core
 TELEGRAM_API = "https://api.telegram.org/bot{token}/sendMessage"
 LIMITE_CARACTERES_TELEGRAM = 4000  # el limite real es 4096, dejamos margen
 
+# Ademas de ser una clave "nueva" (no vista antes en procesos.json), se
+# exige que la fecha de publicacion sea realmente reciente antes de avisar.
+# Esto evita que un backfill historico, o cualquier otra corrida que agregue
+# muchas claves "nuevas" al archivo de una sola vez, dispare una alerta por
+# cada una -- si la fecha de publicacion es vieja, no es una novedad real.
+DIAS_RECIENCIA = int(os.environ.get("ALERTA_DIAS_RECIENCIA", "3"))
+LIMITE_NOVEDADES_SIN_RESUMEN = int(os.environ.get("ALERTA_LIMITE_SIN_RESUMEN", "40"))
+
 
 def enviar_telegram(token: str, chat_id: str, texto: str):
     url = TELEGRAM_API.format(token=token)
@@ -122,13 +130,43 @@ def main():
     core.guardar_datos(procesos)
 
     claves_nuevas = set(procesos.keys()) - claves_antes
-    print(f"Procesos nuevos detectados: {len(claves_nuevas)}")
+    print(f"Procesos nuevos detectados (por clave): {len(claves_nuevas)}")
+
+    # Filtro de reciencia: solo avisar de los que ademas tengan fecha de
+    # publicacion dentro de la ventana de dias reciente.
+    limite_fecha = str(date.today() - timedelta(days=DIAS_RECIENCIA))
+    claves_nuevas_recientes = {
+        clave for clave in claves_nuevas
+        if (procesos[clave].get("fecha_publicacion") or "") >= limite_fecha
+    }
+    descartadas_por_fecha = len(claves_nuevas) - len(claves_nuevas_recientes)
+    if descartadas_por_fecha:
+        print(f"Descartadas por no ser recientes (fecha_publicacion < {limite_fecha}): {descartadas_por_fecha}")
+    claves_nuevas = claves_nuevas_recientes
+
+    print(f"Novedades reales a notificar: {len(claves_nuevas)}")
 
     if not claves_nuevas:
         print("Sin novedades -- no se manda nada a Telegram.")
         return
 
     bloques = [formatear_bloque(procesos[clave]) for clave in claves_nuevas]
+
+    if len(bloques) > LIMITE_NOVEDADES_SIN_RESUMEN:
+        print(f"ATENCION: {len(bloques)} novedades de una sola vez supera el limite razonable "
+              f"({LIMITE_NOVEDADES_SIN_RESUMEN}). Se manda un resumen en vez de un mensaje por cada una, "
+              f"para no inundar Telegram -- probablemente valga la pena revisar si esto es una novedad real "
+              f"o un efecto secundario de otro workflow (backfill, etc.).")
+        resumen = (
+            f"⚠️ <b>Aviso: muchas novedades de golpe</b>\n"
+            f"Se detectaron {len(bloques)} procesos nuevos en esta corrida, más de lo esperable "
+            f"para una ventana de 2 horas. No se mandó el detalle para no saturar el chat.\n"
+            f"Revisá el dashboard o el log de GitHub Actions para más detalle."
+        )
+        enviar_telegram(telegram_token, telegram_chat_id, resumen)
+        print("Listo (resumen enviado en vez del detalle).")
+        return
+
     mensajes = dividir_en_mensajes(bloques)
 
     for i, mensaje in enumerate(mensajes, start=1):
