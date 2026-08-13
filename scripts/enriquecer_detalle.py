@@ -34,6 +34,14 @@ BATCH_SIZE = int(os.environ.get("ENRIQUECER_BATCH_SIZE", "150"))
 PAUSA_ENTRE_LLAMADAS = 0.15  # segundos, para no golpear la API muy seguido
 RENOVAR_TOKEN_CADA = 50  # llamadas
 
+# Filtro opcional: lista separada por comas de proveedores a priorizar
+# (coincidencia parcial, sin importar mayusculas/minusculas). Si esta
+# vacio, se procesa todo por orden de fecha mas reciente primero.
+PROVEEDORES_PRIORITARIOS = [
+    p.strip().lower() for p in os.environ.get("ENRIQUECER_PROVEEDORES", "").split(",") if p.strip()
+]
+SOLO_PRIORITARIOS = os.environ.get("ENRIQUECER_SOLO_PRIORITARIOS", "").strip().lower() in ("1", "true", "si", "yes")
+
 
 def solicitar(token: str, path: str):
     headers = {"Authorization": f"Bearer {token}"}
@@ -118,6 +126,34 @@ def enriquecer_registro(token: str, clave: str, registro: dict, llamadas_hechas:
     return registro, token, False
 
 
+def coincide_proveedor_prioritario(registro: dict) -> bool:
+    if not PROVEEDORES_PRIORITARIOS:
+        return False
+    nombres = (registro.get("proveedores_adjudicados") or "").lower()
+    return any(termino in nombres for termino in PROVEEDORES_PRIORITARIOS)
+
+
+def ordenar_pendientes(procesos: dict, claves: list) -> list:
+    """Ordena la cola de pendientes: primero los proveedores prioritarios
+    (si se configuraron), y dentro de cada grupo, los mas recientes primero
+    (suele ser lo mas util de tener enriquecido antes que lo muy viejo)."""
+    def fecha_de(clave):
+        return procesos[clave].get("fecha_publicacion") or ""
+
+    if PROVEEDORES_PRIORITARIOS:
+        prioritarios = [c for c in claves if coincide_proveedor_prioritario(procesos[c])]
+        prioritarios.sort(key=fecha_de, reverse=True)
+        if SOLO_PRIORITARIOS:
+            return prioritarios
+        resto = [c for c in claves if not coincide_proveedor_prioritario(procesos[c])]
+        resto.sort(key=fecha_de, reverse=True)
+        return prioritarios + resto
+
+    ordenados = list(claves)
+    ordenados.sort(key=fecha_de, reverse=True)
+    return ordenados
+
+
 def main():
     consumer_key = os.environ.get("DNCP_CONSUMER_KEY")
     consumer_secret = os.environ.get("DNCP_CONSUMER_SECRET")
@@ -127,9 +163,15 @@ def main():
         sys.exit(1)
 
     procesos = core.cargar_datos_existentes()
-    pendientes = [clave for clave, r in procesos.items() if not r.get("enriquecido")]
+    pendientes_sin_ordenar = [clave for clave, r in procesos.items() if not r.get("enriquecido")]
+    pendientes = ordenar_pendientes(procesos, pendientes_sin_ordenar)
 
     print(f"Total de procesos: {len(procesos)} | Pendientes de enriquecer: {len(pendientes)}")
+    if PROVEEDORES_PRIORITARIOS:
+        cantidad_prioritarios = len([c for c in pendientes if coincide_proveedor_prioritario(procesos[c])])
+        print(f"Proveedores priorizados: {PROVEEDORES_PRIORITARIOS} "
+              f"({cantidad_prioritarios} registro(s) coinciden"
+              f"{', SOLO se procesan estos' if SOLO_PRIORITARIOS else ', el resto se procesa despues'})")
 
     if not pendientes:
         print("No hay nada pendiente. Listo.")
