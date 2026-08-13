@@ -114,7 +114,7 @@ def main():
                 actualizados_bloque += 1
             else:
                 nuevos_bloque += 1
-            procesos[clave] = plano
+            procesos[clave] = core.combinar_con_enriquecimiento(procesos.get(clave), plano)
 
         print(f"  {len(registros)} recibidos | {nuevos_bloque} nuevos | {actualizados_bloque} actualizados")
         nuevos_total += nuevos_bloque
