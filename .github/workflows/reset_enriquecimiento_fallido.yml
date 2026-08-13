@@ -18,6 +18,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Instalar dependencias
+        run: pip install requests
+
       - name: Revertir registros mal marcados
         run: python scripts/reset_enriquecimiento_fallido.py
 
