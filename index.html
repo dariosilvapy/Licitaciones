@@ -181,7 +181,12 @@
         <span class="count" id="tableProvCount">0 proveedores</span>
         <button class="btn-ghost" onclick="descargarCSVProveedores()">Descargar CSV de proveedores</button>
       </div>
+      <div style="margin-bottom:14px;max-width:320px;">
+        <label>Buscar proveedor</label>
+        <input type="text" id="fBuscarProveedor" placeholder="Nombre del proveedor...">
+      </div>
       <div id="tableProvHolder" style="overflow-x:auto;"></div>
+      <div class="pager" id="pagerProveedores"></div>
     </div>
 
   </div>
@@ -530,6 +535,14 @@ function calcularRankingProveedores(){
 }
 
 let RANKING_PROVEEDORES = [];
+let RANKING_PROVEEDORES_FILTRADO = [];
+let paginaActualProveedores = 1;
+const PAGE_SIZE_PROVEEDORES = 50;
+
+document.getElementById('fBuscarProveedor').addEventListener('input', () => {
+  paginaActualProveedores = 1;
+  renderTablaProveedores();
+});
 
 function renderProveedores(){
   RANKING_PROVEEDORES = calcularRankingProveedores();
@@ -544,20 +557,38 @@ function renderProveedores(){
     ? `${topPorMonto.nombre} (₲ ${topPorMonto.monto.toLocaleString('es-PY')})`
     : 'Aún sin datos suficientes';
 
-  document.getElementById('tableProvCount').textContent = RANKING_PROVEEDORES.length.toLocaleString('es-PY') + ' proveedores';
+  paginaActualProveedores = 1;
+  renderTablaProveedores();
+}
+
+function renderTablaProveedores(){
+  const texto = document.getElementById('fBuscarProveedor').value.toLowerCase().trim();
+  RANKING_PROVEEDORES_FILTRADO = texto
+    ? RANKING_PROVEEDORES.filter(p => p.nombre.toLowerCase().includes(texto))
+    : RANKING_PROVEEDORES;
+
+  document.getElementById('tableProvCount').textContent =
+    RANKING_PROVEEDORES_FILTRADO.length.toLocaleString('es-PY') + ' proveedores' +
+    (texto ? ` (de ${RANKING_PROVEEDORES.length.toLocaleString('es-PY')} en total)` : '');
 
   const holder = document.getElementById('tableProvHolder');
-  if(RANKING_PROVEEDORES.length === 0){
-    holder.innerHTML = '<div class="empty-state">No hay proveedores adjudicados en los procesos filtrados.</div>';
+  if(RANKING_PROVEEDORES_FILTRADO.length === 0){
+    holder.innerHTML = '<div class="empty-state">No se encontraron proveedores con ese nombre.</div>';
+    document.getElementById('pagerProveedores').innerHTML = '';
     return;
   }
+
+  const totalPaginas = Math.max(1, Math.ceil(RANKING_PROVEEDORES_FILTRADO.length / PAGE_SIZE_PROVEEDORES));
+  paginaActualProveedores = Math.min(paginaActualProveedores, totalPaginas);
+  const inicio = (paginaActualProveedores - 1) * PAGE_SIZE_PROVEEDORES;
+  const pagina = RANKING_PROVEEDORES_FILTRADO.slice(inicio, inicio + PAGE_SIZE_PROVEEDORES);
 
   let html = '<table><thead><tr>' +
     '<th>#</th><th>Proveedor</th><th>Monto adjudicado (₲)</th><th>Cantidad de adjudicaciones</th><th>Cantidad de procesos distintos</th><th>Link</th>' +
     '</tr></thead><tbody>';
-  RANKING_PROVEEDORES.slice(0, 200).forEach((p, i) => {
+  pagina.forEach((p, i) => {
     html += '<tr>' +
-      `<td class="num">${i+1}</td>` +
+      `<td class="num">${inicio + i + 1}</td>` +
       `<td>${p.nombre}</td>` +
       `<td class="num">${p.monto ? p.monto.toLocaleString('es-PY') : '—'}</td>` +
       `<td class="num">${p.adjudicaciones}</td>` +
@@ -567,6 +598,16 @@ function renderProveedores(){
   });
   html += '</tbody></table>';
   holder.innerHTML = html;
+
+  document.getElementById('pagerProveedores').innerHTML =
+    `<button class="btn-ghost" ${paginaActualProveedores<=1?'disabled':''} onclick="cambiarPaginaProveedores(-1)">‹ Anterior</button>` +
+    `<span>Página ${paginaActualProveedores} de ${totalPaginas}</span>` +
+    `<button class="btn-ghost" ${paginaActualProveedores>=totalPaginas?'disabled':''} onclick="cambiarPaginaProveedores(1)">Siguiente ›</button>`;
+}
+
+function cambiarPaginaProveedores(delta){
+  paginaActualProveedores += delta;
+  renderTablaProveedores();
 }
 
 function descargarCSVProveedores(){
