@@ -95,9 +95,11 @@ def enriquecer_registro(token: str, clave: str, registro: dict, llamadas_hechas:
     if valor_tender.get("amount") is not None:
         registro["monto_estimado"] = valor_tender["amount"]
 
-    # Montos por adjudicacion (proveedor + monto real adjudicado)
+    # Montos por adjudicacion (proveedor + monto real adjudicado), separados
+    # por moneda -- sumar guaranies y dolares juntos no tiene sentido.
     proveedores_montos = []
-    monto_adjudicado_total = 0
+    monto_gs_total = 0
+    monto_usd_total = 0
     tuvo_error_award = False
 
     for award_id in registro.get("award_ids", []):
@@ -123,15 +125,24 @@ def enriquecer_registro(token: str, clave: str, registro: dict, llamadas_hechas:
 
         for s in suppliers:
             if isinstance(s, dict) and s.get("name"):
+                moneda = valor_award.get("currency") or "PYG"
                 proveedores_montos.append({
                     "nombre": s["name"],
                     "monto": monto if monto is not None else 0,
+                    "moneda": moneda,
                 })
                 if monto:
-                    monto_adjudicado_total += monto
+                    if moneda == "USD":
+                        monto_usd_total += monto
+                    else:
+                        monto_gs_total += monto
 
     registro["proveedores_montos"] = proveedores_montos
-    registro["monto_adjudicado"] = monto_adjudicado_total if proveedores_montos else None
+    registro["monto_adjudicado_gs"] = monto_gs_total if proveedores_montos else None
+    registro["monto_adjudicado_usd"] = monto_usd_total if proveedores_montos else None
+    # Se mantiene monto_adjudicado (en guaranies) por compatibilidad con
+    # partes del dashboard que todavia lo usan asi.
+    registro["monto_adjudicado"] = monto_gs_total if proveedores_montos else None
     registro["enriquecido"] = True
     if tuvo_error_award:
         registro["enriquecimiento_nota"] = "algunas adjudicaciones no se pudieron consultar"
