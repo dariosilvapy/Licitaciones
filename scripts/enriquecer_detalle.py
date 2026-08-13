@@ -63,6 +63,16 @@ def enriquecer_registro(token: str, clave: str, registro: dict, llamadas_hechas:
         registro["enriquecimiento_nota"] = "sin tender_id_completo"
         return registro, token, False
 
+    # Registros cargados con versiones viejas del normalizador no tienen la
+    # lista award_ids -- sin ella no hay forma de consultar los montos. Se
+    # marcan aparte para no bloquear la cola; se recuperan re-corriendo el
+    # backfill del rango de fechas correspondiente (eso les agrega la lista)
+    # y despues el workflow de reset.
+    if "award_ids" not in registro and registro.get("cantidad_adjudicaciones", 0) > 0:
+        registro["enriquecido"] = True
+        registro["enriquecimiento_nota"] = "sin award_ids: re-correr backfill de su rango de fechas y luego el reset"
+        return registro, token, False
+
     import urllib.parse
     tender_id_encoded = urllib.parse.quote(tender_id, safe="")
 
