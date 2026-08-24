@@ -201,13 +201,29 @@ let ordenColumna = null, ordenAsc = true;
 let paginaActual = 1;
 const PAGE_SIZE = 25;
 
+let ANIOS_DISPONIBLES = [];   // todos los anios que existen segun el indice (aunque no esten cargados aun)
+let ANIOS_CARGADOS = new Set();
+let INDICE = null;
+
 async function cargar(){
   try{
-    const resp = await fetch('data/procesos.json?_=' + Date.now());
-    if(!resp.ok) throw new Error('HTTP ' + resp.status);
-    const data = await resp.json();
-    TODOS = Object.values(data.procesos || {});
-    document.getElementById('lastUpdate').textContent = 'Última actualización: ' + (data.last_updated || '—');
+    const respIndice = await fetch('data/indice.json?_=' + Date.now());
+    if(!respIndice.ok) throw new Error('No se encontro data/indice.json (HTTP ' + respIndice.status + ')');
+    INDICE = await respIndice.json();
+    ANIOS_DISPONIBLES = Object.keys(INDICE.anios || {}).sort().reverse();
+
+    if(ANIOS_DISPONIBLES.length === 0){
+      throw new Error('El indice existe pero no tiene anios cargados todavia.');
+    }
+
+    actualizarTextoUltimaActualizacion();
+    poblarSelectorAnios();
+
+    // Carga inicial: solo el anio mas reciente, para que la primera carga
+    // de la pagina sea rapida. El resto se carga bajo demanda al elegir un
+    // anio especifico o "Todos" en el filtro.
+    await cargarAnio(ANIOS_DISPONIBLES[0]);
+
     poblarFiltros();
     aplicarFiltros();
   }catch(err){
@@ -217,6 +233,65 @@ async function cargar(){
       'Detalle técnico: ' + err.message + '</div>';
     document.getElementById('lastUpdate').textContent = 'Sin datos aún';
   }
+}
+
+function actualizarTextoUltimaActualizacion(){
+  const total = INDICE.total_general || 0;
+  document.getElementById('lastUpdate').textContent =
+    'Última actualización: ' + (INDICE.actualizado || '—') + ' · ' + total.toLocaleString('es-PY') + ' procesos en total';
+}
+
+async function cargarAnio(anio){
+  if(ANIOS_CARGADOS.has(anio)) return;
+  const resp = await fetch('data/procesos/' + encodeURIComponent(anio) + '.json?_=' + Date.now());
+  if(!resp.ok) throw new Error('No se pudo cargar el año ' + anio + ' (HTTP ' + resp.status + ')');
+  const data = await resp.json();
+  const items = Object.values(data.procesos || {});
+  TODOS = TODOS.concat(items);
+  ANIOS_CARGADOS.add(anio);
+}
+
+async function cargarAniosFaltantes(anios){
+  const faltantes = anios.filter(a => !ANIOS_CARGADOS.has(a));
+  if(faltantes.length === 0) return;
+
+  document.getElementById('tableCount').textContent = 'Cargando datos adicionales...';
+
+  for(const anio of faltantes){
+    await cargarAnio(anio);
+  }
+}
+
+function poblarSelectorAnios(){
+  const sel = document.getElementById('fAnio');
+  // Se reconstruye desde el indice (asi aparecen TODOS los anios existentes,
+  // incluso los que todavia no se cargaron en el navegador).
+  sel.innerHTML = '<option value="">Todos</option>';
+  ANIOS_DISPONIBLES.forEach(a => {
+    const opt = document.createElement('option');
+    const totalAnio = (INDICE.anios[a] || {}).total || 0;
+    opt.value = a;
+    opt.textContent = a + ' (' + totalAnio.toLocaleString('es-PY') + ')';
+    sel.appendChild(opt);
+  });
+}
+
+async function onCambioFiltroAnio(){
+  const anio = document.getElementById('fAnio').value;
+  paginaActual = 1;
+  try{
+    if(anio){
+      await cargarAniosFaltantes([anio]);
+    } else {
+      // "Todos" seleccionado: carga cualquier anio que todavia falte.
+      await cargarAniosFaltantes(ANIOS_DISPONIBLES);
+    }
+  }catch(err){
+    document.getElementById('tableCount').textContent = 'Error cargando datos: ' + err.message;
+    return;
+  }
+  poblarFiltros();
+  aplicarFiltros();
 }
 
 function valor(item, campo){
@@ -231,41 +306,40 @@ function soloFecha(v){
 }
 
 function poblarFiltros(){
-  const estados = new Set(), convocantes = new Set(), categorias = new Set(), proveedores = new Set(), anios = new Set();
+  const estados = new Set(), convocantes = new Set(), categorias = new Set(), proveedores = new Set();
   TODOS.forEach(it => {
     if(valor(it,'estado')) estados.add(valor(it,'estado'));
     if(valor(it,'convocante')) convocantes.add(valor(it,'convocante'));
     if(valor(it,'categoria')) categorias.add(valor(it,'categoria'));
     (it.proveedores_adjudicados || '').split(',').map(s => s.trim()).filter(Boolean)
       .forEach(p => proveedores.add(p));
-    const anio = String(it.fecha_publicacion || '').slice(0,4);
-    if(/^\d{4}$/.test(anio)) anios.add(anio);
   });
   llenarSelect('fEstado', estados);
   llenarSelect('fConvocante', convocantes);
   llenarSelect('fCategoria', categorias);
   llenarSelect('fProveedor', proveedores);
-  // Anios ordenados de mas reciente a mas viejo
-  const sel = document.getElementById('fAnio');
-  Array.from(anios).sort().reverse().forEach(a => {
-    const opt = document.createElement('option');
-    opt.value = a; opt.textContent = a;
-    sel.appendChild(opt);
-  });
+  // El selector de Año se llena aparte, desde el indice (poblarSelectorAnios),
+  // no desde los datos ya cargados -- asi se ven todos los anios disponibles
+  // aunque todavia no se hayan traido al navegador.
 }
 
 function llenarSelect(id, valores){
   const sel = document.getElementById(id);
+  const valorActual = sel.value;
+  const seleccionAnterior = new Set(Array.from(sel.options).map(o => o.value));
   Array.from(valores).sort().forEach(v => {
+    if(seleccionAnterior.has(v)) return; // no duplicar si ya estaba
     const opt = document.createElement('option');
     opt.value = v; opt.textContent = v;
     sel.appendChild(opt);
   });
+  sel.value = valorActual;
 }
 
-['fBuscar','fEstado','fConvocante','fCategoria','fProveedor','fAnio'].forEach(id => {
+['fBuscar','fEstado','fConvocante','fCategoria','fProveedor'].forEach(id => {
   document.getElementById(id).addEventListener('input', () => { paginaActual = 1; aplicarFiltros(); });
 });
+document.getElementById('fAnio').addEventListener('change', onCambioFiltroAnio);
 
 function cambiarVista(vista){
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.vista === vista));
