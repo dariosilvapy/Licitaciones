@@ -1,29 +1,14 @@
 """
-Enriquecimiento de detalle: monto adjudicado real (por proveedor) y fecha
-de apertura de ofertas precisa (tender.bidOpening.date, que refleja
-postergas -- a diferencia de tenderPeriod.endDate, que puede quedar con la
-fecha original del pliego).
-
-Por que existe este script aparte: /search/processes (lo que usa la
-actualizacion diaria) es un "record package minimo" -- no trae montos ni la
-fecha de apertura real. Para conseguirlos hace falta una llamada aparte por
-licitacion (GET /tender/{id}) y una llamada aparte por cada adjudicacion
-(GET /awards/{id}). Con ~13.500 procesos ya cargados, hacer esto para todos
-de una sola vez no es viable (riesgo de rate-limit, y el token dura 15
-minutos) -- este script procesa un LOTE por corrida (BATCH_SIZE, por
-defecto 150) y se deja programado para correr cada tanto hasta ponerse al
-dia con todo el historico. Los procesos nuevos que trae la corrida diaria
-tambien van entrando a la cola automaticamente (quedan con
-"enriquecido": False hasta que este script los alcance).
-
-Guarda progreso despues de cada registro, asi una corrida interrumpida no
-pierde el trabajo ya hecho.
+Enriquecimiento de detalle: monto adjudicado real (por proveedor, separado
+por moneda) y fecha de apertura de ofertas precisa. Guarda particionado por
+anio (ver dncp_core.py) -- recorre todos los anios buscando pendientes,
+pero solo reescribe los anios que efectivamente toco en esta corrida.
 """
 
 import os
 import sys
 import time
-from datetime import date
+import urllib.parse
 
 import requests
 
@@ -31,12 +16,9 @@ sys.path.insert(0, os.path.dirname(__file__))
 import dncp_core as core
 
 BATCH_SIZE = int(os.environ.get("ENRIQUECER_BATCH_SIZE", "150"))
-PAUSA_ENTRE_LLAMADAS = 0.15  # segundos, para no golpear la API muy seguido
-RENOVAR_TOKEN_CADA = 50  # llamadas
+PAUSA_ENTRE_LLAMADAS = 0.15
+RENOVAR_TOKEN_CADA = 50
 
-# Filtro opcional: lista separada por comas de proveedores a priorizar
-# (coincidencia parcial, sin importar mayusculas/minusculas). Si esta
-# vacio, se procesa todo por orden de fecha mas reciente primero.
 PROVEEDORES_PRIORITARIOS = [
     p.strip().lower() for p in os.environ.get("ENRIQUECER_PROVEEDORES", "").split(",") if p.strip()
 ]
@@ -55,27 +37,45 @@ def solicitar(token: str, path: str):
         return None, "respuesta no es JSON"
 
 
-def enriquecer_registro(token: str, clave: str, registro: dict, llamadas_hechas: list) -> tuple:
-    """Devuelve (registro_actualizado, token_actual, hubo_error)."""
+def coincide_proveedor_prioritario(registro: dict) -> bool:
+    if not PROVEEDORES_PRIORITARIOS:
+        return False
+    nombres = (registro.get("proveedores_adjudicados") or "").lower()
+    return any(t in nombres for t in PROVEEDORES_PRIORITARIOS)
+
+
+def ordenar_pendientes(pendientes: list) -> list:
+    """pendientes: lista de (anio, clave, registro). Prioritarios primero
+    (si se configuraron), y dentro de cada grupo, mas recientes primero."""
+    def fecha_de(item):
+        return item[2].get("fecha_publicacion") or ""
+
+    if PROVEEDORES_PRIORITARIOS:
+        prioritarios = [it for it in pendientes if coincide_proveedor_prioritario(it[2])]
+        prioritarios.sort(key=fecha_de, reverse=True)
+        if SOLO_PRIORITARIOS:
+            return prioritarios
+        resto = [it for it in pendientes if not coincide_proveedor_prioritario(it[2])]
+        resto.sort(key=fecha_de, reverse=True)
+        return prioritarios + resto
+
+    return sorted(pendientes, key=fecha_de, reverse=True)
+
+
+def enriquecer_registro(token: str, registro: dict, llamadas_hechas: list) -> tuple:
+    """Devuelve (registro_actualizado, hubo_error)."""
     tender_id = registro.get("tender_id_completo") or ""
     if not tender_id:
         registro["enriquecido"] = True
         registro["enriquecimiento_nota"] = "sin tender_id_completo"
-        return registro, token, False
+        return registro, False
 
-    # Registros cargados con versiones viejas del normalizador no tienen la
-    # lista award_ids -- sin ella no hay forma de consultar los montos. Se
-    # marcan aparte para no bloquear la cola; se recuperan re-corriendo el
-    # backfill del rango de fechas correspondiente (eso les agrega la lista)
-    # y despues el workflow de reset.
     if "award_ids" not in registro and registro.get("cantidad_adjudicaciones", 0) > 0:
         registro["enriquecido"] = True
         registro["enriquecimiento_nota"] = "sin award_ids: re-correr backfill de su rango de fechas y luego el reset"
-        return registro, token, False
+        return registro, False
 
-    import urllib.parse
     tender_id_encoded = urllib.parse.quote(tender_id, safe="")
-
     datos_tender, error = solicitar(token, f"tender/{tender_id_encoded}")
     llamadas_hechas[0] += 1
     time.sleep(PAUSA_ENTRE_LLAMADAS)
@@ -83,7 +83,7 @@ def enriquecer_registro(token: str, clave: str, registro: dict, llamadas_hechas:
     if error:
         registro["enriquecido"] = True
         registro["enriquecimiento_nota"] = f"error tender: {error}"
-        return registro, token, True
+        return registro, True
 
     tender = datos_tender.get("tender", {}) if isinstance(datos_tender, dict) else {}
 
@@ -95,8 +95,6 @@ def enriquecer_registro(token: str, clave: str, registro: dict, llamadas_hechas:
     if valor_tender.get("amount") is not None:
         registro["monto_estimado"] = valor_tender["amount"]
 
-    # Montos por adjudicacion (proveedor + monto real adjudicado), separados
-    # por moneda -- sumar guaranies y dolares juntos no tiene sentido.
     proveedores_montos = []
     monto_gs_total = 0
     monto_usd_total = 0
@@ -112,8 +110,6 @@ def enriquecer_registro(token: str, clave: str, registro: dict, llamadas_hechas:
             tuvo_error_award = True
             continue
 
-        # La respuesta viene como {"awards": [ {...} ]} -- una lista con un
-        # solo elemento, no un objeto unico bajo la clave "award".
         lista_awards = datos_award.get("awards", [])
         award = lista_awards[0] if lista_awards and isinstance(lista_awards[0], dict) else {}
         valor_award = award.get("value", {}) if isinstance(award.get("value"), dict) else {}
@@ -140,42 +136,12 @@ def enriquecer_registro(token: str, clave: str, registro: dict, llamadas_hechas:
     registro["proveedores_montos"] = proveedores_montos
     registro["monto_adjudicado_gs"] = monto_gs_total if proveedores_montos else None
     registro["monto_adjudicado_usd"] = monto_usd_total if proveedores_montos else None
-    # Se mantiene monto_adjudicado (en guaranies) por compatibilidad con
-    # partes del dashboard que todavia lo usan asi.
     registro["monto_adjudicado"] = monto_gs_total if proveedores_montos else None
     registro["enriquecido"] = True
     if tuvo_error_award:
         registro["enriquecimiento_nota"] = "algunas adjudicaciones no se pudieron consultar"
 
-    return registro, token, False
-
-
-def coincide_proveedor_prioritario(registro: dict) -> bool:
-    if not PROVEEDORES_PRIORITARIOS:
-        return False
-    nombres = (registro.get("proveedores_adjudicados") or "").lower()
-    return any(termino in nombres for termino in PROVEEDORES_PRIORITARIOS)
-
-
-def ordenar_pendientes(procesos: dict, claves: list) -> list:
-    """Ordena la cola de pendientes: primero los proveedores prioritarios
-    (si se configuraron), y dentro de cada grupo, los mas recientes primero
-    (suele ser lo mas util de tener enriquecido antes que lo muy viejo)."""
-    def fecha_de(clave):
-        return procesos[clave].get("fecha_publicacion") or ""
-
-    if PROVEEDORES_PRIORITARIOS:
-        prioritarios = [c for c in claves if coincide_proveedor_prioritario(procesos[c])]
-        prioritarios.sort(key=fecha_de, reverse=True)
-        if SOLO_PRIORITARIOS:
-            return prioritarios
-        resto = [c for c in claves if not coincide_proveedor_prioritario(procesos[c])]
-        resto.sort(key=fecha_de, reverse=True)
-        return prioritarios + resto
-
-    ordenados = list(claves)
-    ordenados.sort(key=fecha_de, reverse=True)
-    return ordenados
+    return registro, False
 
 
 def main():
@@ -186,20 +152,25 @@ def main():
         print("ERROR: faltan DNCP_CONSUMER_KEY / DNCP_CONSUMER_SECRET.")
         sys.exit(1)
 
-    procesos = core.cargar_datos_existentes()
-    pendientes_sin_ordenar = [clave for clave, r in procesos.items() if not r.get("enriquecido")]
-    pendientes = ordenar_pendientes(procesos, pendientes_sin_ordenar)
+    almacen = core.AlmacenParticionado()
 
-    print(f"Total de procesos: {len(procesos)} | Pendientes de enriquecer: {len(pendientes)}")
-    if PROVEEDORES_PRIORITARIOS:
-        cantidad_prioritarios = len([c for c in pendientes if coincide_proveedor_prioritario(procesos[c])])
-        print(f"Proveedores priorizados: {PROVEEDORES_PRIORITARIOS} "
-              f"({cantidad_prioritarios} registro(s) coinciden"
-              f"{', SOLO se procesan estos' if SOLO_PRIORITARIOS else ', el resto se procesa despues'})")
+    print("Escaneando todos los anios en busca de pendientes...")
+    pendientes = [(anio, clave, registro) for anio, clave, registro in almacen.iterar_todos()
+                  if not registro.get("enriquecido")]
+
+    total_cargado = almacen.total_cargado()
+    print(f"Total de procesos revisados: {total_cargado} | Pendientes de enriquecer: {len(pendientes)}")
 
     if not pendientes:
         print("No hay nada pendiente. Listo.")
         return
+
+    pendientes = ordenar_pendientes(pendientes)
+    if PROVEEDORES_PRIORITARIOS:
+        cantidad_prioritarios = len([p for p in pendientes if coincide_proveedor_prioritario(p[2])])
+        print(f"Proveedores priorizados: {PROVEEDORES_PRIORITARIOS} "
+              f"({cantidad_prioritarios} coinciden"
+              f"{', SOLO se procesan estos' if SOLO_PRIORITARIOS else ', el resto se procesa despues'})")
 
     lote = pendientes[:BATCH_SIZE]
     print(f"Procesando este lote: {len(lote)} registro(s).\n")
@@ -210,14 +181,13 @@ def main():
 
     exitosos, con_error = 0, 0
 
-    for i, clave in enumerate(lote, start=1):
+    for i, (anio, clave, registro) in enumerate(lote, start=1):
         if llamadas_hechas[0] >= RENOVAR_TOKEN_CADA:
             token = core.obtener_token(consumer_key, consumer_secret)
             llamadas_hechas[0] = 0
 
-        registro = procesos[clave]
-        registro_actualizado, token, hubo_error = enriquecer_registro(token, clave, registro, llamadas_hechas)
-        procesos[clave] = registro_actualizado
+        registro_actualizado, hubo_error = enriquecer_registro(token, registro, llamadas_hechas)
+        almacen.actualizar_registro(anio, clave, registro_actualizado)
 
         if hubo_error:
             con_error += 1
@@ -226,13 +196,13 @@ def main():
 
         if i % 10 == 0 or i == len(lote):
             print(f"  {i}/{len(lote)} procesados (guardando progreso)...")
-            core.guardar_datos(procesos)
+            almacen.guardar_cambios()
 
-    core.guardar_datos(procesos)
+    almacen.guardar_cambios()
 
-    restantes = len([c for c, r in procesos.items() if not r.get("enriquecido")])
+    restantes = len(pendientes) - len(lote)
     print(f"\nListo este lote. Exitosos: {exitosos} | Con error: {con_error} | "
-          f"Quedan pendientes: {restantes}")
+          f"Quedan pendientes (al menos): {restantes}")
 
 
 if __name__ == "__main__":

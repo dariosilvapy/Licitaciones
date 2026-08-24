@@ -1,7 +1,7 @@
 """
 Actualizacion diaria de datos DNCP (corrida amplia, 90 dias / 15 dias de
-solapamiento). Para el chequeo de novedades cada 2 horas con alertas de
-Telegram, ver notificar_telegram.py -- comparten la logica de dncp_core.py.
+solapamiento). Guarda particionado por anio (ver dncp_core.py) -- solo
+reescribe los anios efectivamente tocados en esta corrida.
 """
 
 import os
@@ -27,8 +27,8 @@ def main():
     token = core.obtener_token(consumer_key, consumer_secret)
     print("Token obtenido (valido 15 minutos).")
 
-    procesos = core.cargar_datos_existentes()
-    es_primera_corrida = len(procesos) == 0
+    almacen = core.AlmacenParticionado()
+    es_primera_corrida = len(core.listar_anios_existentes()) == 0
     dias = DIAS_BACKFILL_INICIAL if es_primera_corrida else DIAS_SOLAPAMIENTO
 
     fecha_desde = str(date.today() - timedelta(days=dias))
@@ -45,19 +45,18 @@ def main():
         if not isinstance(registro, dict):
             continue
         plano = core.normalizar(registro)
-        clave = plano["ocid"] or plano["id_llamado"]
-        if not clave:
+        clave, existia = almacen.upsert(plano)
+        if clave is None:
             continue
-        if clave in procesos:
+        if existia:
             actualizados += 1
         else:
             nuevos += 1
-        procesos[clave] = core.combinar_con_enriquecimiento(procesos.get(clave), plano)
 
-    core.guardar_datos(procesos)
+    almacen.guardar_cambios()
 
     print(f"\nListo. Recibidos: {len(registros)} | Nuevos: {nuevos} | "
-          f"Actualizados: {actualizados} | Total acumulado: {len(procesos)}")
+          f"Actualizados: {actualizados}")
 
 
 if __name__ == "__main__":

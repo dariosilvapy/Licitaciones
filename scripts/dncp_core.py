@@ -1,14 +1,22 @@
 """
-Modulo compartido: funciones de autenticacion, busqueda y normalizacion
-contra la API de Datos Abiertos DNCP. Lo usan tanto la actualizacion diaria
-(fetch_dncp.py) como el chequeo de alertas cada 2 horas
-(notificar_telegram.py), para no duplicar la misma logica dos veces.
+Modulo compartido: autenticacion, busqueda, normalizacion, Y ALMACENAMIENTO
+PARTICIONADO POR ANIO contra la API de Datos Abiertos DNCP.
+
+Por que particionado por anio (en vez de un solo data/procesos.json):
+con decenas de miles de registros, ese archivo unico supero el limite de
+100MB que impone GitHub para un commit normal, y los pushes empezaron a
+fallar (perdiendo el trabajo de esa corrida). La solucion es un archivo por
+anio en data/procesos/{anio}.json (bucketeado por el anio de
+fecha_publicacion), mas un data/indice.json chico con el resumen de que
+anios existen y cuantos registros tiene cada uno -- asi ningun archivo
+individual crece sin limite, y ademas cada corrida solo lee/escribe los
+anios que realmente toco (no todo el historico completo cada vez).
 """
 
 import base64
 import json
 import os
-from datetime import datetime
+from datetime import date
 
 import requests
 
@@ -17,12 +25,22 @@ AUTH_BASE = f"{SITE_BASE}/datos"
 API_BASE = f"{SITE_BASE}/datos/api/v3/doc"
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
-DATA_FILE = os.path.join(DATA_DIR, "procesos.json")
+PROCESOS_DIR = os.path.join(DATA_DIR, "procesos")
+INDICE_FILE = os.path.join(DATA_DIR, "indice.json")
+
+# Compatibilidad: el archivo unico viejo, solo se usa para la migracion.
+DATA_FILE_LEGACY = os.path.join(DATA_DIR, "procesos.json")
 
 OCID_PREFIJO = "ocds-03ad3f"
 ITEMS_POR_PAGINA = 500
 MAX_PAGINAS = 20  # 500 x 20 = 10.000, limite documentado por la DNCP
 
+ANIO_SIN_FECHA = "otros"  # bucket para registros sin fecha_publicacion valida
+
+
+# ---------------------------------------------------------------------------
+# Autenticacion y busqueda (sin cambios respecto a versiones anteriores)
+# ---------------------------------------------------------------------------
 
 def obtener_token(consumer_key: str, consumer_secret: str) -> str:
     request_token = base64.b64encode(
@@ -49,8 +67,6 @@ def buscar_pagina(token: str, params: dict) -> dict:
     resp = requests.get(url, headers=headers, params=params, timeout=45)
 
     if resp.status_code == 404:
-        # Esta API devuelve 404 cuando la busqueda no encuentra resultados
-        # para el rango pedido, en vez de un 200 con lista vacia.
         return {"records": []}
 
     if resp.status_code != 200:
@@ -92,8 +108,6 @@ def get_in(d, *paths):
 
 
 def solo_fecha(valor: str) -> str:
-    """Recorta un datetime ISO ('2026-06-18T16:13:25-04:00') a solo la
-    fecha ('2026-06-18'). Si ya viene sin hora, lo deja igual."""
     if not valor:
         return ""
     return str(valor)[:10]
@@ -132,13 +146,11 @@ def normalizar(registro: dict) -> dict:
                     proveedores.append(s["name"])
 
     tender_id_completo = tender.get("id") or ""
-    # Link directo a la convocatoria en el portal (confirmado con ejemplos reales).
-    # Solo es un link valido si tender_id_completo es el slug clasico y no un UUID interno.
     link = f"{SITE_BASE}/licitaciones/convocatoria/{tender_id_completo}.html" if tender_id_completo else ""
 
     tender_period = tender.get("tenderPeriod", {}) if isinstance(tender.get("tenderPeriod"), dict) else {}
 
-    resultado = {
+    return {
         "ocid": ocid,
         "id_llamado": numero_licitacion or tender_id_completo or ocid,
         "tender_id_completo": tender_id_completo,
@@ -156,38 +168,18 @@ def normalizar(registro: dict) -> dict:
         "award_ids": award_ids,
     }
 
-    # Campos que llena el enriquecimiento posterior (enriquecer_detalle.py).
-    # Si el registro ya estaba enriquecido de una corrida anterior, esos
-    # valores se preservan aparte (no se pisan por una simple actualizacion
-    # de busqueda) -- ver merge en fetch_dncp.py / notificar_telegram.py.
-    return resultado
 
+# ---------------------------------------------------------------------------
+# Enriquecimiento: campos que se preservan en un upsert
+# ---------------------------------------------------------------------------
 
-def cargar_datos_existentes() -> dict:
-    if os.path.exists(DATA_FILE):
-        try:
-            with open(DATA_FILE, "r", encoding="utf-8") as f:
-                contenido = json.load(f)
-            return contenido.get("procesos", {})
-        except (json.JSONDecodeError, OSError):
-            print("Aviso: no se pudo leer procesos.json existente, se arranca de cero.")
-    return {}
-
-
-# Campos que llena enriquecer_detalle.py (monto, proveedores con monto,
-# fecha de apertura real). Cuando fetch_dncp.py / notificar_telegram.py /
-# backfill_periodo.py vuelven a normalizar un registro ya enriquecido, estos
-# campos se preservan en vez de perderse.
 CAMPOS_ENRIQUECIMIENTO = [
-    "enriquecido", "monto_adjudicado", "monto_estimado",
-    "proveedores_montos", "fecha_apertura_real",
+    "enriquecido", "monto_adjudicado", "monto_adjudicado_gs", "monto_adjudicado_usd",
+    "monto_estimado", "proveedores_montos", "fecha_apertura_real", "enriquecimiento_nota",
 ]
 
 
 def combinar_con_enriquecimiento(existente, nuevo: dict) -> dict:
-    """Fusiona un registro recien normalizado con lo que ya habia, sin
-    perder los datos que puso el enriquecimiento (que es mas caro de
-    recalcular que una simple re-normalizacion de busqueda)."""
     resultado = dict(nuevo)
     if existente:
         for campo in CAMPOS_ENRIQUECIMIENTO:
@@ -196,20 +188,133 @@ def combinar_con_enriquecimiento(existente, nuevo: dict) -> dict:
     return resultado
 
 
-def guardar_datos(procesos: dict):
-    os.makedirs(DATA_DIR, exist_ok=True)
-    salida = {
-        "last_updated": datetime.now().date().isoformat(),
-        "total_procesos": len(procesos),
-        "procesos": procesos,
-    }
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
-        json.dump(salida, f, ensure_ascii=False, indent=2)
+# ---------------------------------------------------------------------------
+# Almacenamiento particionado por anio
+# ---------------------------------------------------------------------------
 
+def anio_de_registro(registro: dict) -> str:
+    fecha = (registro or {}).get("fecha_publicacion") or ""
+    if len(fecha) >= 4 and fecha[:4].isdigit():
+        return fecha[:4]
+    return ANIO_SIN_FECHA
+
+
+def ruta_anio(anio: str) -> str:
+    return os.path.join(PROCESOS_DIR, f"{anio}.json")
+
+
+def listar_anios_existentes() -> list:
+    if not os.path.isdir(PROCESOS_DIR):
+        return []
+    return sorted(
+        f[:-5] for f in os.listdir(PROCESOS_DIR)
+        if f.endswith(".json")
+    )
+
+
+def cargar_datos_anio(anio: str) -> dict:
+    path = ruta_anio(anio)
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f).get("procesos", {})
+        except (json.JSONDecodeError, OSError):
+            print(f"Aviso: no se pudo leer {path}, se arranca vacio para ese anio.")
+    return {}
+
+
+def guardar_datos_anio(anio: str, procesos_anio: dict):
+    os.makedirs(PROCESOS_DIR, exist_ok=True)
+    with open(ruta_anio(anio), "w", encoding="utf-8") as f:
+        json.dump({
+            "anio": anio,
+            "last_updated": date.today().isoformat(),
+            "total": len(procesos_anio),
+            "procesos": procesos_anio,
+        }, f, ensure_ascii=False, indent=2)
+    _actualizar_indice_entrada(anio, len(procesos_anio))
+
+
+def _actualizar_indice_entrada(anio: str, total: int):
+    indice = {}
+    if os.path.exists(INDICE_FILE):
+        try:
+            with open(INDICE_FILE, "r", encoding="utf-8") as f:
+                indice = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            indice = {}
+
+    anios = indice.get("anios", {})
+    anios[anio] = {"total": total, "last_updated": date.today().isoformat()}
+    indice["anios"] = anios
+    indice["total_general"] = sum(a.get("total", 0) for a in anios.values())
+    indice["actualizado"] = date.today().isoformat()
+
+    os.makedirs(DATA_DIR, exist_ok=True)
+    with open(INDICE_FILE, "w", encoding="utf-8") as f:
+        json.dump(indice, f, ensure_ascii=False, indent=2)
+
+
+class AlmacenParticionado:
+    """Encapsula la lectura/escritura por anio, cacheando lo que ya se leyo
+    en esta corrida y guardando SOLO los anios que se modificaron -- nunca
+    reescribe un anio que no toco esta corrida."""
+
+    def __init__(self):
+        self._cache = {}
+        self._sucios = set()
+
+    def _obtener_bucket(self, anio: str) -> dict:
+        if anio not in self._cache:
+            self._cache[anio] = cargar_datos_anio(anio)
+        return self._cache[anio]
+
+    def upsert(self, registro_plano: dict):
+        """Inserta o actualiza un registro. Devuelve (clave, existia_antes)."""
+        anio = anio_de_registro(registro_plano)
+        bucket = self._obtener_bucket(anio)
+        clave = registro_plano.get("ocid") or registro_plano.get("id_llamado")
+        if not clave:
+            return None, False
+        existia = clave in bucket
+        bucket[clave] = combinar_con_enriquecimiento(bucket.get(clave), registro_plano)
+        self._sucios.add(anio)
+        return clave, existia
+
+    def obtener_registro(self, anio: str, clave: str):
+        return self._obtener_bucket(anio).get(clave)
+
+    def actualizar_registro(self, anio: str, clave: str, registro_actualizado: dict):
+        self._obtener_bucket(anio)[clave] = registro_actualizado
+        self._sucios.add(anio)
+
+    def marcar_sucio(self, anio: str):
+        self._sucios.add(anio)
+
+    def guardar_cambios(self):
+        for anio in self._sucios:
+            guardar_datos_anio(anio, self._cache[anio])
+        self._sucios.clear()
+
+    def iterar_todos(self):
+        """Genera (anio, clave, registro) de TODO lo que hay guardado,
+        cargando un anio a la vez. Util para recorridos globales
+        (enriquecimiento, reset) sin asumir que todo cabe comodo en un
+        solo archivo."""
+        for anio in listar_anios_existentes():
+            bucket = self._obtener_bucket(anio)
+            for clave, registro in list(bucket.items()):
+                yield anio, clave, registro
+
+    def total_cargado(self) -> int:
+        return sum(len(b) for b in self._cache.values())
+
+
+# ---------------------------------------------------------------------------
+# Busqueda paginada (sin cambios)
+# ---------------------------------------------------------------------------
 
 def buscar_todo(token: str, fecha_desde: str, fecha_hasta: str, guardar_muestra_en: str = None) -> list:
-    """Pagina /search/processes para el rango de fechas dado y devuelve la
-    lista completa de registros crudos (sin normalizar)."""
     todos = []
     pagina_num = 1
     primera_guardada = False
