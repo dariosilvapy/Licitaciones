@@ -1086,8 +1086,8 @@
       "fecha_publicacion": "2023-04-17",
       "fecha_apertura_ofertas": "2023-06-09",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 578,
-      "cantidad_contratos": 578,
+      "cantidad_adjudicaciones": 581,
+      "cantidad_contratos": 581,
       "proveedores_adjudicados": "CODE 100 S. A., CONFIRMA S.A, DOCUMENTA SOCIEDAD ANONIMA , VIT S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/430577-suministro-certificados-dispositivos-cualificados-estado-paraguayo.html",
       "award_ids": [
@@ -1668,7 +1668,10 @@
         "1325-2026-24",
         "1574-2026-19",
         "1640-2026-38",
-        "1682-2026-49"
+        "1682-2026-49",
+        "1808-2026-16",
+        "1640-2026-40",
+        "1410-2026-17"
       ],
       "enriquecido": false,
       "monto_adjudicado": null,
@@ -3616,18 +3619,19 @@
       "proveedores_adjudicados": "BIOTENG S.A., DISTRIBUIDORA LA POLICLINICA S. A., INDEX S.A.C.I., LA QUIMICA FARMACEUTICA S.A., LIBRA PARAGUAY S.A., PROSALUD FARMA S.A., QUIMFA S.A., REXIM S.R.L.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/422568-lpn-n-39-2023-adquisicion-formulas-nutricionales-enterales-mspybs-1.html",
       "award_ids": [
-        "422568-prosaludfarma-s-a-10",
-        "422568-la-quimica-farmaceutica-s-a-11",
-        "422568-distribuidora-policlinica-s-a-9",
         "422568-bioteng-12",
-        "422568-quimfa-s-a-8",
+        "422568-distribuidora-policlinica-s-a-9",
         "422568-index-s-a-c-i-15",
-        "422568-rexim-s-r-l-13",
-        "422568-libra-paraguay-s-a-14"
+        "422568-la-quimica-farmaceutica-s-a-11",
+        "422568-libra-paraguay-s-a-14",
+        "422568-prosaludfarma-s-a-10",
+        "422568-quimfa-s-a-8",
+        "422568-rexim-s-r-l-13"
       ],
       "enriquecido": true,
       "monto_adjudicado": 38677488000,
-      "fecha_apertura_real": "2023-08-01",
+      "monto_adjudicado_gs": 38677488000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 39160092000,
       "proveedores_montos": [
         {
@@ -3671,8 +3675,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 38677488000,
-      "monto_adjudicado_usd": 0
+      "fecha_apertura_real": "2023-08-01"
     },
     "ocds-03ad3f-431045-1": {
       "ocid": "ocds-03ad3f-431045-1",
@@ -4294,15 +4297,16 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/430188-adq-medicamento-oncologico-cisplatino-50-mg-letrozol-2-5-mg-incan-otros-centros-onco-1.html",
       "award_ids": [
         "430188-el-alamo-sa-8",
+        "430188-fusa-s-a-9",
+        "430188-libra-paraguay-s-a-10",
         "430188-mather-company-srl-7",
         "430188-prosaludfarma-s-a-11",
-        "430188-quimfa-s-a-6",
-        "430188-libra-paraguay-s-a-10",
-        "430188-fusa-s-a-9"
+        "430188-quimfa-s-a-6"
       ],
       "enriquecido": true,
       "monto_adjudicado": 7485870000,
-      "fecha_apertura_real": "2023-06-20",
+      "monto_adjudicado_gs": 7485870000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 8087958000,
       "proveedores_montos": [
         {
@@ -4336,8 +4340,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 7485870000,
-      "monto_adjudicado_usd": 0
+      "fecha_apertura_real": "2023-06-20"
     },
     "ocds-03ad3f-430356-1": {
       "ocid": "ocds-03ad3f-430356-1",
@@ -10008,7 +10011,10 @@
         "435069-sociedad-tecnica-construcciones-s-a-sotec-s-a-4",
         "435069-teco-sociedad-responsabilidad-limitada-3"
       ],
-      "fecha_apertura_real": "2023-10-27",
+      "enriquecido": true,
+      "monto_adjudicado": 27607894770,
+      "monto_adjudicado_gs": 27607894770,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 32516374246,
       "proveedores_montos": [
         {
@@ -10027,10 +10033,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 27607894770,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 27607894770,
-      "enriquecido": true
+      "fecha_apertura_real": "2023-10-27"
     },
     "ocds-03ad3f-428656-1": {
       "ocid": "ocds-03ad3f-428656-1",
