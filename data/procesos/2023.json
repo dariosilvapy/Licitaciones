@@ -1,6 +1,6 @@
 {
   "anio": "2023",
-  "last_updated": "2026-08-26",
+  "last_updated": "2026-08-28",
   "total": 12657,
   "procesos": {
     "ocds-03ad3f-426070-1": {
@@ -90,8 +90,8 @@
       "fecha_publicacion": "2023-06-29",
       "fecha_apertura_ofertas": "2023-10-10",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 451,
-      "cantidad_contratos": 476,
+      "cantidad_adjudicaciones": 452,
+      "cantidad_contratos": 477,
       "proveedores_adjudicados": "CESAR MOSTAFA OCAMPOS, F.S.D.J. SOCIEDAD ANONIMA, FERNANDO RAFAEL BENEGAS ALVAREZ, IN DESIGN S.R.L., JOSE ARNALDO PEREIRA CARDENA, JUAN RODRIGUEZ, MORRO SRL ",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/432991-suministro-baterias-vehiculos-automotores-estado-paraguayo.html",
       "award_ids": [
@@ -545,7 +545,8 @@
         "1050-2026-476",
         "1025-2026-738",
         "1240-2026-67",
-        "1025-2026-753"
+        "1025-2026-753",
+        "1050-2026-519"
       ],
       "enriquecido": true,
       "monto_adjudicado": null,
@@ -692,8 +693,8 @@
       "fecha_publicacion": "2023-03-29",
       "fecha_apertura_ofertas": "2023-04-14",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 337,
-      "cantidad_contratos": 332,
+      "cantidad_adjudicaciones": 340,
+      "cantidad_contratos": 335,
       "proveedores_adjudicados": "ELECTRICIDAD YACYRETA S.A., IMUT SA (IMPORTADORA DE UTILIDADES SA), JUAN RODRIGUEZ, M Y T IMPORTADORA Y DISTRIBUIDORA S. R. L. , MATHER COMPANY SRL",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/430176-suministro-productos-control-vectores-arbovirosis-estado-paraguayo.html",
       "award_ids": [
@@ -1033,7 +1034,10 @@
         "1515-2026-99",
         "1028-2026-216",
         "1778-2026-32",
-        "1027-2026-404"
+        "1027-2026-404",
+        "1326-2026-76",
+        "1326-2026-77",
+        "1025-2026-764"
       ],
       "enriquecido": false,
       "monto_adjudicado": null,
@@ -30298,9 +30302,12 @@
       "proveedores_adjudicados": "Café Corner S.R.L.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/425556-servicio-provison-bebidas-calientes-maquinas-oficinas-afd-3.html",
       "award_ids": [
-        "425556-cafe-corner-s-r-l-1"
+        "425556-cafe-corner-s-r-l-2"
       ],
-      "fecha_apertura_real": "2023-07-28",
+      "enriquecido": true,
+      "monto_adjudicado": 130000000,
+      "monto_adjudicado_gs": 130000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 130000000,
       "proveedores_montos": [
         {
@@ -30309,10 +30316,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 130000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 130000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2023-07-28"
     },
     "ocds-03ad3f-425556-1": {
       "ocid": "ocds-03ad3f-425556-1",
