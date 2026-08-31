@@ -96982,7 +96982,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f17f7c1-3b16-6848-85b1-2d99f99f0299.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2026-09-16",
+      "monto_estimado": 8094776166,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-482394-1": {
       "ocid": "ocds-03ad3f-482394-1",
@@ -96999,7 +97006,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f149695-4685-6e30-861d-cba46870085a.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2026-09-11",
+      "monto_estimado": 26300000,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-487982-1": {
       "ocid": "ocds-03ad3f-487982-1",
@@ -97018,7 +97032,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f13f196-2652-6144-b570-470da321ea7b.html",
       "award_ids": [
         "1f195802-daaa-683a-9ca5-5b1d27143177"
-      ]
+      ],
+      "fecha_apertura_real": "2026-07-28",
+      "monto_estimado": 799928580,
+      "proveedores_montos": [
+        {
+          "nombre": "HIGH MED PARAGUAY S.A. ",
+          "monto": 799928580,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 799928580,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 799928580,
+      "enriquecido": true
     }
   }
 }
