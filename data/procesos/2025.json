@@ -5559,7 +5559,10 @@
       "award_ids": [
         "1f02b3c8-d088-6d1a-9652-c51df1f4ef41"
       ],
-      "fecha_apertura_real": "2025-04-22",
+      "enriquecido": true,
+      "monto_adjudicado": 0,
+      "monto_adjudicado_gs": 0,
+      "monto_adjudicado_usd": 15848000000,
       "monto_estimado": 9047500,
       "proveedores_montos": [
         {
@@ -5568,10 +5571,7 @@
           "moneda": "USD"
         }
       ],
-      "monto_adjudicado_gs": 0,
-      "monto_adjudicado_usd": 15848000000,
-      "monto_adjudicado": 0,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-04-22"
     },
     "ocds-03ad3f-463046-1": {
       "ocid": "ocds-03ad3f-463046-1",
@@ -5874,7 +5874,7 @@
       "nombre_licitacion": "ADQUISICIÓN DE SERVICIO DE INFORMACIÓN SOBRE MERCADOS ENERGÉTICOS PARA PETROPAR",
       "convocante": "Petróleos Paraguayos (PETROPAR)",
       "estado": "Adjudicada",
-      "categoria": "Servicios - Servicios Editoriales  de Diseño, Graficos y de Bellas Artes",
+      "categoria": "Servicios - Servicios basados en ingenieria investigacion y tecnologia",
       "fecha_publicacion": "2025-09-04",
       "fecha_apertura_ofertas": "2025-10-13",
       "modalidad": "Especiales\tSubasta a la baja electrónica internacional",
@@ -7057,7 +7057,10 @@
       "award_ids": [
         "1efef960-7f11-6e9e-827a-79e17495227a"
       ],
-      "fecha_apertura_real": "2025-02-11",
+      "enriquecido": true,
+      "monto_adjudicado": 0,
+      "monto_adjudicado_gs": 0,
+      "monto_adjudicado_usd": 146715660000,
       "monto_estimado": 36305500,
       "proveedores_montos": [
         {
@@ -7066,10 +7069,7 @@
           "moneda": "USD"
         }
       ],
-      "monto_adjudicado_gs": 0,
-      "monto_adjudicado_usd": 146715660000,
-      "monto_adjudicado": 0,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-02-11"
     },
     "ocds-03ad3f-470996-1": {
       "ocid": "ocds-03ad3f-470996-1",
@@ -191406,23 +191406,25 @@
       "tender_id_completo": "1f09cdc8-01c5-66c4-a927-d9441e338e53",
       "nombre_licitacion": "Mantenimiento y Reparación de Autoclave",
       "convocante": "Ministerio de Salud Pública y Bienestar Social (MSPBS)",
-      "estado": "En Evaluacion (Cerrada)",
+      "estado": "Adjudicada",
       "categoria": "Servicios - Servicios de Produccion, Fabricacion Industrial y Mantenimientos de maquinarias",
       "fecha_publicacion": "2025-10-03",
       "fecha_apertura_ofertas": "2025-10-13",
       "modalidad": "Menor cuantía nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 1,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "OSVALDO NOEL BENITEZ ACOSTA",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f09cdc8-01c5-66c4-a927-d9441e338e53.html",
-      "award_ids": [],
-      "fecha_apertura_real": "2025-10-13",
-      "monto_estimado": 178964626,
-      "proveedores_montos": [],
+      "award_ids": [
+        "1f0b9793-8930-6366-8af1-0d63d54c241d"
+      ],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 178964626,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2025-10-13"
     },
     "ocds-03ad3f-473861-1": {
       "ocid": "ocds-03ad3f-473861-1",
@@ -234616,7 +234618,10 @@
       "award_ids": [
         "1f0ba3bc-7a91-6c62-b4b4-e3e0898cd709"
       ],
-      "fecha_apertura_real": "2025-10-24",
+      "enriquecido": true,
+      "monto_adjudicado": 41788100,
+      "monto_adjudicado_gs": 41788100,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 41788100,
       "proveedores_montos": [
         {
@@ -234625,10 +234630,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 41788100,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 41788100,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-10-24"
     },
     "ocds-03ad3f-463767-1": {
       "ocid": "ocds-03ad3f-463767-1",
