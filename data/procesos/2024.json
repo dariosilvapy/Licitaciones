@@ -8460,23 +8460,32 @@
       "tender_id_completo": "1eef05c3-2ce8-6cbc-86c2-c113690f82cc",
       "nombre_licitacion": "LPN 11-24 ADQUISICION DE INSUMOS DE HEMODINAMIA DECLARADOS DESIERTOS EN LA LPN 20-22 Y OTROS PARA ASEGURADOS DEL IPS, SOLPED N°114000260 Y N° 114000261",
       "convocante": "Instituto de Previsión Social (IPS)",
-      "estado": "En Evaluacion (Cerrada)",
+      "estado": "Adjudicada",
       "categoria": "Bienes - Equipos Accesorios y Suministros Medicos",
       "fecha_publicacion": "2024-10-02",
       "fecha_apertura_ofertas": "2026-06-02",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 0,
-      "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "cantidad_adjudicaciones": 8,
+      "cantidad_contratos": 6,
+      "proveedores_adjudicados": "BIOMEDICA DE PARAGUAY S.A., CATETERES Y AFINES S.A., CHACO INTERNACIONAL SA, CODEX S.R.L., INDEX S.A.C.I., JACK FACK SRL, MLT PHARMA S.R.L., SALUMAX S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1eef05c3-2ce8-6cbc-86c2-c113690f82cc.html",
-      "award_ids": [],
-      "fecha_apertura_real": "2026-06-02",
-      "monto_estimado": 6500713106,
-      "proveedores_montos": [],
+      "award_ids": [
+        "1f17a1ad-b6c8-6500-8d0f-2b1db098bc7c",
+        "1f17a1bf-e89f-6d14-ad19-2bb574f4ff74",
+        "1f17a1d8-21da-6440-82ad-11b090653a06",
+        "1f17a1e0-0d29-6020-9e24-29deeb65854c",
+        "1f17acb8-a5e1-6596-97a6-7773680d3a3f",
+        "1f17ad3e-6977-6e8a-a8dc-3be1f63ac62e",
+        "1f17ae5f-9ad5-6406-8bc6-d340da6bfd97",
+        "1f17bb4b-ceed-6de4-ab8a-1b4362a3d747"
+      ],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 6500713106,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-06-02"
     },
     "ocds-03ad3f-439789-1": {
       "ocid": "ocds-03ad3f-439789-1",
@@ -17266,7 +17275,10 @@
       "award_ids": [
         "1efa6668-66f7-63de-8649-a38a9ffc428e"
       ],
-      "fecha_apertura_real": "2024-11-05",
+      "enriquecido": true,
+      "monto_adjudicado": 203700000,
+      "monto_adjudicado_gs": 203700000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 227000000,
       "proveedores_montos": [
         {
@@ -17275,10 +17287,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 203700000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 203700000,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-11-05"
     },
     "ocds-03ad3f-440555-1": {
       "ocid": "ocds-03ad3f-440555-1",
@@ -20786,7 +20795,10 @@
         "03eebeca-b47d-4693-b57a-7a4cefbea106",
         "1f03d487-2826-6024-abe6-5f8c16416088"
       ],
-      "fecha_apertura_real": "2024-10-17",
+      "enriquecido": true,
+      "monto_adjudicado": 392000000,
+      "monto_adjudicado_gs": 392000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 196000000,
       "proveedores_montos": [
         {
@@ -20800,10 +20812,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 392000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 392000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-10-17"
     },
     "ocds-03ad3f-444911-1": {
       "ocid": "ocds-03ad3f-444911-1",
@@ -25680,7 +25689,10 @@
       "award_ids": [
         "1ef7c2cb-d81b-68aa-bd24-b5921303b55d"
       ],
-      "fecha_apertura_real": "2024-09-06",
+      "enriquecido": true,
+      "monto_adjudicado": 1485409000,
+      "monto_adjudicado_gs": 1485409000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 1475266104,
       "proveedores_montos": [
         {
@@ -25689,10 +25701,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 1485409000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 1485409000,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-09-06"
     },
     "ocds-03ad3f-445416-1": {
       "ocid": "ocds-03ad3f-445416-1",
@@ -25712,7 +25721,10 @@
       "award_ids": [
         "1ef905ec-4688-6aae-b36a-41da7aea1548"
       ],
-      "fecha_apertura_real": "2024-10-08",
+      "enriquecido": true,
+      "monto_adjudicado": 260106648,
+      "monto_adjudicado_gs": 260106648,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 260106648,
       "proveedores_montos": [
         {
@@ -25721,10 +25733,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 260106648,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 260106648,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-10-08"
     },
     "ocds-03ad3f-445260-1": {
       "ocid": "ocds-03ad3f-445260-1",
@@ -25744,7 +25753,10 @@
       "award_ids": [
         "1ef952c9-eb2b-66d6-9ceb-8be18a3afa32"
       ],
-      "fecha_apertura_real": "2024-10-10",
+      "enriquecido": true,
+      "monto_adjudicado": 120000000,
+      "monto_adjudicado_gs": 120000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 120000000,
       "proveedores_montos": [
         {
@@ -25753,10 +25765,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 120000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 120000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-10-10"
     },
     "ocds-03ad3f-445203-1": {
       "ocid": "ocds-03ad3f-445203-1",
@@ -25776,7 +25785,10 @@
       "award_ids": [
         "1ef8d4e0-95a8-64a0-8031-f10f2895560c"
       ],
-      "fecha_apertura_real": "2024-10-07",
+      "enriquecido": true,
+      "monto_adjudicado": 200000000,
+      "monto_adjudicado_gs": 200000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 200000000,
       "proveedores_montos": [
         {
@@ -25785,10 +25797,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 200000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 200000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-10-07"
     },
     "ocds-03ad3f-445196-1": {
       "ocid": "ocds-03ad3f-445196-1",
@@ -25808,7 +25817,10 @@
       "award_ids": [
         "1ef95276-6ac1-6fc0-b7e6-65663785a643"
       ],
-      "fecha_apertura_real": "2024-10-21",
+      "enriquecido": true,
+      "monto_adjudicado": 100000000,
+      "monto_adjudicado_gs": 100000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 100000000,
       "proveedores_montos": [
         {
@@ -25817,10 +25829,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 100000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 100000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-10-21"
     },
     "ocds-03ad3f-438515-1": {
       "ocid": "ocds-03ad3f-438515-1",
@@ -53185,7 +53194,10 @@
       "award_ids": [
         "1efa75b1-34ec-66fc-a288-b55b3ab8f057"
       ],
-      "fecha_apertura_real": "2024-11-13",
+      "enriquecido": true,
+      "monto_adjudicado": 928870480,
+      "monto_adjudicado_gs": 928870480,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 1104000000,
       "proveedores_montos": [
         {
@@ -53194,10 +53206,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 928870480,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 928870480,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-11-13"
     },
     "ocds-03ad3f-444580-1": {
       "ocid": "ocds-03ad3f-444580-1",
