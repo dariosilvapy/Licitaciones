@@ -1,6 +1,6 @@
 {
   "anio": "2025",
-  "last_updated": "2026-08-31",
+  "last_updated": "2026-09-01",
   "total": 8837,
   "procesos": {
     "ocds-03ad3f-471760": {
@@ -129710,7 +129710,10 @@
       "award_ids": [
         "1f066f80-7230-6160-9094-490792c9f036"
       ],
-      "fecha_apertura_real": "2025-07-07",
+      "enriquecido": true,
+      "monto_adjudicado": 12000000,
+      "monto_adjudicado_gs": 12000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 11315000,
       "proveedores_montos": [
         {
@@ -129719,10 +129722,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 12000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 12000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-07-07"
     },
     "ocds-03ad3f-470872-1": {
       "ocid": "ocds-03ad3f-470872-1",
