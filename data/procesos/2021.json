@@ -1,6 +1,6 @@
 {
   "anio": "2021",
-  "last_updated": "2026-09-03",
+  "last_updated": "2026-09-04",
   "total": 11975,
   "procesos": {
     "ocds-03ad3f-400008": {
@@ -10300,18 +10300,21 @@
       "proveedores_adjudicados": "BIOANALISIS S.A., BIOTEC DEL PARAGUAY S.A., DISTRIBUIDORA LA POLICLINICA S. A., EUROQUIMICA S.A., EXIMPAR S.R.L., G T SCIENTIFIC S.A., INFOTEC SA, PROSALUD FARMA S.A., TECNOFAST S.A., VICENTE SCAVONE & CIA. S.A.E",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/398021-lpn-n-35-2021-adquisicion-reactivos-e-insumos-instituto-medicina-tropical-mspybs-1.html",
       "award_ids": [
-        "398021-distribuidora-policlinica-s-a-14",
-        "398021-infotec-sa-10",
-        "398021-biotec-paraguay-s-r-l-11",
         "398021-bioanalisis-srl-19",
+        "398021-biotec-paraguay-s-r-l-11",
+        "398021-distribuidora-policlinica-s-a-14",
         "398021-euroquimica-s-a-17",
-        "398021-tecnofast-s-a-13",
+        "398021-eximpar-s-r-l-16",
         "398021-g-t-scientific-s-a-15",
+        "398021-infotec-sa-10",
         "398021-prosaludfarma-s-a-18",
-        "398021-vicente-scavone-cia-comercial-e-industrial-sa-12",
-        "398021-eximpar-s-r-l-16"
+        "398021-tecnofast-s-a-13",
+        "398021-vicente-scavone-cia-comercial-e-industrial-sa-12"
       ],
-      "fecha_apertura_real": "2021-11-18",
+      "enriquecido": true,
+      "monto_adjudicado": 22658725872,
+      "monto_adjudicado_gs": 22658725872,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 25698055640,
       "proveedores_montos": [
         {
@@ -10365,10 +10368,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 22658725872,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 22658725872,
-      "enriquecido": true
+      "fecha_apertura_real": "2021-11-18"
     },
     "ocds-03ad3f-391030-1": {
       "ocid": "ocds-03ad3f-391030-1",
@@ -11051,20 +11051,23 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/399957-lpn-n-44-21-adquisicion-reactivos-e-insumos-bacteriologia-red-laboratorio-cobertura-1.html",
       "award_ids": [
         "399957-biotec-paraguay-s-r-l-24",
-        "399957-infotec-sa-15",
-        "399957-makri-s-a-14",
-        "399957-eximpar-s-r-l-25",
-        "399957-index-s-a-c-i-16",
+        "399957-carlos-asuncion-vera-melgarejo-23",
         "399957-cateteres-afines-s-a-22",
-        "399957-euroquimica-s-a-19",
-        "399957-g-t-scientific-s-a-18",
-        "399957-tecnofast-s-a-13",
         "399957-chaco-internacional-sa-21",
         "399957-drogueria-italquimica-sociedad-anonima-20",
-        "399957-carlos-asuncion-vera-melgarejo-23",
-        "399957-guaindupar-srl-17"
+        "399957-euroquimica-s-a-19",
+        "399957-eximpar-s-r-l-25",
+        "399957-g-t-scientific-s-a-18",
+        "399957-guaindupar-srl-17",
+        "399957-index-s-a-c-i-16",
+        "399957-infotec-sa-15",
+        "399957-makri-s-a-14",
+        "399957-tecnofast-s-a-13"
       ],
-      "fecha_apertura_real": "2021-11-11",
+      "enriquecido": true,
+      "monto_adjudicado": 103890803157,
+      "monto_adjudicado_gs": 103890803157,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 196991292149,
       "proveedores_montos": [
         {
@@ -11133,10 +11136,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 103890803157,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 103890803157,
-      "enriquecido": true
+      "fecha_apertura_real": "2021-11-11"
     },
     "ocds-03ad3f-397635-1": {
       "ocid": "ocds-03ad3f-397635-1",
@@ -33942,18 +33942,21 @@
       "proveedores_adjudicados": "DUTRIEC SA, EUROQUIMICA S.A., GUAYAKI SA, INTERLABO S.R.L., J.C.M. PHARMA S.A, PRODUCTOS MEDICINALES PARAGUAYOS S.A. (PROMEPAR S.A.) , PROSALUD FARMA S.A., QUIMFA S.A., SCAVONE HERMANOS SA, VICENTE SCAVONE & CIA. S.A.E",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/401658-lpn-n-67-21-adquisicion-medicamentos-e-insumos-kits-parto-mspybs-plurianual-1.html",
       "award_ids": [
-        "401658-scavone-hermanos-sa-11",
-        "401658-quimfa-s-a-12",
-        "401658-euroquimica-s-a-18",
-        "401658-interlabo-s-r-l-16",
-        "401658-guayaki-sa-17",
-        "401658-vicente-scavone-cia-comercial-e-industrial-sa-10",
         "401658-dutriec-sa-19",
-        "401658-productos-medicinales-paraguayos-s-a-promepar-s-a-14",
+        "401658-euroquimica-s-a-18",
+        "401658-guayaki-sa-17",
+        "401658-interlabo-s-r-l-16",
         "401658-j-c-m-pharma-s-a-15",
-        "401658-prosaludfarma-s-a-13"
+        "401658-productos-medicinales-paraguayos-s-a-promepar-s-a-14",
+        "401658-prosaludfarma-s-a-13",
+        "401658-quimfa-s-a-12",
+        "401658-scavone-hermanos-sa-11",
+        "401658-vicente-scavone-cia-comercial-e-industrial-sa-10"
       ],
-      "fecha_apertura_real": "2021-11-18",
+      "enriquecido": true,
+      "monto_adjudicado": 12705007196,
+      "monto_adjudicado_gs": 12705007196,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 17909254000,
       "proveedores_montos": [
         {
@@ -33997,10 +34000,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 12705007196,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 12705007196,
-      "enriquecido": true,
+      "fecha_apertura_real": "2021-11-18",
       "enriquecimiento_nota": "algunas adjudicaciones no se pudieron consultar"
     },
     "ocds-03ad3f-401654-1": {
