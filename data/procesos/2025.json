@@ -39018,23 +39018,26 @@
       "tender_id_completo": "1efd4cce-d648-6df6-a890-959534a08e47",
       "nombre_licitacion": "Adquisición de equipos, piezas de reposición, asistencia técnica e instalación de equipos del sistema de CCTV",
       "convocante": "Banco Nacional de Fomento (BNF)",
-      "estado": "En Evaluacion (Cerrada)",
+      "estado": "Adjudicada",
       "categoria": "Bienes - Servicios de Construccion y Mantenimiento",
       "fecha_publicacion": "2025-12-29",
       "fecha_apertura_ofertas": "2026-05-08",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 2,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "FAXCOMTEL SRL, Vgo Ingenieria S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1efd4cce-d648-6df6-a890-959534a08e47.html",
-      "award_ids": [],
-      "fecha_apertura_real": "2026-05-08",
-      "monto_estimado": 2530000000,
-      "proveedores_montos": [],
+      "award_ids": [
+        "1f1659d5-019f-6136-a459-2142eed4736d",
+        "fa9f0b4d-4b61-4e25-8bd6-3916e0aaf1fb"
+      ],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 2530000000,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-05-08"
     },
     "ocds-03ad3f-467686-1": {
       "ocid": "ocds-03ad3f-467686-1",
@@ -274057,7 +274060,10 @@
       "award_ids": [
         "1f0c623c-5518-6352-9a2c-8f7cc4e032f2"
       ],
-      "fecha_apertura_real": "2025-10-30",
+      "enriquecido": true,
+      "monto_adjudicado": 61512262,
+      "monto_adjudicado_gs": 61512262,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 93240000,
       "proveedores_montos": [
         {
@@ -274066,10 +274072,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 61512262,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 61512262,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-10-30"
     },
     "ocds-03ad3f-473011-1": {
       "ocid": "ocds-03ad3f-473011-1",

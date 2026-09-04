@@ -114,8 +114,8 @@
       "fecha_publicacion": "2022-05-24",
       "fecha_apertura_ofertas": "2022-06-15",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 5191,
-      "cantidad_contratos": 5170,
+      "cantidad_adjudicaciones": 5198,
+      "cantidad_contratos": 5177,
       "proveedores_adjudicados": "AMITOUR S.A., Ace Tours SRL, BOARDING PASS SA, COMPAÑIA MARITIMA PARAGUAYA S.A., DIANA LORENA CABELLO ORTUZAR, DISCOVER PARAGUAY S.A., DISCOVERY TRAVEL SA, INTER-EXPRESS S.A., NOS VAMOOS SA, SENSICRED S.A., SERVI TRAVEL S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/415212-incorporacion-pasajes-aereos-tienda-virtual.html",
       "award_ids": [
@@ -5309,7 +5309,14 @@
         "1008-2026-101",
         "1863-2026-25",
         "1365-2026-35",
-        "1365-2026-34"
+        "1365-2026-34",
+        "1045-2026-15",
+        "1045-2026-16",
+        "1045-2026-14",
+        "1018-2026-6",
+        "1361-2026-92",
+        "2014-2026-75",
+        "1006-2026-213"
       ],
       "enriquecido": true,
       "monto_adjudicado": 73291252888,
@@ -59091,10 +59098,13 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/414011-adquisicion-medicamentos-oncologicos-cabazitaxel-60-mg-incan-otros-centros-oncologic-1.html",
       "award_ids": [
         "414011-bioethic-pharma-s-a-5",
-        "414011-tassos-sa-1-4",
-        "414011-mather-company-srl-3"
+        "414011-mather-company-srl-3",
+        "414011-tassos-sa-1-4"
       ],
-      "fecha_apertura_real": "2022-07-20",
+      "enriquecido": true,
+      "monto_adjudicado": 10091812120,
+      "monto_adjudicado_gs": 10091812120,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 10091812120,
       "proveedores_montos": [
         {
@@ -59113,10 +59123,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 10091812120,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 10091812120,
-      "enriquecido": true
+      "fecha_apertura_real": "2022-07-20"
     },
     "ocds-03ad3f-421391-1": {
       "ocid": "ocds-03ad3f-421391-1",
@@ -61259,31 +61266,34 @@
       "proveedores_adjudicados": "CIENTIFICA RAGUSA S.A., COMFAR S.A.E.C.A., DALLAS S.A., DISTRIBUIDORA LA POLICLINICA S. A., DUTRIEC SA, EUROQUIMICA S.A., GUAYAKI SA, H-PAR S.A.C.I , HEISECKE Y CIA. SACI, INDEX S.A.C.I., INDUFAR C.I.S.A., INTERLABO S.R.L., LABORATORIO DE PRODUCTOS ÉTICOS COMERCIAL E INDUSTRIAL S.A., LABORATORIOS ALMOS S.A., LABORATORIOS BAGO DEL PARAGUAY S.A., MATHER COMPANY SRL, MEGALABS PARAGUAY SOCIEDAD ANÓNIMA, PRODUCTOS MEDICINALES PARAGUAYOS S.A. (PROMEPAR S.A.) , PROSALUD FARMA S.A., QUIMFA S.A., SCAVONE HERMANOS SA, TARGET S.A, VICENTE SCAVONE & CIA. S.A.E",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/414027-lpn-n-34-2022-adquisicion-medicamentos-varios-sistema-salud-mspybs-1.html",
       "award_ids": [
-        "414027-vicente-scavone-cia-comercial-e-industrial-sa-40",
-        "414027-productos-medicinales-paraguayos-s-a-promepar-s-a-34",
         "414027-cientifica-ragusa-s-a-42",
-        "414027-laboratorios-bago-paraguay-s-a-31",
-        "414027-dallas-s-a-39",
-        "414027-index-s-a-c-i-27",
-        "414027-laboratorios-almos-s-a-30",
-        "414027-euroquimica-s-a-41",
         "414027-comfar-44",
-        "414027-quimfa-s-a-36",
-        "414027-laboratorio-productos-eticos-c-e-i-s-a-45",
+        "414027-dallas-s-a-39",
+        "414027-distribuidora-policlinica-s-a-24",
+        "414027-dutriec-sa-43",
+        "414027-euroquimica-s-a-41",
         "414027-guayaki-sa-25",
-        "414027-interlabo-s-r-l-29",
         "414027-heisecke-cia-saci-23",
         "414027-h-par-s-a-c-i-26",
-        "414027-prosaludfarma-s-a-35",
-        "414027-distribuidora-policlinica-s-a-24",
-        "414027-scavone-hermanos-sa-37",
+        "414027-index-s-a-c-i-27",
         "414027-indufar-c-i-s-a-28",
-        "414027-target-s-a-38",
+        "414027-interlabo-s-r-l-29",
+        "414027-laboratorio-productos-eticos-c-e-i-s-a-45",
+        "414027-laboratorios-almos-s-a-30",
+        "414027-laboratorios-bago-paraguay-s-a-31",
         "414027-mather-company-srl-32",
-        "414027-dutriec-sa-43",
-        "414027-roemmers-saci-33"
+        "414027-productos-medicinales-paraguayos-s-a-promepar-s-a-34",
+        "414027-prosaludfarma-s-a-35",
+        "414027-quimfa-s-a-36",
+        "414027-roemmers-saci-33",
+        "414027-scavone-hermanos-sa-37",
+        "414027-target-s-a-38",
+        "414027-vicente-scavone-cia-comercial-e-industrial-sa-40"
       ],
-      "fecha_apertura_real": "2022-08-26",
+      "enriquecido": true,
+      "monto_adjudicado": 420185481195,
+      "monto_adjudicado_gs": 420185481195,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 417871776800,
       "proveedores_montos": [
         {
@@ -61402,10 +61412,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 420185481195,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 420185481195,
-      "enriquecido": true
+      "fecha_apertura_real": "2022-08-26"
     },
     "ocds-03ad3f-412850-1": {
       "ocid": "ocds-03ad3f-412850-1",
