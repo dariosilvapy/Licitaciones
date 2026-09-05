@@ -57424,10 +57424,13 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/421682-cd-n-08-2023-adquisicion-reactivos-e-insumos-declarados-desiertos-lco-25-22-programa-1.html",
       "award_ids": [
         "421682-chaco-internacional-sa-6",
-        "421682-sumi-sociedad-anonima-3",
-        "421682-macro-science-sociedad-anonima-5"
+        "421682-macro-science-sociedad-anonima-5",
+        "421682-sumi-sociedad-anonima-3"
       ],
-      "fecha_apertura_real": "2022-12-21",
+      "enriquecido": true,
+      "monto_adjudicado": 121140000,
+      "monto_adjudicado_gs": 121140000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 134297176,
       "proveedores_montos": [
         {
@@ -57446,10 +57449,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 121140000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 121140000,
-      "enriquecido": true
+      "fecha_apertura_real": "2022-12-21"
     },
     "ocds-03ad3f-404992-1": {
       "ocid": "ocds-03ad3f-404992-1",
@@ -59886,21 +59886,24 @@
       "proveedores_adjudicados": "BIOERIX S.A. , BIOMEDICA DE PARAGUAY S.A., Biomedicina Guarani S.A., CATETERES Y AFINES S.A., CHACO INTERNACIONAL SA, CODEX S.R.L., IMPORTADORA EUROAMERICANA SA, INDUFAR C.I.S.A., JACK FACK SRL, MATHER COMPANY SRL, SALUMAX S.A., SERVICIO ELECTROMEDICO PROFESIONAL S.A (SEMPRO), V Y T FARMA SA",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/402288-lpn-n-75-21-adquisicion-insumos-cardiocirugia-hemodinamia-instituto-nacional-cardiol-1.html",
       "award_ids": [
-        "402288-cateteres-afines-s-a-16",
-        "402288-servicio-electromedico-profesional-s-a-sempro-24",
-        "402288-mather-company-srl-22",
+        "402288-bioerix-s-a-13",
+        "402288-biomedica-paraguay-s-a-14",
         "402288-biomedicina-guarani-s-a-15",
-        "402288-indufar-c-i-s-a-20",
+        "402288-cateteres-afines-s-a-16",
+        "402288-chaco-internacional-sa-17",
         "402288-codex-s-r-l-18",
         "402288-importadora-euroamericana-sa-19",
+        "402288-indufar-c-i-s-a-20",
         "402288-jack-fack-srl-21",
-        "402288-biomedica-paraguay-s-a-14",
+        "402288-mather-company-srl-22",
         "402288-salumax-s-a-23",
-        "402288-bioerix-s-a-13",
-        "402288-chaco-internacional-sa-17",
+        "402288-servicio-electromedico-profesional-s-a-sempro-24",
         "402288-v-t-farma-sa-25"
       ],
-      "fecha_apertura_real": "2022-05-16",
+      "enriquecido": true,
+      "monto_adjudicado": 119635459180,
+      "monto_adjudicado_gs": 119635459180,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 117942884869,
       "proveedores_montos": [
         {
@@ -59969,10 +59972,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 119635459180,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 119635459180,
-      "enriquecido": true
+      "fecha_apertura_real": "2022-05-16"
     },
     "ocds-03ad3f-420212-1": {
       "ocid": "ocds-03ad3f-420212-1",
@@ -61800,15 +61800,18 @@
       "proveedores_adjudicados": "BIOTEC DEL PARAGUAY S.A., CHACO INTERNACIONAL SA, DISTRIBUIDORA LA POLICLINICA S. A., EL ALAMO SA, G T SCIENTIFIC S.A., INFOTEC SA, Medical Supply Sociedad Anonima",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/416084-lpn-n-63-2022-adquisicion-reactivos-e-insumos-regiones-sanitarias-eje-chaco-pte-haye-1.html",
       "award_ids": [
-        "416084-distribuidora-policlinica-s-a-9",
+        "416084-biotec-paraguay-s-r-l-8",
         "416084-chaco-internacional-sa-13",
-        "416084-medical-supply-sociedad-anonima-10",
+        "416084-distribuidora-policlinica-s-a-9",
         "416084-el-alamo-sa-7",
-        "416084-infotec-sa-12",
         "416084-g-t-scientific-s-a-11",
-        "416084-biotec-paraguay-s-r-l-8"
+        "416084-infotec-sa-12",
+        "416084-medical-supply-sociedad-anonima-10"
       ],
-      "fecha_apertura_real": "2022-10-18",
+      "enriquecido": true,
+      "monto_adjudicado": 24286152250,
+      "monto_adjudicado_gs": 24286152250,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 24801622990,
       "proveedores_montos": [
         {
@@ -61847,10 +61850,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 24286152250,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 24286152250,
-      "enriquecido": true
+      "fecha_apertura_real": "2022-10-18"
     },
     "ocds-03ad3f-421936-1": {
       "ocid": "ocds-03ad3f-421936-1",
@@ -98636,7 +98636,10 @@
       "award_ids": [
         "407277-roshka-s-a-1"
       ],
-      "fecha_apertura_real": "2022-05-04",
+      "enriquecido": true,
+      "monto_adjudicado": 129799515,
+      "monto_adjudicado_gs": 129799515,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 129881500,
       "proveedores_montos": [
         {
@@ -98645,10 +98648,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 129799515,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 129799515,
-      "enriquecido": true
+      "fecha_apertura_real": "2022-05-04"
     },
     "ocds-03ad3f-418037-1": {
       "ocid": "ocds-03ad3f-418037-1",
