@@ -1,6 +1,6 @@
 {
   "anio": "2021",
-  "last_updated": "2026-09-04",
+  "last_updated": "2026-09-05",
   "total": 11975,
   "procesos": {
     "ocds-03ad3f-400008": {
@@ -10889,7 +10889,10 @@
         "398706-empresa-construcciones-edivi-s-a-7",
         "398706-tecnologia-sur-s-a-6"
       ],
-      "fecha_apertura_real": "2021-09-07",
+      "enriquecido": true,
+      "monto_adjudicado": 191287577909,
+      "monto_adjudicado_gs": 191287577909,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 239786904568,
       "proveedores_montos": [
         {
@@ -10928,10 +10931,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 191287577909,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 191287577909,
-      "enriquecido": true
+      "fecha_apertura_real": "2021-09-07"
     },
     "ocds-03ad3f-391436-1": {
       "ocid": "ocds-03ad3f-391436-1",

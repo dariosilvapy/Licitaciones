@@ -1,6 +1,6 @@
 {
   "anio": "2023",
-  "last_updated": "2026-09-04",
+  "last_updated": "2026-09-05",
   "total": 12657,
   "procesos": {
     "ocds-03ad3f-426070-1": {
@@ -16951,13 +16951,14 @@
       "proveedores_adjudicados": "CASA BOLLER S.A., DISTRIBUIDORA LA POLICLINICA S. A., LABORATORIO DE PRODUCTOS ÉTICOS COMERCIAL E INDUSTRIAL S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/431283-lpn-n-74-2023-adquisicion-medicamento-oncologico-rituximab-500-mg-rituximab-100-mg-1.html",
       "award_ids": [
-        "431283-distribuidora-policlinica-s-a-4",
         "431283-casa-boller-s-a-5",
+        "431283-distribuidora-policlinica-s-a-4",
         "431283-laboratorio-productos-eticos-c-e-i-s-a-3"
       ],
       "enriquecido": true,
       "monto_adjudicado": 169747138000,
-      "fecha_apertura_real": "2023-07-31",
+      "monto_adjudicado_gs": 169747138000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 197260816500,
       "proveedores_montos": [
         {
@@ -16976,8 +16977,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 169747138000,
-      "monto_adjudicado_usd": 0
+      "fecha_apertura_real": "2023-07-31"
     },
     "ocds-03ad3f-435273-1": {
       "ocid": "ocds-03ad3f-435273-1",
@@ -20158,14 +20158,17 @@
       "proveedores_adjudicados": "ARGON S.R.L., INDUFAR C.I.S.A., LABORATORIO DE PRODUCTOS ÉTICOS COMERCIAL E INDUSTRIAL S.A., Medical Supply Sociedad Anonima, RODRIGO ENMANUEL PEDROZO GARCETE, VICENTE SCAVONE & CIA. S.A.E",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/429912-lpn-n-55-2023-adquisicion-medicamentos-e-insumos-programa-nacional-salud-ocular-1.html",
       "award_ids": [
-        "429912-medical-supply-sociedad-anonima-8",
-        "429912-laboratorio-productos-eticos-c-e-i-s-a-10",
-        "429912-indufar-c-i-s-a-6",
         "429912-argon-s-r-l-11",
+        "429912-indufar-c-i-s-a-6",
+        "429912-laboratorio-productos-eticos-c-e-i-s-a-10",
+        "429912-medical-supply-sociedad-anonima-8",
         "429912-rodrigo-enmanuel-pedrozo-garcete-9",
         "429912-vicente-scavone-cia-comercial-e-industrial-sa-7"
       ],
-      "fecha_apertura_real": "2023-08-21",
+      "enriquecido": true,
+      "monto_adjudicado": 1436049750,
+      "monto_adjudicado_gs": 1436049750,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 3424917000,
       "proveedores_montos": [
         {
@@ -20199,10 +20202,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 1436049750,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 1436049750,
-      "enriquecido": true
+      "fecha_apertura_real": "2023-08-21"
     },
     "ocds-03ad3f-424093-1": {
       "ocid": "ocds-03ad3f-424093-1",
