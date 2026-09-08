@@ -2504,7 +2504,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Medicamentos y Productos Farmaceuticos",
       "fecha_publicacion": "2025-10-09",
-      "fecha_apertura_ofertas": "2026-09-10",
+      "fecha_apertura_ofertas": "2026-09-21",
       "modalidad": "Subasta a la baja electrónica nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -17906,7 +17906,10 @@
       "award_ids": [
         "1f0b4ccf-836c-6ede-86dc-21abed3b8b37"
       ],
-      "fecha_apertura_real": "2025-10-16",
+      "enriquecido": true,
+      "monto_adjudicado": 4284750000,
+      "monto_adjudicado_gs": 4284750000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 4284750000,
       "proveedores_montos": [
         {
@@ -17915,10 +17918,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 4284750000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 4284750000,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-10-16"
     },
     "ocds-03ad3f-472655-1": {
       "ocid": "ocds-03ad3f-472655-1",
@@ -32369,7 +32369,10 @@
       "award_ids": [
         "1f0fac9a-db9e-672c-950b-b5fc49268377"
       ],
-      "fecha_apertura_real": "2025-12-29",
+      "enriquecido": true,
+      "monto_adjudicado": 110203896,
+      "monto_adjudicado_gs": 110203896,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 96670080,
       "proveedores_montos": [
         {
@@ -32378,10 +32381,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 110203896,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 110203896,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-12-29"
     },
     "ocds-03ad3f-475759-1": {
       "ocid": "ocds-03ad3f-475759-1",
@@ -36409,7 +36409,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Equipos Accesorios y Suministros Medicos",
       "fecha_publicacion": "2025-09-09",
-      "fecha_apertura_ofertas": "2026-09-09",
+      "fecha_apertura_ofertas": "2026-09-18",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -36431,7 +36431,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Equipos Accesorios y Suministros Medicos",
       "fecha_publicacion": "2025-09-25",
-      "fecha_apertura_ofertas": "2026-09-09",
+      "fecha_apertura_ofertas": "2026-09-18",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -36453,7 +36453,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Equipos Accesorios y Suministros Medicos",
       "fecha_publicacion": "2025-09-26",
-      "fecha_apertura_ofertas": "2026-09-09",
+      "fecha_apertura_ofertas": "2026-09-18",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -36475,7 +36475,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Equipos Accesorios y Suministros Medicos",
       "fecha_publicacion": "2025-09-27",
-      "fecha_apertura_ofertas": "2026-09-09",
+      "fecha_apertura_ofertas": "2026-09-18",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -73744,7 +73744,10 @@
       "award_ids": [
         "1f03a2a2-758e-6328-b3ef-ebb4e1fc19a8"
       ],
-      "fecha_apertura_real": "2025-05-06",
+      "enriquecido": true,
+      "monto_adjudicado": 35357440,
+      "monto_adjudicado_gs": 35357440,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 58000000,
       "proveedores_montos": [
         {
@@ -73753,10 +73756,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 35357440,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 35357440,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-05-06"
     },
     "ocds-03ad3f-469145-1": {
       "ocid": "ocds-03ad3f-469145-1",
@@ -204717,23 +204717,25 @@
       "tender_id_completo": "1f087239-54ff-6c7c-8604-bb384cac8499",
       "nombre_licitacion": "ADQUISICION DE DETECTOR DE EXPLOSIVOS Y NARCOTICOS PARA LA DINAC",
       "convocante": "Dirección Nacional de Aeronáutica Civil (DINAC)",
-      "estado": "En Evaluacion (Cerrada)",
+      "estado": "Adjudicada",
       "categoria": "Bienes - Equipos y Suministros de Defensa Orden Publico, Proteccion y Seguridad",
       "fecha_publicacion": "2025-09-19",
       "fecha_apertura_ofertas": "2025-12-12",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 1,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "NETLOGIC S.R.L.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f087239-54ff-6c7c-8604-bb384cac8499.html",
-      "award_ids": [],
-      "fecha_apertura_real": "2025-12-12",
-      "monto_estimado": 1582866667,
-      "proveedores_montos": [],
+      "award_ids": [
+        "1f19bc05-63dc-6f2a-a21c-3ff653794f0b"
+      ],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 1582866667,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2025-12-12"
     },
     "ocds-03ad3f-468819-1": {
       "ocid": "ocds-03ad3f-468819-1",
