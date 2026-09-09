@@ -109701,7 +109701,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f19fe26-39b8-67ae-907d-316abb2f9305.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2026-09-21",
+      "monto_estimado": 400000000,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-484027-1": {
       "ocid": "ocds-03ad3f-484027-1",
@@ -109718,7 +109725,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f19a2cb-2eff-65c6-8b20-33f5729dc8e1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2026-09-21",
+      "monto_estimado": 329520000,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-481079-1": {
       "ocid": "ocds-03ad3f-481079-1",
@@ -109738,7 +109752,25 @@
       "award_ids": [
         "1f197efb-1ee0-6102-9b27-d9346b6387d7",
         "1f197efe-0092-677e-a5b8-41ab44b9ec10"
-      ]
+      ],
+      "fecha_apertura_real": "2026-07-30",
+      "monto_estimado": 15080000,
+      "proveedores_montos": [
+        {
+          "nombre": "EMPORIO FERRETERIA S.R.L.",
+          "monto": 3717330,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "INVERSA E.A.S",
+          "monto": 10494000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 14211330,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 14211330,
+      "enriquecido": true
     },
     "ocds-03ad3f-490833-1": {
       "ocid": "ocds-03ad3f-490833-1",
@@ -109755,7 +109787,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f17c69e-423f-64a2-98e9-b94188c8ae69.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2026-09-22",
+      "monto_estimado": 200000000,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-485357-1": {
       "ocid": "ocds-03ad3f-485357-1",
@@ -109772,7 +109811,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f19e2ca-38d8-6d38-b9cd-91343302a697.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2026-09-25",
+      "monto_estimado": 3033557109,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-482690-1": {
       "ocid": "ocds-03ad3f-482690-1",
@@ -109791,7 +109837,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f11d75c-7f43-6cae-b6a1-b1e19f940256.html",
       "award_ids": [
         "1f196345-743c-651e-8277-f394ea3c080c"
-      ]
+      ],
+      "fecha_apertura_real": "2026-08-03",
+      "monto_estimado": 500000000,
+      "proveedores_montos": [
+        {
+          "nombre": "TSV DEL PARAGUAY S.R.L.",
+          "monto": 500000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 500000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 500000000,
+      "enriquecido": true
     }
   }
 }
