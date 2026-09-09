@@ -1,7 +1,7 @@
 {
   "anio": "2026",
   "last_updated": "2026-09-09",
-  "total": 4097,
+  "total": 4098,
   "procesos": {
     "ocds-03ad3f-483383-1": {
       "ocid": "ocds-03ad3f-483383-1",
@@ -15904,7 +15904,7 @@
       "fecha_apertura_ofertas": "2026-07-01",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 1,
-      "cantidad_contratos": 0,
+      "cantidad_contratos": 1,
       "proveedores_adjudicados": "EMPORIO FERRETERIA S.R.L.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f14e116-2ccc-6996-bfbc-63a637a0335a.html",
       "award_ids": [
@@ -86590,16 +86590,18 @@
       "tender_id_completo": "1f160cd0-3190-6d88-a85e-5d35d16da822",
       "nombre_licitacion": "LICITACION DE MENOR CUANTIA N°14/2026 PARA LA CONSTRUCCION DE CENTRO SOCIAL Y DEPORTIVO MUNICIPAL EN YACUI MINI-LLAMADO PLURIANUAL",
       "convocante": "Municipalidad de Mayor Otaño",
-      "estado": "En Convocatoria (Abierta)",
+      "estado": "Adjudicada",
       "categoria": "Obras - Servicios de Construccion y Mantenimiento",
       "fecha_publicacion": "2026-08-19",
       "fecha_apertura_ofertas": "2026-09-02",
       "modalidad": "Menor cuantía nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 1,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "GUSTAVO ANTONIO VILLALBA GIMENEZ",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f160cd0-3190-6d88-a85e-5d35d16da822.html",
-      "award_ids": [],
+      "award_ids": [
+        "1f1a6df2-a15c-6108-bede-0d15ed3fb404"
+      ],
       "enriquecido": true,
       "monto_adjudicado": null,
       "monto_estimado": 361251014,
@@ -101821,7 +101823,7 @@
       "fecha_apertura_ofertas": "2026-07-21",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 2,
-      "cantidad_contratos": 0,
+      "cantidad_contratos": 1,
       "proveedores_adjudicados": "DATA SYSTEMS SA EMISORA DE CAPITAL ABIERTO, PARAGUAY INSUMOS .COM S.A",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1487f5-faad-654c-94ac-b1bd8495637e.html",
       "award_ids": [
@@ -109651,6 +109653,23 @@
         }
       ],
       "fecha_apertura_real": "2026-07-16"
+    },
+    "ocds-03ad3f-487739-1": {
+      "ocid": "ocds-03ad3f-487739-1",
+      "id_llamado": "487739",
+      "tender_id_completo": "1f1a5394-36f5-6080-9115-8362f450ff9d",
+      "nombre_licitacion": "ADQUISICION DE HILADOS Y TELAS PARA USO DENTRO DE LOS SERVICIOS DE SALUD DEPENDIENTES DE LA OCTAVA REGION SANITARIA MISIONES",
+      "convocante": "Ministerio de Salud Pública y Bienestar Social (MSPBS)",
+      "estado": "En Convocatoria (Abierta)",
+      "categoria": "Bienes - Materiales de Minerales y Tejidos y de Plantas y Animales no Comestibles",
+      "fecha_publicacion": "2026-09-09",
+      "fecha_apertura_ofertas": "2026-09-25",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 0,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1a5394-36f5-6080-9115-8362f450ff9d.html",
+      "award_ids": []
     }
   }
 }
