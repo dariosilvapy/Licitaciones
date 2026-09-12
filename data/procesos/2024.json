@@ -1,6 +1,6 @@
 {
   "anio": "2024",
-  "last_updated": "2026-09-11",
+  "last_updated": "2026-09-12",
   "total": 9013,
   "procesos": {
     "ocds-03ad3f-452230": {
@@ -12538,7 +12538,10 @@
       "award_ids": [
         "438798-automotive-sa-importadora-exportadora-1"
       ],
-      "fecha_apertura_real": "2024-04-25",
+      "enriquecido": true,
+      "monto_adjudicado": 300000000,
+      "monto_adjudicado_gs": 300000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 300000000,
       "proveedores_montos": [
         {
@@ -12547,10 +12550,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 300000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 300000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-04-25"
     },
     "ocds-03ad3f-448080-1": {
       "ocid": "ocds-03ad3f-448080-1",
