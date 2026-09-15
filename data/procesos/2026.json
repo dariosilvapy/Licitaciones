@@ -1,7 +1,7 @@
 {
   "anio": "2026",
   "last_updated": "2026-09-15",
-  "total": 4371,
+  "total": 4388,
   "procesos": {
     "ocds-03ad3f-483383-1": {
       "ocid": "ocds-03ad3f-483383-1",
@@ -3080,12 +3080,12 @@
       "nombre_licitacion": "PROVISION DE ARTEFACTOS DE ILUMINACION EXTERIOR LED PARA LA PLANTA MAURICIO JOSE TROCHE",
       "convocante": "Petróleos Paraguayos (PETROPAR)",
       "estado": "Adjudicada",
-      "categoria": "Bienes - Suministros componentes y accesorios electricos y de iluminacion",
+      "categoria": "Bienes - Maquinaria y Accesorios para Generacion y Distribucion de Energia",
       "fecha_publicacion": "2026-06-11",
       "fecha_apertura_ofertas": "2026-07-30",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 1,
-      "cantidad_contratos": 0,
+      "cantidad_contratos": 1,
       "proveedores_adjudicados": "TALLER INDUSTRIAL DEL ESTE S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f147c77-04ac-6ea6-aee9-d742e258604b.html",
       "award_ids": [
@@ -6065,7 +6065,7 @@
       "nombre_licitacion": "ADQUISICIÓN DE MATERIALES DE CONSTRUCCIÓN - CONTRATO ABIERTO PLURIANUAL",
       "convocante": "Facultad de Ingenieria / Universidad Nacional de Asunción",
       "estado": "Adjudicada",
-      "categoria": "Bienes - Materiales de Minerales y Tejidos y de Plantas y Animales no Comestibles",
+      "categoria": "Bienes - Productos quimicos incluyendo los bio-quimicos y gases industriales",
       "fecha_publicacion": "2026-06-17",
       "fecha_apertura_ofertas": "2026-07-10",
       "modalidad": "Menor cuantía nacional",
@@ -10766,16 +10766,17 @@
       "fecha_apertura_ofertas": "2026-05-04",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 2,
-      "cantidad_contratos": 0,
+      "cantidad_contratos": 2,
       "proveedores_adjudicados": "Corporation Sekiura S.A.C.E.I, TECHNOMA SAECA",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f087fc4-20c2-66a6-bd5a-19072adcff0f.html",
       "award_ids": [
-        "1f153a01-2bc9-6230-8f5c-853f5723ff82",
-        "1f1539f7-6985-6e20-b9eb-ef56c9b13123"
+        "1f1539f7-6985-6e20-b9eb-ef56c9b13123",
+        "1f153a01-2bc9-6230-8f5c-853f5723ff82"
       ],
       "enriquecido": true,
       "monto_adjudicado": 239267869,
-      "fecha_apertura_real": "2026-05-04",
+      "monto_adjudicado_gs": 239267869,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 249944117,
       "proveedores_montos": [
         {
@@ -10789,8 +10790,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 239267869,
-      "monto_adjudicado_usd": 0
+      "fecha_apertura_real": "2026-05-04"
     },
     "ocds-03ad3f-489738-1": {
       "ocid": "ocds-03ad3f-489738-1",
@@ -32408,7 +32408,7 @@
       "nombre_licitacion": "Contratación de Servicio de Mantenimiento y Reparación de la Aeronave C-212 MAT FAP 2035 HSI de un motor TPE 331-12JR-701C, S/N° P-103067",
       "convocante": "Comando de la Fuerza Aerea Uoc 4 / Ministerio de Defensa Nacional",
       "estado": "Adjudicada",
-      "categoria": "Servicios - Servicios de Gestion Profesionales de Empresa y Administrativos",
+      "categoria": "Servicios - Servicios de Produccion, Fabricacion Industrial y Mantenimientos de maquinarias",
       "fecha_publicacion": "2026-04-07",
       "fecha_apertura_ofertas": "2026-05-26",
       "modalidad": "Licitación pública internacional",
@@ -65904,16 +65904,18 @@
       "tender_id_completo": "1f149383-ad4c-63e0-ab6b-8b1d3f5a1d69",
       "nombre_licitacion": "LMCN Nª 33/2026 CON ID Nª 484651 - FORMULARIO E IMPRESOS - CONTRATO ABIERTO",
       "convocante": "Municipalidad de Luque",
-      "estado": "En Evaluacion (Cerrada)",
+      "estado": "Adjudicada",
       "categoria": "Servicios - Servicios Editoriales  de Diseño, Graficos y de Bellas Artes",
       "fecha_publicacion": "2026-05-13",
       "fecha_apertura_ofertas": "2026-05-22",
       "modalidad": "Menor cuantía nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 1,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "TEOBALDO JOEL CABRERA FLEYTAS",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f149383-ad4c-63e0-ab6b-8b1d3f5a1d69.html",
-      "award_ids": [],
+      "award_ids": [
+        "1f1a2f15-0875-6fb4-bfed-b35770b69911"
+      ],
       "enriquecido": true,
       "monto_adjudicado": null,
       "monto_estimado": 300000000,
@@ -80664,16 +80666,18 @@
       "tender_id_completo": "1f16b121-4036-6388-acf7-ad68958bf8e5",
       "nombre_licitacion": "REPARACIONES EN LA ESCUELA BÁSICA N°1022  VALLE KARE, CENTRO DE EDUCACIÓN BÁSICA PARA PERSONAS JÓVENES Y ADULTAS N°11-267 Y ESCUELA BÁSICA N°246 MAESTRA MARIA CONCEPCIÓN  LEYES DE CHÁVEZ DE ESTE MUNICIPIO",
       "convocante": "Municipalidad de Itaugua",
-      "estado": "En Convocatoria (Abierta)",
+      "estado": "Adjudicada",
       "categoria": "Obras - Servicios de Construccion y Mantenimiento",
       "fecha_publicacion": "2026-08-06",
       "fecha_apertura_ofertas": "2026-08-31",
       "modalidad": "Menor cuantía nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 1,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "ALAM EDUARDO IRIGOITIA PENAYO",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f16b121-4036-6388-acf7-ad68958bf8e5.html",
-      "award_ids": [],
+      "award_ids": [
+        "1f1a54b8-f386-638c-940a-f9f53cbb6273"
+      ],
       "enriquecido": true,
       "monto_adjudicado": null,
       "monto_estimado": 544586900,
@@ -82997,16 +83001,18 @@
       "tender_id_completo": "1f1919df-93c2-67b2-84b3-55b77463c998",
       "nombre_licitacion": "Construcción de camineros para la Plaza la Conquista Barrio N° 4",
       "convocante": "Municipalidad de Pirayú",
-      "estado": "En Convocatoria (Abierta)",
-      "categoria": "Obras - Servicios de Construccion y Mantenimiento",
+      "estado": "Adjudicada",
+      "categoria": "Obras - Servicios de Contratacion Agricola Pesquera, Forestal y de Fauna",
       "fecha_publicacion": "2026-08-17",
       "fecha_apertura_ofertas": "2026-08-27",
       "modalidad": "Menor cuantía nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 1,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "CRISTIAN RAFAEL SOTELO ESTIGARRIBIA",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1919df-93c2-67b2-84b3-55b77463c998.html",
-      "award_ids": [],
+      "award_ids": [
+        "1f1a6c6d-c85f-6146-afb8-bd77482da0f2"
+      ],
       "enriquecido": true,
       "monto_adjudicado": null,
       "monto_estimado": 298186278,
@@ -83977,7 +83983,7 @@
       "nombre_licitacion": "ADQUISICION DE CONFECCIONES TEXTILES, TELAS Y COLCHONES",
       "convocante": "Policia Nacional / Ministerio del Interior",
       "estado": "Adjudicada",
-      "categoria": "Bienes - Equipos suministros y accesorios deportivos y recreativos",
+      "categoria": "Bienes - Materiales de Minerales y Tejidos y de Plantas y Animales no Comestibles",
       "fecha_publicacion": "2026-07-06",
       "fecha_apertura_ofertas": "2026-07-24",
       "modalidad": "Licitación Pública Nacional",
@@ -84828,7 +84834,7 @@
       "tender_id_completo": "1f131be2-495c-6002-be28-017a3116a5d5",
       "nombre_licitacion": "ADQUISICION DE NAFTA VIRGEN",
       "convocante": "Petróleos Paraguayos (PETROPAR)",
-      "estado": "En Convocatoria (Abierta)",
+      "estado": "En Evaluacion (Cerrada)",
       "categoria": "Bienes - Combustibles Aditivos para combustibles, Lubricantes y Materiales Anticorrosivos",
       "fecha_publicacion": "2026-08-18",
       "fecha_apertura_ofertas": "2026-09-15",
@@ -85037,7 +85043,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Herramientas y Maquinaria en General",
       "fecha_publicacion": "2026-08-18",
-      "fecha_apertura_ofertas": "2026-09-21",
+      "fecha_apertura_ofertas": "2026-09-29",
       "modalidad": "Licitación pública internacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -87612,7 +87618,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Equipo de Laboratorio Medida, Observacion y Comprobacion",
       "fecha_publicacion": "2026-08-19",
-      "fecha_apertura_ofertas": "2026-09-17",
+      "fecha_apertura_ofertas": "2026-09-24",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -91443,15 +91449,15 @@
       "convocante": "",
       "estado": "",
       "categoria": "",
-      "fecha_publicacion": "2026-09-14",
+      "fecha_publicacion": "2026-09-15",
       "fecha_apertura_ofertas": "",
       "modalidad": "",
       "cantidad_adjudicaciones": 1,
       "cantidad_contratos": 1,
-      "proveedores_adjudicados": "NANCY RENEE OREGGIONI  de Ruiz",
+      "proveedores_adjudicados": "IN DESIGN S.R.L.",
       "link": "",
       "award_ids": [
-        "1990-2026-2"
+        "1870-2026-56"
       ],
       "enriquecido": true,
       "enriquecimiento_nota": "sin tender_id_completo"
@@ -91886,7 +91892,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Obras - Servicios de Construccion y Mantenimiento",
       "fecha_publicacion": "2026-08-25",
-      "fecha_apertura_ofertas": "2026-09-22",
+      "fecha_apertura_ofertas": "2026-09-25",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -94851,7 +94857,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Suministros componentes y accesorios electricos y de iluminacion",
       "fecha_publicacion": "2026-08-28",
-      "fecha_apertura_ofertas": "2026-09-17",
+      "fecha_apertura_ofertas": "2026-09-22",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -94979,7 +94985,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Equipo de Laboratorio Medida, Observacion y Comprobacion",
       "fecha_publicacion": "2026-08-28",
-      "fecha_apertura_ofertas": "2026-09-16",
+      "fecha_apertura_ofertas": "2026-09-23",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -98325,7 +98331,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Maquinaria y Accesorios para Generacion y Distribucion de Energia",
       "fecha_publicacion": "2026-08-31",
-      "fecha_apertura_ofertas": "2026-09-25",
+      "fecha_apertura_ofertas": "2026-10-01",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -100606,7 +100612,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Servicios - Servicios de Construccion y Mantenimiento",
       "fecha_publicacion": "2026-09-01",
-      "fecha_apertura_ofertas": "2026-09-16",
+      "fecha_apertura_ofertas": "2026-09-24",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -102123,7 +102129,7 @@
       "tender_id_completo": "1f15dc46-9190-6716-9267-81c04b8279a5",
       "nombre_licitacion": "LMCN MITIC N° 02/2026 SERVICIO DE RASTREO SATELITAL GPS PARA LA FLOTA DE VEHICULOS DEL MITIC - PLURIANUAL AD REFERENDUM",
       "convocante": "Ministerio de Tecnologías de la Información y Comunicación (MITIC)",
-      "estado": "En Convocatoria (Abierta)",
+      "estado": "En Evaluacion (Cerrada)",
       "categoria": "Servicios - Servicios de Defensa Nacional Orden Publico y Seguridad",
       "fecha_publicacion": "2026-09-02",
       "fecha_apertura_ofertas": "2026-09-15",
@@ -102947,7 +102953,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Servicios - Tecnologias de Informacion, Telecomunicaciones y Radiodifusiones",
       "fecha_publicacion": "2026-09-02",
-      "fecha_apertura_ofertas": "2026-09-29",
+      "fecha_apertura_ofertas": "2026-10-05",
       "modalidad": "CVE con difusión previa",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -104499,7 +104505,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Servicios - Servicios Medioambientales",
       "fecha_publicacion": "2026-09-03",
-      "fecha_apertura_ofertas": "2026-09-16",
+      "fecha_apertura_ofertas": "2026-09-30",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -106129,7 +106135,7 @@
       "nombre_licitacion": "Lp2018-26 Adquisición de Máquina de Tratamiento de Aceite",
       "convocante": "Administración Nacional de Electricidad (ANDE)",
       "estado": "En Convocatoria (Abierta)",
-      "categoria": "Bienes - Suministros componentes y accesorios electricos y de iluminacion",
+      "categoria": "Bienes - Sistemas Equipos y Componentes de Distribucion y Acondicionamiento",
       "fecha_publicacion": "2026-09-07",
       "fecha_apertura_ofertas": "2026-10-09",
       "modalidad": "Licitación pública internacional",
@@ -106622,7 +106628,7 @@
       "fecha_apertura_ofertas": "2026-08-12",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 1,
-      "cantidad_contratos": 0,
+      "cantidad_contratos": 1,
       "proveedores_adjudicados": "PROSPER S.R.L.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f173bd3-4652-6cca-935d-6b3cc889e2da.html",
       "award_ids": [
@@ -107365,7 +107371,7 @@
       "nombre_licitacion": "Adquisición de cortinas y silla para dependencias Municipales",
       "convocante": "Municipalidad de Santa Rosa del Monday",
       "estado": "En Convocatoria (Abierta)",
-      "categoria": "Bienes - Muebles y mobiliario",
+      "categoria": "Bienes - Muebles Accesorios, Electrodomesticos y Productos Electronicos de Consumo",
       "fecha_publicacion": "2026-09-07",
       "fecha_apertura_ofertas": "2026-09-21",
       "modalidad": "Menor cuantía nacional",
@@ -110940,7 +110946,7 @@
       "fecha_apertura_ofertas": "2026-07-24",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 1,
-      "cantidad_contratos": 0,
+      "cantidad_contratos": 1,
       "proveedores_adjudicados": "GUSTAVO ADOLFO RODRIGUEZ BENITEZ",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f176e0e-4baf-685e-907e-a95eb8d452bb.html",
       "award_ids": [
@@ -111742,7 +111748,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Equipos Accesorios y Suministros de Oficina",
       "fecha_publicacion": "2026-09-10",
-      "fecha_apertura_ofertas": "2026-09-21",
+      "fecha_apertura_ofertas": "2026-09-24",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -112017,7 +112023,7 @@
       "fecha_apertura_ofertas": "2026-08-07",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 1,
-      "cantidad_contratos": 0,
+      "cantidad_contratos": 1,
       "proveedores_adjudicados": "KATHYA VANESSA IRIGOYEN CENTURION",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f160259-fce6-6c8e-aa73-e5a5f51737b9.html",
       "award_ids": [
@@ -112068,7 +112074,7 @@
       "nombre_licitacion": "REUBICACION DE RACK Y CAMARAS PARA EL HOSPITAL DE TRAUMA",
       "convocante": "Ministerio de Salud Pública y Bienestar Social (MSPBS)",
       "estado": "Adjudicada",
-      "categoria": "Servicios - Servicios basados en ingenieria investigacion y tecnologia",
+      "categoria": "Servicios - Equipo de Laboratorio Medida, Observacion y Comprobacion",
       "fecha_publicacion": "2026-06-26",
       "fecha_apertura_ofertas": "2026-08-06",
       "modalidad": "Menor cuantía nacional",
@@ -112281,7 +112287,7 @@
       "fecha_apertura_ofertas": "2026-07-27",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 1,
-      "cantidad_contratos": 0,
+      "cantidad_contratos": 1,
       "proveedores_adjudicados": "JOSE RODRIGO GIMENEZ VELAZQUEZ",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f16a5c0-2c63-6e12-9cad-51bba1cbe7cb.html",
       "award_ids": [
@@ -113192,7 +113198,7 @@
       "nombre_licitacion": "MANTENIMIENTO Y REPARACIONES MENORES Y MAYORES DE LOS VEHICULOS",
       "convocante": "Secretaria Nacional de Turismo (SENATUR) / Presidencia de la República",
       "estado": "En Convocatoria (Abierta)",
-      "categoria": "Servicios - Vehiculos Comerciales, Militares y Particulares - Accesorios y Componentes",
+      "categoria": "Servicios - Servicios de Transporte Almacenaje y Correo",
       "fecha_publicacion": "2026-09-11",
       "fecha_apertura_ofertas": "2026-09-29",
       "modalidad": "Licitación Pública Nacional",
@@ -116519,13 +116525,13 @@
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f15ab2a-deec-6a5c-a7d0-bd169e17800d.html",
       "award_ids": [],
-      "fecha_apertura_real": "2026-10-05",
-      "monto_estimado": 1000000000,
-      "proveedores_montos": [],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 1000000000,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-10-05"
     },
     "ocds-03ad3f-486783-1": {
       "ocid": "ocds-03ad3f-486783-1",
@@ -116545,7 +116551,10 @@
       "award_ids": [
         "1f1aafd8-fddb-6e2e-8c84-eb96d637b6c9"
       ],
-      "fecha_apertura_real": "2026-08-17",
+      "enriquecido": true,
+      "monto_adjudicado": 4996000000,
+      "monto_adjudicado_gs": 4996000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 4996000000,
       "proveedores_montos": [
         {
@@ -116554,10 +116563,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 4996000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 4996000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2026-08-17"
     },
     "ocds-03ad3f-484364-1": {
       "ocid": "ocds-03ad3f-484364-1",
@@ -116575,13 +116581,13 @@
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f165b13-8eaa-6f3c-8b58-5d1f80dffc38.html",
       "award_ids": [],
-      "fecha_apertura_real": "2026-10-01",
-      "monto_estimado": 271154611,
-      "proveedores_montos": [],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 271154611,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-10-01"
     },
     "ocds-03ad3f-483845-1": {
       "ocid": "ocds-03ad3f-483845-1",
@@ -116599,13 +116605,13 @@
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1a5f38-7751-673c-b4cf-57e8d8ba31e8.html",
       "award_ids": [],
-      "fecha_apertura_real": "2026-10-01",
-      "monto_estimado": 8670382610,
-      "proveedores_montos": [],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 8670382610,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-10-01"
     },
     "ocds-03ad3f-490088-1": {
       "ocid": "ocds-03ad3f-490088-1",
@@ -116625,7 +116631,10 @@
       "award_ids": [
         "1f1a534f-c87a-69e6-9061-cd12011b800f"
       ],
-      "fecha_apertura_real": "2026-08-13",
+      "enriquecido": true,
+      "monto_adjudicado": 1500000000,
+      "monto_adjudicado_gs": 1500000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 1500000000,
       "proveedores_montos": [
         {
@@ -116634,10 +116643,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 1500000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 1500000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2026-08-13"
     },
     "ocds-03ad3f-481551-1": {
       "ocid": "ocds-03ad3f-481551-1",
@@ -116657,7 +116663,10 @@
       "award_ids": [
         "1f1a7c58-4fc8-614c-811f-1f16785f0f0d"
       ],
-      "fecha_apertura_real": "2026-08-13",
+      "enriquecido": true,
+      "monto_adjudicado": 142091500,
+      "monto_adjudicado_gs": 142091500,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 159823995,
       "proveedores_montos": [
         {
@@ -116666,10 +116675,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 142091500,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 142091500,
-      "enriquecido": true
+      "fecha_apertura_real": "2026-08-13"
     },
     "ocds-03ad3f-481305-1": {
       "ocid": "ocds-03ad3f-481305-1",
@@ -116689,7 +116695,10 @@
       "award_ids": [
         "1f1a7a51-72ab-6a3c-a738-cb1efd6460c8"
       ],
-      "fecha_apertura_real": "2026-08-18",
+      "enriquecido": true,
+      "monto_adjudicado": 120000000,
+      "monto_adjudicado_gs": 120000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 120000000,
       "proveedores_montos": [
         {
@@ -116698,10 +116707,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 120000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 120000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2026-08-18"
     },
     "ocds-03ad3f-483052-1": {
       "ocid": "ocds-03ad3f-483052-1",
@@ -116721,7 +116727,10 @@
       "award_ids": [
         "1f1a24cc-46b8-65cc-8c8d-c1c91708c5ca"
       ],
-      "fecha_apertura_real": "2026-07-31",
+      "enriquecido": true,
+      "monto_adjudicado": 717905388,
+      "monto_adjudicado_gs": 717905388,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 717905388,
       "proveedores_montos": [
         {
@@ -116730,10 +116739,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 717905388,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 717905388,
-      "enriquecido": true
+      "fecha_apertura_real": "2026-07-31"
     },
     "ocds-03ad3f-482961-1": {
       "ocid": "ocds-03ad3f-482961-1",
@@ -116753,7 +116759,10 @@
       "award_ids": [
         "1f1950f9-e036-62be-a852-cfa97ac748fe"
       ],
-      "fecha_apertura_real": "2026-07-27",
+      "enriquecido": true,
+      "monto_adjudicado": 20000000,
+      "monto_adjudicado_gs": 20000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 20000000,
       "proveedores_montos": [
         {
@@ -116762,10 +116771,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 20000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 20000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2026-07-27"
     },
     "ocds-03ad3f-485080-1": {
       "ocid": "ocds-03ad3f-485080-1",
@@ -116785,7 +116791,10 @@
       "award_ids": [
         "1f1a241b-87a6-6d2e-b04a-592b44f3c840"
       ],
-      "fecha_apertura_real": "2026-08-13",
+      "enriquecido": true,
+      "monto_adjudicado": 150000000,
+      "monto_adjudicado_gs": 150000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 150000000,
       "proveedores_montos": [
         {
@@ -116794,10 +116803,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 150000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 150000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2026-08-13"
     },
     "ocds-03ad3f-481242-1": {
       "ocid": "ocds-03ad3f-481242-1",
@@ -116817,7 +116823,10 @@
       "award_ids": [
         "1f1a849d-311c-6aac-908c-a592d2370636"
       ],
-      "fecha_apertura_real": "2026-08-17",
+      "enriquecido": true,
+      "monto_adjudicado": 82800000,
+      "monto_adjudicado_gs": 82800000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 175182552,
       "proveedores_montos": [
         {
@@ -116826,10 +116835,329 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 82800000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 82800000,
-      "enriquecido": true
+      "fecha_apertura_real": "2026-08-17"
+    },
+    "ocds-03ad3f-490761-1": {
+      "ocid": "ocds-03ad3f-490761-1",
+      "id_llamado": "490761",
+      "tender_id_completo": "1f17a175-8ff8-6a70-b473-230ee776c616",
+      "nombre_licitacion": "Construcción de Cerco Perimetral en la Esc. Bás. N° 714 Juan Estanislado Giménez",
+      "convocante": "Municipalidad de Mbocayaty del Yhaguy",
+      "estado": "Adjudicada",
+      "categoria": "Obras - Servicios de Construccion y Mantenimiento",
+      "fecha_publicacion": "2026-08-06",
+      "fecha_apertura_ofertas": "2026-08-18",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "NERY PASSI RUMICH AYALA",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f17a175-8ff8-6a70-b473-230ee776c616.html",
+      "award_ids": [
+        "1f1a0152-f85c-6b36-ab15-f1aeabe0f352"
+      ]
+    },
+    "ocds-03ad3f-487475-1": {
+      "ocid": "ocds-03ad3f-487475-1",
+      "id_llamado": "487475",
+      "tender_id_completo": "1f13fe78-1448-65f4-be94-711a903a8d67",
+      "nombre_licitacion": "Servicio de Fotocopiado - Plurianual",
+      "convocante": "Jurado de Enjuiciamiento de Magistrados (JEM)",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Servicios Editoriales  de Diseño, Graficos y de Bellas Artes",
+      "fecha_publicacion": "2026-07-08",
+      "fecha_apertura_ofertas": "2026-07-28",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "DATA SYSTEMS SA EMISORA DE CAPITAL ABIERTO",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f13fe78-1448-65f4-be94-711a903a8d67.html",
+      "award_ids": [
+        "1f19d5eb-4b32-63a8-8253-2b0b7b6e550b"
+      ]
+    },
+    "ocds-03ad3f-487502-1": {
+      "ocid": "ocds-03ad3f-487502-1",
+      "id_llamado": "487502",
+      "tender_id_completo": "1f15366e-0e7c-660a-82df-f7428be96f15",
+      "nombre_licitacion": "Servicio de Cable - Plurianual",
+      "convocante": "Jurado de Enjuiciamiento de Magistrados (JEM)",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Servicios Publicos y Servicios Relacionados con el Sector Publico",
+      "fecha_publicacion": "2026-07-20",
+      "fecha_apertura_ofertas": "2026-07-31",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "TELEFONICA CELULAR DEL PARAGUAY SAE (TELECEL SAE)",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f15366e-0e7c-660a-82df-f7428be96f15.html",
+      "award_ids": [
+        "1f19d607-578d-6834-a22b-0d60993a936d"
+      ]
+    },
+    "ocds-03ad3f-486721-1": {
+      "ocid": "ocds-03ad3f-486721-1",
+      "id_llamado": "486721",
+      "tender_id_completo": "1f179ff7-ed81-6a90-a3c3-e107301e7a80",
+      "nombre_licitacion": "L.M.C.N ADQUISICIÓN DE RECARGA PARA EXTINTORES",
+      "convocante": "Circunscripción Judicial del Dpto. Concepción / Corte Suprema de Justicia",
+      "estado": "Adjudicada",
+      "categoria": "Bienes - Equipos y Suministros de Defensa Orden Publico, Proteccion y Seguridad",
+      "fecha_publicacion": "2026-07-28",
+      "fecha_apertura_ofertas": "2026-08-07",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "FIRE MASTER SRL",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f179ff7-ed81-6a90-a3c3-e107301e7a80.html",
+      "award_ids": [
+        "1f19a330-b9f0-66ca-9684-35fc3098c380"
+      ]
+    },
+    "ocds-03ad3f-477364-1": {
+      "ocid": "ocds-03ad3f-477364-1",
+      "id_llamado": "477364",
+      "tender_id_completo": "1f17ebd2-f8f3-6654-93dc-fb5e82c06523",
+      "nombre_licitacion": "Adquisición de repuestos y accesorios para Aeronaves T-35 PILLAN",
+      "convocante": "Comando de la Fuerza Aerea Uoc 4 / Ministerio de Defensa Nacional",
+      "estado": "Adjudicada",
+      "categoria": "Bienes - Vehiculos Comerciales, Militares y Particulares - Accesorios y Componentes",
+      "fecha_publicacion": "2026-07-30",
+      "fecha_apertura_ofertas": "2026-08-21",
+      "modalidad": "Licitación Pública Nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "SKYWALKER PARTS S.R.L.",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f17ebd2-f8f3-6654-93dc-fb5e82c06523.html",
+      "award_ids": [
+        "1f1ab7ee-7347-6920-83b2-23ba7d3dae88"
+      ]
+    },
+    "ocds-03ad3f-484013-1": {
+      "ocid": "ocds-03ad3f-484013-1",
+      "id_llamado": "484013",
+      "tender_id_completo": "1f14d251-4ced-6a1e-9fb9-cb1124bde70a",
+      "nombre_licitacion": "Adquisición de Tintas y Tóner para las Facultades – Plurianual 2026–2027",
+      "convocante": "Universidad Nacional de Itapúa (UNI)",
+      "estado": "Adjudicada",
+      "categoria": "Bienes - Productos quimicos incluyendo los bio-quimicos y gases industriales",
+      "fecha_publicacion": "2026-07-15",
+      "fecha_apertura_ofertas": "2026-08-04",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "Lourdes Elizabeth Gimenez Bareiro",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f14d251-4ced-6a1e-9fb9-cb1124bde70a.html",
+      "award_ids": [
+        "1f19d7fa-ea6d-6998-9524-8d3ab526fac2"
+      ]
+    },
+    "ocds-03ad3f-491269-1": {
+      "ocid": "ocds-03ad3f-491269-1",
+      "id_llamado": "491269",
+      "tender_id_completo": "1f18a8cd-b56d-6fde-a07d-253c32ad868c",
+      "nombre_licitacion": "Adquisición de Abonos y Fertilizantes",
+      "convocante": "Gobierno Departamental de Itapua (ITAPÚA)",
+      "estado": "Adjudicada",
+      "categoria": "Bienes - Material Accesorios y Suministros de Plantas y Animales Vivos",
+      "fecha_publicacion": "2026-08-11",
+      "fecha_apertura_ofertas": "2026-08-21",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "Alcides Abel Alvarenga Duarte",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f18a8cd-b56d-6fde-a07d-253c32ad868c.html",
+      "award_ids": [
+        "1f1a6107-b9e0-6f14-890c-3b875305fc24"
+      ]
+    },
+    "ocds-03ad3f-480717-1": {
+      "ocid": "ocds-03ad3f-480717-1",
+      "id_llamado": "480717",
+      "tender_id_completo": "1f14965d-8200-6e2a-ad4c-2535c0c78184",
+      "nombre_licitacion": "MANTENIMIENTO  Y REPARACION DE SISTEMAS Y ANTENAS RFID EN TALLERES  DE ITV Y PUESTOS FIJOS DE FISCALIZACION",
+      "convocante": "Direccion Nacional de Transporte (DINATRAN)",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Servicios de Construccion y Mantenimiento",
+      "fecha_publicacion": "2026-07-24",
+      "fecha_apertura_ofertas": "2026-08-13",
+      "modalidad": "Licitación Pública Nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "SOLVER INDUSTRIAL S.R.L.",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f14965d-8200-6e2a-ad4c-2535c0c78184.html",
+      "award_ids": [
+        "1f1a7838-9d83-6b80-8d76-1f2d64638ef9"
+      ]
+    },
+    "ocds-03ad3f-481584-1": {
+      "ocid": "ocds-03ad3f-481584-1",
+      "id_llamado": "481584",
+      "tender_id_completo": "1f16b25c-7c9e-6532-94ee-79b88fec26ee",
+      "nombre_licitacion": "Adquisición de Productos Alimenticios para la Escuela Carlos Antonio López y el Centro de Mecanización Agrícola (CEMA)-Plurianual",
+      "convocante": "Gobierno Departamental de Itapua (ITAPÚA)",
+      "estado": "Adjudicada",
+      "categoria": "Bienes - Alimentos Bebidas y Tabaco",
+      "fecha_publicacion": "2026-07-16",
+      "fecha_apertura_ofertas": "2026-08-07",
+      "modalidad": "Licitación Pública Nacional",
+      "cantidad_adjudicaciones": 3,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "GRUPO CANGURO S.A., SANDRA BEATRIZ VIVEROS FERREIRA, The Royal Duck S.A.",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f16b25c-7c9e-6532-94ee-79b88fec26ee.html",
+      "award_ids": [
+        "1f19fd10-ea11-61e4-91b5-c79203072e99",
+        "1f19fd1f-b9df-6cc8-b9b3-11f2de51ca28",
+        "1f19fd29-1e57-6918-9a97-0b7b613ef070"
+      ]
+    },
+    "ocds-03ad3f-492549-1": {
+      "ocid": "ocds-03ad3f-492549-1",
+      "id_llamado": "492549",
+      "tender_id_completo": "1f1a84d4-c75b-6950-bc19-41232daebc86",
+      "nombre_licitacion": "ADQUISICION DE CUBIERTAS PARA LAS MAQUINARIAS DE LA MUNICIPALIDAD DE PIRAPO. -",
+      "convocante": "Municipalidad de Pirapó",
+      "estado": "En Convocatoria (Abierta)",
+      "categoria": "Bienes - Vehiculos Comerciales, Militares y Particulares - Accesorios y Componentes",
+      "fecha_publicacion": "2026-09-15",
+      "fecha_apertura_ofertas": "2026-09-25",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 0,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1a84d4-c75b-6950-bc19-41232daebc86.html",
+      "award_ids": []
+    },
+    "ocds-03ad3f-492660-1": {
+      "ocid": "ocds-03ad3f-492660-1",
+      "id_llamado": "492660",
+      "tender_id_completo": "1f1ab007-0c54-6e14-95ac-e9c5e5cdbd9e",
+      "nombre_licitacion": "MEJORAMIENTO VIAL DE CAMINOS VECINALES DE VILLA YGATIMI",
+      "convocante": "Municipalidad de Villa Ygatimí",
+      "estado": "En Convocatoria (Abierta)",
+      "categoria": "Obras - Servicios de Construccion y Mantenimiento",
+      "fecha_publicacion": "2026-09-15",
+      "fecha_apertura_ofertas": "2026-09-25",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 0,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1ab007-0c54-6e14-95ac-e9c5e5cdbd9e.html",
+      "award_ids": []
+    },
+    "ocds-03ad3f-487265-1": {
+      "ocid": "ocds-03ad3f-487265-1",
+      "id_llamado": "487265",
+      "tender_id_completo": "1f12d582-86ee-6a1a-a507-cd647f9efa4d",
+      "nombre_licitacion": "Adquisicion De Ripios Para Varias Calles Del Municipio",
+      "convocante": "Municipalidad de San Antonio",
+      "estado": "Adjudicada",
+      "categoria": "Bienes - Materiales de Minerales y Tejidos y de Plantas y Animales no Comestibles",
+      "fecha_publicacion": "2026-07-09",
+      "fecha_apertura_ofertas": "2026-07-23",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "CONSTRUC TECH EAS UNIPERSONAL",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f12d582-86ee-6a1a-a507-cd647f9efa4d.html",
+      "award_ids": [
+        "1f19665a-95f5-6012-9c65-a1943dfeb3d6"
+      ]
+    },
+    "ocds-03ad3f-486692-1": {
+      "ocid": "ocds-03ad3f-486692-1",
+      "id_llamado": "486692",
+      "tender_id_completo": "1f17b910-d8ad-6ee8-b402-65d67ce180eb",
+      "nombre_licitacion": "ADQUISICION DE RIPIO - EJERCICIO FISCAL 2026",
+      "convocante": "Gobierno Departamental de Amambay (AMAMBAY)",
+      "estado": "Adjudicada",
+      "categoria": "Bienes - Materiales de Minerales y Tejidos y de Plantas y Animales no Comestibles",
+      "fecha_publicacion": "2026-07-27",
+      "fecha_apertura_ofertas": "2026-08-13",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "Oscar Augusto Aveiro Ruiz",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f17b910-d8ad-6ee8-b402-65d67ce180eb.html",
+      "award_ids": [
+        "1f19bd0d-e627-6422-bd24-43b7df3fdc27"
+      ]
+    },
+    "ocds-03ad3f-491066-1": {
+      "ocid": "ocds-03ad3f-491066-1",
+      "id_llamado": "491066",
+      "tender_id_completo": "1f1844b4-99c6-6420-b0c5-cddcc9dbd319",
+      "nombre_licitacion": "DEMARCACIÓN VIAL EN VARIOS SECTORES DE LA CIUDAD DE ENCARNACIÓN - CONTRATO ABIERTO",
+      "convocante": "Municipalidad de Encarnación",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Servicios de Construccion y Mantenimiento",
+      "fecha_publicacion": "2026-08-04",
+      "fecha_apertura_ofertas": "2026-08-14",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "GERARDO ROLANDO AREVALOS DUARTE",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1844b4-99c6-6420-b0c5-cddcc9dbd319.html",
+      "award_ids": [
+        "1f1a6dc2-e302-6718-b585-13af32261463"
+      ]
+    },
+    "ocds-03ad3f-481304-1": {
+      "ocid": "ocds-03ad3f-481304-1",
+      "id_llamado": "481304",
+      "tender_id_completo": "1f17ebd5-8694-6dda-967e-01b9eede1650",
+      "nombre_licitacion": "MANTENIMIENTO PREVENTIVO Y CORRECTIVO DE GENERADORES",
+      "convocante": "Comisión Nacional de Telecomunicaciones (CONATEL)",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Servicios de Construccion y Mantenimiento",
+      "fecha_publicacion": "2026-07-22",
+      "fecha_apertura_ofertas": "2026-08-13",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "DIEGO JOAQUIN RODRIGUEZ BARRIOS",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f17ebd5-8694-6dda-967e-01b9eede1650.html",
+      "award_ids": [
+        "1f1a7ce9-aafd-6148-8edf-d15ebb2b6d29"
+      ]
+    },
+    "ocds-03ad3f-486766-1": {
+      "ocid": "ocds-03ad3f-486766-1",
+      "id_llamado": "486766",
+      "tender_id_completo": "1f158596-aec5-6b9e-9484-4f23e6e358c1",
+      "nombre_licitacion": "ADQUISICION DE TINTAS Y TONER",
+      "convocante": "Ministerio de la Mujer (MM)",
+      "estado": "Adjudicada",
+      "categoria": "Bienes - Equipos Accesorios y Suministros de Oficina",
+      "fecha_publicacion": "2026-07-20",
+      "fecha_apertura_ofertas": "2026-08-13",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 2,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "DATA SYSTEMS SA EMISORA DE CAPITAL ABIERTO, OFFICE COMPU SA",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f158596-aec5-6b9e-9484-4f23e6e358c1.html",
+      "award_ids": [
+        "1f1a547d-b1e6-667e-8783-85f463b4ac74",
+        "1f1a5493-4786-6e9e-8f33-add6f76f1694"
+      ]
+    },
+    "ocds-03ad3f-481747-1": {
+      "ocid": "ocds-03ad3f-481747-1",
+      "id_llamado": "481747",
+      "tender_id_completo": "1f155469-b0ae-62d4-ae84-7377eb2d416e",
+      "nombre_licitacion": "SERVICIO DE CERRAJERIA",
+      "convocante": "Comisión Nacional de Telecomunicaciones (CONATEL)",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Servicios de Construccion y Mantenimiento",
+      "fecha_publicacion": "2026-07-14",
+      "fecha_apertura_ofertas": "2026-07-27",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "Rodney Adrian Caceres Villordo",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f155469-b0ae-62d4-ae84-7377eb2d416e.html",
+      "award_ids": [
+        "1f19fd31-a048-6078-bfd0-b55c7b063c0a"
+      ]
     }
   }
 }
