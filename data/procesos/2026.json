@@ -1,7 +1,7 @@
 {
   "anio": "2026",
   "last_updated": "2026-09-15",
-  "total": 4365,
+  "total": 4371,
   "procesos": {
     "ocds-03ad3f-483383-1": {
       "ocid": "ocds-03ad3f-483383-1",
@@ -21125,8 +21125,8 @@
       "proveedores_adjudicados": "J.P. REPRESENTACIONES S.A., MARIA JULIA PLANAS GOMEZ DE BENITEZ",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f14a208-5016-6f02-a599-138654f544b4.html",
       "award_ids": [
-        "1f17a1a0-b8d1-6958-a566-cde3608d0b0d",
-        "1f17a189-2d54-6f36-8dfe-63c8357c8a2d"
+        "1f17a189-2d54-6f36-8dfe-63c8357c8a2d",
+        "1f17a1a0-b8d1-6958-a566-cde3608d0b0d"
       ],
       "enriquecido": true,
       "monto_adjudicado": null,
@@ -67171,21 +67171,23 @@
       "tender_id_completo": "1f1431f2-b203-6d68-9334-33a56016b5ab",
       "nombre_licitacion": "SERVICIO DE AUDITORIA EXTERNA E IMPOSITIVA - EJERCICIO FISCAL 2025",
       "convocante": "Compañía Paraguaya de Comunicaciones (COPACO)",
-      "estado": "En Evaluacion (Cerrada)",
+      "estado": "Adjudicada",
       "categoria": "Consultoria - Servicios Financieros y de Seguros",
       "fecha_publicacion": "2026-05-12",
       "fecha_apertura_ofertas": "2026-05-25",
       "modalidad": "Menor cuantía nacional",
-      "cantidad_adjudicaciones": 1,
+      "cantidad_adjudicaciones": 2,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "ARNALDO MARTIN JARA ALVARENGA",
+      "proveedores_adjudicados": "ARNALDO MARTIN JARA ALVARENGA, PCG AUDITORES CONSULTORES  ",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1431f2-b203-6d68-9334-33a56016b5ab.html",
       "award_ids": [
-        "1f11c97c-4a09-61b2-bef2-c1e81ed6a680"
+        "1f11c97c-4a09-61b2-bef2-c1e81ed6a680",
+        "1f16b377-3024-67f8-8056-672fbcd29682"
       ],
       "enriquecido": true,
       "monto_adjudicado": 59466667,
-      "fecha_apertura_real": "2026-05-25",
+      "monto_adjudicado_gs": 59466667,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 59466667,
       "proveedores_montos": [
         {
@@ -67194,8 +67196,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 59466667,
-      "monto_adjudicado_usd": 0
+      "fecha_apertura_real": "2026-05-25"
     },
     "ocds-03ad3f-481550-1": {
       "ocid": "ocds-03ad3f-481550-1",
@@ -87655,7 +87656,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Servicios - Servicios Politicos y de Asuntos Civicos",
       "fecha_publicacion": "2026-08-20",
-      "fecha_apertura_ofertas": "2026-10-01",
+      "fecha_apertura_ofertas": "2026-10-15",
       "modalidad": "Licitación pública internacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -100151,7 +100152,7 @@
       "tender_id_completo": "1f185392-eb7c-6318-b569-cf461a13a239",
       "nombre_licitacion": "LPN SBE N° 05 2026 - ADQUISICION DE EQUIPOS, HERRAMIENTAS E INSUMOS PARA EL CENTRO NACIONAL DE PREVENIDOS",
       "convocante": "Ministerio de Justicia  (MJ)",
-      "estado": "En Convocatoria (Abierta)",
+      "estado": "En Evaluacion (Cerrada)",
       "categoria": "Bienes - Maquinaria Equipo y Suministros para la Industria de Servicios",
       "fecha_publicacion": "2026-09-01",
       "fecha_apertura_ofertas": "2026-09-15",
@@ -104330,7 +104331,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Alimentos Bebidas y Tabaco",
       "fecha_publicacion": "2026-09-03",
-      "fecha_apertura_ofertas": "2026-09-15",
+      "fecha_apertura_ofertas": "2026-09-22",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -110080,7 +110081,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Vehiculos Comerciales, Militares y Particulares - Accesorios y Componentes",
       "fecha_publicacion": "2026-09-09",
-      "fecha_apertura_ofertas": "2026-09-21",
+      "fecha_apertura_ofertas": "2026-09-30",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -116589,6 +116590,120 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f15e68a-4eff-652a-b0b6-6997ba211099.html",
       "award_ids": [
         "1f1a534f-c87a-69e6-9061-cd12011b800f"
+      ]
+    },
+    "ocds-03ad3f-481551-1": {
+      "ocid": "ocds-03ad3f-481551-1",
+      "id_llamado": "481551",
+      "tender_id_completo": "1f17c7d9-4b15-68b0-b03b-ab4a05f7240c",
+      "nombre_licitacion": "ADQUISICION DE CUBIERTAS PARA AUTOMOVILES Y CAMIONETAS DE LA INSTITUCION",
+      "convocante": "Comisión Nacional de Telecomunicaciones (CONATEL)",
+      "estado": "Adjudicada",
+      "categoria": "Bienes - Vehiculos Comerciales, Militares y Particulares - Accesorios y Componentes",
+      "fecha_publicacion": "2026-07-31",
+      "fecha_apertura_ofertas": "2026-08-13",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "F.S.D.J. SOCIEDAD ANONIMA",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f17c7d9-4b15-68b0-b03b-ab4a05f7240c.html",
+      "award_ids": [
+        "1f1a7c58-4fc8-614c-811f-1f16785f0f0d"
+      ]
+    },
+    "ocds-03ad3f-481305-1": {
+      "ocid": "ocds-03ad3f-481305-1",
+      "id_llamado": "481305",
+      "tender_id_completo": "1f17eaef-d98c-62fe-a064-2337e8d0e86a",
+      "nombre_licitacion": "RECARGA DE EXTINTORES",
+      "convocante": "Contraloría General de la República (C.G.R.)",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Equipos y Suministros de Defensa Orden Publico, Proteccion y Seguridad",
+      "fecha_publicacion": "2026-08-04",
+      "fecha_apertura_ofertas": "2026-08-18",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "FIRE MASTER SRL",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f17eaef-d98c-62fe-a064-2337e8d0e86a.html",
+      "award_ids": [
+        "1f1a7a51-72ab-6a3c-a738-cb1efd6460c8"
+      ]
+    },
+    "ocds-03ad3f-483052-1": {
+      "ocid": "ocds-03ad3f-483052-1",
+      "id_llamado": "483052",
+      "tender_id_completo": "1f12f752-28bd-6bde-8d0d-fff11a04584b",
+      "nombre_licitacion": "SERVICIO DE SEGURIDAD SD-WAN",
+      "convocante": "Ministerio de Industria y Comercio (MIC)",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Servicios basados en ingenieria investigacion y tecnologia",
+      "fecha_publicacion": "2026-07-14",
+      "fecha_apertura_ofertas": "2026-07-31",
+      "modalidad": "Licitación Pública Nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "TELEFONICA CELULAR DEL PARAGUAY SAE (TELECEL SAE)",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f12f752-28bd-6bde-8d0d-fff11a04584b.html",
+      "award_ids": [
+        "1f1a24cc-46b8-65cc-8c8d-c1c91708c5ca"
+      ]
+    },
+    "ocds-03ad3f-482961-1": {
+      "ocid": "ocds-03ad3f-482961-1",
+      "id_llamado": "482961",
+      "tender_id_completo": "1f159f50-9ee7-61e0-81ce-f531ce0e0471",
+      "nombre_licitacion": "MANTENIMIENTO Y REPARACIÓN DE GENERADOR ELÉCTRICO",
+      "convocante": "Auditoria General del Poder Ejecutivo (AGPE) / Presidencia de la República",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Servicios de Construccion y Mantenimiento",
+      "fecha_publicacion": "2026-07-14",
+      "fecha_apertura_ofertas": "2026-07-27",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "NERI JAVIER CABALLERO PAEZ",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f159f50-9ee7-61e0-81ce-f531ce0e0471.html",
+      "award_ids": [
+        "1f1950f9-e036-62be-a852-cfa97ac748fe"
+      ]
+    },
+    "ocds-03ad3f-485080-1": {
+      "ocid": "ocds-03ad3f-485080-1",
+      "id_llamado": "485080",
+      "tender_id_completo": "1f14d3ea-6ca7-6644-b327-c5c414ac8d82",
+      "nombre_licitacion": "MCN N° 05/ 2026 - ADQUISICION DE KIT DE MANTENIMIENTO PARA IMPRESORAS",
+      "convocante": "Crédito Agrícola de Habilitación (CAH)",
+      "estado": "Adjudicada",
+      "categoria": "Bienes - Equipos Accesorios y Suministros de Oficina",
+      "fecha_publicacion": "2026-07-20",
+      "fecha_apertura_ofertas": "2026-08-13",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "ALTERNATIVA S.A.",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f14d3ea-6ca7-6644-b327-c5c414ac8d82.html",
+      "award_ids": [
+        "1f1a241b-87a6-6d2e-b04a-592b44f3c840"
+      ]
+    },
+    "ocds-03ad3f-481242-1": {
+      "ocid": "ocds-03ad3f-481242-1",
+      "id_llamado": "481242",
+      "tender_id_completo": "1f17ec02-2b62-608e-8cdd-c7077bf5048e",
+      "nombre_licitacion": "SERVICIO DE FUMIGACION",
+      "convocante": "Comisión Nacional de Telecomunicaciones (CONATEL)",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Servicios de Construccion y Mantenimiento",
+      "fecha_publicacion": "2026-07-29",
+      "fecha_apertura_ofertas": "2026-08-17",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "FUMIPRO S.A ",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f17ec02-2b62-608e-8cdd-c7077bf5048e.html",
+      "award_ids": [
+        "1f1a849d-311c-6aac-908c-a592d2370636"
       ]
     }
   }
