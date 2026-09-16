@@ -118,38 +118,75 @@ def enviar_novedades_telegram(telegram_token, telegram_chat_id, novedades):
 # Email
 # ---------------------------------------------------------------------------
 
-def formatear_fila_html(proceso: dict) -> str:
+MAX_ITEMS_POR_EMAIL = 15  # limite de items a listar por licitacion, para que el correo no quede gigante
+
+
+def formatear_items_html(items: list) -> str:
+    if not items:
+        return "<p style='color:#888;font-size:13px;margin:6px 0 0;'>No se pudieron obtener los ítems (o la licitación todavía no los tiene cargados).</p>"
+
+    filas = ""
+    for item in items[:MAX_ITEMS_POR_EMAIL]:
+        descripcion = item.get("description") or "(sin descripción)"
+        cantidad = item.get("quantity")
+        unidad = (item.get("unit") or {}).get("name") or ""
+        precio_unit = ((item.get("unit") or {}).get("value") or {}).get("amount")
+        moneda = ((item.get("unit") or {}).get("value") or {}).get("currency") or ""
+        cantidad_txt = f"{cantidad:,}".replace(",", ".") if isinstance(cantidad, (int, float)) else "—"
+        precio_txt = f"{moneda} {precio_unit:,}".replace(",", ".") if isinstance(precio_unit, (int, float)) else "—"
+        filas += (
+            "<tr>"
+            f"<td style='padding:6px 8px;border-bottom:1px solid #f0f0f0;font-size:13px;'>{descripcion}</td>"
+            f"<td style='padding:6px 8px;border-bottom:1px solid #f0f0f0;font-size:13px;'>{cantidad_txt} {unidad}</td>"
+            f"<td style='padding:6px 8px;border-bottom:1px solid #f0f0f0;font-size:13px;'>{precio_txt}</td>"
+            "</tr>"
+        )
+
+    nota_extra = ""
+    if len(items) > MAX_ITEMS_POR_EMAIL:
+        nota_extra = f"<p style='color:#888;font-size:12px;margin:6px 0 0;'>...y {len(items) - MAX_ITEMS_POR_EMAIL} ítem(s) más (ver el link para el detalle completo).</p>"
+
+    return f"""
+    <table style="border-collapse:collapse;width:100%;margin-top:6px;">
+      <thead><tr style="background:#fafafa;text-align:left;">
+        <th style="padding:6px 8px;font-size:12px;color:#666;">Ítem</th>
+        <th style="padding:6px 8px;font-size:12px;color:#666;">Cantidad</th>
+        <th style="padding:6px 8px;font-size:12px;color:#666;">Precio ref. unitario</th>
+      </tr></thead>
+      <tbody>{filas}</tbody>
+    </table>
+    {nota_extra}
+    """
+
+
+def formatear_tarjeta_html(proceso: dict) -> str:
     nombre = proceso.get("nombre_licitacion") or "(sin nombre)"
     convocante = proceso.get("convocante") or "(sin convocante)"
     id_llamado = proceso.get("id_llamado") or "?"
     categoria = proceso.get("categoria") or ""
     link = proceso.get("link") or ""
-    link_html = f'<a href="{link}">Ver publicación ↗</a>' if link else "—"
-    return (
-        "<tr>"
-        f"<td style='padding:8px;border-bottom:1px solid #eee;'>{id_llamado}</td>"
-        f"<td style='padding:8px;border-bottom:1px solid #eee;'>{nombre}</td>"
-        f"<td style='padding:8px;border-bottom:1px solid #eee;'>{convocante}</td>"
-        f"<td style='padding:8px;border-bottom:1px solid #eee;'>{categoria}</td>"
-        f"<td style='padding:8px;border-bottom:1px solid #eee;'>{link_html}</td>"
-        "</tr>"
-    )
+    link_html = f'<a href="{link}">Ver publicación completa ↗</a>' if link else ""
+    items_html = formatear_items_html(proceso.get("_items", []))
+
+    return f"""
+    <div style="border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px;">
+      <div style="font-size:11px;color:#888;text-transform:uppercase;">ID {id_llamado}</div>
+      <div style="font-size:15px;font-weight:600;margin:2px 0 6px;">{nombre}</div>
+      <div style="font-size:13px;color:#444;">Convocante: {convocante}</div>
+      <div style="font-size:13px;color:#444;">Categoría: {categoria}</div>
+      {items_html}
+      <div style="margin-top:8px;">{link_html}</div>
+    </div>
+    """
 
 
 def armar_email_html(procesos: list) -> str:
-    filas = "".join(formatear_fila_html(p) for p in procesos)
+    tarjetas = "".join(formatear_tarjeta_html(p) for p in procesos)
     return f"""
     <html><body style="font-family:sans-serif;">
     <h2>Nuevas licitaciones publicadas</h2>
     <p>{len(procesos)} proceso(s) nuevo(s) que coinciden con tus palabras clave.</p>
-    <table style="border-collapse:collapse;width:100%;">
-      <thead><tr style="background:#f0f0f0;text-align:left;">
-        <th style="padding:8px;">ID</th><th style="padding:8px;">Nombre</th>
-        <th style="padding:8px;">Convocante</th><th style="padding:8px;">Categoría</th>
-        <th style="padding:8px;">Link</th>
-      </tr></thead>
-      <tbody>{filas}</tbody>
-    </table>
+    {tarjetas}
     </body></html>
     """
 
@@ -166,7 +203,7 @@ def enviar_email(remitente: str, password: str, destinatario: str, asunto: str, 
         server.sendmail(remitente, destinatario, msg.as_string())
 
 
-def enviar_novedades_email(gmail_user, gmail_password, novedades):
+def enviar_novedades_email(gmail_user, gmail_password, novedades, token):
     reglas = core.cargar_reglas_alertas()
     if not reglas:
         print("Email: no hay reglas en data/reglas_alertas.txt, no se manda nada por correo.")
@@ -180,6 +217,13 @@ def enviar_novedades_email(gmail_user, gmail_password, novedades):
     if not correo_a_novedades:
         print("Email: ninguna novedad coincidio con alguna regla, no se manda nada.")
         return
+
+    # Se traen los items solo para las novedades que efectivamente van a
+    # mandarse por correo (bajo volumen -- no se hace para todo el historico).
+    procesos_a_enriquecer = {id(p): p for lista in correo_a_novedades.values() for p in lista}
+    print(f"Email: consultando items de {len(procesos_a_enriquecer)} licitacion(es) nueva(s)...")
+    for proceso in procesos_a_enriquecer.values():
+        proceso["_items"] = core.obtener_items_tender(token, proceso.get("tender_id_completo", ""))
 
     for destinatario, procesos in correo_a_novedades.items():
         asunto = f"DNCP: {len(procesos)} licitación(es) nueva(s)"
@@ -252,7 +296,7 @@ def main():
         enviar_novedades_telegram(telegram_token, telegram_chat_id, procesos_nuevos_recientes)
 
     if email_activo:
-        enviar_novedades_email(gmail_user, gmail_password, procesos_nuevos_recientes)
+        enviar_novedades_email(gmail_user, gmail_password, procesos_nuevos_recientes, token)
 
 
 if __name__ == "__main__":

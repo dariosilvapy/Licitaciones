@@ -401,6 +401,31 @@ def destinatarios_para_registro(registro: dict, reglas: list) -> list:
     return destinatarios
 
 
+def obtener_items_tender(token: str, tender_id_completo: str) -> list:
+    """Trae los items de una licitacion puntual via /tender/{id}?sections=items.
+    Se usa solo para las alertas de email (volumen bajo: unas pocas
+    licitaciones nuevas por corrida, no todo el historico)."""
+    import urllib.parse
+    if not tender_id_completo:
+        return []
+    tid = urllib.parse.quote(tender_id_completo, safe="")
+    headers = {"Authorization": f"Bearer {token}"}
+    try:
+        resp = requests.get(f"{API_BASE}/tender/{tid}", headers=headers,
+                             params={"sections": "items"}, timeout=30)
+    except requests.RequestException:
+        return []
+    if resp.status_code != 200:
+        return []
+    try:
+        data = resp.json()
+    except Exception:
+        return []
+    tender = data.get("tender", {}) if isinstance(data, dict) else {}
+    items = tender.get("items", [])
+    return items if isinstance(items, list) else []
+
+
 def buscar_todo(token: str, fecha_desde: str, fecha_hasta: str, guardar_muestra_en: str = None) -> list:
     todos = []
     pagina_num = 1
