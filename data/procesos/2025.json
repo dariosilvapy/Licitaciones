@@ -6777,23 +6777,25 @@
       "tender_id_completo": "1efe3d6b-ef30-64d4-8c8c-fb1b1633116a",
       "nombre_licitacion": "LPN N° 36/2024 - SERVICIO DE ASESORÍA TÉCNICA PARA LA GESTIÓN E INTEGRACIÓN DEL SISTEMA DE SEGURIDAD (TERCER LLAMADO) - AD REFERÉNDUM",
       "convocante": "Banco Central del Paraguay (BCP)",
-      "estado": "En Convocatoria (Abierta)",
+      "estado": "Adjudicada",
       "categoria": "Consultoria - Servicios de Gestion Profesionales de Empresa y Administrativos",
       "fecha_publicacion": "2025-12-29",
       "fecha_apertura_ofertas": "2026-06-11",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 1,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "RISK & QUALITY MANAGEMENT (RQM) SOCIEDAD DE RESPONSABILIDAD LIMITADA",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1efe3d6b-ef30-64d4-8c8c-fb1b1633116a.html",
-      "award_ids": [],
-      "fecha_apertura_real": "2026-06-11",
-      "monto_estimado": 995000000,
-      "proveedores_montos": [],
+      "award_ids": [
+        "1f194df3-429a-6fb8-ad44-ebb0b042ff9e"
+      ],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 995000000,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-06-11"
     },
     "ocds-03ad3f-470736-1": {
       "ocid": "ocds-03ad3f-470736-1",
@@ -169514,10 +169516,13 @@
       "proveedores_adjudicados": "DIONISIO RAMON ROJAS NOCEDA, Lourdes Elizabeth Gimenez Bareiro",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f02b686-0c04-6a64-85bc-dfe1f7f90e14.html",
       "award_ids": [
-        "1f0b4ed0-5c6c-69b2-931a-a9635704daff",
-        "1f05db22-b10b-68d2-bd2c-979eaa88255c"
+        "1f05db22-b10b-68d2-bd2c-979eaa88255c",
+        "1f0b4ed0-5c6c-69b2-931a-a9635704daff"
       ],
-      "fecha_apertura_real": "2025-06-30",
+      "enriquecido": true,
+      "monto_adjudicado": 27811000,
+      "monto_adjudicado_gs": 27811000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 21491329,
       "proveedores_montos": [
         {
@@ -169531,10 +169536,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 27811000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 27811000,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-06-30"
     },
     "ocds-03ad3f-472472-1": {
       "ocid": "ocds-03ad3f-472472-1",
