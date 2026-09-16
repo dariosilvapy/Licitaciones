@@ -1,6 +1,6 @@
 {
   "anio": "2021",
-  "last_updated": "2026-09-15",
+  "last_updated": "2026-09-16",
   "total": 11975,
   "procesos": {
     "ocds-03ad3f-400008": {
@@ -91125,9 +91125,12 @@
       "proveedores_adjudicados": "River Services S.R.L.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/392648-servicio-alquiler-grua-ponton-flotante-cip-villeta-1.html",
       "award_ids": [
-        "392648-river-services-srl-1"
+        "392648-river-services-srl-2"
       ],
-      "fecha_apertura_real": "2021-04-16",
+      "enriquecido": true,
+      "monto_adjudicado": 3000000000,
+      "monto_adjudicado_gs": 3000000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 3000000000,
       "proveedores_montos": [
         {
@@ -91136,10 +91139,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 3000000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 3000000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2021-04-16"
     },
     "ocds-03ad3f-402635-1": {
       "ocid": "ocds-03ad3f-402635-1",
