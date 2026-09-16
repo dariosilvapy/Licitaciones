@@ -1,4 +1,4 @@
-name: Alertas Telegram
+name: Alertas Telegram y Email
 
 on:
   schedule:
@@ -29,6 +29,8 @@ jobs:
           DNCP_CONSUMER_SECRET: ${{ secrets.DNCP_CONSUMER_SECRET }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: python scripts/notificar_telegram.py
 
       - name: Guardar cambios en el repositorio
