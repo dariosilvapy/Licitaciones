@@ -314,6 +314,80 @@ class AlmacenParticionado:
 # Busqueda paginada (sin cambios)
 # ---------------------------------------------------------------------------
 
+def cargar_palabras_clave() -> list:
+    """Lee data/palabras_clave.txt: una palabra o frase por linea, se
+    ignoran lineas vacias y las que empiezan con #. Si el archivo no existe
+    o queda vacio, no hay filtro (todo pasa)."""
+    ruta = os.path.join(DATA_DIR, "palabras_clave.txt")
+    if not os.path.exists(ruta):
+        return []
+    with open(ruta, "r", encoding="utf-8") as f:
+        lineas = [l.strip() for l in f.readlines()]
+    return [l.lower() for l in lineas if l and not l.startswith("#")]
+
+
+def coincide_palabra_clave(registro: dict, palabras: list) -> bool:
+    """True si el registro coincide con alguna palabra clave, buscando en
+    nombre de la licitacion, categoria y convocante. Si la lista de
+    palabras esta vacia, coincide con todo (sin filtro)."""
+    if not palabras:
+        return True
+    texto = " ".join([
+        registro.get("nombre_licitacion") or "",
+        registro.get("categoria") or "",
+        registro.get("convocante") or "",
+    ]).lower()
+    return any(p in texto for p in palabras)
+
+
+def cargar_reglas_alertas() -> list:
+    """Lee data/reglas_alertas.txt: bloques de 'palabras:' + 'correos:'
+    separados por lineas en blanco. Devuelve una lista de
+    {"palabras": [...], "correos": [...]}. Lineas que empiezan con # se
+    ignoran. Si el archivo no existe, devuelve lista vacia (sin reglas de
+    ruteo por correo -- solo se usaria el filtro general de palabras_clave.txt
+    si se manda un email generico)."""
+    ruta = os.path.join(DATA_DIR, "reglas_alertas.txt")
+    if not os.path.exists(ruta):
+        return []
+
+    reglas = []
+    palabras_actual, correos_actual = None, None
+
+    def cerrar_bloque():
+        nonlocal palabras_actual, correos_actual
+        if palabras_actual and correos_actual:
+            reglas.append({"palabras": palabras_actual, "correos": correos_actual})
+        palabras_actual, correos_actual = None, None
+
+    with open(ruta, "r", encoding="utf-8") as f:
+        for linea_cruda in f:
+            linea = linea_cruda.strip()
+            if not linea or linea.startswith("#"):
+                if not linea:
+                    cerrar_bloque()
+                continue
+            if linea.lower().startswith("palabras:"):
+                palabras_actual = [p.strip().lower() for p in linea.split(":", 1)[1].split(",") if p.strip()]
+            elif linea.lower().startswith("correos:"):
+                correos_actual = [c.strip() for c in linea.split(":", 1)[1].split(",") if c.strip()]
+
+    cerrar_bloque()  # por si el archivo no termina en linea en blanco
+    return reglas
+
+
+def destinatarios_para_registro(registro: dict, reglas: list) -> list:
+    """Devuelve la lista (sin duplicados, en orden de aparicion) de todos
+    los correos cuyas reglas coinciden con este registro."""
+    destinatarios = []
+    for regla in reglas:
+        if coincide_palabra_clave(registro, regla["palabras"]):
+            for correo in regla["correos"]:
+                if correo not in destinatarios:
+                    destinatarios.append(correo)
+    return destinatarios
+
+
 def buscar_todo(token: str, fecha_desde: str, fecha_hasta: str, guardar_muestra_en: str = None) -> list:
     todos = []
     pagina_num = 1
