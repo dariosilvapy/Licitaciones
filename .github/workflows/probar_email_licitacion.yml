@@ -1,0 +1,42 @@
+name: Probar Email de una Licitacion
+
+on:
+  workflow_dispatch:
+    inputs:
+      tender_id:
+        description: "ID largo de la licitacion (ej. 1f11897e-4f79-643c-b277-9ff31f2e0578)"
+        required: true
+      id_llamado:
+        description: "Numero corto de la licitacion (ej. 482298)"
+        required: false
+        default: ""
+      destinatario:
+        description: "Correo al que mandar la prueba"
+        required: true
+        default: "dario.silva@boller.com.py"
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Enviar correo de prueba
+        env:
+          DNCP_CONSUMER_KEY: ${{ secrets.DNCP_CONSUMER_KEY }}
+          DNCP_CONSUMER_SECRET: ${{ secrets.DNCP_CONSUMER_SECRET }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TENDER_ID: ${{ inputs.tender_id }}
+          ID_LLAMADO: ${{ inputs.id_llamado }}
+          DESTINATARIO_PRUEBA: ${{ inputs.destinatario }}
+        run: python scripts/probar_email_licitacion.py
