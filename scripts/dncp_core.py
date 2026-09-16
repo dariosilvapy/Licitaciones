@@ -314,6 +314,17 @@ class AlmacenParticionado:
 # Busqueda paginada (sin cambios)
 # ---------------------------------------------------------------------------
 
+import unicodedata
+
+
+def _sin_acentos(texto: str) -> str:
+    """Normaliza tildes/diacriticos para que las comparaciones de texto no
+    dependan de si el origen escribio con o sin acentos (ej. 'biologico'
+    debe coincidir con 'biológico')."""
+    forma = unicodedata.normalize("NFKD", texto)
+    return "".join(c for c in forma if not unicodedata.combining(c))
+
+
 def cargar_palabras_clave() -> list:
     """Lee data/palabras_clave.txt: una palabra o frase por linea, se
     ignoran lineas vacias y las que empiezan con #. Si el archivo no existe
@@ -323,20 +334,22 @@ def cargar_palabras_clave() -> list:
         return []
     with open(ruta, "r", encoding="utf-8") as f:
         lineas = [l.strip() for l in f.readlines()]
-    return [l.lower() for l in lineas if l and not l.startswith("#")]
+    return [_sin_acentos(l.lower()) for l in lineas if l and not l.startswith("#")]
 
 
 def coincide_palabra_clave(registro: dict, palabras: list) -> bool:
     """True si el registro coincide con alguna palabra clave, buscando en
     nombre de la licitacion, categoria y convocante. Si la lista de
-    palabras esta vacia, coincide con todo (sin filtro)."""
+    palabras esta vacia, coincide con todo (sin filtro). La comparacion
+    ignora tildes de ambos lados, asi que las palabras clave se pueden
+    escribir sin acentos sin perder coincidencias."""
     if not palabras:
         return True
-    texto = " ".join([
+    texto = _sin_acentos(" ".join([
         registro.get("nombre_licitacion") or "",
         registro.get("categoria") or "",
         registro.get("convocante") or "",
-    ]).lower()
+    ]).lower())
     return any(p in texto for p in palabras)
 
 
@@ -368,7 +381,7 @@ def cargar_reglas_alertas() -> list:
                     cerrar_bloque()
                 continue
             if linea.lower().startswith("palabras:"):
-                palabras_actual = [p.strip().lower() for p in linea.split(":", 1)[1].split(",") if p.strip()]
+                palabras_actual = [_sin_acentos(p.strip().lower()) for p in linea.split(":", 1)[1].split(",") if p.strip()]
             elif linea.lower().startswith("correos:"):
                 correos_actual = [c.strip() for c in linea.split(":", 1)[1].split(",") if c.strip()]
 
