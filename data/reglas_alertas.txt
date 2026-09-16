@@ -1,0 +1,22 @@
+# Reglas de alertas por correo electronico.
+#
+# Formato: cada bloque tiene una linea "palabras:" y una linea "correos:",
+# separado por una linea en blanco del siguiente bloque. Podes editar este
+# archivo directo aca en GitHub, sin tocar ningun script.
+#
+# - "palabras": terminos separados por coma. Si el nombre, la categoria o el
+#   convocante de la licitacion contiene CUALQUIERA de estos terminos
+#   (sin importar mayusculas/minusculas), la regla aplica.
+# - "correos": direcciones separadas por coma, a donde se manda el aviso
+#   si la regla aplica.
+#
+# Si una licitacion coincide con mas de una regla, se manda a los correos
+# de TODAS las que coincidan (sin duplicar destinatarios repetidos).
+#
+# Ejemplo (reemplaza estos correos por los reales de tu equipo):
+
+palabras: equipos medicos, equipo medico, insumos medicos, laboratorio, diagnostico
+correos: compras@casaboller.com.py
+
+palabras: medicamentos, farmaceutico, farmacia
+correos: farma@casaboller.com.py
