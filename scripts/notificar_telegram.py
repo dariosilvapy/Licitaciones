@@ -204,18 +204,24 @@ def enviar_email(remitente: str, password: str, destinatario: str, asunto: str, 
 
 
 def enviar_novedades_email(gmail_user, gmail_password, novedades, token):
-    reglas = core.cargar_reglas_alertas()
-    if not reglas:
+    config_reglas = core.cargar_reglas_alertas()
+    if not config_reglas["reglas"]:
         print("Email: no hay reglas en data/reglas_alertas.txt, no se manda nada por correo.")
         return
 
+    if config_reglas["exclusiones"]:
+        print(f"Email: exclusiones globales activas: {config_reglas['exclusiones']}")
+
     correo_a_novedades = {}
     for proceso in novedades:
-        for correo in core.destinatarios_para_registro(proceso, reglas):
+        destinatarios = core.destinatarios_para_registro(proceso, config_reglas)
+        if not destinatarios:
+            continue
+        for correo in destinatarios:
             correo_a_novedades.setdefault(correo, []).append(proceso)
 
     if not correo_a_novedades:
-        print("Email: ninguna novedad coincidio con alguna regla, no se manda nada.")
+        print("Email: ninguna novedad coincidio con alguna regla (o todas quedaron excluidas), no se manda nada.")
         return
 
     # Se traen los items solo para las novedades que efectivamente van a

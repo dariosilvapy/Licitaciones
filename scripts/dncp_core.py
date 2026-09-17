@@ -353,18 +353,22 @@ def coincide_palabra_clave(registro: dict, palabras: list) -> bool:
     return any(p in texto for p in palabras)
 
 
-def cargar_reglas_alertas() -> list:
+def cargar_reglas_alertas() -> dict:
     """Lee data/reglas_alertas.txt: bloques de 'palabras:' + 'correos:'
-    separados por lineas en blanco. Devuelve una lista de
-    {"palabras": [...], "correos": [...]}. Lineas que empiezan con # se
-    ignoran. Si el archivo no existe, devuelve lista vacia (sin reglas de
-    ruteo por correo -- solo se usaria el filtro general de palabras_clave.txt
-    si se manda un email generico)."""
+    separados por lineas en blanco, mas una linea opcional 'excluir:' (en
+    cualquier parte del archivo) con palabras de exclusion GLOBAL -- si el
+    titulo/categoria/convocante contiene alguna de esas palabras, NO se
+    manda la alerta por ninguna regla, aunque matchee otra palabra clave.
+
+    Devuelve {"reglas": [{"palabras":[...], "correos":[...]}], "exclusiones": [...]}.
+    Lineas que empiezan con # se ignoran. Si el archivo no existe, devuelve
+    ambas listas vacias."""
     ruta = os.path.join(DATA_DIR, "reglas_alertas.txt")
     if not os.path.exists(ruta):
-        return []
+        return {"reglas": [], "exclusiones": []}
 
     reglas = []
+    exclusiones = []
     palabras_actual, correos_actual = None, None
 
     def cerrar_bloque():
@@ -384,16 +388,25 @@ def cargar_reglas_alertas() -> list:
                 palabras_actual = [_sin_acentos(p.strip().lower()) for p in linea.split(":", 1)[1].split(",") if p.strip()]
             elif linea.lower().startswith("correos:"):
                 correos_actual = [c.strip() for c in linea.split(":", 1)[1].split(",") if c.strip()]
+            elif linea.lower().startswith("excluir:"):
+                exclusiones.extend(_sin_acentos(p.strip().lower()) for p in linea.split(":", 1)[1].split(",") if p.strip())
 
     cerrar_bloque()  # por si el archivo no termina en linea en blanco
-    return reglas
+    return {"reglas": reglas, "exclusiones": exclusiones}
 
 
-def destinatarios_para_registro(registro: dict, reglas: list) -> list:
+def destinatarios_para_registro(registro: dict, config: dict) -> list:
     """Devuelve la lista (sin duplicados, en orden de aparicion) de todos
-    los correos cuyas reglas coinciden con este registro."""
+    los correos cuyas reglas coinciden con este registro. config es el
+    dict que devuelve cargar_reglas_alertas() ({"reglas":[...], "exclusiones":[...]}).
+    Si alguna palabra de exclusion aparece, no se manda a nadie, sin
+    importar que otras reglas coincidan."""
+    exclusiones = config.get("exclusiones", [])
+    if exclusiones and coincide_palabra_clave(registro, exclusiones):
+        return []
+
     destinatarios = []
-    for regla in reglas:
+    for regla in config.get("reglas", []):
         if coincide_palabra_clave(registro, regla["palabras"]):
             for correo in regla["correos"]:
                 if correo not in destinatarios:

@@ -25,12 +25,17 @@ def main():
         print("ERROR: falta GMAIL_USER o GMAIL_APP_PASSWORD en los secrets.")
         sys.exit(1)
 
-    reglas = core.cargar_reglas_alertas()
+    config_reglas = core.cargar_reglas_alertas()
+    reglas = config_reglas["reglas"]
+    exclusiones = config_reglas["exclusiones"]
     if not reglas:
         print("ERROR: data/reglas_alertas.txt no tiene ninguna regla cargada (o no existe).")
         sys.exit(1)
 
-    print(f"{len(reglas)} regla(s) encontrada(s) en reglas_alertas.txt.\n")
+    print(f"{len(reglas)} regla(s) encontrada(s) en reglas_alertas.txt.")
+    if exclusiones:
+        print(f"Exclusiones globales: {', '.join(exclusiones)}")
+    print()
 
     # Agrupar por correo: un correo puede aparecer en mas de una regla.
     correo_a_palabras = {}
