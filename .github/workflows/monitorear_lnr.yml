@@ -1,0 +1,40 @@
+name: Monitoreo LNR (MSPBS)
+
+on:
+  schedule:
+    - cron: "10 */2 * * *"   # cada 2 horas, minuto 10 (para no chocar con los otros workflows)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  monitorear:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Monitorear LNR y notificar
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python scripts/monitorear_lnr.py
+
+      - name: Guardar cambios en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/lnr_conocidos.json
+          git diff --quiet --cached || git commit -m "Monitoreo LNR - $(date -u +%Y-%m-%dT%H:%M)"
+          git push
