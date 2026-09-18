@@ -51,6 +51,12 @@ def descargar_pagina_csv(pagina: int) -> list:
         "page": pagina,
     }
     resp = requests.get(CSV_URL, params=params, timeout=45)
+
+    if resp.status_code == 404:
+        # Mismo comportamiento que la API de busqueda: 404 = sin resultados,
+        # no un error real.
+        return []
+
     if resp.status_code != 200:
         raise RuntimeError(f"Error HTTP {resp.status_code} descargando la pagina {pagina}")
 
@@ -60,15 +66,36 @@ def descargar_pagina_csv(pagina: int) -> list:
 
 
 def descargar_todo() -> list:
+    """Descarga todas las paginas del CSV -- pero se detecta si la
+    paginacion no esta funcionando (el sitio devuelve el mismo contenido
+    sin importar el numero de pagina, algo confirmado en la practica) y se
+    corta ahi, en vez de asumir que "menos de 20 filas" significa el final.
+    El criterio real es: si una pagina no aporta NINGUN slug nuevo respecto
+    a lo ya acumulado en esta corrida, se considera que llegamos al final
+    (o que la paginacion esta rota y da vueltas en circulo)."""
     todas = []
+    slugs_vistos = set()
+
     for pagina in range(1, MAX_PAGINAS + 1):
         filas = descargar_pagina_csv(pagina)
-        print(f"  Pagina {pagina}: {len(filas)} fila(s).")
+        slugs_de_esta_pagina = {f.get("slug", "").strip() for f in filas if f.get("slug")}
+        slugs_realmente_nuevos = slugs_de_esta_pagina - slugs_vistos
+
+        print(f"  Pagina {pagina}: {len(filas)} fila(s) ({len(slugs_realmente_nuevos)} slug(s) nuevo(s) respecto a lo ya visto).")
+
         if not filas:
             break
-        todas.extend(filas)
-        if len(filas) < 20:  # por debajo de un tamano de pagina tipico, asumimos que es la ultima
+
+        if pagina > 1 and not slugs_realmente_nuevos:
+            print("  (Esta pagina no aporto nada nuevo -- se corta aca; probablemente la paginacion no esta soportada por el sitio.)")
             break
+
+        for f in filas:
+            slug = f.get("slug", "").strip()
+            if slug and slug not in slugs_vistos:
+                todas.append(f)
+                slugs_vistos.add(slug)
+
     return todas
 
 
