@@ -1,0 +1,35 @@
+name: Probar Email LNR
+
+on:
+  workflow_dispatch:
+    inputs:
+      lnr_id:
+        description: "Numero de la LNR (ej. 1006)"
+        required: true
+        default: "1006"
+      destinatarios:
+        description: "Correos separados por coma (ej. licitaciones@casaboller.com.py, dario.silva@boller.com.py, pedro@casaboller.com.py)"
+        required: true
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Enviar correo de prueba
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          LNR_ID: ${{ inputs.lnr_id }}
+          DESTINATARIOS_PRUEBA: ${{ inputs.destinatarios }}
+        run: python scripts/probar_email_lnr.py
