@@ -2,7 +2,7 @@ name: Enriquecer detalle (montos y fechas)
 
 on:
   schedule:
-    - cron: "20 * * * *"   # cada hora, en el minuto 20 (para no chocar con los otros workflows que corren en punto)
+    - cron: "42 * * * *"   # cada hora, en el minuto 42 (evita el minuto 0 y no choca con los otros workflows)
   workflow_dispatch:
     inputs:
       batch_size:

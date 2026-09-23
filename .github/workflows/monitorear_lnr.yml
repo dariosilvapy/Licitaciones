@@ -2,7 +2,7 @@ name: Monitoreo LNR (MSPBS)
 
 on:
   schedule:
-    - cron: "10 */2 * * *"   # cada 2 horas, minuto 10 (para no chocar con los otros workflows)
+    - cron: "23 */2 * * *"   # cada 2 horas, minuto 23 (evita el minuto 0 y no choca con los otros workflows)
   workflow_dispatch: {}
 
 permissions:

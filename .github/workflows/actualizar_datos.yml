@@ -4,7 +4,7 @@ on:
   schedule:
     # 09:00 UTC = 05:00 o 06:00 en Paraguay segun epoca del anio.
     # Cambia la hora aqui si queres que corra en otro momento.
-    - cron: "0 9 * * *"
+    - cron: "9 9 * * *"   # una vez al día, minuto 9 en vez de 0 (evita el minuto más congestionado)
   workflow_dispatch: {}   # permite tambien correrlo manualmente desde la pestana "Actions"
 
 permissions:

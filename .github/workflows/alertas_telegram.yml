@@ -2,7 +2,7 @@ name: Alertas Telegram y Email
 
 on:
   schedule:
-    - cron: "0 */2 * * *"   # cada 2 horas, en punto (hora UTC)
+    - cron: "7 */2 * * *"   # cada 2 horas, minuto 7 (evita el minuto 0, el más congestionado en GitHub Actions)
   workflow_dispatch: {}
 
 permissions:
