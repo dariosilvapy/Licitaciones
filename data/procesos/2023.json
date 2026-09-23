@@ -1,6 +1,6 @@
 {
   "anio": "2023",
-  "last_updated": "2026-09-22",
+  "last_updated": "2026-09-23",
   "total": 12657,
   "procesos": {
     "ocds-03ad3f-426070-1": {
@@ -8138,14 +8138,15 @@
       "proveedores_adjudicados": "CALZADA CONSTRUCCIONES S.A. DE CV SUCURSAL PARAGUAY, CONSORCIO TC, CONSORCIO TEC, Consorcio Soberano",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/438107-llamado-mopc-n-83-2023-licitacion-publica-internacional-contratacion-empresas-constr-1.html",
       "award_ids": [
-        "438107-consorcio-soberano-6",
         "438107-calzada-construcciones-s-a-cv-sucursal-paraguay-7",
-        "438107-consorcio-tec-2",
-        "438107-consorcio-tc-2-3"
+        "438107-consorcio-soberano-6",
+        "438107-consorcio-tc-2-3",
+        "438107-consorcio-tec-2"
       ],
       "enriquecido": true,
       "monto_adjudicado": 1453531275819,
-      "fecha_apertura_real": "2024-04-03",
+      "monto_adjudicado_gs": 1453531275819,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 1467081938000,
       "proveedores_montos": [
         {
@@ -8169,8 +8170,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 1453531275819,
-      "monto_adjudicado_usd": 0
+      "fecha_apertura_real": "2024-04-03"
     },
     "ocds-03ad3f-432362-1": {
       "ocid": "ocds-03ad3f-432362-1",

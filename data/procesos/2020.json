@@ -1,6 +1,6 @@
 {
   "anio": "2020",
-  "last_updated": "2026-09-22",
+  "last_updated": "2026-09-23",
   "total": 12216,
   "procesos": {
     "ocds-03ad3f-360254-1": {
@@ -13589,15 +13589,18 @@
       "fecha_apertura_ofertas": "2020-11-30",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 3,
-      "cantidad_contratos": 1,
+      "cantidad_contratos": 2,
       "proveedores_adjudicados": "EUROQUIMICA S.A., G T SCIENTIFIC S.A., NIPRO MEDICAL CORPORATION SUCURSAL PARAGUAY",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/370912-adquisicion-reactivos-e-insumos-centro-nacional-toxicologia-centro-nacional-prevenci-1.html",
       "award_ids": [
-        "370912-nipro-medical-corporation-sucursal-paraguay-7",
         "370912-euroquimica-s-a-6",
-        "370912-g-t-scientific-s-a-8"
+        "370912-g-t-scientific-s-a-8",
+        "370912-nipro-medical-corporation-sucursal-paraguay-7"
       ],
-      "fecha_apertura_real": "2020-11-30",
+      "enriquecido": true,
+      "monto_adjudicado": 5352195000,
+      "monto_adjudicado_gs": 5352195000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 9693005785,
       "proveedores_montos": [
         {
@@ -13616,10 +13619,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 5352195000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 5352195000,
-      "enriquecido": true
+      "fecha_apertura_real": "2020-11-30"
     },
     "ocds-03ad3f-367988-1": {
       "ocid": "ocds-03ad3f-367988-1",
