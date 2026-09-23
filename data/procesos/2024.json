@@ -2902,8 +2902,8 @@
       "fecha_publicacion": "2024-05-06",
       "fecha_apertura_ofertas": "2024-05-27",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 464,
-      "cantidad_contratos": 464,
+      "cantidad_adjudicaciones": 465,
+      "cantidad_contratos": 465,
       "proveedores_adjudicados": "AGUA MINERAL NATURAL AGUA-P COMERCIAL E IND. SA, EL CASTILLO S.A., MECANISMOS Y NEGOCIACIONES VARIAS SRL (MENEVA S.R.L.), ROCCO S.A., SOME S.A.C.I.A",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/450078-suministro-agua-mineral-traves-tienda-virtual.html",
       "award_ids": [
@@ -3370,7 +3370,8 @@
         "1331-2026-19",
         "1009-2026-33",
         "1025-2026-850",
-        "1050-2026-589"
+        "1050-2026-589",
+        "2015-2026-9"
       ],
       "enriquecido": true,
       "monto_adjudicado": 4086135526,
@@ -193069,13 +193070,13 @@
       "award_ids": [
         "1efa5ab1-d11c-6934-9feb-4bed8c5581fa"
       ],
-      "fecha_apertura_real": "2024-10-11",
-      "monto_estimado": 1500000000,
-      "proveedores_montos": [],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true,
+      "monto_estimado": 1500000000,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2024-10-11",
       "enriquecimiento_nota": "algunas adjudicaciones no se pudieron consultar"
     },
     "ocds-03ad3f-444287-1": {
@@ -246773,7 +246774,10 @@
       "award_ids": [
         "1efa1c20-9eaa-614c-8f0e-c71d7ddda47c"
       ],
-      "fecha_apertura_real": "2024-10-24",
+      "enriquecido": true,
+      "monto_adjudicado": 394800000,
+      "monto_adjudicado_gs": 394800000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 234060000,
       "proveedores_montos": [
         {
@@ -246782,10 +246786,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 394800000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 394800000,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-10-24"
     },
     "ocds-03ad3f-452428-1": {
       "ocid": "ocds-03ad3f-452428-1",
