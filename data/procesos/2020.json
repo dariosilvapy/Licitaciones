@@ -1,6 +1,6 @@
 {
   "anio": "2020",
-  "last_updated": "2026-09-28",
+  "last_updated": "2026-09-29",
   "total": 12216,
   "procesos": {
     "ocds-03ad3f-360254-1": {
@@ -52501,7 +52501,10 @@
       "award_ids": [
         "373736-alfa-omega-s-a-1"
       ],
-      "fecha_apertura_real": "2020-11-30",
+      "enriquecido": true,
+      "monto_adjudicado": 1665615845,
+      "monto_adjudicado_gs": 1665615845,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 2360678691,
       "proveedores_montos": [
         {
@@ -52510,10 +52513,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 1665615845,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 1665615845,
-      "enriquecido": true
+      "fecha_apertura_real": "2020-11-30"
     },
     "ocds-03ad3f-386656-1": {
       "ocid": "ocds-03ad3f-386656-1",
