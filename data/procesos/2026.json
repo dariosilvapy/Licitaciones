@@ -1,7 +1,7 @@
 {
   "anio": "2026",
-  "last_updated": "2026-09-28",
-  "total": 5197,
+  "last_updated": "2026-09-29",
+  "total": 5198,
   "procesos": {
     "ocds-03ad3f-483383-1": {
       "ocid": "ocds-03ad3f-483383-1",
@@ -84076,16 +84076,18 @@
       "tender_id_completo": "1f192717-bb70-6e72-9cfd-21c77dc73c8b",
       "nombre_licitacion": "Obras de Mejoramiento en la Escuela Básica N° 267 Gral. José Eduvigis Díaz",
       "convocante": "Municipalidad de Gral. José Eduvigis Díaz",
-      "estado": "En Convocatoria (Abierta)",
+      "estado": "Adjudicada",
       "categoria": "Obras - Servicios de Construccion y Mantenimiento",
       "fecha_publicacion": "2026-08-18",
       "fecha_apertura_ofertas": "2026-09-01",
       "modalidad": "Menor cuantía nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 1,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "ROBERTO DAVID OLMEDO",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f192717-bb70-6e72-9cfd-21c77dc73c8b.html",
-      "award_ids": [],
+      "award_ids": [
+        "1f1ab00d-e2cf-6e2a-a232-a526f236dfda"
+      ],
       "enriquecido": true,
       "monto_adjudicado": null,
       "monto_estimado": 416137708,
@@ -137969,6 +137971,23 @@
       "monto_estimado": 1164094885,
       "proveedores_montos": [],
       "fecha_apertura_real": "2026-10-16"
+    },
+    "ocds-03ad3f-487244-1": {
+      "ocid": "ocds-03ad3f-487244-1",
+      "id_llamado": "487244",
+      "tender_id_completo": "1f1aba96-f2bf-6eaa-bfeb-cd3c71be6ed1",
+      "nombre_licitacion": "Mantenimiento y Reparación de dependencias del SENAVE",
+      "convocante": "Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas (SENAVE)",
+      "estado": "En Convocatoria (Abierta)",
+      "categoria": "Servicios - Servicios de Construccion y Mantenimiento",
+      "fecha_publicacion": "2026-09-28",
+      "fecha_apertura_ofertas": "2026-10-16",
+      "modalidad": "Licitación Pública Nacional",
+      "cantidad_adjudicaciones": 0,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1aba96-f2bf-6eaa-bfeb-cd3c71be6ed1.html",
+      "award_ids": []
     }
   }
 }
