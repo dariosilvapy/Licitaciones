@@ -1,6 +1,6 @@
 {
   "anio": "2020",
-  "last_updated": "2026-09-29",
+  "last_updated": "2026-09-30",
   "total": 12216,
   "procesos": {
     "ocds-03ad3f-360254-1": {
@@ -4999,8 +4999,8 @@
       "fecha_publicacion": "2020-10-05",
       "fecha_apertura_ofertas": "2020-11-09",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 208,
-      "cantidad_contratos": 201,
+      "cantidad_adjudicaciones": 216,
+      "cantidad_contratos": 209,
       "proveedores_adjudicados": "AO POTI S.A., EL ALAMO SA, INFOTEC SA, INSUMOS Y PRODUCTOS MEDICOS S.A, INTERLABO S.R.L., MLT PHARMA S.R.L., Medical Supply Sociedad Anonima, TROVATO C.I.S.A., VICENTE SCAVONE & CIA. S.A.E",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/386038-adquisicion-productos-uso-medico-lucha-covid-19.html",
       "award_ids": [
@@ -5211,7 +5211,15 @@
         "1050-2026-406",
         "1028-2026-209",
         "1028-2026-213",
-        "1451-2026-74"
+        "1451-2026-74",
+        "1050-2026-582",
+        "1050-2026-580",
+        "1050-2026-581",
+        "1360-2026-105",
+        "1360-2026-106",
+        "1451-2026-93",
+        "1451-2026-94",
+        "2001-2026-61"
       ],
       "enriquecido": true
     },
@@ -13447,7 +13455,10 @@
       "award_ids": [
         "386391-pricewaterhousecoopers-1"
       ],
-      "fecha_apertura_real": "2020-12-03",
+      "enriquecido": true,
+      "monto_adjudicado": 362208000,
+      "monto_adjudicado_gs": 362208000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 329280000,
       "proveedores_montos": [
         {
@@ -13456,10 +13467,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 362208000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 362208000,
-      "enriquecido": true
+      "fecha_apertura_real": "2020-12-03"
     },
     "ocds-03ad3f-378433-1": {
       "ocid": "ocds-03ad3f-378433-1",
