@@ -14204,13 +14204,13 @@
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/434746-co-n-12-2023-servicio-mantenimiento-preventivo-reparacion-menor-obras-civiles-conjun-1.html",
       "award_ids": [],
-      "fecha_apertura_real": "2023-11-06",
-      "monto_estimado": 720000000,
-      "proveedores_montos": [],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 720000000,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2023-11-06"
     },
     "ocds-03ad3f-431405-1": {
       "ocid": "ocds-03ad3f-431405-1",
@@ -101805,7 +101805,10 @@
       "award_ids": [
         "424850-jose-alberto-trigo-insfran-1"
       ],
-      "fecha_apertura_real": "2023-12-19",
+      "enriquecido": true,
+      "monto_adjudicado": 336000000,
+      "monto_adjudicado_gs": 336000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 336000000,
       "proveedores_montos": [
         {
@@ -101814,10 +101817,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 336000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 336000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2023-12-19"
     },
     "ocds-03ad3f-426006-1": {
       "ocid": "ocds-03ad3f-426006-1",
