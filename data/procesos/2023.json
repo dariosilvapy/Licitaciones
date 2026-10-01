@@ -5879,8 +5879,8 @@
       "fecha_publicacion": "2023-06-16",
       "fecha_apertura_ofertas": "2023-07-14",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 1768,
-      "cantidad_contratos": 1779,
+      "cantidad_adjudicaciones": 1772,
+      "cantidad_contratos": 1783,
       "proveedores_adjudicados": "BASE BASE SA, BRINGCO S.A., CARLOS GABRIEL SANCHEZ SARTORIO, EVER MARCIAL CHAMORRO PEÑA, FATIMA RUT ROA CENTURION , FLASH COMUNICACIONES S.A , IN DESIGN S.R.L., INDPAR S.A., INDUCLOR SRL, Madre S.A, NEGOCIOS S.A., PRESTIGIO DEL SUR S.R.L, PROALCA SA ",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/432442-suministro-bolsas-residuos-comunes-estado-paraguayo.html",
       "award_ids": [
@@ -7651,7 +7651,11 @@
         "1710-2026-22",
         "1026-2026-186",
         "1452-2026-37",
-        "1762-2026-10"
+        "1762-2026-10",
+        "1731-2026-29",
+        "1230-2026-186",
+        "1230-2026-187",
+        "1642-2026-44"
       ],
       "enriquecido": true,
       "monto_adjudicado": null,
@@ -12821,10 +12825,13 @@
       "proveedores_adjudicados": "APOLO 11 PUBLICITARIA S.R.L., GRUPO NACION S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/422354-servicio-publicacion-medios-prensa-contrato-abierto-plurianual-ad-referendum-segundo-3.html",
       "award_ids": [
-        "422354-grupo-nacion-s-a-4",
-        "422354-apolo-11-s-r-l-3"
+        "422354-apolo-11-s-r-l-3",
+        "422354-grupo-nacion-s-a-4"
       ],
-      "fecha_apertura_real": "2023-10-20",
+      "enriquecido": true,
+      "monto_adjudicado": 500000000,
+      "monto_adjudicado_gs": 500000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 500000000,
       "proveedores_montos": [
         {
@@ -12838,10 +12845,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 500000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 500000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2023-10-20"
     },
     "ocds-03ad3f-422354-1": {
       "ocid": "ocds-03ad3f-422354-1",
@@ -12859,13 +12863,13 @@
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/422354-servicio-publicacion-medios-prensa-contrato-abierto-plurianual-ad-referendum-1.html",
       "award_ids": [],
-      "fecha_apertura_real": "2023-03-20",
-      "monto_estimado": 500000000,
-      "proveedores_montos": [],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 500000000,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2023-03-20"
     },
     "ocds-03ad3f-430311-1": {
       "ocid": "ocds-03ad3f-430311-1",
@@ -51033,22 +51037,25 @@
       "proveedores_adjudicados": "CONSORCIO CIM, CONSORCIO CONO S.R.L.- VITEX S.R.L., CONSORCIO TMT - PROEL II, CONSTRUCCIONES Y VIVIENDAS PARAGUAYAS SA, Consorcio \"Santa Rita\", Consorcio Arcopel, Consorcio TEI, EMPRESA PARAGUAYA DE ELECTRIFICACIÓN S.A., NORMA ISABEL GIRETT OVELAR, OSVALDO CECILIO BALMACEDA MIRANDA, SERVICIOS ELECTRICOS Y METALURGICAS S.A., SINGEL SA, TALLER INDUSTRIAL DEL ESTE S.A., TECNO ELECTRIC S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/421491-lp1743-23-ejecucion-obras-ampliacion-adecuacion-alimentadores-sistema-distribucion-1.html",
       "award_ids": [
-        "421491-consorcio-tei-1-26",
-        "421491-norma-isabel-girett-ovelar-17",
         "421491-consorcio-arcopel-1-27",
-        "421491-osvaldo-cecilio-balmaceda-miranda-27",
-        "421491-construcciones-viviendas-paraguayas-sa-18",
-        "421491-consorcio-santa-rita-28",
-        "421491-singel-sa-16",
         "421491-consorcio-cim-26",
-        "421491-consorcio-tmt-proel-ii-26",
         "421491-consorcio-cono-s-r-l-vitex-s-r-l-21",
-        "421491-servicios-electricos-metalurgicos-s-a-20",
-        "421491-tecno-electric-s-a-15",
+        "421491-consorcio-santa-rita-28",
+        "421491-consorcio-tei-1-26",
+        "421491-consorcio-tmt-proel-ii-26",
+        "421491-construcciones-viviendas-paraguayas-sa-18",
         "421491-empresa-paraguaya-electrificacion-s-a-13",
-        "421491-taller-industrial-este-s-a-14"
+        "421491-norma-isabel-girett-ovelar-17",
+        "421491-osvaldo-cecilio-balmaceda-miranda-27",
+        "421491-servicios-electricos-metalurgicos-s-a-20",
+        "421491-singel-sa-16",
+        "421491-taller-industrial-este-s-a-14",
+        "421491-tecno-electric-s-a-15"
       ],
-      "fecha_apertura_real": "2023-09-19",
+      "enriquecido": true,
+      "monto_adjudicado": 260000000000,
+      "monto_adjudicado_gs": 260000000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 260000000000,
       "proveedores_montos": [
         {
@@ -51122,10 +51129,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 260000000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 260000000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2023-09-19"
     },
     "ocds-03ad3f-430168-1": {
       "ocid": "ocds-03ad3f-430168-1",
