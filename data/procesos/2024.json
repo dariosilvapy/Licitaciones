@@ -14,8 +14,8 @@
       "fecha_publicacion": "2024-08-16",
       "fecha_apertura_ofertas": "2024-10-22",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 660,
-      "cantidad_contratos": 660,
+      "cantidad_adjudicaciones": 661,
+      "cantidad_contratos": 661,
       "proveedores_adjudicados": "CELEXX S.A., COMPUSAVER S.A., DATA LAB SA, DIVISERV SA, FELICITA BERNAL MERCADO, INFORMATION TECHNOLOGY CONSULTING SUPPORT SOCIEDAD ANONIMA, KNOW HOW S.A., MASTER SOFT PARAGUAY SRL, SANRI SA",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/452230-suministro-equipos-informaticos-estado-paraguayo.html",
       "award_ids": [
@@ -678,7 +678,8 @@
         "1046-2026-20",
         "1046-2026-21",
         "1046-2026-22",
-        "1344-2026-23"
+        "1344-2026-23",
+        "1359-2026-35"
       ],
       "enriquecido": true,
       "monto_adjudicado": null,
@@ -10219,7 +10220,7 @@
       "fecha_apertura_ofertas": "2026-01-14",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 8,
-      "cantidad_contratos": 0,
+      "cantidad_contratos": 8,
       "proveedores_adjudicados": "BIOERIX S.A. , BIOMEDICA DE PARAGUAY S.A., CHACO INTERNACIONAL SA, CODEX S.R.L., DROGUEPAR S.A., INDEX S.A.C.I., JACK FACK SRL, MLT PHARMA S.R.L.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1ef3fb38-fec3-6fec-b980-5ba1d4e6d8a0.html",
       "award_ids": [
@@ -14147,23 +14148,25 @@
       "tender_id_completo": "1efabeba-81e6-6e6a-915d-255455c2a6bb",
       "nombre_licitacion": "Consultoría para la Gestión del Proyecto y la Fiscalización del contrato de diseño, construcción, equipamiento integral, pruebas y puesta en servicio del Centro de Datos del Estado, con Cert. TIER III - Plurianual – 2° Llamado – AD REFERENDUM PGN 2026",
       "convocante": "Ministerio de Tecnologías de la Información y Comunicación (MITIC)",
-      "estado": "En Evaluacion (Cerrada)",
+      "estado": "Adjudicada",
       "categoria": "Consultoria - Servicios basados en ingenieria investigacion y tecnologia",
       "fecha_publicacion": "2024-12-12",
       "fecha_apertura_ofertas": "2026-03-27",
       "modalidad": "Selección basada en la calidad y el costo",
-      "cantidad_adjudicaciones": 0,
-      "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "cantidad_adjudicaciones": 1,
+      "cantidad_contratos": 1,
+      "proveedores_adjudicados": "CONSULTORA DE INGENIERIA ALTO PARAGUAY SOCIEDAD ANONIMA",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1efabeba-81e6-6e6a-915d-255455c2a6bb.html",
-      "award_ids": [],
-      "fecha_apertura_real": "2026-03-27",
-      "monto_estimado": 7616000000,
-      "proveedores_montos": [],
+      "award_ids": [
+        "1f16f302-cb3b-6ba4-82b9-0d059ef9bd50"
+      ],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 7616000000,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-03-27"
     },
     "ocds-03ad3f-454663-1": {
       "ocid": "ocds-03ad3f-454663-1",
@@ -20597,7 +20600,10 @@
       "award_ids": [
         "1ef81929-cc50-6480-986f-191ecb95601a"
       ],
-      "fecha_apertura_real": "2024-07-03",
+      "enriquecido": true,
+      "monto_adjudicado": 120000000,
+      "monto_adjudicado_gs": 120000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 115000000,
       "proveedores_montos": [
         {
@@ -20606,10 +20612,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 120000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 120000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-07-03"
     },
     "ocds-03ad3f-443921-1": {
       "ocid": "ocds-03ad3f-443921-1",
@@ -70209,8 +70212,8 @@
       "proveedores_adjudicados": "INVERSIONES CONSTRUCCIONES Y PROPIEDADES S.A., NELSON FEDERICO SEGOVIA AZUCAS",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1ef5422f-81eb-60e4-8999-651d00ae9a30.html",
       "award_ids": [
-        "1efa810a-a47b-6a86-b73a-fbc03a327888",
-        "4bd6686c-f9cb-4cdc-bb88-3fafda5dfaf0"
+        "4bd6686c-f9cb-4cdc-bb88-3fafda5dfaf0",
+        "1efa810a-a47b-6a86-b73a-fbc03a327888"
       ],
       "enriquecido": true,
       "monto_adjudicado": 8128231193,
