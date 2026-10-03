@@ -1,7 +1,7 @@
 {
   "anio": "2026",
   "last_updated": "2026-10-03",
-  "total": 5531,
+  "total": 5532,
   "procesos": {
     "ocds-03ad3f-483383-1": {
       "ocid": "ocds-03ad3f-483383-1",
@@ -13770,7 +13770,7 @@
       "fecha_apertura_ofertas": "2026-06-19",
       "modalidad": "Menor cuantía nacional",
       "cantidad_adjudicaciones": 1,
-      "cantidad_contratos": 0,
+      "cantidad_contratos": 1,
       "proveedores_adjudicados": "COOPERATIVA MULTIACTIVA NEULAND LIMITADA ",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f15861f-a9b7-675e-a03f-61499d342c76.html",
       "award_ids": [
@@ -32518,7 +32518,7 @@
       "nombre_licitacion": "Contratación de Servicio de Mantenimiento y Reparación de la Aeronave C-212 MAT FAP 2035 HSI de un motor TPE 331-12JR-701C, S/N° P-103067",
       "convocante": "Comando de la Fuerza Aerea Uoc 4 / Ministerio de Defensa Nacional",
       "estado": "Adjudicada",
-      "categoria": "Servicios - Servicios de Gestion Profesionales de Empresa y Administrativos",
+      "categoria": "Servicios - Servicios de Produccion, Fabricacion Industrial y Mantenimientos de maquinarias",
       "fecha_publicacion": "2026-04-07",
       "fecha_apertura_ofertas": "2026-05-26",
       "modalidad": "Licitación pública internacional",
@@ -146332,13 +146332,13 @@
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f190c9e-0a2e-6878-9f7b-5f2bbafe977a.html",
       "award_ids": [],
-      "fecha_apertura_real": "2026-10-15",
-      "monto_estimado": 172361574,
-      "proveedores_montos": [],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 172361574,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-10-15"
     },
     "ocds-03ad3f-491707-1": {
       "ocid": "ocds-03ad3f-491707-1",
@@ -146356,13 +146356,13 @@
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f19707d-c0c6-6692-8573-79e86157c59d.html",
       "award_ids": [],
-      "fecha_apertura_real": "2026-10-15",
-      "monto_estimado": 150000000,
-      "proveedores_montos": [],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 150000000,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-10-15"
     },
     "ocds-03ad3f-485206-1": {
       "ocid": "ocds-03ad3f-485206-1",
@@ -146380,13 +146380,30 @@
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1b38f3-a94c-6684-bfbf-b7a905505f09.html",
       "award_ids": [],
-      "fecha_apertura_real": "2026-10-15",
-      "monto_estimado": 19528668,
-      "proveedores_montos": [],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 19528668,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-10-15"
+    },
+    "ocds-03ad3f-487269-1": {
+      "ocid": "ocds-03ad3f-487269-1",
+      "id_llamado": "487269",
+      "tender_id_completo": "1f1b3ab6-9562-6622-8c37-1b42025dbb8c",
+      "nombre_licitacion": "ADQUISICION DE PRODUCTOS DE ARTES GRAFICAS",
+      "convocante": "Universidad Nacional de Pilar (UNP)",
+      "estado": "En Convocatoria (Abierta)",
+      "categoria": "Servicios - Servicios Editoriales  de Diseño, Graficos y de Bellas Artes",
+      "fecha_publicacion": "2026-10-03",
+      "fecha_apertura_ofertas": "2026-10-16",
+      "modalidad": "Menor cuantía nacional",
+      "cantidad_adjudicaciones": 0,
+      "cantidad_contratos": 0,
+      "proveedores_adjudicados": "",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f1b3ab6-9562-6622-8c37-1b42025dbb8c.html",
+      "award_ids": []
     }
   }
 }
