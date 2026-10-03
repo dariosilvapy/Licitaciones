@@ -1,6 +1,6 @@
 {
   "anio": "2018",
-  "last_updated": "2026-10-02",
+  "last_updated": "2026-10-03",
   "total": 2293,
   "procesos": {
     "ocds-03ad3f-350374-1": {
@@ -1044,7 +1044,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/342868-adquisicion-mangueras-accesorios-sistema-prevencion-incendio-municipalidad-asuncion-1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2018-06-15",
+      "monto_estimado": 157000000,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-349078-1": {
       "ocid": "ocds-03ad3f-349078-1",
@@ -1187,7 +1194,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/340926-consultoria-fiscalizacion-construccion-puesta-marcha-laboratorio-tipo-ii-1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2018-06-18",
+      "monto_estimado": 1178544800,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-342994-1": {
       "ocid": "ocds-03ad3f-342994-1",
@@ -1206,7 +1220,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/342994-servicio-telefonia-celular-directivos-afd-1.html",
       "award_ids": [
         "342994-telef-celular-paraguay-sa-telecel-sa-2"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-30",
+      "monto_estimado": 156000000,
+      "proveedores_montos": [
+        {
+          "nombre": "TELEFONICA CELULAR DEL PARAGUAY SAE (TELECEL SAE)",
+          "monto": 65044504,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 65044504,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 65044504,
+      "enriquecido": true
     },
     "ocds-03ad3f-349917-1": {
       "ocid": "ocds-03ad3f-349917-1",
@@ -1337,7 +1364,40 @@
         "341110-eduardo-eulogio-veron-cardozo-8",
         "341110-imagen-digital-srl-9",
         "341110-antonio-ojeda-burgos-7"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-03",
+      "monto_estimado": 6000000000,
+      "proveedores_montos": [
+        {
+          "nombre": "BIEDERMANN PUBLICIDAD S.A.E",
+          "monto": 2200000000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "EDGAR BERNARDINO RODRIGUEZ BARRIOS",
+          "monto": 300000000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "EDUARDO EULOGIO VERON CARDOZO",
+          "monto": 600000000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "IMAGEN DIGITAL SRL",
+          "monto": 400000000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "ANTONIO OJEDA BURGOS",
+          "monto": 2500000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 6000000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 6000000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-348264-1": {
       "ocid": "ocds-03ad3f-348264-1",
@@ -1356,7 +1416,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348264-adquisicion-alimentador-vibratorio-trabajo-pesado-extraccion-silos-clinker-cip-ville-1.html",
       "award_ids": [
         "348264-hugo-felix-benitez-peralta-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-07-11",
+      "monto_estimado": 1600000000,
+      "proveedores_montos": [
+        {
+          "nombre": "HUGO FELIX BENITEZ PERALTA",
+          "monto": 563412000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 563412000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 563412000,
+      "enriquecido": true
     },
     "ocds-03ad3f-334630-1": {
       "ocid": "ocds-03ad3f-334630-1",
@@ -1661,7 +1734,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/339745-lco-sbe-02-18-contratacion-servicios-mantenimiento-preventivo-correctivo-provision-1.html",
       "award_ids": [
         "339745-distribuidora-ypacarai-sa-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-04-23",
+      "monto_estimado": 504194080,
+      "proveedores_montos": [
+        {
+          "nombre": "DYSA HEALTHCARE S.A.",
+          "monto": 504194080,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 504194080,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 504194080,
+      "enriquecido": true
     },
     "ocds-03ad3f-353110-1": {
       "ocid": "ocds-03ad3f-353110-1",
@@ -1802,7 +1888,30 @@
         "339740-albatros-saci-5",
         "339740-luis-armando-abbate-cordazzo-6",
         "339740-b-braun-medical-paraguay-s-a-3"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-04",
+      "monto_estimado": 1440330995,
+      "proveedores_montos": [
+        {
+          "nombre": "ALBATROS SACI",
+          "monto": 186560000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "LUIS ARMANDO ABBATE CORDAZZO",
+          "monto": 271782940,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "B.BRAUN MEDICAL PARAGUAY S.A.",
+          "monto": 488383722,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 946726662,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 946726662,
+      "enriquecido": true
     },
     "ocds-03ad3f-353351-1": {
       "ocid": "ocds-03ad3f-353351-1",
@@ -1853,7 +1962,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/339297-lpn-sbe-41-18-adquisicion-insumos-declarados-desiertos-lpn-143-16-insumos-servicio-1.html",
       "award_ids": [
         "339297-salumax-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-04-24",
+      "monto_estimado": 889466666,
+      "proveedores_montos": [
+        {
+          "nombre": "SALUMAX S.A.",
+          "monto": 626419864,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 626419864,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 626419864,
+      "enriquecido": true
     },
     "ocds-03ad3f-339040-1": {
       "ocid": "ocds-03ad3f-339040-1",
@@ -3309,7 +3431,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/344133-alquiler-oficinas-funcionarios-stp-1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2018-05-16",
+      "monto_estimado": 236080383,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-349591-1": {
       "ocid": "ocds-03ad3f-349591-1",
@@ -3899,7 +4028,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341554-li-79-locacion-inmuebles-asiento-sitios-telecomunicaciones-1.html",
       "award_ids": [
         "341554-estancia-santa-ana-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-29",
+      "monto_estimado": 48399984,
+      "proveedores_montos": [
+        {
+          "nombre": "ESTANCIA SANTA ANA S.A.",
+          "monto": 48399984,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 48399984,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 48399984,
+      "enriquecido": true
     },
     "ocds-03ad3f-346295-1": {
       "ocid": "ocds-03ad3f-346295-1",
@@ -4608,7 +4750,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347585-lpn-1388-18-construccion-nuevo-alimentador-pfo-9-emergente-subestacion-presidente-fr-1.html",
       "award_ids": [
         "347585-osvaldo-cecilio-balmaceda-miranda-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-05",
+      "monto_estimado": 2091521500,
+      "proveedores_montos": [
+        {
+          "nombre": "OSVALDO CECILIO BALMACEDA MIRANDA",
+          "monto": 1489526857,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 1489526857,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 1489526857,
+      "enriquecido": true
     },
     "ocds-03ad3f-341706-1": {
       "ocid": "ocds-03ad3f-341706-1",
@@ -4710,7 +4865,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347797-lp1393-18-ampliacion-adecuacion-red-media-tension-desnuda-protegida-alimentador-cza-1.html",
       "award_ids": [
         "347797-dc-ingenieria-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-04",
+      "monto_estimado": 2011507000,
+      "proveedores_montos": [
+        {
+          "nombre": "DC INGENIERIA S.A.",
+          "monto": 1432455178,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 1432455178,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 1432455178,
+      "enriquecido": true
     },
     "ocds-03ad3f-341695-1": {
       "ocid": "ocds-03ad3f-341695-1",
@@ -4730,7 +4898,25 @@
       "award_ids": [
         "341695-empresa-servicios-tecnicos-s-a-3",
         "341695-dc-ingenieria-s-a-2"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-08",
+      "monto_estimado": 3607495375,
+      "proveedores_montos": [
+        {
+          "nombre": "EMPRESA DE SERVICIOS TECNICOS S A",
+          "monto": 664153200,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "DC INGENIERIA S.A.",
+          "monto": 1956363527,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 2620516727,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 2620516727,
+      "enriquecido": true
     },
     "ocds-03ad3f-351114-1": {
       "ocid": "ocds-03ad3f-351114-1",
@@ -4781,7 +4967,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341701-lp1387-18-ampliacion-adecuacion-linea-alimentadora-media-tension-ppe-03-distritos-vi-1.html",
       "award_ids": [
         "341701-dc-ingenieria-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-30",
+      "monto_estimado": 7068145285,
+      "proveedores_montos": [
+        {
+          "nombre": "DC INGENIERIA S.A.",
+          "monto": 5281527988,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 5281527988,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 5281527988,
+      "enriquecido": true
     },
     "ocds-03ad3f-348524-1": {
       "ocid": "ocds-03ad3f-348524-1",
@@ -5320,7 +5519,70 @@
         "340083-euroquimica-s-a-17",
         "340083-chaco-internacional-sa-13",
         "340083-chaco-internacional-sa-11"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-18",
+      "monto_estimado": 5541705556,
+      "proveedores_montos": [
+        {
+          "nombre": "EXIMPAR S.R.L.",
+          "monto": 185081700,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "SANFIL S.A.",
+          "monto": 1307792000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "G T SCIENTIFIC S.A.",
+          "monto": 115840496,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "IRIS PATRICIA POSADA",
+          "monto": 252885700,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "EUROQUIMICA S.A.",
+          "monto": 905000000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "DROGUERIA ITALQUIMICA SOCIEDAD ANONIMA",
+          "monto": 627030000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "PROSALUD FARMA S.A.",
+          "monto": 237000000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "BIOTEC DEL PARAGUAY S.A.",
+          "monto": 216036600,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "EUROQUIMICA S.A.",
+          "monto": 29712000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "CHACO INTERNACIONAL SA",
+          "monto": 611400398,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "CHACO INTERNACIONAL SA",
+          "monto": 111396000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 4599174894,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 4599174894,
+      "enriquecido": true
     },
     "ocds-03ad3f-348916-1": {
       "ocid": "ocds-03ad3f-348916-1",
@@ -6633,7 +6895,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341743-contratacion-cobertura-seguros-bienes-patrimoniales-compania-1.html",
       "award_ids": [
         "341743-el-productor-s-a-seguros-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-08",
+      "monto_estimado": 5144999952,
+      "proveedores_montos": [
+        {
+          "nombre": "EL PRODUCTOR S.A. .SEGUROS",
+          "monto": 734999184,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 734999184,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 734999184,
+      "enriquecido": true
     },
     "ocds-03ad3f-350247-1": {
       "ocid": "ocds-03ad3f-350247-1",
@@ -7380,7 +7655,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341690-lp1380-2018-construccion-linea-aerea-transmision-2-x-66-kv-guarambare-itaugua-amplia-1.html",
       "award_ids": [
         "341690-ingenieria-topografia-caminos-sa-t-c-sa-2"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-29",
+      "monto_estimado": 5647934,
+      "proveedores_montos": [
+        {
+          "nombre": "INGENIERIA DE TOPOGRAFIA Y CAMINOS SA (T & C SA)",
+          "monto": 5030580,
+          "moneda": "USD"
+        }
+      ],
+      "monto_adjudicado_gs": 0,
+      "monto_adjudicado_usd": 5030580,
+      "monto_adjudicado": 0,
+      "enriquecido": true
     },
     "ocds-03ad3f-337772-1": {
       "ocid": "ocds-03ad3f-337772-1",
@@ -8205,7 +8493,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/339631-lco-03-2018-mantenimiento-preventivo-correctivo-compresores-plurianual-1.html",
       "award_ids": [
         "339631-javier-recalde-encina-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-17",
+      "monto_estimado": 468000000,
+      "proveedores_montos": [
+        {
+          "nombre": "JAVIER RECALDE ENCINA ",
+          "monto": 468000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 468000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 468000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-341463-1": {
       "ocid": "ocds-03ad3f-341463-1",
@@ -8668,7 +8969,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/343479-extension-tendido-electrico-comunidad-el-estribo-1.html",
       "award_ids": [
         "343479-3h-ingenieria-s-r-l-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-17",
+      "monto_estimado": 100000000,
+      "proveedores_montos": [
+        {
+          "nombre": "3H INGENIERIA S.R.L",
+          "monto": 100000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 100000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 100000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-349365-1": {
       "ocid": "ocds-03ad3f-349365-1",
@@ -9150,7 +9464,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348607-adquisicion-papeleria-criterios-sustentables-otros-utiles-declarados-desiertos-lco-1.html",
       "award_ids": [
         "348607-ara-mi-srl-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-23",
+      "monto_estimado": 125880000,
+      "proveedores_montos": [
+        {
+          "nombre": "PRESTIGIO DEL SUR S.R.L",
+          "monto": 123840000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 123840000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 123840000,
+      "enriquecido": true
     },
     "ocds-03ad3f-339015-1": {
       "ocid": "ocds-03ad3f-339015-1",
@@ -9436,7 +9763,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/345139-locacion-inmueble-sede-juzgado-paz-chaco-i-plurianual-ad-referendum-1.html",
       "award_ids": [
         "345139-mendoza-insaurralde-beatriz-ramona-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-07",
+      "monto_estimado": 40800000,
+      "proveedores_montos": [
+        {
+          "nombre": "BEATRIZ RAMONA MENDOZA DE INSAURRALDE",
+          "monto": 40800000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 40800000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 40800000,
+      "enriquecido": true
     },
     "ocds-03ad3f-343040-1": {
       "ocid": "ocds-03ad3f-343040-1",
@@ -11755,7 +12095,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341664-lp1376-2018-proyecto-construccion-subestacion-villa-elisa-220-kv-ampliacion-subestac-1.html",
       "award_ids": [
         "341664-concret-mix-sa-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-15",
+      "monto_estimado": 19595048,
+      "proveedores_montos": [
+        {
+          "nombre": "CONCRET-MIX SA",
+          "monto": 6650671,
+          "moneda": "USD"
+        }
+      ],
+      "monto_adjudicado_gs": 0,
+      "monto_adjudicado_usd": 6650671,
+      "monto_adjudicado": 0,
+      "enriquecido": true
     },
     "ocds-03ad3f-340691-1": {
       "ocid": "ocds-03ad3f-340691-1",
@@ -11793,7 +12146,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/340395-llamado-mopc-n-24-2018-licitacion-publica-nacional-servicios-especializados-reparaci-1.html",
       "award_ids": [
         "340395-automotor-sa-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-16",
+      "monto_estimado": 1200000000,
+      "proveedores_montos": [
+        {
+          "nombre": "AUTOMOTOR SA",
+          "monto": 1200000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 1200000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 1200000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-344776-1": {
       "ocid": "ocds-03ad3f-344776-1",
@@ -12132,7 +12498,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/344115-lco-03-18-provision-almuerzo-escolar-1.html",
       "award_ids": [
         "344115-rosa-mabel-capli-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-09-06",
+      "monto_estimado": 604278000,
+      "proveedores_montos": [
+        {
+          "nombre": "ROSA MABEL CAPLI",
+          "monto": 529750380,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 529750380,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 529750380,
+      "enriquecido": true
     },
     "ocds-03ad3f-342697-1": {
       "ocid": "ocds-03ad3f-342697-1",
@@ -12689,7 +13068,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348275-llamado-mopc-n-28-2018-licitacion-publica-nacional-sbe-trabajos-iluminacion-monument-1.html",
       "award_ids": [
         "348275-confortec-srl-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-04",
+      "monto_estimado": 3992947100,
+      "proveedores_montos": [
+        {
+          "nombre": "CONFORTEC SRL",
+          "monto": 3300000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 3300000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 3300000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-353171-1": {
       "ocid": "ocds-03ad3f-353171-1",
@@ -12778,7 +13170,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341725-contrucciones-ser-realizadas-colegio-nacional-potrerito-ybate-distrito-san-patricio-1.html",
       "award_ids": [
         "341725-cristino-martinez-galeano-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-22",
+      "monto_estimado": 617262382,
+      "proveedores_montos": [
+        {
+          "nombre": "CRISTINO MARTINEZ GALEANO",
+          "monto": 516456195,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 516456195,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 516456195,
+      "enriquecido": true
     },
     "ocds-03ad3f-344486-1": {
       "ocid": "ocds-03ad3f-344486-1",
@@ -13020,7 +13425,25 @@
       "award_ids": [
         "340381-moviment-traiding-s-a-2",
         "340381-j-l-compania-sociedad-anonima-3"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-05",
+      "monto_estimado": 4546927868,
+      "proveedores_montos": [
+        {
+          "nombre": "MOVIMENT TRAIDING S.A. ",
+          "monto": 3432275956,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "J. L. Y COMPAÑIA SOCIEDAD ANONIMA",
+          "monto": 321786973,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 3754062929,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 3754062929,
+      "enriquecido": true
     },
     "ocds-03ad3f-338680-1": {
       "ocid": "ocds-03ad3f-338680-1",
@@ -13358,7 +13781,40 @@
         "338868-prismapar-s-a-5",
         "338868-luis-maria-lopez-cubas-6",
         "338868-ana-maria-alfonso-riveros-7"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-08",
+      "monto_estimado": 2129901861,
+      "proveedores_montos": [
+        {
+          "nombre": "INGECON INGENIERIA DE CARINA NUÑEZ GODOY",
+          "monto": 506944720,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "Constructora Alpe S.A.",
+          "monto": 230157806,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "PRISMAPAR S.A",
+          "monto": 597054572,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "LUIS MARIA LOPEZ CUBAS ",
+          "monto": 471260489,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "ANA MARIA ALFONSO RIVEROS",
+          "monto": 302737099,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 2108154686,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 2108154686,
+      "enriquecido": true
     },
     "ocds-03ad3f-348427-1": {
       "ocid": "ocds-03ad3f-348427-1",
@@ -13415,7 +13871,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347647-construccion-tinglado-polideportivo-colegio-nacional-florideno-distrito-villa-florid-1.html",
       "award_ids": [
         "347647-jorge-fernando-diaz-lavigne-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-02",
+      "monto_estimado": 611641875,
+      "proveedores_montos": [
+        {
+          "nombre": "JORGE FERNANDO DIAZ LAVIGNE",
+          "monto": 573982279,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 573982279,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 573982279,
+      "enriquecido": true
     },
     "ocds-03ad3f-341984-1": {
       "ocid": "ocds-03ad3f-341984-1",
@@ -14694,7 +15163,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/340652-tinglado-escuela-basica-n-296-dr-juan-m-frutos-1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2018-04-25",
+      "monto_estimado": 157000000,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-340540-1": {
       "ocid": "ocds-03ad3f-340540-1",
@@ -14752,7 +15228,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/340894-lpn-01-2018-provision-almuerzo-escolar-1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2018-05-25",
+      "monto_estimado": 960000000,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-340738-1": {
       "ocid": "ocds-03ad3f-340738-1",
@@ -15167,7 +15650,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/344652-adquisicion-almuerzo-escolar-1.html",
       "award_ids": [
         "344652-keops-group-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-28",
+      "monto_estimado": 597839000,
+      "proveedores_montos": [
+        {
+          "nombre": "KEOPS GROUP S.A.",
+          "monto": 418487300,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 418487300,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 418487300,
+      "enriquecido": true
     },
     "ocds-03ad3f-345291-1": {
       "ocid": "ocds-03ad3f-345291-1",
@@ -15478,7 +15974,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348339-reparacion-aulas-colegio-nacional-saltos-monday-1.html",
       "award_ids": [
         "348339-perez-aguayo-s-r-l-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-02",
+      "monto_estimado": 145119900,
+      "proveedores_montos": [
+        {
+          "nombre": "Perez & Aguayo S.R.L.",
+          "monto": 127550361,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 127550361,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 127550361,
+      "enriquecido": true
     },
     "ocds-03ad3f-345302-1": {
       "ocid": "ocds-03ad3f-345302-1",
@@ -16003,7 +16512,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/345538-construccion-empedrado-tape-tuja-caaguazu-1.html",
       "award_ids": [
         "345538-eladio-babanoli-gomez-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-04-30",
+      "monto_estimado": 561200000,
+      "proveedores_montos": [
+        {
+          "nombre": "ELADIO BABAÑOLI GOMEZ ",
+          "monto": 464096956,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 464096956,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 464096956,
+      "enriquecido": true
     },
     "ocds-03ad3f-352883-1": {
       "ocid": "ocds-03ad3f-352883-1",
@@ -16150,7 +16672,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/345558-construccion-empedrado-tembiapora-1.html",
       "award_ids": [
         "345558-roma-import-export-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-04-30",
+      "monto_estimado": 400000000,
+      "proveedores_montos": [
+        {
+          "nombre": "ROMA IMPORT EXPORT S.A.",
+          "monto": 370600000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 370600000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 370600000,
+      "enriquecido": true
     },
     "ocds-03ad3f-354321-1": {
       "ocid": "ocds-03ad3f-354321-1",
@@ -16418,7 +16953,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347233-adquisicion-mobiliarios-uso-instituciones-educativas-1.html",
       "award_ids": [
         "347233-gerardo-rolando-arevalos-duarte-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-10",
+      "monto_estimado": 100000000,
+      "proveedores_montos": [
+        {
+          "nombre": "GERARDO ROLANDO AREVALOS DUARTE",
+          "monto": 80000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 80000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 80000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-342475-1": {
       "ocid": "ocds-03ad3f-342475-1",
@@ -16795,7 +17343,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/345580-provision-almuerzo-escolar-1.html",
       "award_ids": [
         "345580-girasol-sociedad-anonima-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-28",
+      "monto_estimado": 302402100,
+      "proveedores_montos": [
+        {
+          "nombre": "GIRASOL SOCIEDAD ANONIMA",
+          "monto": 301294400,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 301294400,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 301294400,
+      "enriquecido": true
     },
     "ocds-03ad3f-352605-1": {
       "ocid": "ocds-03ad3f-352605-1",
@@ -16974,7 +17535,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/345395-adquisicion-almuerzo-escolar-instituciones-educativas-municipio-1.html",
       "award_ids": [
         "345395-francisco-anselmo-figueredo-miranda-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-23",
+      "monto_estimado": 280000000,
+      "proveedores_montos": [
+        {
+          "nombre": "FRANCISCO ANSELMO FIGUEREDO MIRANDA",
+          "monto": 280000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 280000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 280000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-347780-1": {
       "ocid": "ocds-03ad3f-347780-1",
@@ -16993,7 +17567,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347780-llamado-mopc-lc-n-23-2018-alquiler-oficinas-uep-jica-pg-p17-proyecto-corredor-export-1.html",
       "award_ids": [
         "347780-benito-roggio-e-hijos-sa-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-07",
+      "monto_estimado": 213600000,
+      "proveedores_montos": [
+        {
+          "nombre": "BENITO ROGGIO E HIJOS SA",
+          "monto": 213600000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 213600000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 213600000,
+      "enriquecido": true
     },
     "ocds-03ad3f-349738-1": {
       "ocid": "ocds-03ad3f-349738-1",
@@ -17223,7 +17810,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/345499-construccion-reparaciones-aula-esc-bas-n-1643-mariano-dinatale-col-yuruhei-1.html",
       "award_ids": [
         "345499-miguel-angel-patino-chavez-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-08",
+      "monto_estimado": 149999525,
+      "proveedores_montos": [
+        {
+          "nombre": "MIGUEL ANGEL PATIÑO CHAVEZ",
+          "monto": 149930487,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 149930487,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 149930487,
+      "enriquecido": true
     },
     "ocds-03ad3f-346093-1": {
       "ocid": "ocds-03ad3f-346093-1",
@@ -18348,7 +18948,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348281-provision-almuerzo-escolar-modalidad-cocinando-instituciones-educativas-1.html",
       "award_ids": [
         "348281-gabriela-vallejos-ruiz-2"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-29",
+      "monto_estimado": 541443000,
+      "proveedores_montos": [
+        {
+          "nombre": "GABRIELA VALLEJOS RUIZ",
+          "monto": 377720950,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 377720950,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 377720950,
+      "enriquecido": true
     },
     "ocds-03ad3f-348045-1": {
       "ocid": "ocds-03ad3f-348045-1",
@@ -18367,7 +18980,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348045-construccion-canalizacion-1.html",
       "award_ids": [
         "348045-victor-manuel-abente-sanchez-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-21",
+      "monto_estimado": 358760000,
+      "proveedores_montos": [
+        {
+          "nombre": "VICTOR MANUEL ABENTE SANCHEZ",
+          "monto": 358760000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 358760000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 358760000,
+      "enriquecido": true
     },
     "ocds-03ad3f-350032-1": {
       "ocid": "ocds-03ad3f-350032-1",
@@ -18418,7 +19044,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347759-provision-almuerzo-escolar-1.html",
       "award_ids": [
         "347759-fitra-srl-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-31",
+      "monto_estimado": 822510000,
+      "proveedores_montos": [
+        {
+          "nombre": "FITRA SRL ",
+          "monto": 752210000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 752210000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 752210000,
+      "enriquecido": true
     },
     "ocds-03ad3f-348490-1": {
       "ocid": "ocds-03ad3f-348490-1",
@@ -18438,7 +19077,25 @@
       "award_ids": [
         "348490-edgar-isidoro-mendoza-vera-2",
         "348490-milciades-martinez-ruiz-3"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-02",
+      "monto_estimado": 145073615,
+      "proveedores_montos": [
+        {
+          "nombre": "EDGAR ISIDORO MENDOZA VERA",
+          "monto": 113032500,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "Milciades Martinez Ruiz",
+          "monto": 31441115,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 144473615,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 144473615,
+      "enriquecido": true
     },
     "ocds-03ad3f-349619-1": {
       "ocid": "ocds-03ad3f-349619-1",
@@ -19485,7 +20142,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/344139-reparacion-bano-san-roque-fonacide-1.html",
       "award_ids": [
         "344139-americo-luis-fretes-ortellado-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-10",
+      "monto_estimado": 36372262,
+      "proveedores_montos": [
+        {
+          "nombre": "AMERICO LUIS FRETES ORTELLADO",
+          "monto": 35431720,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 35431720,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 35431720,
+      "enriquecido": true
     },
     "ocds-03ad3f-351511-1": {
       "ocid": "ocds-03ad3f-351511-1",
@@ -20482,7 +21152,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/340181-adquisicion-almuerzo-escolar-1.html",
       "award_ids": [
         "340181-aida-aquino-farias-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-16",
+      "monto_estimado": 337112500,
+      "proveedores_montos": [
+        {
+          "nombre": "AIDA AQUINO DE FARIAS",
+          "monto": 337112500,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 337112500,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 337112500,
+      "enriquecido": true
     },
     "ocds-03ad3f-353275-1": {
       "ocid": "ocds-03ad3f-353275-1",
@@ -20597,7 +21280,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/342254-productos-almuerzo-escolar-1.html",
       "award_ids": [
         "342254-fitra-srl-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-11",
+      "monto_estimado": 784674218,
+      "proveedores_montos": [
+        {
+          "nombre": "FITRA SRL ",
+          "monto": 784960635,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 784960635,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 784960635,
+      "enriquecido": true
     },
     "ocds-03ad3f-355050-1": {
       "ocid": "ocds-03ad3f-355050-1",
@@ -20891,7 +21587,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341034-adquisicion-almuerzo-escolar-1.html",
       "award_ids": [
         "341034-blanca-nieves-rodriguez-braun-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-31",
+      "monto_estimado": 446247000,
+      "proveedores_montos": [
+        {
+          "nombre": "BLANCA NIEVES RODRIGUEZ BRAUN",
+          "monto": 535496400,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 535496400,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 535496400,
+      "enriquecido": true
     },
     "ocds-03ad3f-348127-1": {
       "ocid": "ocds-03ad3f-348127-1",
@@ -20910,7 +21619,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348127-llamado-mopc-n-29-2018-licitacion-publica-nacional-contratacion-servicios-consultori-1.html",
       "award_ids": [
         "348127-consorcio-cci-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-01",
+      "monto_estimado": 1500000000,
+      "proveedores_montos": [
+        {
+          "nombre": "CONSORCIO CCI",
+          "monto": 1390023848,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 1390023848,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 1390023848,
+      "enriquecido": true
     },
     "ocds-03ad3f-341803-1": {
       "ocid": "ocds-03ad3f-341803-1",
@@ -20948,7 +21670,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/344777-provision-almuerzo-escolar-diferentes-instituciones-educativas-distrito-san-cosme-da-1.html",
       "award_ids": [
         "344777-carlos-atilio-carlson-capli-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-12",
+      "monto_estimado": 789390000,
+      "proveedores_montos": [
+        {
+          "nombre": "Carlos Atilio Carlson Capli",
+          "monto": 751724820,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 751724820,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 751724820,
+      "enriquecido": true
     },
     "ocds-03ad3f-345294-1": {
       "ocid": "ocds-03ad3f-345294-1",
@@ -21437,7 +22172,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347601-provision-almuerzo-escolar-alimentos-preparados-escuelas-1.html",
       "award_ids": [
         "347601-maria-carmen-calonga-mendoza-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-25",
+      "monto_estimado": 385350000,
+      "proveedores_montos": [
+        {
+          "nombre": "MARIA DEL CARMEN CALONGA DE MENDOZA",
+          "monto": 385350000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 385350000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 385350000,
+      "enriquecido": true
     },
     "ocds-03ad3f-353490-1": {
       "ocid": "ocds-03ad3f-353490-1",
@@ -22074,7 +22822,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347908-provision-almuerzo-escolar-escuelas-municipio-nueva-italia-fonacide-1.html",
       "award_ids": [
         "347908-nestor-antonio-gonzalez-ortiz-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-15",
+      "monto_estimado": 349800000,
+      "proveedores_montos": [
+        {
+          "nombre": "NESTOR ANTONIO GONZALEZ ORTIZ",
+          "monto": 346302000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 346302000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 346302000,
+      "enriquecido": true
     },
     "ocds-03ad3f-350617-1": {
       "ocid": "ocds-03ad3f-350617-1",
@@ -22773,7 +23534,25 @@
       "award_ids": [
         "342686-ruben-dario-nunez-esquivel-3",
         "342686-jarita-s-a-2"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-01",
+      "monto_estimado": 413321945,
+      "proveedores_montos": [
+        {
+          "nombre": "RUBEN DARIO NUÑEZ ESQUIVEL",
+          "monto": 255643425,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "JARITA S.A",
+          "monto": 109810910,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 365454335,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 365454335,
+      "enriquecido": true
     },
     "ocds-03ad3f-341624-1": {
       "ocid": "ocds-03ad3f-341624-1",
@@ -23669,7 +24448,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/340953-construccion-aula-eduacion-inicial-1.html",
       "award_ids": [
         "340953-miguel-angel-patino-chavez-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-28",
+      "monto_estimado": 155977922,
+      "proveedores_montos": [
+        {
+          "nombre": "MIGUEL ANGEL PATIÑO CHAVEZ",
+          "monto": 155920125,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 155920125,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 155920125,
+      "enriquecido": true
     },
     "ocds-03ad3f-346145-1": {
       "ocid": "ocds-03ad3f-346145-1",
@@ -24174,7 +24966,25 @@
       "award_ids": [
         "346436-feliciano-rojas-barrios-2",
         "346436-blanca-flora-ocampo-pattenden-3"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-28",
+      "monto_estimado": 692879928,
+      "proveedores_montos": [
+        {
+          "nombre": "FELICIANO ROJAS BARRIOS",
+          "monto": 167112320,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "BLANCA  OCAMPO",
+          "monto": 402764782,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 569877102,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 569877102,
+      "enriquecido": true
     },
     "ocds-03ad3f-351680-1": {
       "ocid": "ocds-03ad3f-351680-1",
@@ -25780,7 +26590,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/340495-almuerzo-escolar-escuelas-publicas-1.html",
       "award_ids": [
         "340495-rodolfo-mendez-gonzalez-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-17",
+      "monto_estimado": 397460000,
+      "proveedores_montos": [
+        {
+          "nombre": "RODOLFO MENDEZ GONZALEZ",
+          "monto": 327320000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 327320000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 327320000,
+      "enriquecido": true
     },
     "ocds-03ad3f-351425-1": {
       "ocid": "ocds-03ad3f-351425-1",
@@ -27332,7 +28155,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/344095-reparacion-aulas-fonacide-1.html",
       "award_ids": [
         "344095-jarita-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-18",
+      "monto_estimado": 79600000,
+      "proveedores_montos": [
+        {
+          "nombre": "JARITA S.A",
+          "monto": 71730000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 71730000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 71730000,
+      "enriquecido": true
     },
     "ocds-03ad3f-347063-1": {
       "ocid": "ocds-03ad3f-347063-1",
@@ -27351,7 +28187,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347063-provision-almuerzo-bajo-modalidad-cocinando-instituciones-educativas-1.html",
       "award_ids": [
         "347063-blanca-nieves-rodriguez-braun-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-04",
+      "monto_estimado": 479992240,
+      "proveedores_montos": [
+        {
+          "nombre": "BLANCA NIEVES RODRIGUEZ BRAUN",
+          "monto": 376760000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 376760000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 376760000,
+      "enriquecido": true
     },
     "ocds-03ad3f-343064-1": {
       "ocid": "ocds-03ad3f-343064-1",
@@ -27530,7 +28379,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348336-construccion-tinglado-1.html",
       "award_ids": [
         "348336-global-grupo-empresarial-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-02",
+      "monto_estimado": 155000000,
+      "proveedores_montos": [
+        {
+          "nombre": "GLOBAL GRUPO EMPRESARIAL S.A.",
+          "monto": 155000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 155000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 155000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-348846-1": {
       "ocid": "ocds-03ad3f-348846-1",
@@ -28099,7 +28961,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341625-construccion-muralla-colegio-nacional-14-mayo-1.html",
       "award_ids": [
         "341625-coop-mult-de-prod-serv-publ-cons-ahor-y-cred-san-andres-ltda-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-25",
+      "monto_estimado": 120000000,
+      "proveedores_montos": [
+        {
+          "nombre": "COOP.MULT.DE PROD.SERV.PUBL.CONS.AHOR.Y CRED.SAN ANDRES LTDA ",
+          "monto": 120000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 120000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 120000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-345699-1": {
       "ocid": "ocds-03ad3f-345699-1",
@@ -28960,7 +29835,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348577-licitacion-publica-nacional-trabajos-restauracion-puesta-valor-estacion-ferrocarril-1.html",
       "award_ids": [
         "348577-juan-carlos-sanchez-baez-2"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-28",
+      "monto_estimado": 1753472400,
+      "proveedores_montos": [
+        {
+          "nombre": "JUAN CARLOS SANCHEZ BAEZ",
+          "monto": 1563650892,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 1563650892,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 1563650892,
+      "enriquecido": true
     },
     "ocds-03ad3f-340821-1": {
       "ocid": "ocds-03ad3f-340821-1",
@@ -29362,7 +30250,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/345493-reparaciones-aulas-esc-bas-n-497-villa-rosario-hugua-rey-1.html",
       "award_ids": [
         "345493-miguel-angel-patino-chavez-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-17",
+      "monto_estimado": 149994000,
+      "proveedores_montos": [
+        {
+          "nombre": "MIGUEL ANGEL PATIÑO CHAVEZ",
+          "monto": 149836000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 149836000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 149836000,
+      "enriquecido": true
     },
     "ocds-03ad3f-352585-1": {
       "ocid": "ocds-03ad3f-352585-1",
@@ -30014,7 +30915,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348592-construccion-cercado-perimetral-colegio-nacional-sagrado-corazon-jesus-1.html",
       "award_ids": [
         "348592-sonia-elizabeth-benitez-torales-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-23",
+      "monto_estimado": 156123000,
+      "proveedores_montos": [
+        {
+          "nombre": "SONIA ELIZABETH BENITEZ TORALES",
+          "monto": 122240500,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 122240500,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 122240500,
+      "enriquecido": true
     },
     "ocds-03ad3f-353522-1": {
       "ocid": "ocds-03ad3f-353522-1",
@@ -30706,7 +31620,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347772-almuerzo-escolar-1.html",
       "award_ids": [
         "347772-blanca-nieves-rodriguez-braun-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-04",
+      "monto_estimado": 238680000,
+      "proveedores_montos": [
+        {
+          "nombre": "BLANCA NIEVES RODRIGUEZ BRAUN",
+          "monto": 238680000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 238680000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 238680000,
+      "enriquecido": true
     },
     "ocds-03ad3f-348976-1": {
       "ocid": "ocds-03ad3f-348976-1",
@@ -30808,7 +31735,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/340252-reparaciones-locales-escolares-1.html",
       "award_ids": [
         "340252-ramon-alcides-gaona-gomez-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-22",
+      "monto_estimado": 156996820,
+      "proveedores_montos": [
+        {
+          "nombre": "RAMON ALCIDES GAONA GOMEZ",
+          "monto": 156996820,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 156996820,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 156996820,
+      "enriquecido": true
     },
     "ocds-03ad3f-348983-1": {
       "ocid": "ocds-03ad3f-348983-1",
@@ -31210,7 +32150,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/344484-adquisicion-almuerzo-escolar-instituciones-educativas-distrito-quiindy-1.html",
       "award_ids": [
         "344484-b-h-services-s-r-l-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-23",
+      "monto_estimado": 663600000,
+      "proveedores_montos": [
+        {
+          "nombre": "B.H. SERVICES S.R.L. ",
+          "monto": 663600000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 663600000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 663600000,
+      "enriquecido": true
     },
     "ocds-03ad3f-354667-1": {
       "ocid": "ocds-03ad3f-354667-1",
@@ -31314,7 +32267,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/345829-construccion-aula-esc-francisco-medina-alfonzo-demolicion-bloque-antiguo-existente-1.html",
       "award_ids": [
         "345829-roman-ibars-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-04-27",
+      "monto_estimado": 125454650,
+      "proveedores_montos": [
+        {
+          "nombre": "ROMAN IBARS",
+          "monto": 125200000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 125200000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 125200000,
+      "enriquecido": true
     },
     "ocds-03ad3f-347456-1": {
       "ocid": "ocds-03ad3f-347456-1",
@@ -31333,7 +32299,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347456-construccion-pavimento-tipo-empedrado-ciudad-caacupe-1.html",
       "award_ids": [
         "347456-alfredo-bernardino-lezcano-sanchez-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-25",
+      "monto_estimado": 1891893000,
+      "proveedores_montos": [
+        {
+          "nombre": "ALFREDO BERNARDINO LEZCANO SANCHEZ",
+          "monto": 1321574100,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 1321574100,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 1321574100,
+      "enriquecido": true
     },
     "ocds-03ad3f-350383-1": {
       "ocid": "ocds-03ad3f-350383-1",
@@ -31748,7 +32727,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/345855-intervencion-ampliacion-edilicia-sede-colegio-nacional-villarrica-1.html",
       "award_ids": [
         "345855-eduardo-agustin-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-09",
+      "monto_estimado": 2172724050,
+      "proveedores_montos": [
+        {
+          "nombre": "EDUARDO AGUSTIN DUARTE ROJAS",
+          "monto": 2156278871,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 2156278871,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 2156278871,
+      "enriquecido": true
     },
     "ocds-03ad3f-351335-1": {
       "ocid": "ocds-03ad3f-351335-1",
@@ -32075,7 +33067,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348092-construccion-centro-comunitario-primera-infancia-ciudad-ybycui-1.html",
       "award_ids": [
         "348092-eduardo-edmundo-rolon-batista-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-18",
+      "monto_estimado": 450000000,
+      "proveedores_montos": [
+        {
+          "nombre": "Eduardo Edmundo Rolon Batista",
+          "monto": 440695000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 440695000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 440695000,
+      "enriquecido": true
     },
     "ocds-03ad3f-341199-1": {
       "ocid": "ocds-03ad3f-341199-1",
@@ -33150,7 +34155,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341904-adquisicion-almuerzo-escolar-1.html",
       "award_ids": [
         "341904-blanca-nieves-rodriguez-braun-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-25",
+      "monto_estimado": 156712500,
+      "proveedores_montos": [
+        {
+          "nombre": "BLANCA NIEVES RODRIGUEZ BRAUN",
+          "monto": 156712500,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 156712500,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 156712500,
+      "enriquecido": true
     },
     "ocds-03ad3f-346236-1": {
       "ocid": "ocds-03ad3f-346236-1",
@@ -33202,7 +34220,25 @@
       "award_ids": [
         "348203-ladero-paraguayo-s-a-3",
         "348203-girasol-sociedad-anonima-4"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-21",
+      "monto_estimado": 1416000000,
+      "proveedores_montos": [
+        {
+          "nombre": "LADERO PARAGUAYO S.A.",
+          "monto": 991200000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "GIRASOL SOCIEDAD ANONIMA",
+          "monto": 0,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 991200000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 991200000,
+      "enriquecido": true
     },
     "ocds-03ad3f-347510-1": {
       "ocid": "ocds-03ad3f-347510-1",
@@ -33860,7 +34896,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348619-llamado-mopc-n-33-2018-licitacion-concurso-ofertas-adquisicion-mini-pala-cargadora-1.html",
       "award_ids": [
         "348619-s-a-c-i-h-petersen-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-16",
+      "monto_estimado": 620000000,
+      "proveedores_montos": [
+        {
+          "nombre": "S.A.C.I. H. PETERSEN",
+          "monto": 658790000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 658790000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 658790000,
+      "enriquecido": true
     },
     "ocds-03ad3f-341360-1": {
       "ocid": "ocds-03ad3f-341360-1",
@@ -35010,7 +36059,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348732-construccion-pavimento-tipo-enripiado-compania-lomas-valentina-tramo-ruta-escuela-ba-1.html",
       "award_ids": [
         "348732-grupo-rio-parana-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-16",
+      "monto_estimado": 48223000,
+      "proveedores_montos": [
+        {
+          "nombre": "GRUPO RIO PARANA S.A.",
+          "monto": 47853000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 47853000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 47853000,
+      "enriquecido": true
     },
     "ocds-03ad3f-346179-1": {
       "ocid": "ocds-03ad3f-346179-1",
@@ -35214,7 +36276,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/339833-almuerzo-escolar-escuelas-1.html",
       "award_ids": [
         "339833-ladero-paraguayo-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-04",
+      "monto_estimado": 570780000,
+      "proveedores_montos": [
+        {
+          "nombre": "LADERO PARAGUAYO S.A.",
+          "monto": 612360000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 612360000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 612360000,
+      "enriquecido": true
     },
     "ocds-03ad3f-340599-1": {
       "ocid": "ocds-03ad3f-340599-1",
@@ -36165,7 +37240,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347792-construccion-polideportivo-carayao-1.html",
       "award_ids": [
         "347792-jorge-benitez-barreto-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-29",
+      "monto_estimado": 1896712225,
+      "proveedores_montos": [
+        {
+          "nombre": "JORGE BENITEZ BARRETO",
+          "monto": 1568584460,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 1568584460,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 1568584460,
+      "enriquecido": true
     },
     "ocds-03ad3f-340556-1": {
       "ocid": "ocds-03ad3f-340556-1",
@@ -36817,7 +37905,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/340287-cementado-calle-ceferino-ruiz-calle-rojas-silva-san-blas-1.html",
       "award_ids": [
         "340287-logisticas-servicios-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-17",
+      "monto_estimado": 140025000,
+      "proveedores_montos": [
+        {
+          "nombre": "LOGISTICAS Y SERVICIOS S.A.",
+          "monto": 139091500,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 139091500,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 139091500,
+      "enriquecido": true
     },
     "ocds-03ad3f-353270-1": {
       "ocid": "ocds-03ad3f-353270-1",
@@ -37263,7 +38364,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341723-adquisicion-polielectrolito-1.html",
       "award_ids": [
         "341723-aqua-group-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-09",
+      "monto_estimado": 193600000,
+      "proveedores_montos": [
+        {
+          "nombre": "AQUA GROUP S.A",
+          "monto": 194964000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 194964000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 194964000,
+      "enriquecido": true
     },
     "ocds-03ad3f-347391-1": {
       "ocid": "ocds-03ad3f-347391-1",
@@ -37283,7 +38397,25 @@
       "award_ids": [
         "347391-aqua-group-s-a-2",
         "347391-gustavo-adolfo-leiva-3"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-30",
+      "monto_estimado": 109324500,
+      "proveedores_montos": [
+        {
+          "nombre": "AQUA GROUP S.A",
+          "monto": 42800000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "GUSTAVO ADOLFO LEIVA",
+          "monto": 9690000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 52490000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 52490000,
+      "enriquecido": true
     },
     "ocds-03ad3f-340164-1": {
       "ocid": "ocds-03ad3f-340164-1",
@@ -37721,7 +38853,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/346488-adquisicion-tintas-toner-1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2018-05-29",
+      "monto_estimado": 20450000,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-345503-1": {
       "ocid": "ocds-03ad3f-345503-1",
@@ -42206,7 +43345,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/342061-adquisicion-autoclaves-esterilizacion-distintas-dependencias-msp-bs-1.html",
       "award_ids": [
         "342061-distribuidora-ypacarai-sa-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-07-20",
+      "monto_estimado": 2400000000,
+      "proveedores_montos": [
+        {
+          "nombre": "DYSA HEALTHCARE S.A.",
+          "monto": 2327236850,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 2327236850,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 2327236850,
+      "enriquecido": true
     },
     "ocds-03ad3f-345194-1": {
       "ocid": "ocds-03ad3f-345194-1",
@@ -44832,7 +45984,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347457-adquisicion-hormigon-hidraulico-1.html",
       "award_ids": [
         "347457-angostura-tecnologia-s-a-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-20",
+      "monto_estimado": 150000000,
+      "proveedores_montos": [
+        {
+          "nombre": "ANGOSTURA TECNOLOGIA S.A.",
+          "monto": 150000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 150000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 150000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-355371-1": {
       "ocid": "ocds-03ad3f-355371-1",
@@ -46006,7 +47171,25 @@
       "award_ids": [
         "348455-lubrimil-3",
         "348455-lourdes-elizabeth-gimenez-bareiro-4"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-08",
+      "monto_estimado": 149640900,
+      "proveedores_montos": [
+        {
+          "nombre": "LUBRIMIL S.R.L.",
+          "monto": 0,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "Lourdes Elizabeth Gimenez Bareiro",
+          "monto": 110577000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 110577000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 110577000,
+      "enriquecido": true
     },
     "ocds-03ad3f-348986-1": {
       "ocid": "ocds-03ad3f-348986-1",
@@ -47853,7 +49036,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/345599-adquisicion-alimentos-solidos-complemento-nutricional-escuelas-departamento-guaira-1.html",
       "award_ids": [
         "345599-rosa-mabel-capli-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-21",
+      "monto_estimado": 2219270000,
+      "proveedores_montos": [
+        {
+          "nombre": "ROSA MABEL CAPLI",
+          "monto": 1538205000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 1538205000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 1538205000,
+      "enriquecido": true
     },
     "ocds-03ad3f-353029-1": {
       "ocid": "ocds-03ad3f-353029-1",
@@ -49899,7 +51095,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347735-lpn-1389-18-construccion-nuevo-alimentador-nat-07-red-media-tension-emergente-subest-1.html",
       "award_ids": [
         "347735-singel-sa-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-01",
+      "monto_estimado": 3224197241,
+      "proveedores_montos": [
+        {
+          "nombre": "SINGEL SA",
+          "monto": 2313366021,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 2313366021,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 2313366021,
+      "enriquecido": true
     },
     "ocds-03ad3f-355439-1": {
       "ocid": "ocds-03ad3f-355439-1",
@@ -53229,7 +54438,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341427-adquisicion-materiales-seguridad-1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2018-05-04",
+      "monto_estimado": 1365546394,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-353419-1": {
       "ocid": "ocds-03ad3f-353419-1",
@@ -53925,7 +55141,25 @@
       "award_ids": [
         "343902-chacomer-sae-2",
         "343902-importadora-neumaticos-rodar-srl-4"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-04",
+      "monto_estimado": 994758178,
+      "proveedores_montos": [
+        {
+          "nombre": "CHACOMER SAE",
+          "monto": 178049954,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "IMPORTADORA DE NEUMATICOS RODAR SRL",
+          "monto": 111819986,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 289869940,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 289869940,
+      "enriquecido": true
     },
     "ocds-03ad3f-344570-1": {
       "ocid": "ocds-03ad3f-344570-1",
@@ -59627,7 +60861,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/341737-adquisicion-bujes-originales-bombas-b-degremont-ii-1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2018-05-21",
+      "monto_estimado": 895941900,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-341737-2": {
       "ocid": "ocds-03ad3f-341737-2",
@@ -62320,7 +63561,25 @@
       "award_ids": [
         "348443-classic-mobles-sociedad-anonima-3",
         "348443-joel-ricardo-martinez-gutierrez-2"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-13",
+      "monto_estimado": 300000000,
+      "proveedores_montos": [
+        {
+          "nombre": "CLASSIC MOBLES SOCIEDAD ANONIMA",
+          "monto": 123050000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "JOEL RICARDO MARTINEZ GUTIERREZ",
+          "monto": 114375000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 237425000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 237425000,
+      "enriquecido": true
     },
     "ocds-03ad3f-353564-1": {
       "ocid": "ocds-03ad3f-353564-1",
@@ -63324,7 +64583,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348495-adquisicion-equipos-oficina-1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2018-05-21",
+      "monto_estimado": 85000000,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-348495-2": {
       "ocid": "ocds-03ad3f-348495-2",
@@ -65892,7 +67158,25 @@
       "award_ids": [
         "342896-grupo-sensormatic-s-a-3",
         "342896-iocon-srl-2"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-25",
+      "monto_estimado": 1000000000,
+      "proveedores_montos": [
+        {
+          "nombre": "GRUPO SENSORMATIC S.A.",
+          "monto": 600000000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "IOCON SRL",
+          "monto": 200000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 800000000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 800000000,
+      "enriquecido": true
     },
     "ocds-03ad3f-342388-1": {
       "ocid": "ocds-03ad3f-342388-1",
@@ -67077,7 +68361,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/348095-servicio-reparacion-asistencia-tecnica-equipos-electricos-electronicos-vallemi-ville-1.html",
       "award_ids": [
         "348095-emprendimientos-tauro-s-a-c-i-e-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-22",
+      "monto_estimado": 595000000,
+      "proveedores_montos": [
+        {
+          "nombre": "Emprendimientos Tauro S.A.C.I.E",
+          "monto": 517700000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 517700000,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 517700000,
+      "enriquecido": true
     },
     "ocds-03ad3f-344815-1": {
       "ocid": "ocds-03ad3f-344815-1",
@@ -71550,7 +72847,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/347846-provision-combustible-lubricantes-1.html",
       "award_ids": [
         "347846-eliseo-martinez-samudio-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-04",
+      "monto_estimado": 149984900,
+      "proveedores_montos": [
+        {
+          "nombre": "ELISEO MARTINEZ SAMUDIO",
+          "monto": 149984900,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 149984900,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 149984900,
+      "enriquecido": true
     },
     "ocds-03ad3f-339574-1": {
       "ocid": "ocds-03ad3f-339574-1",
@@ -72202,7 +73512,35 @@
         "340970-compania-estructuras-hormigon-armado-sa-5",
         "340970-tecno-electric-s-a-3",
         "340970-consorcio-ita-3-6"
-      ]
+      ],
+      "fecha_apertura_real": "2018-04-26",
+      "monto_estimado": 36186181770,
+      "proveedores_montos": [
+        {
+          "nombre": "CONSORCIO YPANE.",
+          "monto": 12199999980,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "COMPAÑÍA DE ESTRUCTURAS DE HORMIGON ARMADO SA",
+          "monto": 5340000000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "TECNO ELECTRIC S.A.",
+          "monto": 19455820000,
+          "moneda": "PYG"
+        },
+        {
+          "nombre": "CONSORCIO ITA",
+          "monto": 4050000000,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 41045819980,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 41045819980,
+      "enriquecido": true
     },
     "ocds-03ad3f-337626-1": {
       "ocid": "ocds-03ad3f-337626-1",
@@ -72733,7 +74071,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/339779-renovacion-cementerio-municipal-n-1-ad-referendum-1.html",
       "award_ids": [
         "339779-intec-ingenieria-s-r-l-1"
-      ]
+      ],
+      "fecha_apertura_real": "2018-06-15",
+      "monto_estimado": 1515111982,
+      "proveedores_montos": [
+        {
+          "nombre": "INTEC INGENIERIA S.A.E",
+          "monto": 1406565615,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 1406565615,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 1406565615,
+      "enriquecido": true
     },
     "ocds-03ad3f-349397-1": {
       "ocid": "ocds-03ad3f-349397-1",
@@ -73619,7 +74970,14 @@
       "cantidad_contratos": 0,
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/342617-provision-montaje-ascensores-centrales-compania-1.html",
-      "award_ids": []
+      "award_ids": [],
+      "fecha_apertura_real": "2018-05-07",
+      "monto_estimado": 2000000100,
+      "proveedores_montos": [],
+      "monto_adjudicado_gs": null,
+      "monto_adjudicado_usd": null,
+      "monto_adjudicado": null,
+      "enriquecido": true
     },
     "ocds-03ad3f-354303-1": {
       "ocid": "ocds-03ad3f-354303-1",
@@ -74414,7 +75772,20 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/342034-servicio-consultoria-puesta-valor-producciones-artesania-otros-elementos-atractivos-1.html",
       "award_ids": [
         "342034-estudio-singerman-makon-asociados-srl-2"
-      ]
+      ],
+      "fecha_apertura_real": "2018-05-29",
+      "monto_estimado": 2280000000,
+      "proveedores_montos": [
+        {
+          "nombre": "Estudio Singerman, Makon y Asociados SRL",
+          "monto": 2563488237,
+          "moneda": "PYG"
+        }
+      ],
+      "monto_adjudicado_gs": 2563488237,
+      "monto_adjudicado_usd": 0,
+      "monto_adjudicado": 2563488237,
+      "enriquecido": true
     },
     "ocds-03ad3f-352843-1": {
       "ocid": "ocds-03ad3f-352843-1",
