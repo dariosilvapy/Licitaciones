@@ -9954,23 +9954,26 @@
       "tender_id_completo": "1f046ce9-347b-63b0-b886-35bb6f8f0c55",
       "nombre_licitacion": "AMPLIACIÓN INTEGRAL DE INFRAESTRUCTURA TECNOLOGICA PARA EL CEA INAC",
       "convocante": "Dirección Nacional de Aeronáutica Civil (DINAC)",
-      "estado": "En Evaluacion (Cerrada)",
-      "categoria": "Servicios - Tecnologias de Informacion, Telecomunicaciones y Radiodifusiones",
+      "estado": "Adjudicada",
+      "categoria": "Servicios - Equipos y Suministros de Imprenta Fotograficos y Audiovisuales",
       "fecha_publicacion": "2025-09-26",
-      "fecha_apertura_ofertas": "2025-10-30",
+      "fecha_apertura_ofertas": "2026-08-24",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 2,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "CELEXX S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f046ce9-347b-63b0-b886-35bb6f8f0c55.html",
-      "award_ids": [],
-      "fecha_apertura_real": "2025-10-30",
-      "monto_estimado": 969242356,
-      "proveedores_montos": [],
+      "award_ids": [
+        "1f1b1076-5214-6fce-8b3a-177f0d8c2201",
+        "1f1b1089-2464-64fe-9957-179c060a9410"
+      ],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 969242356,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2025-10-30"
     },
     "ocds-03ad3f-464898-1": {
       "ocid": "ocds-03ad3f-464898-1",
@@ -286753,7 +286756,10 @@
       "award_ids": [
         "1f0bbf32-f21b-6ca6-961e-c371bf903dab"
       ],
-      "fecha_apertura_real": "2025-10-17",
+      "enriquecido": true,
+      "monto_adjudicado": 200000000,
+      "monto_adjudicado_gs": 200000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 200000000,
       "proveedores_montos": [
         {
@@ -286762,10 +286768,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 200000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 200000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-10-17"
     },
     "ocds-03ad3f-464435-1": {
       "ocid": "ocds-03ad3f-464435-1",
