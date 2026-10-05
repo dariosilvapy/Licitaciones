@@ -1,6 +1,6 @@
 {
   "anio": "2021",
-  "last_updated": "2026-10-04",
+  "last_updated": "2026-10-05",
   "total": 11975,
   "procesos": {
     "ocds-03ad3f-400008": {
@@ -24245,7 +24245,10 @@
       "award_ids": [
         "402488-consorcio-nuevo-horizonte-1-2"
       ],
-      "fecha_apertura_real": "2021-11-01",
+      "enriquecido": true,
+      "monto_adjudicado": 52774826332,
+      "monto_adjudicado_gs": 52774826332,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 57747200000,
       "proveedores_montos": [
         {
@@ -24254,10 +24257,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 52774826332,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 52774826332,
-      "enriquecido": true
+      "fecha_apertura_real": "2021-11-01"
     },
     "ocds-03ad3f-403644-1": {
       "ocid": "ocds-03ad3f-403644-1",
