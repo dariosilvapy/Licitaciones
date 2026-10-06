@@ -1,6 +1,6 @@
 {
   "anio": "2020",
-  "last_updated": "2026-10-05",
+  "last_updated": "2026-10-06",
   "total": 12216,
   "procesos": {
     "ocds-03ad3f-360254-1": {
@@ -14503,18 +14503,21 @@
       "proveedores_adjudicados": "B.H.M. INGENIERIA S.R.L, CONO SRL, CONSORCIO CERRO VERDE, CONSORCIO ELÉCTRICO NACIONAL, CONSORCIO ENGINEERING S.A. - SERVICIOS ELECTRICOS Y METALURGICOS S.A., Consorcio SUR, GCA S.A. SERVICIO DE INGENIERIA INTEGRAL, INGENIERIA DE TOPOGRAFIA Y CAMINOS SA (T & C SA), PROYECCION ELECTROLUZ SRL, SANTA MARIA INGENIERIA S.R.L.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/375527-lp1526-20-ejecucion-obras-mejoramiento-lineas-autoayuda-media-baja-tension-provision-1.html",
       "award_ids": [
-        "375527-consorcio-sur-2-14",
-        "375527-consorcio-cerro-verde-18",
-        "375527-cono-srl-11",
         "375527-b-h-m-ingenieria-s-r-l-12",
-        "375527-consorcio-engineering-s-a-servicios-electricos-metalurgicos-s-a-20",
-        "375527-ingenieria-topografia-caminos-sa-t-c-sa-13",
-        "375527-gca-s-a-servicio-ingenieria-integral-16",
-        "375527-proyeccion-electroluz-srl-1-17",
+        "375527-cono-srl-11",
+        "375527-consorcio-cerro-verde-18",
         "375527-consorcio-electrico-nacional-19",
+        "375527-consorcio-engineering-s-a-servicios-electricos-metalurgicos-s-a-20",
+        "375527-consorcio-sur-2-14",
+        "375527-gca-s-a-servicio-ingenieria-integral-16",
+        "375527-ingenieria-topografia-caminos-sa-t-c-sa-13",
+        "375527-proyeccion-electroluz-srl-1-17",
         "375527-santa-maria-ingenieria-s-r-l-9"
       ],
-      "fecha_apertura_real": "2020-09-10",
+      "enriquecido": true,
+      "monto_adjudicado": 0,
+      "monto_adjudicado_gs": 0,
+      "monto_adjudicado_usd": 28747209,
       "monto_estimado": 31730375,
       "proveedores_montos": [
         {
@@ -14568,10 +14571,7 @@
           "moneda": "USD"
         }
       ],
-      "monto_adjudicado_gs": 0,
-      "monto_adjudicado_usd": 28747209,
-      "monto_adjudicado": 0,
-      "enriquecido": true
+      "fecha_apertura_real": "2020-09-10"
     },
     "ocds-03ad3f-374908-2": {
       "ocid": "ocds-03ad3f-374908-2",
