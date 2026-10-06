@@ -2,11 +2,16 @@ name: Alertas Telegram y Email
 
 on:
   schedule:
-    - cron: "7 */2 * * *"   # cada 2 horas, minuto 7 (evita el minuto 0, el más congestionado en GitHub Actions)
+    - cron: "7,37 * * * *"   # cada 30 min (minutos 7 y 37, evita el minuto 0). Más frecuencia = más chances de que GitHub dispare alguno a tiempo
   workflow_dispatch: {}
 
 permissions:
   contents: write
+
+# Evita que dos corridas se pisen si GitHub dispara varias juntas tras un atraso
+concurrency:
+  group: alertas
+  cancel-in-progress: false
 
 jobs:
   alertar:
@@ -39,4 +44,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/procesos/ data/indice.json
           git diff --quiet --cached || git commit -m "Chequeo de novedades - $(date -u +%Y-%m-%dT%H:%M)"
+          git pull --rebase -X theirs || true
           git push
