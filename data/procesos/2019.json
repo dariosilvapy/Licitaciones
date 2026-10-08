@@ -1,6 +1,6 @@
 {
   "anio": "2019",
-  "last_updated": "2026-10-06",
+  "last_updated": "2026-10-08",
   "total": 15888,
   "procesos": {
     "ocds-03ad3f-364737-1": {
@@ -11846,13 +11846,16 @@
       "proveedores_adjudicados": "\"CONSORCIO B.Y.P.\"(BHM IGENIERIA S.R.L. - YPOA INGENIERIA S.A. . PROYECTOS Y MONTAJES S.R.L.), CONSORCIO EPESA - TIE, CONSORCIO ROGGIO-INSUIN, Consorcio COVIPA-SINGEL, TECNO ELECTRIC S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/368018-lp1534-19-ejecucion-obras-adecuacion-ampliacion-sistema-electrico-distribucion-asunc-1.html",
       "award_ids": [
-        "368018-consorcio-epesa-tie-7",
         "368018-consorcio-b-y-p-bhm-igenieria-s-r-l-ypoa-ingenieria-s-a-proyectos-montajes-s-r-l-8",
         "368018-consorcio-covipa-singel-6",
+        "368018-consorcio-epesa-tie-7",
         "368018-consorcio-roggio-insuin-9",
         "368018-tecno-electric-s-a-5"
       ],
-      "fecha_apertura_real": "2019-11-06",
+      "enriquecido": true,
+      "monto_adjudicado": 100000000000,
+      "monto_adjudicado_gs": 100000000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 100000000000,
       "proveedores_montos": [
         {
@@ -11881,10 +11884,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 100000000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 100000000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2019-11-06"
     },
     "ocds-03ad3f-355784-1": {
       "ocid": "ocds-03ad3f-355784-1",
