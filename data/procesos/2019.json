@@ -1,6 +1,6 @@
 {
   "anio": "2019",
-  "last_updated": "2026-10-08",
+  "last_updated": "2026-10-09",
   "total": 15888,
   "procesos": {
     "ocds-03ad3f-364737-1": {
@@ -3202,19 +3202,22 @@
       "proveedores_adjudicados": "CONSORCIO CIE S.A._TIE S.A., CONSORCIO DEL NORTE I, CONSORCIO R-E DE DISTRIBUCIÓN , CONSORCIO T&I, CONSORCIO TMT PROEL, CONSTRUCCIONES Y VIVIENDAS PARAGUAYAS SA, Consorcio Barrail - Ingelco, Consorcio ITC, PABLO RAMON DELGADO SALINAS, T.R. CONSTRUCIONES S.A., consorcio don manuel-santa isabel",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/355763-lp1475-18-ejecucion-obras-ampliacion-adecuacion-alimentadores-sistema-distribucion-1.html",
       "award_ids": [
-        "355763-construcciones-viviendas-paraguayas-sa-11",
-        "355763-consorcio-r-e-distribucion-19",
-        "355763-t-r-construciones-s-a-12",
-        "355763-consorcio-itc-20",
         "355763-consorcio-tmt-proel-14",
+        "355763-consorcio-barrail-ingelco-15",
+        "355763-t-r-construciones-s-a-12",
         "355763-pablo-ramon-delgado-salinas-13",
         "355763-consorcio-norte-i-18",
-        "355763-consorcio-t-i-16",
         "355763-consorcio-cie-tie-1-17",
+        "355763-consorcio-t-i-16",
         "355763-consorcio-don-manuel-santa-isabel-21",
-        "355763-consorcio-barrail-ingelco-15"
+        "355763-consorcio-r-e-distribucion-19",
+        "355763-consorcio-itc-20",
+        "355763-construcciones-viviendas-paraguayas-sa-11"
       ],
-      "fecha_apertura_real": "2019-02-20",
+      "enriquecido": true,
+      "monto_adjudicado": 430000000000,
+      "monto_adjudicado_gs": 430000000000,
+      "monto_adjudicado_usd": 0,
       "proveedores_montos": [
         {
           "nombre": "CONSTRUCCIONES Y VIVIENDAS PARAGUAYAS SA",
@@ -3272,10 +3275,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 430000000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 430000000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2019-02-20"
     },
     "ocds-03ad3f-371805-1": {
       "ocid": "ocds-03ad3f-371805-1",
