@@ -1,6 +1,6 @@
 {
   "anio": "2018",
-  "last_updated": "2026-10-06",
+  "last_updated": "2026-10-13",
   "total": 2293,
   "procesos": {
     "ocds-03ad3f-350374-1": {
@@ -850,7 +850,10 @@
         "346797-vicente-scavone-cia-comercial-e-industrial-sa-42",
         "346797-v-t-farma-sa-64"
       ],
-      "fecha_apertura_real": "2018-08-14",
+      "enriquecido": true,
+      "monto_adjudicado": 409850553232,
+      "monto_adjudicado_gs": 409850553232,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 460897278179,
       "proveedores_montos": [
         {
@@ -1054,10 +1057,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 409850553232,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 409850553232,
-      "enriquecido": true,
+      "fecha_apertura_real": "2018-08-14",
       "enriquecimiento_nota": "algunas adjudicaciones no se pudieron consultar"
     },
     "ocds-03ad3f-338578-2": {

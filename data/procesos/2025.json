@@ -1,7 +1,7 @@
 {
   "anio": "2025",
   "last_updated": "2026-10-13",
-  "total": 8837,
+  "total": 8838,
   "procesos": {
     "ocds-03ad3f-471760": {
       "ocid": "ocds-03ad3f-471760",
@@ -14,8 +14,8 @@
       "fecha_publicacion": "2025-06-27",
       "fecha_apertura_ofertas": "2025-07-24",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 405,
-      "cantidad_contratos": 405,
+      "cantidad_adjudicaciones": 407,
+      "cantidad_contratos": 407,
       "proveedores_adjudicados": "FELICITA BERNAL MERCADO, GUILLERMINA RODRIGUEZ DE LOPEZ, NICOLAS GONZALEZ ODDONE SAECA, PIRO`Y S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/471760-adquisicion-acondicionadores-aires-criterios-sostenibilidad.html",
       "award_ids": [
@@ -423,7 +423,9 @@
         "1367-2026-49",
         "1367-2026-47",
         "1367-2026-48",
-        "1028-2026-242"
+        "1028-2026-242",
+        "1363-2026-48",
+        "1227-2026-41"
       ],
       "enriquecido": true,
       "monto_adjudicado": 18587774620,
@@ -2640,16 +2642,23 @@
       "tender_id_completo": "1f08802e-c8ff-6d22-9022-cb31ca6ba1dc",
       "nombre_licitacion": "ADQUISICIÓN DE EQUIPOS  E INSUMOS MÉDICOS PARA EL HOSPITAL DE TRAUMA MANUEL GIAGNI",
       "convocante": "Ministerio de Salud Pública y Bienestar Social (MSPBS)",
-      "estado": "En Convocatoria (Abierta)",
+      "estado": "Adjudicada",
       "categoria": "Bienes - Equipos Accesorios y Suministros Medicos",
       "fecha_publicacion": "2025-09-25",
-      "fecha_apertura_ofertas": "2026-07-07",
+      "fecha_apertura_ofertas": "2026-08-12",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 6,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "ALTAS TECNOLOGIAS SOCIEDAD ANONIMA, ARGON S.R.L., IMESE S.A., LCM SOCIEDAD ANÓNIMA, SOLUMEDIC S.A., SUMI SOCIEDAD ANONIMA",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f08802e-c8ff-6d22-9022-cb31ca6ba1dc.html",
-      "award_ids": [],
+      "award_ids": [
+        "1f1b1c8d-6550-6ade-9f55-ef51e2771e2e",
+        "1f1b1c96-ff3b-6960-80fd-337d4f30e035",
+        "1f1b1ca3-6c4a-682e-b32a-9585a8abfb8d",
+        "1f1b1ca9-e41e-6232-a4e8-6b7cde6043c7",
+        "1f1b1cbc-fdba-65b6-ba8d-c5bbbf71e7e5",
+        "1f1b1cc2-2172-6a12-8179-715f9d6287ff"
+      ],
       "enriquecido": true,
       "monto_adjudicado": null,
       "monto_estimado": 3148565582,
@@ -5927,7 +5936,7 @@
       "nombre_licitacion": "ADQUISICIÓN DE SERVICIO DE INFORMACIÓN SOBRE MERCADOS ENERGÉTICOS PARA PETROPAR",
       "convocante": "Petróleos Paraguayos (PETROPAR)",
       "estado": "Adjudicada",
-      "categoria": "Servicios - Servicios Editoriales  de Diseño, Graficos y de Bellas Artes",
+      "categoria": "Servicios - Servicios basados en ingenieria investigacion y tecnologia",
       "fecha_publicacion": "2025-09-04",
       "fecha_apertura_ofertas": "2025-10-13",
       "modalidad": "Especiales\tSubasta a la baja electrónica internacional",
@@ -7958,7 +7967,7 @@
       "nombre_licitacion": "Adquisición de circuito cerrado para la DINAVISA",
       "convocante": "Dirección Nacional de Vigilancia Sanitaria  (DINAVISA)",
       "estado": "En Convocatoria (Abierta)",
-      "categoria": "Bienes - Equipos y Suministros de Defensa Orden Publico, Proteccion y Seguridad",
+      "categoria": "Bienes - Servicios de Construccion y Mantenimiento",
       "fecha_publicacion": "2025-09-26",
       "fecha_apertura_ofertas": "2026-10-30",
       "modalidad": "Licitación Pública Nacional",
@@ -48437,7 +48446,10 @@
       "award_ids": [
         "1efe9366-6f2b-680a-b4f6-b3cfe2d59b37"
       ],
-      "fecha_apertura_real": "2025-01-24",
+      "enriquecido": true,
+      "monto_adjudicado": 34029500,
+      "monto_adjudicado_gs": 34029500,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 35096750,
       "proveedores_montos": [
         {
@@ -48446,10 +48458,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 34029500,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 34029500,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-01-24"
     },
     "ocds-03ad3f-460268-1": {
       "ocid": "ocds-03ad3f-460268-1",
@@ -235487,7 +235496,7 @@
       "nombre_licitacion": "SERVICIO DE INFORMACION ESPECIALIZADA EN LOGISTICA PARA PETROPAR",
       "convocante": "Petróleos Paraguayos (PETROPAR)",
       "estado": "Adjudicada",
-      "categoria": "Servicios - Servicios de Gestion Profesionales de Empresa y Administrativos",
+      "categoria": "Servicios - Combustibles Aditivos para combustibles, Lubricantes y Materiales Anticorrosivos",
       "fecha_publicacion": "2025-10-13",
       "fecha_apertura_ofertas": "2025-11-19",
       "modalidad": "Menor cuantía internacional",
@@ -264140,7 +264149,10 @@
       "award_ids": [
         "1f0c63b1-d750-6812-b6ef-e71ac5ac97fa"
       ],
-      "fecha_apertura_real": "2025-10-10",
+      "enriquecido": true,
+      "monto_adjudicado": 0,
+      "monto_adjudicado_gs": 0,
+      "monto_adjudicado_usd": 77958,
       "monto_estimado": 61300,
       "proveedores_montos": [
         {
@@ -264149,10 +264161,7 @@
           "moneda": "USD"
         }
       ],
-      "monto_adjudicado_gs": 0,
-      "monto_adjudicado_usd": 77958,
-      "monto_adjudicado": 0,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-10-10"
     },
     "ocds-03ad3f-476214-1": {
       "ocid": "ocds-03ad3f-476214-1",
@@ -294675,6 +294684,50 @@
       "monto_adjudicado_usd": 0,
       "monto_adjudicado": 1556700000,
       "enriquecido": true
+    },
+    "ocds-03ad3f-473065": {
+      "ocid": "ocds-03ad3f-473065",
+      "id_llamado": "473065",
+      "tender_id_completo": "473065-convenio-almacen-productos-servicios-estrategicos-commodities-licitacion-publica-nac",
+      "nombre_licitacion": "CONVENIO ALMACÉN DE PRODUCTOS, SERVICIOS ESTRATÉGICOS Y COMMODITIES LICITACION PUBLICA NACIONAL N° 18/2025 ADQUISICIÓN DE ACCESORIOS PARA REPARACIONES DE REDES DE AGUA POTABLE Y SANEAMIENTO DE LA ESSAP S.A",
+      "convocante": "Dirección Nacional de Contrataciones Públicas (DNCP)",
+      "estado": "En Evaluacion (Cerrada)",
+      "categoria": "Materiales e insumos eléctricos, metálicos y no metálicos, Plásticos, cauchos. Repuestos, herramientas, cámaras y cubiertas.",
+      "fecha_publicacion": "2025-08-01",
+      "fecha_apertura_ofertas": "2025-09-02",
+      "modalidad": "Licitación Pública Nacional",
+      "cantidad_adjudicaciones": 26,
+      "cantidad_contratos": 26,
+      "proveedores_adjudicados": "J.P. REPRESENTACIONES S.A., MARIA JULIA PLANAS GOMEZ DE BENITEZ, PLASTICOS SA, TIGRE PARAGUAY S.A.",
+      "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/473065-convenio-almacen-productos-servicios-estrategicos-commodities-licitacion-publica-nac.html",
+      "award_ids": [
+        "1326-2025-191",
+        "1326-2025-190",
+        "1326-2026-10",
+        "1326-2026-9",
+        "1326-2026-8",
+        "1326-2026-12",
+        "1326-2026-11",
+        "1326-2026-25",
+        "1326-2026-24",
+        "1326-2026-26",
+        "1326-2026-38",
+        "1326-2026-39",
+        "1326-2026-43",
+        "1326-2026-49",
+        "1326-2026-52",
+        "1326-2026-50",
+        "1326-2026-51",
+        "1326-2026-53",
+        "1326-2026-59",
+        "1326-2026-73",
+        "1326-2026-72",
+        "1326-2026-78",
+        "1326-2026-79",
+        "1326-2026-85",
+        "1326-2026-86",
+        "1326-2026-94"
+      ]
     }
   }
 }
