@@ -1,6 +1,6 @@
 {
   "anio": "2019",
-  "last_updated": "2026-10-10",
+  "last_updated": "2026-10-15",
   "total": 15888,
   "procesos": {
     "ocds-03ad3f-364737-1": {
@@ -2908,7 +2908,10 @@
         "368078-consorcio-alcantarillado-sanitario-3",
         "368078-consorcio-saneamiento-py-4"
       ],
-      "fecha_apertura_real": "2020-04-21",
+      "enriquecido": true,
+      "monto_adjudicado": 43863646694,
+      "monto_adjudicado_gs": 43863646694,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 51787451841,
       "proveedores_montos": [
         {
@@ -2927,10 +2930,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 43863646694,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 43863646694,
-      "enriquecido": true
+      "fecha_apertura_real": "2020-04-21"
     },
     "ocds-03ad3f-365354-1": {
       "ocid": "ocds-03ad3f-365354-1",
