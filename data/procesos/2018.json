@@ -1,6 +1,6 @@
 {
   "anio": "2018",
-  "last_updated": "2026-10-15",
+  "last_updated": "2026-10-22",
   "total": 2293,
   "procesos": {
     "ocds-03ad3f-350374-1": {
@@ -1762,7 +1762,10 @@
       "award_ids": [
         "348542-aponte-latorre-sociedad-anonima-2"
       ],
-      "fecha_apertura_real": "2018-12-12",
+      "enriquecido": true,
+      "monto_adjudicado": 34464379518,
+      "monto_adjudicado_gs": 34464379518,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 41816146683,
       "proveedores_montos": [
         {
@@ -1771,10 +1774,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 34464379518,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 34464379518,
-      "enriquecido": true
+      "fecha_apertura_real": "2018-12-12"
     },
     "ocds-03ad3f-334640-1": {
       "ocid": "ocds-03ad3f-334640-1",
