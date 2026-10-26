@@ -257,6 +257,55 @@ mark{background:var(--warn-soft);color:var(--ink);border-radius:3px;padding:0 1p
 .login-card #lgMsg{background:var(--accent-soft);color:var(--ink);border-radius:10px;padding:10px 12px}
 .lnk-s{border:0;background:none;padding:0;color:var(--accent);font-weight:700;cursor:pointer;font-size:12.5px}
 .lnk-s:hover{text-decoration:underline}
+/* ===== Oportunidades · licitaciones públicas ===== */
+.yrs{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.yrs>span{font-size:12.5px;color:var(--muted);font-weight:800;margin-right:2px}
+.chip.lg{padding:7px 16px;font-size:14px}
+.tbl-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.optbl{width:100%;border-collapse:collapse;font-size:13.5px;min-width:820px}
+.optbl th{text-align:left;font-size:12px;color:var(--muted);font-weight:800;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap;background:var(--sunk)}
+.optbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.optbl .n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.optbl tbody tr{cursor:pointer}
+.optbl tbody tr:hover td,.optbl tbody tr:focus-visible td{background:var(--sunk)}
+.optbl tr.closed td{opacity:.62}
+.optbl tfoot td{font-weight:800;background:var(--sunk);border-bottom:0}
+.optbl td:first-child{min-width:240px}
+.optbl .zero{color:var(--muted);font-weight:400}
+.optbl .lc{font-size:12px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:3px;max-width:60ch}
+.charts{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:14px}
+@media (max-width:860px){.charts{grid-template-columns:minmax(0,1fr)}}
+.bars{display:flex;align-items:flex-end;gap:14px;height:200px;padding:22px 4px 0;border-bottom:1px solid var(--line)}
+.bgrp{flex:1;display:flex;align-items:flex-end;justify-content:center;gap:4px;height:100%;min-width:0}
+.bar1{width:min(28px,30%);border-radius:5px 5px 0 0;position:relative;min-height:2px}
+.bar1 span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:800;white-space:nowrap;margin-bottom:3px;color:var(--muted);font-variant-numeric:tabular-nums}
+.blbl{display:flex;gap:14px;padding:6px 4px 0}
+.blbl div{flex:1;text-align:center;font-size:12px;font-weight:800;color:var(--muted)}
+.b-pot{background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)} .b-pond{background:var(--accent)} .b-adj{background:var(--ok)}
+.kd.b-pot{background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)} .kd.b-pond{background:var(--accent)} .kd.b-adj{background:var(--ok)}
+.hbars{display:flex;flex-direction:column;gap:9px}
+.hbar{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) 74px;gap:10px;align-items:center;font-size:13px}
+.hbar>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hbar .tr{height:12px;background:var(--idle-soft);border-radius:6px;position:relative;overflow:hidden}
+.hbar .tr i{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
+.hbar b{text-align:right;font-variant-numeric:tabular-nums;font-size:12.5px}
+.qwrap{overflow-x:auto}
+.qgrid{width:100%;border-collapse:collapse;min-width:540px}
+.qgrid th{font-size:12px;color:var(--muted);font-weight:800;padding:4px;text-align:center}
+.qgrid th:first-child{text-align:left}
+.qgrid td{padding:3px}
+.qgrid input{width:100%;min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 8px;text-align:right;font-variant-numeric:tabular-nums;font-size:13px}
+.qgrid .tot{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:10px;font-size:13px}
+.qgrid tfoot td{border-top:1px solid var(--line);padding-top:8px}
+.prow{display:flex;align-items:center;gap:8px}
+.prow input[type=range]{flex:1;accent-color:var(--accent)}
+.prow output{font-weight:800;min-width:46px;text-align:right;font-variant-numeric:tabular-nums}
+.revs{display:flex;flex-direction:column}
+.rev{border-top:1px dashed var(--line);padding:10px 0}
+.rev .vh{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.rev p{margin:4px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13.5px}
+.delta-up{color:var(--ok);font-weight:800} .delta-dn{color:var(--bad);font-weight:800}
+
 /* ===== Pestañas principales y CRM canal privado ===== */
 .view{display:contents}
 .tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;box-shadow:var(--shadow);width:fit-content;max-width:100%;overflow-x:auto}
@@ -391,6 +440,10 @@ mark{background:var(--warn-soft);color:var(--ink);border-radius:3px;padding:0 1p
       <button class="btn" id="btnSync" type="button" hidden>↻ Actualizar todo</button>
       <button class="btn primary" id="btnNew" type="button">+ Nuevo llamado</button>
     </div>
+    <div class="actions" id="actOp" hidden>
+      <button class="btn" id="btnCsv" type="button" hidden>⤓ Exportar a Excel</button>
+      <button class="btn primary" id="btnNewOp" type="button" hidden>+ Nueva oportunidad</button>
+    </div>
     <div class="actions" id="actCrm" hidden>
       <button class="btn" id="btnNewAcc" type="button" hidden>+ Nueva cuenta</button>
       <button class="btn primary" id="btnNewOpp" type="button" hidden>+ Nueva oportunidad</button>
@@ -399,6 +452,7 @@ mark{background:var(--warn-soft);color:var(--ink);border-radius:3px;padding:0 1p
 
   <nav class="tabs" aria-label="Secciones">
     <button type="button" class="tab" data-tab="llamados" aria-pressed="true">Llamados · canal público</button>
+    <button type="button" class="tab" data-tab="oportunidades" aria-pressed="false">Oportunidades · licitaciones</button>
     <button type="button" class="tab" data-tab="crm" aria-pressed="false">CRM · canal privado</button>
   </nav>
 
@@ -458,6 +512,18 @@ mark{background:var(--warn-soft);color:var(--ink);border-radius:3px;padding:0 1p
   </section>
   </div>
 
+  <div class="view" id="vOp" hidden>
+    <div class="yrs" id="opAnios" role="group" aria-label="Año de impacto"></div>
+    <div class="filters" style="margin:0">
+      <input type="search" id="opQ" autocomplete="off" aria-label="Buscar oportunidades" placeholder="Buscar proyecto, cliente, licitación, comentario…">
+      <select id="opCli" aria-label="Filtrar por cliente"></select>
+      <select id="opResp" aria-label="Filtrar por responsable"></select>
+      <select id="opEst" aria-label="Filtrar por estado">
+        <option value="activas">Activas</option><option value="adjudicadas">Adjudicadas</option><option value="perdidas">Perdidas</option><option value="todas">Todas</option>
+      </select>
+    </div>
+    <section class="crm-sec" id="opBody"></section>
+  </div>
   <div class="view" id="vCrm" hidden>
     <nav class="subtabs" id="crmNav" aria-label="Secciones del CRM">
       <button type="button" class="stab" data-sub="crm">Tablero</button>
@@ -973,16 +1039,17 @@ function oppVisible(o,terms){if(cs.as&&o.asesor!==cs.as)return false;return!term
 
 /* ---------- Navegación ---------- */
 function go(tok){
-  if(tok!=="llamados"&&!SUBS.includes(tok))tok="llamados";
-  const crm=tok!=="llamados";
-  $("#vLl").hidden=crm;$("#vCrm").hidden=!crm;$("#actLl").hidden=crm;$("#actCrm").hidden=!crm;
-  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-pressed",String((b.dataset.tab==="crm")===crm)));
-  $("#h1").textContent=crm?"CRM · Canal privado":"Llamados en Puerta";
-  document.title=crm?`${SUB_T[tok]} · CRM`:"Llamados en Puerta";
-  if(crm)cs.sub=tok;
+  if(tok!=="llamados"&&tok!=="oportunidades"&&!SUBS.includes(tok))tok="llamados";
+  const v=tok==="llamados"?"ll":tok==="oportunidades"?"op":"crm",TABV={llamados:"ll",oportunidades:"op",crm:"crm"};
+  $("#vLl").hidden=v!=="ll";$("#vCrm").hidden=v!=="crm";$("#vOp").hidden=v!=="op";
+  $("#actLl").hidden=v!=="ll";$("#actCrm").hidden=v!=="crm";$("#actOp").hidden=v!=="op";
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-pressed",String(TABV[b.dataset.tab]===v)));
+  $("#h1").textContent={ll:"Llamados en Puerta",op:"Oportunidades · Licitaciones públicas",crm:"CRM · Canal privado"}[v];
+  document.title=v==="crm"?`${SUB_T[tok]} · CRM`:v==="op"?"Oportunidades · Licitaciones públicas":"Llamados en Puerta";
+  if(v==="crm")cs.sub=tok;
   lsSet("vista",tok);
   if(location.hash.slice(1)!==tok&&!/access_token|type=|error_/.test(location.hash)){try{history.replaceState(null,"","#"+tok)}catch(e){}}
-  renderCrm();
+  renderCrm();renderOp();
 }
 
 /* ---------- Render CRM ---------- */
@@ -1432,7 +1499,7 @@ function afterCrmSnap(key){
     if(p.k==="opp"&&opps.some(o=>o.id===p.id)){pendingOpen=null;openOpp(p.id)}
     else if(p.k==="acc"&&cuentaOf(p.id)){pendingOpen=null;openAcc(p.id)}}
 }
-document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>go(b.dataset.tab==="crm"?cs.sub:"llamados")));
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>go(b.dataset.tab==="crm"?cs.sub:b.dataset.tab)));
 $("#crmNav").addEventListener("click",e=>{const b=e.target.closest(".stab");if(b)go(b.dataset.sub)});
 $("#crmQ").addEventListener("input",e=>{cs.q=e.target.value;renderCrm()});
 $("#crmQ").addEventListener("keydown",e=>{if(e.key==="Escape"&&cs.q){e.stopPropagation();e.target.value="";cs.q="";renderCrm()}});
@@ -1451,6 +1518,225 @@ $("#vCrm").addEventListener("click",e=>{
   const ac=t.closest("[data-acc]");if(ac)openAcc(ac.dataset.acc);
 });
 $("#vCrm").addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches(".kcard,.acc,.vi")){e.preventDefault();e.target.click()}});
+/* ===================== Oportunidades · licitaciones públicas en proyecto ===================== */
+const OP_ETAPAS=[{v:"Proyecto",c:"p-idle"},{v:"Con presupuesto (CDP)",c:"p-info"},{v:"Llamado publicado",c:"p-acc"},
+  {v:"Oferta presentada",c:"p-warn"},{v:"En evaluación",c:"p-warn"},{v:"Adjudicada",c:"p-ok"},{v:"Perdida",c:"p-bad"}];
+const OP_ANIOS=["2026","2027","2028"];
+let opCol=null,opsPub=[],opLoaded=false,opErr=false,opEdit=null;
+const ops={anio:lsGet("op.anio")||"todos",q:"",cli:"",resp:"",est:"activas"};
+const opEt=v=>OP_ETAPAS.find(e=>e.v===v)||OP_ETAPAS[0];
+const opCerr=o=>o.etapa==="Adjudicada"||o.etapa==="Perdida";
+const opQv=(o,a,q)=>Number(((o.impacto||{})[a]||[])[q])||0;
+const opAnio=(o,a)=>[0,1,2,3].reduce((s,q)=>s+opQv(o,a,q),0);
+const opTotal=o=>OP_ANIOS.reduce((s,a)=>s+opAnio(o,a),0);
+const opSel=o=>ops.anio==="todos"?opTotal(o):opAnio(o,ops.anio);
+const opProb=o=>Math.max(0,Math.min(100,Number(o.probabilidad)||0))/100;
+const opPer=()=>ops.anio==="todos"?"2026–2028":ops.anio;
+function gsM(n){if(!n)return"—";const a=Math.abs(n),s=n<0?"-":"";return a>=1e6?`${s}${(a/1e6).toLocaleString("es-PY",{maximumFractionDigits:a>=1e9?0:1})} M`:s+Math.round(a).toLocaleString("es-PY")}
+const gsFull=n=>n?"Gs. "+Math.round(n).toLocaleString("es-PY"):"—";
+const mesTxt=m=>{const d=pd((m||"")+"-01");if(!d)return m||"";const t=d.toLocaleDateString("es-PY",{month:"short",year:"numeric"});return t[0].toUpperCase()+t.slice(1)};
+function opResps(){const s=new Set();opsPub.forEach(o=>String(o.responsable||"").split(/[\/,;]/).map(x=>x.trim()).filter(Boolean).forEach(x=>s.add(x)));return[...s].sort((a,b)=>a.localeCompare(b,"es"))}
+function opFilt(est){
+  const t=norm(ops.q).split(/\s+/).filter(Boolean);est=est||ops.est;
+  return opsPub.filter(o=>{
+    if(est==="activas"&&opCerr(o))return false;
+    if(est==="adjudicadas"&&o.etapa!=="Adjudicada")return false;
+    if(est==="perdidas"&&o.etapa!=="Perdida")return false;
+    if(ops.cli&&o.cliente!==ops.cli)return false;
+    if(ops.resp&&!String(o.responsable||"").includes(ops.resp))return false;
+    if(ops.anio!=="todos"&&!opAnio(o,ops.anio))return false;
+    if(t.length&&!hasAll([o.proyecto,o.licitacion,o.idDncp,o.cliente,o.descripcion,o.responsable,o.accion,o.marcas,o.etapa,(o.revisiones||[]).map(r=>r.comentario).join(" ")].join(" | "),t))return false;
+    return true;
+  }).sort((a,b)=>opCerr(a)-opCerr(b)||opSel(b)-opSel(a)||String(a.proyecto).localeCompare(String(b.proyecto),"es"));
+}
+
+function renderOp(){
+  $("#btnNewOp").hidden=!canWrite||!opLoaded;$("#btnCsv").hidden=!opLoaded;
+  if($("#vOp").hidden)return;
+  $("#opAnios").innerHTML=`<span>Impacto en</span>`+[...OP_ANIOS,"todos"].map(a=>`<button type="button" class="chip lg" data-anio="${a}" aria-pressed="${ops.anio===a}">${a==="todos"?"2026–2028":a}</button>`).join("");
+  const clis=[...new Set(opsPub.map(o=>o.cliente).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
+  $("#opCli").innerHTML=`<option value="">Todos los clientes</option>`+clis.map(c=>`<option ${c===ops.cli?"selected":""}>${esc(c)}</option>`).join("");
+  $("#opResp").innerHTML=`<option value="">Todos los responsables</option>`+opResps().map(c=>`<option ${c===ops.resp?"selected":""}>${esc(c)}</option>`).join("");
+  $("#opEst").value=ops.est;
+  const box=$("#opBody");
+  if(!opLoaded){const off=opErr||(loaded&&!db);box.innerHTML=`<div class="empty"><strong>${off?"Base compartida no disponible":"Cargando oportunidades…"}</strong>${off?"Inicie sesión y recargue la página.":""}</div>`;return}
+  if(!opsPub.length){box.innerHTML=`<div class="empty"><strong>Todavía no hay oportunidades cargadas</strong>${canWrite?`<div style="margin-top:12px"><button type="button" class="btn primary" data-newop>+ Nueva oportunidad</button></div>`:""}</div>`;return}
+  const per=opPer(),base=opFilt("todas"),act=base.filter(o=>!opCerr(o)),adj=base.filter(o=>o.etapa==="Adjudicada");
+  const pot=act.reduce((s,o)=>s+opSel(o),0),pond=act.reduce((s,o)=>s+opSel(o)*opProb(o),0),adjS=adj.reduce((s,o)=>s+opSel(o),0);
+  const altas=act.filter(o=>opProb(o)>=.5);
+  let h=`<section class="summary" aria-label="Resumen de impacto">
+    <div class="stat money"><b>${esc(gsM(pot))}</b><span>Impacto potencial ${per} · ${act.length} oportunidad${act.length===1?"":"es"} activa${act.length===1?"":"s"}</span></div>
+    <div class="stat money"><b>${esc(gsM(pond))}</b><span>Impacto ponderado por probabilidad ${per}</span></div>
+    <div class="stat money"><b>${esc(gsM(altas.reduce((s,o)=>s+opSel(o),0)))}</b><span>Con probabilidad ≥ 50 % · ${altas.length} oportunidad${altas.length===1?"":"es"}</span></div>
+    <div class="stat money ${adjS?"okc":""}"><b>${esc(gsM(adjS))}</b><span>Adjudicado ${per} · ${adj.length}</span></div>
+  </section>
+  <p class="hint" style="margin-top:-6px">Montos en millones de guaraníes (M). El ponderado multiplica cada impacto por su probabilidad.</p>`;
+  /* Gráfico por año o por trimestre */
+  const periods=ops.anio==="todos"?OP_ANIOS.map(a=>({l:a,f:o=>opAnio(o,a)})):[0,1,2,3].map(q=>({l:`Q${q+1}-${ops.anio}`,f:o=>opQv(o,ops.anio,q)}));
+  const ser=periods.map(p=>({l:p.l,pot:act.reduce((s,o)=>s+p.f(o),0),pond:act.reduce((s,o)=>s+p.f(o)*opProb(o),0),adj:adj.reduce((s,o)=>s+p.f(o),0)}));
+  const mx=Math.max(1,...ser.map(s=>Math.max(s.pot,s.adj)));
+  const bar=(v,c,lbl,t)=>`<div class="bar1 ${c}" title="${esc(t+": "+(v?gsM(v):"—"))}" style="height:${Math.max(v?2:0,v/mx*100)}%"><span>${lbl&&v?esc(gsM(v)):""}</span></div>`;
+  const byCli={};act.forEach(o=>{const k=o.cliente||"Sin cliente";byCli[k]=byCli[k]||{pot:0,pond:0};byCli[k].pot+=opSel(o);byCli[k].pond+=opSel(o)*opProb(o)});
+  const cl=Object.entries(byCli).filter(e=>e[1].pot).sort((a,b)=>b[1].pot-a[1].pot).slice(0,8),cmx=Math.max(1,...cl.map(e=>e[1].pot));
+  h+=`<div class="charts">
+    <div class="card"><h4>${ops.anio==="todos"?"Impacto por año":"Impacto por trimestre de "+ops.anio}</h4>
+      <div class="bars">${ser.map(s=>`<div class="bgrp">${bar(s.pot,"b-pot",1,"Potencial")}${bar(s.pond,"b-pond",0,"Ponderado")}${bar(s.adj,"b-adj",0,"Adjudicado")}</div>`).join("")}</div>
+      <div class="blbl">${ser.map(s=>`<div>${esc(s.l)}<div style="font-weight:600;font-size:11px">pond. ${esc(gsM(s.pond))}${s.adj?` · adj. ${esc(gsM(s.adj))}`:""}</div></div>`).join("")}</div>
+      <div class="legend"><span><i class="kd b-pot"></i>Potencial (activas)</span><span><i class="kd b-pond"></i>Ponderado</span><span><i class="kd b-adj"></i>Adjudicado</span></div></div>
+    <div class="card"><h4>Por cliente <small>potencial ${per} · la parte oscura es el ponderado</small></h4>
+      <div class="hbars">${cl.map(([c,v])=>`<div class="hbar"><span title="${esc(c)}">${esc(c)}</span><span class="tr"><i style="width:${v.pot/cmx*100}%;background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)"></i><i style="width:${v.pond/cmx*100}%;background:var(--accent)"></i></span><b>${esc(gsM(v.pot))}</b></div>`).join("")||`<p class="hint">Sin impacto en ${per} para los filtros elegidos.</p>`}</div></div>
+  </div>`;
+  /* Tabla */
+  const rows=opFilt(),cols=ops.anio==="todos"?OP_ANIOS.map(a=>({l:a,f:o=>opAnio(o,a)})):[0,1,2,3].map(q=>({l:`Q${q+1}`,f:o=>opQv(o,ops.anio,q)}));
+  h+=`<div class="section-h" style="margin:0"><h2>Oportunidades</h2><small>${rows.length} de ${opsPub.length}${ops.anio!=="todos"?` · solo las que impactan en ${ops.anio}`:""} · ordenadas por impacto</small></div>`;
+  if(!rows.length){box.innerHTML=h+`<div class="empty"><strong>Ninguna oportunidad coincide</strong>Pruebe con otro año, estado o búsqueda.</div>`;return}
+  const sumc=cols.map(c=>rows.reduce((s,o)=>s+c.f(o),0)),st=rows.reduce((s,o)=>s+opSel(o),0),sp=rows.reduce((s,o)=>s+opSel(o)*opProb(o),0);
+  h+=`<div class="tbl-wrap"><table class="optbl"><thead><tr><th>Oportunidad</th><th>Etapa</th><th class="n">Prob.</th>${cols.map(c=>`<th class="n">${esc(c.l)}</th>`).join("")}<th class="n">${ops.anio==="todos"?"Total":"Total "+ops.anio}</th><th class="n">Ponderado</th></tr></thead><tbody>`+
+    rows.map(o=>{const r=(o.revisiones||[])[0];return`<tr class="${opCerr(o)?"closed":""}" data-opp="${esc(o.id)}" tabindex="0">
+      <td><strong>${esc(o.proyecto||"Sin nombre")}</strong><div class="sub">${esc(o.cliente||"Sin cliente")}${o.idDncp?` · <span class="mono">ID ${esc(o.idDncp)}</span>`:""}${o.responsable?" · "+esc(o.responsable):""}</div>${r&&r.comentario?`<div class="lc"><b>${esc(mesTxt(r.mes))}:</b> ${esc(r.comentario)}</div>`:""}</td>
+      <td><span class="pill ${opEt(o.etapa).c}">${esc(o.etapa||"Proyecto")}</span></td>
+      <td class="n">${Math.round(opProb(o)*100)} %</td>
+      ${cols.map(c=>{const v=c.f(o);return`<td class="n ${v?"":"zero"}">${esc(gsM(v))}</td>`}).join("")}
+      <td class="n"><b>${esc(gsM(opSel(o)))}</b></td><td class="n">${esc(gsM(opSel(o)*opProb(o)))}</td></tr>`}).join("")+
+    `</tbody><tfoot><tr><td colspan="3">Total (${rows.length})</td>${sumc.map(v=>`<td class="n">${esc(gsM(v))}</td>`).join("")}<td class="n">${esc(gsM(st))}</td><td class="n">${esc(gsM(sp))}</td></tr></tfoot></table></div>`;
+  box.innerHTML=h;
+}
+
+/* ---------- Ficha ---------- */
+function opRevHTML(revs){
+  if(!revs.length)return`<p class="hint">Todavía no hay revisiones registradas.</p>`;
+  return revs.map((r,i)=>{const prev=revs[i+1],d=prev?(Number(r.probabilidad)||0)-(Number(prev.probabilidad)||0):0;
+    return`<div class="rev"><div class="vh"><strong>${esc(mesTxt(r.mes))}</strong><span class="pill p-idle">${Number(r.probabilidad)||0} %</span>${d?`<span class="${d>0?"delta-up":"delta-dn"}">${d>0?"▲":"▼"} ${Math.abs(d)} pts</span>`:""}<span class="sub">${r.total?"Impacto "+esc(gsM(r.total)):""}${r.autor?" · "+esc(r.autor):""}</span></div>${r.comentario?`<p>${esc(r.comentario)}</p>`:""}</div>`}).join("");
+}
+function opReadImp(){const imp={};OP_ANIOS.forEach(a=>imp[a]=[0,1,2,3].map(q=>parseMonto($(`#q-${a}-${q}`)?.value)||0));return imp}
+function opSums(){const imp=opReadImp();let g=0;OP_ANIOS.forEach(a=>{const s=imp[a].reduce((x,y)=>x+y,0);g+=s;$(`#qt-${a}`).textContent=gsM(s)});$("#qt-all").textContent=gsM(g);
+  const p=Number($("#op-prob").value)||0;$("#qt-pond").textContent=gsM(g*p/100)}
+function openOp(id){
+  closeModal();
+  const o0=id?opsPub.find(x=>x.id===id):null;if(id&&!o0)return;
+  const o=Object.assign({etapa:"Proyecto",probabilidad:20,impacto:{},revisiones:[],responsable:(miembro&&miembro.nombre)||""},o0||{});
+  opEdit={id:o0?o0.id:null};
+  const ro=canWrite?"":"disabled",lk=o.link&&parseLink(o.link);
+  const w=document.createElement("div");w.id="modal";
+  w.innerHTML=`<div class="scrim" data-close></div>
+  <aside class="panel" role="dialog" aria-modal="true" aria-labelledby="opTitle">
+    <div class="panel-h"><h3 id="opTitle">${o0?esc(o.proyecto||"Oportunidad"):"Nueva oportunidad pública"}</h3><button type="button" class="btn ghost" data-close>Cerrar ✕</button></div>
+    <div class="panel-b">
+      <div class="stack" id="opForm">
+        <div class="card"><h4>Oportunidad ${o0?`<span class="pill ${opEt(o.etapa).c}">${esc(o.etapa)}</span>`:""}</h4><fieldset ${ro} class="fs"><div class="grid">
+          <div class="f full"><label for="op-pr">Proyecto / licitación *</label><input id="op-pr" name="proyecto" value="${esc(o.proyecto)}" placeholder="Ej.: LPN 19/26 - Equipos Hospital de Clínicas"></div>
+          <div class="f"><label for="op-cl">Cliente / convocante *</label><input id="op-cl" name="cliente" list="dlOpCli" value="${esc(o.cliente)}" placeholder="IPS, MSPyBS, Policía Nacional…"></div>
+          <div class="f"><label for="op-et">Etapa</label><select id="op-et" name="etapa">${opt(OP_ETAPAS.map(e=>e.v),o.etapa)}</select></div>
+          <div class="f full"><label for="op-pb">Probabilidad de ganar</label><div class="prow"><input type="range" id="op-prob" name="probabilidad" min="0" max="100" step="5" value="${Number(o.probabilidad)||0}"><output id="op-pbo">${Number(o.probabilidad)||0} %</output></div></div>
+          <div class="f full"><label for="op-lic">Licitación en la DNCP (nombre o ID)</label><input id="op-lic" name="licitacion" value="${esc(o.licitacion)}" placeholder="Ej.: Licitación 486102 - Mantenimiento de equipos…"></div>
+          <div class="f full"><label for="op-lk">Link del llamado en la DNCP (cuando se publique)</label><input id="op-lk" name="link" type="url" value="${esc(o.link)}" placeholder="https://www.contrataciones.gov.py/licitaciones/convocatoria/…"></div>
+          <div class="f full"><label for="op-ds">Descripción</label><textarea id="op-ds" name="descripcion" placeholder="Qué equipos o servicios, para qué servicio o hospital…">${esc(o.descripcion)}</textarea></div>
+          <div class="f"><label for="op-mc">Marcas / equipos</label><input id="op-mc" name="marcas" value="${esc(o.marcas)}" placeholder="Mindray, Dräger, Malvestio…"></div>
+          <div class="f"><label for="op-hz">Horizonte de impacto</label><input id="op-hz" name="horizonte" value="${esc(o.horizonte)}" placeholder="Ej.: Marzo a Julio 2027"></div>
+          <div class="f full"><label for="op-rs">Responsable(s)</label><input id="op-rs" name="responsable" list="dlResp" value="${esc(o.responsable)}"></div>
+          <div class="f full"><label for="op-ac">Acción para maximizar / próximos pasos</label><textarea id="op-ac" name="accion" placeholder="Con quién hablar, qué cambiar en las EETT, qué falta (CDP, presupuesto)…">${esc(o.accion)}</textarea></div>
+        </div></fieldset></div>
+        <div class="card"><h4>Impacto estimado en guaraníes <small>por trimestre de facturación</small></h4>
+          <fieldset ${ro} class="fs"><div class="qwrap"><table class="qgrid"><thead><tr><th>Año</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th style="text-align:right">Total</th></tr></thead><tbody>
+          ${OP_ANIOS.map(a=>`<tr><th>${a}</th>${[0,1,2,3].map(q=>`<td><input id="q-${a}-${q}" class="opq" inputmode="numeric" aria-label="Q${q+1} ${a}" value="${opQv(o,a,q)?opQv(o,a,q).toLocaleString("es-PY"):""}"></td>`).join("")}<td class="tot" id="qt-${a}"></td></tr>`).join("")}
+          </tbody><tfoot><tr><td colspan="5" style="text-align:right;font-size:12.5px;color:var(--muted);font-weight:700">Total 2026–2028 · ponderado</td><td class="tot"><span id="qt-all"></span><div style="font-weight:600;color:var(--muted);font-size:12px" id="qt-pond"></div></td></tr></tfoot></table></div></fieldset>
+          <p class="hint" style="margin-top:8px">Cargue el monto en el trimestre en que se estima facturar. Los totales y el filtro por año salen de acá.</p></div>
+      </div>
+      ${o0?`<div class="card"><h4>Revisión mensual <small>queda en el historial, como en la matriz S&amp;OP</small></h4>
+        ${canWrite?`<div class="vform">
+          <div class="f"><label for="rv-mes">Mes</label><input type="month" id="rv-mes" value="${iso(today()).slice(0,7)}"></div>
+          <div class="f two"><label>Probabilidad</label><p class="hint" style="margin:8px 0 0">Se guarda la probabilidad y el impacto que figuran arriba.</p></div>
+          <div class="f full"><label for="rv-cm">Novedades del mes *</label><textarea id="rv-cm" placeholder="Qué cambió este mes, con quién se habló, qué sigue…"></textarea></div>
+          <div class="act"><button type="button" class="btn primary sm" id="rvAdd">Registrar revisión y guardar</button></div></div>`:""}
+        <div class="revs" id="opRevs" style="margin-top:10px">${opRevHTML(o.revisiones||[])}</div></div>`:""}
+    </div>
+    <div class="panel-f">${canWrite&&o0?`<button type="button" class="btn danger" id="opDel">Eliminar</button>`:"<span></span>"}<div class="right">
+      ${o0&&canWrite?(o.llamadoId?`<button type="button" class="btn" id="opVerLl">Ver en Llamados</button>`:`<button type="button" class="btn" id="opToLl" ${lk?"":"hidden"}>Pasar a Llamados en puerta</button>`):""}
+      <button type="button" class="btn" data-close>Cancelar</button>${canWrite?`<button type="button" class="btn primary" id="opSave">${o0?"Guardar":"Crear oportunidad"}</button>`:""}</div></div>
+  </aside>`;
+  document.body.appendChild(w);
+  $("#dlOpCli")||document.body.insertAdjacentHTML("beforeend",`<datalist id="dlOpCli"></datalist>`);
+  $("#dlOpCli").innerHTML=[...new Set(["IPS","MSPyBS","Policía Nacional",...opsPub.map(x=>x.cliente).filter(Boolean)])].map(c=>`<option value="${esc(c)}">`).join("");
+  opSums();
+  w.addEventListener("input",e=>{
+    if(e.target.classList.contains("opq"))opSums();
+    if(e.target.id==="op-prob"){$("#op-pbo").textContent=e.target.value+" %";opSums()}
+    if(e.target.id==="op-lk"&&$("#opToLl"))$("#opToLl").hidden=!parseLink(e.target.value);
+  });
+  w.addEventListener("focusout",e=>{if(e.target.classList.contains("opq")){const n=parseMonto(e.target.value);e.target.value=n?n.toLocaleString("es-PY"):""}});
+  w.addEventListener("change",e=>{if(e.target.id==="op-et"){const v=e.target.value,p=$("#op-prob");if(v==="Adjudicada")p.value=100;if(v==="Perdida")p.value=0;$("#op-pbo").textContent=p.value+" %";opSums()}});
+  w.addEventListener("click",e=>{
+    const t=e.target;
+    if(t.closest("[data-close]")){closeModal();return}
+    if(t.id==="opSave")opSave(t);
+    if(t.id==="rvAdd")opSave(t,true);
+    if(t.id==="opToLl")opToLlamado(t);
+    if(t.id==="opVerLl"){const lid=o.llamadoId;closeModal();go("llamados");if(llamados.some(l=>l.id===lid))openEditor(lid)}
+    if(t.id==="opDel")twoStep(t,async()=>{try{await opCol.doc(o0.id).delete();closeModal();toast("Oportunidad eliminada")}catch(x){t.disabled=false;toast(errMsg(x))}},"Confirmar eliminación");
+  });
+  if(!o0)setTimeout(()=>$("#op-pr")?.focus(),30);
+}
+function opData(){
+  const box=$("#opForm"),g=n=>{const el=box.querySelector(`[name="${n}"]`);return el?(el.value||"").trim():""};
+  const lic=g("licitacion"),m=lic.match(/(?:ID|Licitaci[oó]n)\s*(\d{5,})/i);
+  return{proyecto:g("proyecto"),cliente:g("cliente"),etapa:g("etapa")||"Proyecto",probabilidad:Number(g("probabilidad"))||0,licitacion:lic,idDncp:m?m[1]:"",
+    link:g("link"),descripcion:g("descripcion"),marcas:g("marcas"),horizonte:g("horizonte"),responsable:g("responsable"),accion:g("accion"),impacto:opReadImp(),actualizado:new Date().toISOString()};
+}
+async function opSave(btn,conRev){
+  const d=opData();
+  if(!d.proyecto){toast("Escriba el nombre del proyecto o licitación.");$("#op-pr").focus();return}
+  if(!d.cliente){toast("Indique el cliente o convocante.");$("#op-cl").focus();return}
+  if(d.link&&!parseLink(d.link)){toast(LINK_ERR);$("#op-lk").focus();return}
+  const cur=opEdit.id?opsPub.find(x=>x.id===opEdit.id):null;
+  if(conRev){
+    const mes=$("#rv-mes").value,cm=$("#rv-cm").value.trim();
+    if(!/^\d{4}-\d{2}$/.test(mes)){toast("Indique el mes de la revisión.");return}
+    if(!cm){toast("Escriba las novedades del mes.");$("#rv-cm").focus();return}
+    const rev={mes,probabilidad:d.probabilidad,total:OP_ANIOS.reduce((s,a)=>s+d.impacto[a].reduce((x,y)=>x+y,0),0),comentario:cm,autor:(miembro&&miembro.nombre)||"",fecha:new Date().toISOString()};
+    d.revisiones=[rev,...((cur&&cur.revisiones)||[]).filter(r=>r.mes!==mes)].sort((a,b)=>String(b.mes).localeCompare(String(a.mes)));
+  }
+  const txt=btn.textContent;btn.disabled=true;btn.textContent="Guardando…";
+  try{
+    if(cur){await opCol.doc(cur.id).update(d);
+      if(conRev){$("#opRevs").innerHTML=opRevHTML(d.revisiones);$("#rv-cm").value="";toast("Revisión registrada y oportunidad guardada")}else{closeModal();toast("Oportunidad guardada")}}
+    else{const id="op-"+rid();d.creado=new Date().toISOString();d.revisiones=[];await opCol.doc(id).set(d);closeModal();toast("Oportunidad creada");setTimeout(()=>openOp(id),150)}
+  }catch(e){toast(errMsg(e))}finally{if(btn.isConnected){btn.disabled=false;btn.textContent=txt}}
+}
+async function opToLlamado(btn){
+  const d=opData(),p=parseLink(d.link);if(!p){toast(LINK_ERR);return}
+  const cur=opsPub.find(x=>x.id===opEdit.id);if(!cur||!col)return;
+  btn.disabled=true;btn.textContent="Pasando…";
+  try{
+    if(!llamados.some(l=>l.id===p.id||l.link===p.link)){
+      await col.doc(p.id).set({link:p.link,tipoLlamado:p.tipo,responsable:String(d.responsable||"").split(/[\/,;]/)[0].trim(),estado:"En análisis",numero:"",convocante:d.cliente,objeto:d.descripcion||d.proyecto,idDncp:d.idDncp||"",
+        marcas:String(d.marcas||"").split(/[,;]/).map(s=>s.trim()).filter(Boolean),items:"",montoOferta:"",consultas:[],notas:`Viene de Oportunidades: ${d.proyecto}${d.accion?"\n"+d.accion:""}`,alertas:[],
+        sync:{estado:"pendiente",solicitado:new Date().toISOString()},creado:new Date().toISOString()});
+    }
+    const lid=(llamados.find(l=>l.link===p.link)||{id:p.id}).id;
+    await opCol.doc(cur.id).update(Object.assign(d,{llamadoId:lid,etapa:["Proyecto","Con presupuesto (CDP)"].includes(d.etapa)?"Llamado publicado":d.etapa}));
+    closeModal();toast("Pasado a Llamados en puerta. Los datos de la DNCP se cargan en menos de 30 minutos.");
+  }catch(e){btn.disabled=false;btn.textContent="Pasar a Llamados en puerta";toast(errMsg(e))}
+}
+function opCSV(){
+  const rows=opFilt(),Q=OP_ANIOS.flatMap(a=>[1,2,3,4].map(q=>`Q${q}-${a}`));
+  const H=["Proyecto","Licitación","ID DNCP","Cliente","Etapa","Probabilidad %",...Q,...OP_ANIOS.map(a=>"Total "+a),"Total","Ponderado","Horizonte","Responsable","Última revisión","Comentario","Acción para maximizar"];
+  const L=rows.map(o=>{const r=(o.revisiones||[])[0]||{};return[o.proyecto,o.licitacion,o.idDncp,o.cliente,o.etapa,Number(o.probabilidad)||0,
+    ...OP_ANIOS.flatMap(a=>[0,1,2,3].map(q=>opQv(o,a,q))),...OP_ANIOS.map(a=>opAnio(o,a)),opTotal(o),Math.round(opTotal(o)*opProb(o)),o.horizonte,o.responsable,r.mes||"",r.comentario||"",o.accion]});
+  const csv=[H,...L].map(r=>r.map(c=>{const s=String(c??"");return/[;"\n\r]/.test(s)?`"${s.replace(/"/g,'""')}"`:s}).join(";")).join("\r\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));
+  a.download=`oportunidades_publicas_${ops.anio}_${iso(today())}.csv`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);
+}
+$("#opAnios").addEventListener("click",e=>{const b=e.target.closest("[data-anio]");if(!b)return;ops.anio=b.dataset.anio;lsSet("op.anio",ops.anio);renderOp()});
+$("#opQ").addEventListener("input",e=>{ops.q=e.target.value;renderOp()});
+$("#opCli").addEventListener("change",e=>{ops.cli=e.target.value;renderOp()});
+$("#opResp").addEventListener("change",e=>{ops.resp=e.target.value;renderOp()});
+$("#opEst").addEventListener("change",e=>{ops.est=e.target.value;renderOp()});
+$("#btnNewOp").addEventListener("click",()=>openOp(null));
+$("#btnCsv").addEventListener("click",opCSV);
+$("#vOp").addEventListener("click",e=>{if(e.target.closest("[data-newop]")){openOp(null);return}const r=e.target.closest("[data-opp]");if(r)openOp(r.dataset.opp)});
+$("#vOp").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches("[data-opp]"))openOp(e.target.dataset.opp)});
+function opStart(db){opCol=db.collection("oportunidades_pub");opCol.onSnapshot(s=>{opsPub=s.docs.map(d=>Object.assign({id:d.id},d.data()));opLoaded=true;renderOp()},()=>{opErr=true;renderOp()})}
+
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 cs.as=lsGet("crm.filtroAs");
 go(location.hash.slice(1)||lsGet("vista")||"llamados");
@@ -1537,7 +1823,7 @@ async function entrar(session){
   $("#dlResp").innerHTML=ASES_BASE.map(n=>`<option value="${esc(n)}">`).join("");
   $("#userName").textContent=`${miembro.nombre} · ${{asesor:"Asesor",gerencia:"Gerencia",admin:"Administrador"}[miembro.rol]||miembro.rol}`;$("#userBox").hidden=false;
   $("#btnNew").hidden=false;$("#btnSync").hidden=false;
-  db=makeDb();col=db.collection("llamados");crmStart(db);
+  db=makeDb();col=db.collection("llamados");crmStart(db);opStart(db);
   col.onSnapshot(snap=>{
     llamados=snap.docs.map(d=>Object.assign({id:d.id},d.data()));loaded=true;
     const rev=llamados.map(l=>l.sync&&l.sync.revisado).filter(Boolean).sort().pop();
@@ -1564,7 +1850,7 @@ render();
 (async()=>{
   $("#btnNew").hidden=true;
   if(!window.supabase||!CFG.supabaseUrl||!CFG.supabaseAnonKey||/PEGAR/.test(CFG.supabaseUrl+CFG.supabaseAnonKey)){
-    setSync("err","Falta configurar la conexión: complete CRM/config.js con los datos de Supabase.");loaded=true;canWrite=false;render();renderCrm();return}
+    setSync("err","Falta configurar la conexión: complete CRM/config.js con los datos de Supabase.");loaded=true;canWrite=false;render();renderCrm();renderOp();return}
   sb=window.supabase.createClient(CFG.supabaseUrl,CFG.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
   sb.auth.onAuthStateChange(ev=>{if(ev==="PASSWORD_RECOVERY")showLogin("Escriba su nueva contraseña.","nueva")});
   const{data}=await sb.auth.getSession();
