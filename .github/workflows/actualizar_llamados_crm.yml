@@ -1,0 +1,56 @@
+name: Llamados en puerta (CRM)
+
+on:
+  schedule:
+    # Cada 30 min: procesa los llamados nuevos y los pedidos del boton "Actualizar"
+    # (minutos 17 y 47, para no chocar con los otros workflows del repo).
+    - cron: "17,47 * * * *"
+    # Revision completa de todos los llamados activos: 14:50 UTC = 11:50 en Paraguay, lunes a viernes.
+    - cron: "50 14 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "pendientes = solo los pedidos desde la pagina | completo = todos los llamados activos"
+        required: false
+        default: "pendientes"
+        type: choice
+        options: [pendientes, completo]
+      probar_link:
+        description: "PRUEBA: pegue el link de un llamado para ver que devuelve la API (no guarda nada)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: llamados-crm
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Actualizar llamados desde la DNCP
+        env:
+          DNCP_CONSUMER_KEY: ${{ secrets.DNCP_CONSUMER_KEY }}
+          DNCP_CONSUMER_SECRET: ${{ secrets.DNCP_CONSUMER_SECRET }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CRM_URL_PAGINA: https://dariosilvapy.github.io/Licitaciones/CRM/
+          CRM_MODO: ${{ github.event.schedule == '50 14 * * 1-5' && 'completo' || inputs.modo || 'pendientes' }}
+          CRM_PROBAR_LINK: ${{ inputs.probar_link || '' }}
+        run: python scripts/actualizar_llamados_crm.py
