@@ -193,8 +193,10 @@ def construir_dncp(datos: dict, slug: str) -> dict:
 
 
 def detectar_novedades(viejo: dict, nuevo: dict) -> list:
-    """Compara lo guardado con lo nuevo. En la primera importacion no avisa nada."""
-    if not viejo:
+    """Compara lo guardado con lo nuevo. En la primera importacion no avisa nada,
+    y tampoco cuando lo guardado viene de la version anterior (claude.ai), que
+    nombraba distinto las etapas y publicaciones: ahi solo se toma como base."""
+    if not viejo or "slug" not in viejo:
         return []
     nov = []
 
