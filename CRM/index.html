@@ -1,6 +1,7 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Llamados en Puerta</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="config.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -305,6 +306,24 @@ mark{background:var(--warn-soft);color:var(--ink);border-radius:3px;padding:0 1p
 .rev .vh{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .rev p{margin:4px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13.5px}
 .delta-up{color:var(--ok);font-weight:800} .delta-dn{color:var(--bad);font-weight:800}
+/* ===== Consumo LPN 52 ===== */
+.cchart{width:100%;height:auto;display:block;overflow:visible}
+.cchart .cg{stroke:var(--line);stroke-width:1}
+.cchart .cb{stroke:var(--muted);stroke-width:1}
+.cchart .ca{fill:var(--muted);font-size:11px;font-family:inherit}
+.cchart .cbar{fill:var(--accent)} .cchart .cbar.cur{fill:var(--accent);opacity:.45}
+.cchart .cbar:hover{opacity:.8}
+.cchart .cline{fill:none;stroke:var(--warn);stroke-width:2.5;stroke-linejoin:round}
+.cchart .cline2{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linejoin:round}
+.cchart .carea{fill:var(--accent-soft)}
+.cchart .cdot{fill:var(--surface);stroke:var(--accent);stroke-width:2} .cchart .cdot.in{fill:var(--ok);stroke:var(--ok)}
+.hbar.co{grid-template-columns:minmax(0,260px) minmax(0,1fr) 70px minmax(0,190px)}
+.hbar.co small{color:var(--muted);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:700px){.hbar.co{grid-template-columns:minmax(0,1fr) 70px}.hbar.co .tr,.hbar.co small{display:none}}
+.cotbl{min-width:640px}.cotbl tbody tr{cursor:default}
+.cotbl tr.ing td{background:var(--ok-soft)}
+#coBody.drop{outline:3px dashed var(--accent);outline-offset:6px;border-radius:var(--r)}
+
 
 /* ===== Pestañas principales y CRM canal privado ===== */
 .view{display:contents}
@@ -343,8 +362,8 @@ mark{background:var(--warn-soft);color:var(--ink);border-radius:3px;padding:0 1p
 .kn{font-size:12.5px;background:var(--accent-soft);border-radius:7px;padding:4px 8px;overflow-wrap:anywhere}
 .kn.none{background:var(--warn-soft);color:var(--warn);font-weight:700}
 .kflags{display:flex;flex-wrap:wrap;gap:4px}
-.flag{font-size:11px;font-weight:800;border-radius:999px;padding:1px 8px;white-space:nowrap}
-.flag.bad{background:var(--bad-soft);color:var(--bad)} .flag.warn{background:var(--warn-soft);color:var(--warn)} .flag.idle{background:var(--idle-soft);color:var(--idle)} .flag.info{background:var(--info-soft);color:var(--info)} .flag.ok{background:var(--ok-soft);color:var(--ok)}
+.fl{font-size:11px;font-weight:800;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.fl.bad{background:var(--bad-soft);color:var(--bad)} .fl.warn{background:var(--warn-soft);color:var(--warn)} .fl.idle{background:var(--idle-soft);color:var(--idle)} .fl.info{background:var(--info-soft);color:var(--info)} .fl.ok{background:var(--ok-soft);color:var(--ok)}
 .kfoot{display:flex;justify-content:space-between;gap:6px;align-items:center;font-size:12px;color:var(--muted);flex-wrap:wrap}
 .kempty{font-size:12.5px;color:var(--muted);text-align:center;padding:18px 6px;border:1px dashed var(--line);border-radius:10px}
 .kmore{font-size:12px;color:var(--muted);text-align:center}
@@ -444,6 +463,11 @@ mark{background:var(--warn-soft);color:var(--ink);border-radius:3px;padding:0 1p
       <button class="btn" id="btnCsv" type="button" hidden>⤓ Exportar a Excel</button>
       <button class="btn primary" id="btnNewOp" type="button" hidden>+ Nueva oportunidad</button>
     </div>
+    <div class="actions" id="actCo" hidden>
+      <button class="btn" id="btnCoNew" type="button" hidden>+ Registrar movimiento</button>
+      <button class="btn primary" id="btnCoUp" type="button" hidden>⤒ Cargar planilla</button>
+      <input type="file" id="coFile" accept=".xlsx,.xls,.xlsm,.csv" hidden>
+    </div>
     <div class="actions" id="actCrm" hidden>
       <button class="btn" id="btnNewAcc" type="button" hidden>+ Nueva cuenta</button>
       <button class="btn primary" id="btnNewOpp" type="button" hidden>+ Nueva oportunidad</button>
@@ -454,6 +478,7 @@ mark{background:var(--warn-soft);color:var(--ink);border-radius:3px;padding:0 1p
     <button type="button" class="tab" data-tab="llamados" aria-pressed="true">Llamados · canal público</button>
     <button type="button" class="tab" data-tab="oportunidades" aria-pressed="false">Oportunidades · licitaciones</button>
     <button type="button" class="tab" data-tab="crm" aria-pressed="false">CRM · canal privado</button>
+    <button type="button" class="tab" data-tab="consumo" aria-pressed="false">Consumo LPN 52</button>
   </nav>
 
   <div id="notice" class="notice" hidden></div>
@@ -523,6 +548,10 @@ mark{background:var(--warn-soft);color:var(--ink);border-radius:3px;padding:0 1p
       </select>
     </div>
     <section class="crm-sec" id="opBody"></section>
+  </div>
+  <div class="view" id="vCo" hidden>
+    <div class="yrs" id="coAnios" role="group" aria-label="Período"></div>
+    <section class="crm-sec" id="coBody"></section>
   </div>
   <div class="view" id="vCrm" hidden>
     <nav class="subtabs" id="crmNav" aria-label="Secciones del CRM">
@@ -1039,17 +1068,17 @@ function oppVisible(o,terms){if(cs.as&&o.asesor!==cs.as)return false;return!term
 
 /* ---------- Navegación ---------- */
 function go(tok){
-  if(tok!=="llamados"&&tok!=="oportunidades"&&!SUBS.includes(tok))tok="llamados";
-  const v=tok==="llamados"?"ll":tok==="oportunidades"?"op":"crm",TABV={llamados:"ll",oportunidades:"op",crm:"crm"};
-  $("#vLl").hidden=v!=="ll";$("#vCrm").hidden=v!=="crm";$("#vOp").hidden=v!=="op";
-  $("#actLl").hidden=v!=="ll";$("#actCrm").hidden=v!=="crm";$("#actOp").hidden=v!=="op";
+  if(!["llamados","oportunidades","consumo"].includes(tok)&&!SUBS.includes(tok))tok="llamados";
+  const v=tok==="llamados"?"ll":tok==="oportunidades"?"op":tok==="consumo"?"co":"crm",TABV={llamados:"ll",oportunidades:"op",crm:"crm",consumo:"co"};
+  $("#vLl").hidden=v!=="ll";$("#vCrm").hidden=v!=="crm";$("#vOp").hidden=v!=="op";$("#vCo").hidden=v!=="co";
+  $("#actLl").hidden=v!=="ll";$("#actCrm").hidden=v!=="crm";$("#actOp").hidden=v!=="op";$("#actCo").hidden=v!=="co";
   document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-pressed",String(TABV[b.dataset.tab]===v)));
-  $("#h1").textContent={ll:"Llamados en Puerta",op:"Oportunidades · Licitaciones públicas",crm:"CRM · Canal privado"}[v];
-  document.title=v==="crm"?`${SUB_T[tok]} · CRM`:v==="op"?"Oportunidades · Licitaciones públicas":"Llamados en Puerta";
+  $("#h1").textContent={ll:"Llamados en Puerta",op:"Oportunidades · Licitaciones públicas",crm:"CRM · Canal privado",co:"Consumo SETS Samtronic · LPN 52/2023"}[v];
+  document.title=v==="crm"?`${SUB_T[tok]} · CRM`:v==="op"?"Oportunidades · Licitaciones públicas":v==="co"?"Consumo LPN 52":"Llamados en Puerta";
   if(v==="crm")cs.sub=tok;
   lsSet("vista",tok);
   if(location.hash.slice(1)!==tok&&!/access_token|type=|error_/.test(location.hash)){try{history.replaceState(null,"","#"+tok)}catch(e){}}
-  renderCrm();renderOp();
+  renderCrm();renderOp();renderCo();
 }
 
 /* ---------- Render CRM ---------- */
@@ -1104,7 +1133,7 @@ function kcard(o){
     <div class="kt">${esc(o.titulo||"Sin título")}</div><div class="ka">${esc(ctaName(o.cuentaId))}</div>
     ${o.monto>0?`<div class="km">${esc(fmtMonto(o.monto,o.moneda))}</div>`:""}
     ${cl?(o.etapa==="Perdida"&&o.motivoPerdida?`<div class="ka">Motivo: ${esc(o.motivoPerdida)}</div>`:""):pp?`<div class="kn">→ ${esc(pp.texto)}${pd(pp.fecha)?` · <b style="${late?"color:var(--bad)":""}">${fmt(pp.fecha).slice(0,5)}</b>`:""}</div>`:`<div class="kn none">Sin próximo paso</div>`}
-    ${fl.length||nec?`<div class="kflags">${fl.map(f=>`<span class="flag ${f[0]}">${esc(f[1])}</span>`).join("")}${nec?`<span class="flag info">${nec} pedido${nec>1?"s":""} a gerencia</span>`:""}</div>`:""}
+    ${fl.length||nec?`<div class="kflags">${fl.map(f=>`<span class="fl ${f[0]}">${esc(f[1])}</span>`).join("")}${nec?`<span class="fl info">${nec} pedido${nec>1?"s":""} a gerencia</span>`:""}</div>`:""}
     <div class="kfoot"><span>${esc(o.asesor||"Sin asesor")}</span><span>${pd(o.fechaCierre)&&!cl?"Cierre "+fmt(o.fechaCierre):""}</span></div>
   </div>`;
 }
@@ -1149,7 +1178,7 @@ function rCuentas(box){
       const lv=visitas.filter(v=>v.cuentaId===c.id).map(v=>v.fecha).filter(pd).sort().pop();
       return`<div class="acc" data-acc="${esc(c.id)}" role="button" tabindex="0">
         <div><div class="num">${esc(c.nombre||"Sin nombre")}</div><div class="sub">${esc([c.tipo,c.ciudad].filter(Boolean).join(" · ")||"—")}</div></div>
-        <div>${dec.length?`<strong>${esc(dec.map(k=>k.nombre).join(", "))}</strong>`:`<span class="flag idle">Sin decisor</span>`}<div class="sub">${(c.contactos||[]).length} contacto${(c.contactos||[]).length===1?"":"s"}</div></div>
+        <div>${dec.length?`<strong>${esc(dec.map(k=>k.nombre).join(", "))}</strong>`:`<span class="fl idle">Sin decisor</span>`}<div class="sub">${(c.contactos||[]).length} contacto${(c.contactos||[]).length===1?"":"s"}</div></div>
         <div><strong>${ab.length}</strong> abierta${ab.length===1?"":"s"}${os.length-ab.length?`<span class="sub"> · ${os.length-ab.length} cerrada${os.length-ab.length>1?"s":""}</span>`:""}<div class="sub">${ab.length?esc(fmtSum(sumM(ab))):"Sin pipeline"}</div></div>
         <div>${c.asesor?`<span class="tag">${esc(c.asesor)}</span>`:`<span class="sub">Sin asesor</span>`}<div class="sub">${lv?"Última visita "+rel(dd(lv)):"Sin visitas"}</div></div>
       </div>`}).join("")||`<div class="empty"><strong>Ninguna cuenta coincide</strong>Pruebe con otra búsqueda o con otro asesor.</div>`}</div>`;
@@ -1172,7 +1201,7 @@ function rGerencia(box){
     <section class="summary" aria-label="Resumen de pedidos">
       <div class="stat ${cnt("abiertos")?"alert":""}"><b>${cnt("abiertos")}</b><span>Pedidos por responder</span></div>
       <div class="stat money"><b>${esc(fmtSum(sumM(enJuego)))}</b><span>Pipeline que espera una decisión de gerencia</span></div>
-      <div class="stat" style="grid-column:span 2"><span style="margin-bottom:4px">Por tipo (por responder)</span><div class="kflags">${Object.entries(porTipo).sort((a,b)=>b[1]-a[1]).map(([t,n])=>`<span class="flag warn">${esc(t)} · ${n}</span>`).join("")||`<span class="sub">Sin pedidos pendientes</span>`}</div></div>
+      <div class="stat" style="grid-column:span 2"><span style="margin-bottom:4px">Por tipo (por responder)</span><div class="kflags">${Object.entries(porTipo).sort((a,b)=>b[1]-a[1]).map(([t,n])=>`<span class="fl warn">${esc(t)} · ${n}</span>`).join("")||`<span class="sub">Sin pedidos pendientes</span>`}</div></div>
     </section>
     <div class="gchips">${GF.map(x=>`<button type="button" class="chip" data-gest="${x[0]}" aria-pressed="${x[0]===g[0]}">${x[1]}<span>${cnt(x[0])}</span></button>`).join("")}</div>
     <div class="needs">${list.map(({o,n})=>{
@@ -1737,6 +1766,215 @@ $("#vOp").addEventListener("click",e=>{if(e.target.closest("[data-newop]")){open
 $("#vOp").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches("[data-opp]"))openOp(e.target.dataset.opp)});
 function opStart(db){opCol=db.collection("oportunidades_pub");opCol.onSnapshot(s=>{opsPub=s.docs.map(d=>Object.assign({id:d.id},d.data()));opLoaded=true;renderOp()},()=>{opErr=true;renderOp()})}
 
+/* ===================== Consumo SETS Samtronic · LPN 52/2023 ===================== */
+let coCol=null,coMov=[],coLoaded=false,coErr=false;
+const co={anio:"todos",q:"",ingresos:false,lim:150};
+const MES_C=["","Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+const nf=n=>Math.round(Number(n)||0).toLocaleString("es-PY");
+const coDest=s=>String(s??"").trim().replace(/\s+/g," ").toUpperCase();
+/* id estable del movimiento: fecha|entrada|salida|destino + n.º de repetición en el día. Así una planilla
+   que se vuelve a cargar, o una entrega cargada a mano que después viene en la planilla, no se duplican. */
+function coHash(t){let h=0x811c9dc5;for(let i=0;i<t.length;i++){h^=t.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0}return h.toString(16).padStart(8,"0")}
+const coBase=m=>`${m.fecha}|${Number(m.entrada)||0}|${Number(m.salida)||0}|${coDest(m.destino)}`+((Number(m.ajusteMas)||Number(m.ajusteMenos))?`|a${Number(m.ajusteMas)||0}-${Number(m.ajusteMenos)||0}`:"");
+const coId=(m,n)=>`mv-${String(m.fecha).replace(/-/g,"")}-${coHash(coBase(m))}-${n}`;
+const coMk=m=>String(m.fecha).slice(0,7);
+function coMonths(a,b){const out=[];let [y,m]=a.split("-").map(Number);const [yb,mb]=b.split("-").map(Number);while(y<yb||(y===yb&&m<=mb)){out.push(`${y}-${String(m).padStart(2,"0")}`);m++;if(m>12){m=1;y++}}return out}
+const coMesTxt=k=>{const[y,m]=k.split("-");return`${MES_C[+m]} ${y}`};
+function coSeries(){
+  /* consumo y saldo por mes, desde el primer movimiento hasta el mes actual */
+  const ms=[...coMov].sort((a,b)=>String(a.fecha).localeCompare(String(b.fecha)));
+  if(!ms.length)return[];
+  const keys=coMonths(coMk(ms[0]),iso(today()).slice(0,7)),by={};
+  keys.forEach(k=>by[k]={k,sal:0,ent:0,aj:0,saldo:0,n:0});
+  ms.forEach(m=>{const b=by[coMk(m)];if(b){b.sal+=Number(m.salida)||0;b.ent+=Number(m.entrada)||0;b.aj+=(Number(m.ajusteMas)||0)-(Number(m.ajusteMenos)||0);if(m.salida>0)b.n++}});
+  let s=0;keys.forEach(k=>{s+=by[k].ent-by[k].sal+by[k].aj;by[k].saldo=s});
+  return keys.map(k=>by[k]);
+}
+function renderCo(){
+  $("#btnCoUp").hidden=$("#btnCoNew").hidden=!canWrite||!coLoaded;
+  if($("#vCo").hidden)return;
+  const box=$("#coBody");
+  if(!coLoaded){const off=coErr||(loaded&&!db);box.innerHTML=`<div class="empty"><strong>${off?"Base compartida no disponible":"Cargando consumo…"}</strong>${off?"Inicie sesión y recargue la página.":""}</div>`;return}
+  const serAll=coSeries(),anios=[...new Set(serAll.map(s=>s.k.slice(0,4)))];
+  if(co.anio!=="todos"&&!anios.includes(co.anio))co.anio="todos";
+  $("#coAnios").innerHTML=`<span>Período</span>`+[...anios,"todos"].map(a=>`<button type="button" class="chip lg" data-coanio="${a}" aria-pressed="${co.anio===a}">${a==="todos"?"Todo el contrato":a}</button>`).join("");
+  if(!coMov.length){box.innerHTML=`<div class="empty"><strong>Todavía no hay movimientos cargados</strong>${canWrite?"Use “Cargar planilla” para subir el kardex o “Registrar movimiento” para cargar una entrega.":""}</div>`;return}
+  const ser=co.anio==="todos"?serAll:serAll.filter(s=>s.k.startsWith(co.anio));
+  const enPer=m=>co.anio==="todos"||String(m.fecha).startsWith(co.anio);
+  const movP=coMov.filter(enPer),sal=movP.reduce((s,m)=>s+(Number(m.salida)||0),0),ent=movP.reduce((s,m)=>s+(Number(m.entrada)||0),0);
+  const mesAct=iso(today()).slice(0,7),cerr=serAll.filter(s=>s.k<mesAct);  /* meses completos */
+  const ult6=cerr.slice(-6),prom6=ult6.length?ult6.reduce((s,x)=>s+x.sal,0)/ult6.length:0;
+  const saldo=serAll.length?serAll[serAll.length-1].saldo:0,cob=prom6?saldo/prom6:0;
+  const perMeses=ser.filter(s=>s.k<=mesAct).length||1,promPer=sal/perMeses;
+  const actual=serAll.find(s=>s.k===mesAct)||{sal:0},prev=cerr[cerr.length-1]||{sal:0,k:""};
+  const ultMov=[...coMov].sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha)))[0];
+  const per=co.anio==="todos"?"todo el contrato":co.anio;
+  let h=`<section class="summary" aria-label="Resumen de consumo">
+    <div class="stat"><b>${nf(sal)}</b><span>Sets entregados · ${esc(per)}${ent?` · ingresaron ${nf(ent)}`:""}</span></div>
+    <div class="stat"><b>${nf(promPer)}</b><span>Promedio mensual · ${esc(per)}</span></div>
+    <div class="stat"><b>${nf(actual.sal)}</b><span>${esc(coMesTxt(mesAct))} (en curso) · ${esc(prev.k?coMesTxt(prev.k):"")}: ${nf(prev.sal)}</span></div>
+    <div class="stat ${cob&&cob<3?"alert":""}"><b>${nf(saldo)}</b><span>Saldo Samtronic · cubre ~${cob?cob.toLocaleString("es-PY",{maximumFractionDigits:1}):"—"} meses al ritmo de los últimos 6 (${nf(prom6)}/mes)</span></div>
+  </section>
+  <p class="hint" style="margin-top:-6px">Saldo = sets ingresados − entregados ± ajustes (solo Samtronic, LPN 52/2023). Último movimiento: ${ultMov?fmt(ultMov.fecha):"—"}.</p>`;
+  /* Gráfico de consumo mensual + promedio móvil de 3 meses */
+  const W=1080,H=300,pl=58,pr=14,pt=16,pb=34,pw=W-pl-pr,ph=H-pt-pb,n=ser.length||1;
+  const mx=Math.max(1,...ser.map(s=>s.sal)),nice=v=>{const p=Math.pow(10,Math.floor(Math.log10(v))),f=v/p;return(f<=1?1:f<=2?2:f<=5?5:10)*p},top=nice(mx);
+  const y=v=>pt+ph-(v/top)*ph,gw=pw/n,bw=Math.max(3,Math.min(30,gw*.62));
+  const idx=serAll.map(s=>s.k),mm=ser.map(s=>{const i=idx.indexOf(s.k),w=serAll.slice(Math.max(0,i-2),i+1);return w.reduce((a,b)=>a+b.sal,0)/w.length});
+  let g="";for(let i=0;i<=4;i++){const v=top*i/4;g+=`<line class="cg" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"/><text class="ca" x="${pl-8}" y="${y(v)+3}" text-anchor="end">${nf(v)}</text>`}
+  ser.forEach((s,i)=>{const cx=pl+gw*i+gw/2,yt=y(s.sal),cur=s.k===mesAct;
+    g+=`<rect x="${cx-bw/2}" y="${yt}" width="${bw}" height="${Math.max(0,pt+ph-yt)}" rx="3" class="${cur?"cbar cur":"cbar"}"><title>${coMesTxt(s.k)}: ${nf(s.sal)} sets en ${s.n} entrega${s.n===1?"":"s"}${cur?" (mes en curso)":""}</title></rect>`;
+    if(n<=18||i%Math.ceil(n/18)===0)g+=`<text class="ca" x="${cx}" y="${H-12}" text-anchor="middle">${MES_C[+s.k.slice(5)]} '${s.k.slice(2,4)}</text>`});
+  g+=`<polyline class="cline" points="${ser.map((s,i)=>`${pl+gw*i+gw/2},${y(mm[i])}`).join(" ")}"/>`;
+  h+=`<div class="card"><h4>Consumo mensual <small>sets entregados por mes · la línea es el promedio de los últimos 3 meses</small></h4>
+    <svg class="cchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Consumo mensual de sets">${g}<line class="cb" x1="${pl}" x2="${W-pr}" y1="${pt+ph}" y2="${pt+ph}"/></svg></div>`;
+  /* Histórico de saldo */
+  const smx=Math.max(1,...ser.map(s=>s.saldo)),stop=nice(smx),ys=v=>pt+ph-(Math.max(0,v)/stop)*ph,xs=i=>pl+(n<=1?pw/2:pw*i/(n-1));
+  let g2="";for(let i=0;i<=4;i++){const v=stop*i/4;g2+=`<line class="cg" x1="${pl}" x2="${W-pr}" y1="${ys(v)}" y2="${ys(v)}"/><text class="ca" x="${pl-8}" y="${ys(v)+3}" text-anchor="end">${nf(v)}</text>`}
+  g2+=`<polygon class="carea" points="${xs(0)},${pt+ph} ${ser.map((s,i)=>`${xs(i)},${ys(s.saldo)}`).join(" ")} ${xs(n-1)},${pt+ph}"/><polyline class="cline2" points="${ser.map((s,i)=>`${xs(i)},${ys(s.saldo)}`).join(" ")}"/>`;
+  ser.forEach((s,i)=>{g2+=`<circle cx="${xs(i)}" cy="${ys(s.saldo)}" r="${s.ent?5:3}" class="${s.ent?"cdot in":"cdot"}"><title>${coMesTxt(s.k)}: saldo ${nf(s.saldo)}${s.ent?` · ingresaron ${nf(s.ent)}`:""} · entregados ${nf(s.sal)}</title></circle>`;
+    if(n<=18||i%Math.ceil(n/18)===0)g2+=`<text class="ca" x="${xs(i)}" y="${H-12}" text-anchor="middle">${MES_C[+s.k.slice(5)]} '${s.k.slice(2,4)}</text>`});
+  h+=`<div class="card"><h4>Histórico de saldo Samtronic <small>al cierre de cada mes · los puntos grandes son meses con ingreso de sets</small></h4>
+    <svg class="cchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Evolución del saldo">${g2}<line class="cb" x1="${pl}" x2="${W-pr}" y1="${pt+ph}" y2="${pt+ph}"/></svg></div>`;
+  /* Por destino */
+  const byD={};movP.filter(m=>m.salida>0).forEach(m=>{const d=coDest(m.destino)||"SIN DESTINO";byD[d]=byD[d]||{q:0,n:0,ult:""};byD[d].q+=Number(m.salida)||0;byD[d].n++;if(m.fecha>byD[d].ult)byD[d].ult=m.fecha});
+  const dl=Object.entries(byD).sort((a,b)=>b[1].q-a[1].q),dmx=Math.max(1,...dl.map(d=>d[1].q));
+  h+=`<details class="card" ${dl.length<=12?"open":""}><summary><strong>Consumo por destino · ${esc(per)}</strong> <small class="sub">${dl.length} destinos</small></summary>
+    <div class="hbars" style="margin-top:12px">${dl.map(([d,v])=>`<div class="hbar co"><span title="${esc(d)}">${esc(d)}</span><span class="tr"><i style="width:${v.q/dmx*100}%;background:var(--accent)"></i></span><b>${nf(v.q)}</b><small>${v.n} entrega${v.n===1?"":"s"} · última ${fmt(v.ult)}</small></div>`).join("")}</div></details>`;
+  /* Listado */
+  const t=norm(co.q).split(/\s+/).filter(Boolean);
+  const list=movP.filter(m=>(co.ingresos||m.salida>0)&&(!t.length||hasAll([m.destino,m.obs,m.fecha,fmt(m.fecha)].join(" | "),t)))
+    .sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha))||String(b.cargado||"").localeCompare(String(a.cargado||"")));
+  const tq=list.reduce((s,m)=>s+(Number(m.salida)||0),0);
+  h+=`<div class="section-h" style="margin:0"><h2>Entregas por lugar y fecha</h2><small>${list.length} movimiento${list.length===1?"":"s"} · ${nf(tq)} sets · de la más reciente a la más antigua</small></div>
+    <div class="filters" style="margin:0"><input type="search" id="coQ" value="${esc(co.q)}" autocomplete="off" aria-label="Buscar lugar" placeholder="Buscar hospital, región sanitaria, fecha…">
+    <label class="chk"><input type="checkbox" id="coIng" ${co.ingresos?"checked":""}> Incluir ingresos de sets</label></div>
+    <div class="tbl-wrap"><table class="optbl cotbl"><thead><tr><th>Fecha</th><th>Lugar / destino</th><th class="n">Cantidad</th><th>Movimiento</th><th>Vence</th>${canWrite?"<th></th>":""}</tr></thead><tbody>`+
+    list.slice(0,co.lim).map(m=>`<tr class="nr${m.entrada>0?" ing":""}"><td class="n" style="text-align:left">${fmt(m.fecha)}</td><td><strong>${esc(m.destino||"—")}</strong></td>
+      <td class="n"><b>${m.entrada>0?"+"+nf(m.entrada):m.salida>0?nf(m.salida):(m.ajusteMas?"+"+nf(m.ajusteMas):"−"+nf(m.ajusteMenos))}</b></td><td><span class="sub">${esc(m.entrada>0?"Ingreso":m.salida>0?"Entrega":"Ajuste")}${m.obs?" · "+esc(m.obs):""}</span></td><td class="sub" style="white-space:nowrap">${pd(m.venc)?fmt(m.venc):esc(m.venc||"")}</td>
+      ${canWrite?`<td class="n"><button type="button" class="btn ghost sm" data-codel="${esc(m.id)}">Borrar</button></td>`:""}</tr>`).join("")+
+    `</tbody></table></div>${list.length>co.lim?`<div style="text-align:center"><button type="button" class="btn" id="coMas">Ver ${Math.min(150,list.length-co.lim)} más</button></div>`:""}`;
+  const f=document.activeElement&&document.activeElement.id==="coQ",pos=f?document.activeElement.selectionStart:0;
+  box.innerHTML=h;
+  if(f){const q=$("#coQ");q.focus();q.setSelectionRange(pos,pos)}
+}
+
+/* ---------- Registrar a mano ---------- */
+function openCoNew(){
+  closeModal();
+  const dests=[...new Set(coMov.map(m=>coDest(m.destino)).filter(Boolean))].sort();
+  const w=document.createElement("div");w.id="modal";
+  w.innerHTML=`<div class="scrim" data-close></div><aside class="panel" role="dialog" aria-modal="true" aria-labelledby="coT">
+    <div class="panel-h"><h3 id="coT">Registrar movimiento de sets</h3><button type="button" class="btn ghost" data-close>Cerrar ✕</button></div>
+    <div class="panel-b"><div class="card"><div class="grid">
+      <div class="f"><label for="cm-t">Tipo</label><select id="cm-t"><option value="salida">Entrega (salida)</option><option value="entrada">Ingreso de sets</option></select></div>
+      <div class="f"><label for="cm-f">Fecha</label><input type="date" id="cm-f" value="${iso(today())}"></div>
+      <div class="f full"><label for="cm-d">Lugar / destino *</label><input id="cm-d" list="dlCoDest" placeholder="Ej.: HOSPITAL GENERAL DE LUQUE"><datalist id="dlCoDest">${dests.map(d=>`<option value="${esc(d)}">`).join("")}</datalist></div>
+      <div class="f"><label for="cm-q">Cantidad de sets *</label><input id="cm-q" inputmode="numeric"></div>
+      <div class="f"><label for="cm-v">Vencimiento del lote</label><input type="date" id="cm-v"></div>
+      <div class="f full"><label for="cm-o">Observación</label><input id="cm-o" placeholder="DISTRIBUCIÓN MEDICAMENTOS (ENVÍO)"></div>
+    </div><p class="hint" style="margin-top:10px">Use el mismo nombre de lugar que en el kardex (la lista sugiere los ya cargados), así si después viene en la planilla no se duplica.</p></div></div>
+    <div class="panel-f"><span></span><div class="right"><button type="button" class="btn" data-close>Cancelar</button><button type="button" class="btn primary" id="cmSave">Registrar</button></div></div></aside>`;
+  document.body.appendChild(w);
+  w.addEventListener("click",async e=>{
+    if(e.target.closest("[data-close]")){closeModal();return}
+    if(e.target.id!=="cmSave")return;
+    const tipo=$("#cm-t").value,q=parseMonto($("#cm-q").value),dest=coDest($("#cm-d").value),f=$("#cm-f").value;
+    if(!pd(f)){toast("Indique la fecha.");return}if(!dest){toast("Indique el lugar o destino.");$("#cm-d").focus();return}if(!q){toast("Indique la cantidad.");$("#cm-q").focus();return}
+    const m={fecha:f,entrada:tipo==="entrada"?q:0,salida:tipo==="salida"?q:0,destino:dest,obs:$("#cm-o").value.trim()||(tipo==="salida"?"DISTRIBUCIÓN MEDICAMENTOS (ENVÍO)":"ADQUISICIÓN DE MEDICAMENTOS"),venc:$("#cm-v").value,
+      origen:"manual",autor:(miembro&&miembro.nombre)||"",cargado:new Date().toISOString()};
+    const base=coBase(m),nrep=coMov.filter(x=>coBase(x)===base).length+1;
+    e.target.disabled=true;
+    try{await coCol.doc(coId(m,nrep)).set(m);closeModal();toast(`${tipo==="salida"?"Entrega":"Ingreso"} registrado: ${nf(q)} sets`)}catch(x){e.target.disabled=false;toast(errMsg(x))}
+  });
+  setTimeout(()=>$("#cm-d").focus(),30);
+}
+
+/* ---------- Cargar planilla (Excel o CSV) ---------- */
+function coFecha(v){
+  if(v instanceof Date&&!isNaN(v))return iso(new Date(v.getFullYear(),v.getMonth(),v.getDate()+(v.getHours()>=12?1:0)));
+  if(typeof v==="number"&&v>20000&&v<80000){const d=new Date(Date.UTC(1899,11,30)+Math.round(v)*864e5);return d.toISOString().slice(0,10)}
+  const s=String(v||"").trim();let m=s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2,4})/);
+  if(m){const y=m[3].length===2?"20"+m[3]:m[3];return`${y}-${m[2].padStart(2,"0")}-${m[1].padStart(2,"0")}`}
+  m=s.match(/^(\d{4})-(\d{2})-(\d{2})/);return m?`${m[1]}-${m[2]}-${m[3]}`:"";
+}
+const coNum=v=>{if(typeof v==="number")return Math.round(v);const s=String(v||"").replace(/\s/g,"");if(!s)return 0;return Math.round(Number(s.replace(/\./g,"").replace(",","."))||0)};
+function coLeer(rows){
+  /* busca la fila de encabezados en las primeras 25 filas */
+  const R={fecha:/^fecha/,entrada:/entrada|ingreso/,salida:/salida|egreso|entregad/,destino:/destino|fuente|lugar|servicio|establecimiento|cliente/,obs:/observ|concepto|movimiento|detalle/,venc:/venc/,marca:/marca|empresa|proveedor|laboratorio|fabricante/,ajm:/ajuste.*\+|ajuste.*pos/,ajn:/ajuste.*-|ajuste.*neg/,adj:/adjudicac|licitac|contrato/};
+  for(let r=0;r<Math.min(25,rows.length);r++){
+    const hd=rows[r].map(c=>norm(c).trim()),col={};
+    Object.entries(R).forEach(([k,re])=>{const i=hd.findIndex((h,ix)=>h&&re.test(h)&&!Object.values(col).includes(ix));if(i>-1)col[k]=i});
+    if(col.fecha!==undefined&&(col.salida!==undefined||col.entrada!==undefined))return{hdr:r,col};
+  }
+  return null;
+}
+async function coArchivo(file){
+  if(!window.XLSX){toast("No se pudo cargar el lector de Excel. Recargue la página.");return}
+  let wb;try{wb=XLSX.read(await file.arrayBuffer(),{type:"array",cellDates:true})}catch(e){toast("No se pudo leer el archivo. ¿Es un Excel o CSV?");return}
+  const hojas=[...wb.SheetNames].sort((a,b)=>(norm(b)==="base")-(norm(a)==="base"));
+  let hoja=null,rows=null,map=null;
+  for(const n of hojas){const r=XLSX.utils.sheet_to_json(wb.Sheets[n],{header:1,raw:true,defval:""});const m=coLeer(r);if(m){hoja=n;rows=r;map=m;break}}
+  if(!map){toast("No encontré columnas de Fecha y Entrada/Salida en ninguna hoja.");return}
+  const c=map.col,leidos=[];let otras=0,vacias=0;
+  rows.slice(map.hdr+1).forEach(r=>{
+    const f=coFecha(r[c.fecha]),e=c.entrada!==undefined?coNum(r[c.entrada]):0,s=c.salida!==undefined?coNum(r[c.salida]):0;
+    const am=c.ajm!==undefined?Math.abs(coNum(r[c.ajm])):0,an=c.ajn!==undefined?Math.abs(coNum(r[c.ajn])):0;
+    if(!f||(!e&&!s&&!am&&!an)){vacias++;return}
+    if(c.marca!==undefined){const mk=norm(r[c.marca]);if(!/samtronic|boller/.test(mk)){otras++;return}}
+    if(c.adj!==undefined&&String(r[c.adj]).trim()&&!/52\s*\/\s*2023/.test(String(r[c.adj]))){otras++;return}
+    leidos.push({fecha:f,entrada:Math.max(0,e),salida:Math.max(0,s),destino:coDest(c.destino!==undefined?r[c.destino]:""),ajusteMas:am,ajusteMenos:an,obs:String(c.obs!==undefined?r[c.obs]:"").trim(),venc:c.venc!==undefined?(coFecha(r[c.venc])||String(r[c.venc]||"").trim()):""});
+  });
+  const cnt={},existe=new Set(coMov.map(m=>m.id)),nuevos=[];
+  leidos.forEach(m=>{const b=coBase(m);cnt[b]=(cnt[b]||0)+1;const id=coId(m,cnt[b]);if(!existe.has(id))nuevos.push(Object.assign({id},m))});
+  nuevos.sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha)));
+  closeModal();
+  const w=document.createElement("div");w.id="modal";
+  w.innerHTML=`<div class="scrim" data-close></div><aside class="panel" role="dialog" aria-modal="true" aria-labelledby="cuT">
+    <div class="panel-h"><h3 id="cuT">Cargar planilla</h3><button type="button" class="btn ghost" data-close>Cerrar ✕</button></div>
+    <div class="panel-b"><div class="card"><h4>${esc(file.name)} <small>hoja “${esc(hoja)}”</small></h4>
+      <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px">
+        <li><b>${nf(leidos.length)}</b> movimientos de Samtronic leídos</li>
+        <li><b>${nf(nuevos.length)}</b> nuevos para cargar: ${nf(nuevos.reduce((s,m)=>s+m.salida,0))} sets entregados${nuevos.some(m=>m.entrada)?` y ${nf(nuevos.reduce((s,m)=>s+m.entrada,0))} ingresados`:""}</li>
+        <li><b>${nf(leidos.length-nuevos.length)}</b> ya estaban cargados (se ignoran)</li>
+        ${c.marca!==undefined?`<li>${nf(otras)} de otras marcas o licitaciones (Hawkmed, MedCaptain, LPN 47/2022…) se ignoran</li>`:`<li class="delta-dn">La planilla no tiene columna de marca o empresa: se toman todos los movimientos como Samtronic.</li>`}
+      </ul>
+      <p class="hint" style="margin-top:8px">Columnas detectadas: ${Object.keys(c).map(k=>`${k} = “${esc(rows[map.hdr][c[k]])}”`).join(" · ")}</p></div>
+      ${nuevos.length?`<div class="tbl-wrap"><table class="optbl" style="min-width:0"><thead><tr><th>Fecha</th><th>Destino</th><th class="n">Entrega</th><th class="n">Ingreso</th></tr></thead><tbody>${nuevos.slice(0,40).map(m=>`<tr><td>${fmt(m.fecha)}</td><td>${esc(m.destino)}</td><td class="n">${m.salida?nf(m.salida):""}</td><td class="n">${m.entrada?nf(m.entrada):""}</td></tr>`).join("")}</tbody></table></div>${nuevos.length>40?`<p class="hint">…y ${nuevos.length-40} más.</p>`:""}`:`<div class="empty"><strong>No hay movimientos nuevos</strong>Todo lo de esta planilla ya estaba cargado.</div>`}
+    </div>
+    <div class="panel-f"><span></span><div class="right"><button type="button" class="btn" data-close>Cancelar</button>${nuevos.length?`<button type="button" class="btn primary" id="cuGo">Cargar ${nf(nuevos.length)} movimientos</button>`:""}</div></div></aside>`;
+  document.body.appendChild(w);
+  w.addEventListener("click",async e=>{
+    if(e.target.closest("[data-close]")){closeModal();return}
+    if(e.target.id!=="cuGo")return;
+    const b=e.target;b.disabled=true;
+    const ahora=new Date().toISOString(),autor=(miembro&&miembro.nombre)||"";
+    try{
+      for(let i=0;i<nuevos.length;i+=200){
+        b.textContent=`Cargando ${Math.min(i+200,nuevos.length)} de ${nuevos.length}…`;
+        const lote=nuevos.slice(i,i+200).map(({id,...m})=>({id,data:Object.assign(m,{origen:"planilla: "+file.name,autor,cargado:ahora}),actualizado:ahora}));
+        const{error}=await sb.from("consumo_lpn52").upsert(lote,{onConflict:"id",ignoreDuplicates:true});
+        if(error)throw sbErr(error);
+      }
+      await coCol.reload();closeModal();toast(`Listo: ${nf(nuevos.length)} movimientos cargados`);
+    }catch(x){b.disabled=false;b.textContent="Reintentar";toast(errMsg(x))}
+  });
+}
+function coStart(db){coCol=db.collection("consumo_lpn52");coCol.onSnapshot(s=>{coMov=s.docs.map(d=>Object.assign({id:d.id},d.data()));coLoaded=true;renderCo()},()=>{coErr=true;renderCo()})}
+$("#coAnios").addEventListener("click",e=>{const b=e.target.closest("[data-coanio]");if(b){co.anio=b.dataset.coanio;co.lim=150;renderCo()}});
+$("#vCo").addEventListener("input",e=>{if(e.target.id==="coQ"){co.q=e.target.value;co.lim=150;renderCo()}});
+$("#vCo").addEventListener("change",e=>{if(e.target.id==="coIng"){co.ingresos=e.target.checked;renderCo()}});
+$("#vCo").addEventListener("click",e=>{
+  if(e.target.id==="coMas"){co.lim+=150;renderCo();return}
+  const d=e.target.closest("[data-codel]");if(d)twoStep(d,async()=>{try{await coCol.doc(d.dataset.codel).delete();toast("Movimiento borrado")}catch(x){d.disabled=false;toast(errMsg(x))}},"¿Borrar?");
+});
+$("#btnCoNew").addEventListener("click",openCoNew);
+$("#btnCoUp").addEventListener("click",()=>$("#coFile").click());
+$("#coFile").addEventListener("change",e=>{const f=e.target.files[0];e.target.value="";if(f)coArchivo(f)});
+$("#vCo").addEventListener("dragover",e=>{if(canWrite){e.preventDefault();$("#coBody").classList.add("drop")}});
+$("#vCo").addEventListener("dragleave",e=>{if(!e.relatedTarget||!$("#vCo").contains(e.relatedTarget))$("#coBody").classList.remove("drop")});
+$("#vCo").addEventListener("drop",e=>{e.preventDefault();$("#coBody").classList.remove("drop");const f=e.dataTransfer.files[0];if(f&&canWrite)coArchivo(f)});
+
 window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
 cs.as=lsGet("crm.filtroAs");
 go(location.hash.slice(1)||lsGet("vista")||"llamados");
@@ -1768,6 +2006,7 @@ function makeDb(){
       await loadAll();
     }
     return cols[name]={
+      reload:()=>loadAll(),
       onSnapshot(next,err){subs.push({next,err});if(!started){started=true;start().catch(e=>subs.forEach(x=>x.err&&x.err(e)))}else if(ready)next(snap());return()=>{}},
       doc(id){id=id||rid();return{id,
         async set(d){const{error}=await sb.from(name).upsert({id,data:d,actualizado:new Date().toISOString()});if(error)throw sbErr(error);state.set(id,JSON.parse(JSON.stringify(d)));emit()},
@@ -1823,7 +2062,7 @@ async function entrar(session){
   $("#dlResp").innerHTML=ASES_BASE.map(n=>`<option value="${esc(n)}">`).join("");
   $("#userName").textContent=`${miembro.nombre} · ${{asesor:"Asesor",gerencia:"Gerencia",admin:"Administrador"}[miembro.rol]||miembro.rol}`;$("#userBox").hidden=false;
   $("#btnNew").hidden=false;$("#btnSync").hidden=false;
-  db=makeDb();col=db.collection("llamados");crmStart(db);opStart(db);
+  db=makeDb();col=db.collection("llamados");crmStart(db);opStart(db);coStart(db);
   col.onSnapshot(snap=>{
     llamados=snap.docs.map(d=>Object.assign({id:d.id},d.data()));loaded=true;
     const rev=llamados.map(l=>l.sync&&l.sync.revisado).filter(Boolean).sort().pop();
@@ -1850,7 +2089,7 @@ render();
 (async()=>{
   $("#btnNew").hidden=true;
   if(!window.supabase||!CFG.supabaseUrl||!CFG.supabaseAnonKey||/PEGAR/.test(CFG.supabaseUrl+CFG.supabaseAnonKey)){
-    setSync("err","Falta configurar la conexión: complete CRM/config.js con los datos de Supabase.");loaded=true;canWrite=false;render();renderCrm();renderOp();return}
+    setSync("err","Falta configurar la conexión: complete CRM/config.js con los datos de Supabase.");loaded=true;canWrite=false;render();renderCrm();renderOp();renderCo();return}
   sb=window.supabase.createClient(CFG.supabaseUrl,CFG.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
   sb.auth.onAuthStateChange(ev=>{if(ev==="PASSWORD_RECOVERY")showLogin("Escriba su nueva contraseña.","nueva")});
   const{data}=await sb.auth.getSession();
