@@ -90,8 +90,8 @@
       "fecha_publicacion": "2023-06-29",
       "fecha_apertura_ofertas": "2023-10-10",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 479,
-      "cantidad_contratos": 504,
+      "cantidad_adjudicaciones": 484,
+      "cantidad_contratos": 509,
       "proveedores_adjudicados": "CESAR MOSTAFA OCAMPOS, F.S.D.J. SOCIEDAD ANONIMA, FERNANDO RAFAEL BENEGAS ALVAREZ, IN DESIGN S.R.L., JOSE ARNALDO PEREIRA CARDENA, JUAN RODRIGUEZ, MORRO SRL ",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/432991-suministro-baterias-vehiculos-automotores-estado-paraguayo.html",
       "award_ids": [
@@ -573,7 +573,12 @@
         "1050-2026-636",
         "1331-2026-33",
         "1050-2026-661",
-        "1023-2026-72"
+        "1023-2026-72",
+        "1028-2026-280",
+        "1028-2026-279",
+        "1011-2026-47",
+        "1011-2026-48",
+        "1008-2026-132"
       ],
       "enriquecido": true,
       "monto_adjudicado": null,
@@ -16590,13 +16595,13 @@
       "proveedores_adjudicados": "",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/432332-lco-mitic-n-03-2023-servicio-archivo-custodia-documentos-plurianual-1.html",
       "award_ids": [],
-      "fecha_apertura_real": "2023-07-17",
-      "monto_estimado": 950000000,
-      "proveedores_montos": [],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 950000000,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2023-07-17"
     },
     "ocds-03ad3f-432332-2": {
       "ocid": "ocds-03ad3f-432332-2",
@@ -16616,7 +16621,10 @@
       "award_ids": [
         "432332-bigbox-srl-1"
       ],
-      "fecha_apertura_real": "2023-11-01",
+      "enriquecido": true,
+      "monto_adjudicado": 950000000,
+      "monto_adjudicado_gs": 950000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 950000000,
       "proveedores_montos": [
         {
@@ -16625,10 +16633,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 950000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 950000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2023-11-01"
     },
     "ocds-03ad3f-436480-1": {
       "ocid": "ocds-03ad3f-436480-1",
