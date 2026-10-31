@@ -1,6 +1,6 @@
 {
   "anio": "2021",
-  "last_updated": "2026-10-30",
+  "last_updated": "2026-10-31",
   "total": 11975,
   "procesos": {
     "ocds-03ad3f-400008": {
@@ -354319,7 +354319,10 @@
       "award_ids": [
         "375585-bernarda-gonzalez-morinigo-1"
       ],
-      "fecha_apertura_real": "2021-05-04",
+      "enriquecido": true,
+      "monto_adjudicado": 1120000000,
+      "monto_adjudicado_gs": 1120000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 1500000000,
       "proveedores_montos": [
         {
@@ -354328,10 +354331,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 1120000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 1120000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2021-05-04"
     },
     "ocds-03ad3f-388542-1": {
       "ocid": "ocds-03ad3f-388542-1",

@@ -1,6 +1,6 @@
 {
   "anio": "2022",
-  "last_updated": "2026-10-30",
+  "last_updated": "2026-10-31",
   "total": 13365,
   "procesos": {
     "ocds-03ad3f-405062-1": {
@@ -114,8 +114,8 @@
       "fecha_publicacion": "2022-05-24",
       "fecha_apertura_ofertas": "2022-06-15",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 5724,
-      "cantidad_contratos": 5703,
+      "cantidad_adjudicaciones": 5728,
+      "cantidad_contratos": 5707,
       "proveedores_adjudicados": "AMITOUR S.A., Ace Tours SRL, BOARDING PASS SA, COMPAÑIA MARITIMA PARAGUAYA S.A., DIANA LORENA CABELLO ORTUZAR, DISCOVER PARAGUAY S.A., DISCOVERY TRAVEL SA, INTER-EXPRESS S.A., NOS VAMOOS SA, SENSICRED S.A., SERVI TRAVEL S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/415212-incorporacion-pasajes-aereos-tienda-virtual.html",
       "award_ids": [
@@ -5842,7 +5842,11 @@
         "1001-2026-94",
         "1001-2026-95",
         "1001-2026-96",
-        "2001-2026-71"
+        "2001-2026-71",
+        "1047-2026-155",
+        "1033-2026-57",
+        "1033-2026-56",
+        "1370-2026-16"
       ],
       "enriquecido": true,
       "monto_adjudicado": 73291252888,
@@ -121865,7 +121869,10 @@
       "award_ids": [
         "408370-atenas-energia-sociedad-anonima-1"
       ],
-      "fecha_apertura_real": "2022-09-30",
+      "enriquecido": true,
+      "monto_adjudicado": 0,
+      "monto_adjudicado_gs": 0,
+      "monto_adjudicado_usd": 32544158,
       "monto_estimado": 34435548,
       "proveedores_montos": [
         {
@@ -121874,10 +121881,7 @@
           "moneda": "USD"
         }
       ],
-      "monto_adjudicado_gs": 0,
-      "monto_adjudicado_usd": 32544158,
-      "monto_adjudicado": 0,
-      "enriquecido": true
+      "fecha_apertura_real": "2022-09-30"
     },
     "ocds-03ad3f-418226-1": {
       "ocid": "ocds-03ad3f-418226-1",
