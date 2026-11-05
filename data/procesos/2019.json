@@ -1,6 +1,6 @@
 {
   "anio": "2019",
-  "last_updated": "2026-11-03",
+  "last_updated": "2026-11-05",
   "total": 15888,
   "procesos": {
     "ocds-03ad3f-364737-1": {
@@ -5786,10 +5786,13 @@
       "proveedores_adjudicados": "CONCRET-MIX SA, Consorcio Boquerón",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/354339-lpi-empresas-constructoras-obras-rehabilitacion-mantenimiento-ruta-n-9-accesos-tramo-1.html",
       "award_ids": [
-        "354339-consorcio-boqueron-3-3",
-        "354339-concret-mix-sa-1"
+        "354339-concret-mix-sa-1",
+        "354339-consorcio-boqueron-3-3"
       ],
-      "fecha_apertura_real": "2019-07-29",
+      "enriquecido": true,
+      "monto_adjudicado": 871380273449,
+      "monto_adjudicado_gs": 871380273449,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 1162779499000,
       "proveedores_montos": [
         {
@@ -5803,10 +5806,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 871380273449,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 871380273449,
-      "enriquecido": true
+      "fecha_apertura_real": "2019-07-29"
     },
     "ocds-03ad3f-372171-1": {
       "ocid": "ocds-03ad3f-372171-1",
