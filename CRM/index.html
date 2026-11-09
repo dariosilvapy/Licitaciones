@@ -258,6 +258,8 @@ mark{background:var(--warn-soft);color:var(--ink);border-radius:3px;padding:0 1p
 .login-card #lgMsg{background:var(--accent-soft);color:var(--ink);border-radius:10px;padding:10px 12px}
 .lnk-s{border:0;background:none;padding:0;color:var(--accent);font-weight:700;cursor:pointer;font-size:12.5px}
 .lnk-s:hover{text-decoration:underline}
+.cotrow{display:flex;gap:8px;align-items:center}.cotrow input{flex:1;min-width:0}.cotrow .btn{white-space:nowrap;text-decoration:none}
+.tag.cot{background:var(--ok-soft);color:var(--ok);font-weight:800}
 /* ===== Oportunidades · licitaciones públicas ===== */
 .yrs{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 .yrs>span{font-size:12.5px;color:var(--muted);font-weight:800;margin-right:2px}
@@ -793,13 +795,17 @@ function render(){
       ${u?`<span class="bell">⚠ Revisar · ${u} modificaci${u>1?"ones":"ón"}</span>`:""}
       ${u?`<div class="mods">${ua.slice(0,3).map(a=>`<div class="mod"><span class="ico ${esc(a.tipo)}">${ICO[a.tipo]||"•"}</span><span>${esc(a.texto)}</span><small>${when(a.fecha)}</small></div>`).join("")}${u>3?`<div class="mod more">y ${u-3} más · abra el llamado para ver todo</div>`:""}</div>`:""}
       <div class="c-num"><div class="num">${esc(title(l))}</div><div class="sub"><span class="mono">ID ${esc(l.idDncp||"—")}</span> · ${esc(l.convocante||"Sin convocante")}</div>${syncChip(l)}</div>
-      <div class="c-obj"><div class="obj">${esc(l.objeto||(l.dncp&&l.dncp.titulo)||"—")}</div>${(l.marcas||[]).length||l.responsable?`<div class="tags">${(l.marcas||[]).map(m=>`<span class="tag brand">${esc(m)}</span>`).join("")}${l.responsable?`<span class="tag">${esc(l.responsable)}</span>`:""}</div>`:""}</div>
+      <div class="c-obj"><div class="obj">${esc(l.objeto||(l.dncp&&l.dncp.titulo)||"—")}</div>${(l.marcas||[]).length||l.responsable||l.cotizacionLink?`<div class="tags">${(l.marcas||[]).map(m=>`<span class="tag brand">${esc(m)}</span>`).join("")}${l.responsable?`<span class="tag">${esc(l.responsable)}</span>`:""}${l.cotizacionLink?`<span class="tag cot" title="Tiene cotización cargada">📄 Cotización</span>`:""}</div>`:""}</div>
       <div><span class="lbl-m">Estado</span><span class="pill ${estadoCls(l.estado)}">${esc(l.estado||"En análisis")}</span></div>
       <div><span class="lbl-m">Tope consultas</span>${dateCell(l.fechaTopeConsultas,l.horaTopeConsultas,{closed:c})}</div>
       <div><span class="lbl-m">Nuestras consultas</span>${consCell(l)}</div>
       <div><span class="lbl-m">Apertura</span>${dateCell(l.fechaApertura,l.horaApertura,{closed:c,soonDays:14})}</div>
     </button>`}).join("");
 }
+
+/* Solo se aceptan links http(s): evita que un "link" ejecute código al abrirse */
+function urlSegura(u){u=String(u||"").trim();if(!u)return"";try{const x=new URL(u);return/^https?:$/.test(x.protocol)?x.href:""}catch(e){return""}}
+document.addEventListener("input",e=>{if(e.target.id==="e-cot"){const u=urlSegura(e.target.value),a=$("#cotOpen");if(a){a.hidden=!u;a.href=u||"#"}}});
 
 /* ---------- Nuevo llamado: solo link ---------- */
 function openNew(){
@@ -901,6 +907,7 @@ function openEditor(id){
           <div class="f full"><label for="e-items">Ítems o lotes en los que participamos</label><textarea id="e-items" name="items" placeholder="Ej.: Lote 5 – Savina 300 Select; Lote 6 – Vista 120S">${esc(l.items)}</textarea></div>
           <div class="f"><label for="e-marcas">Marcas</label><input id="e-marcas" name="marcas" value="${esc((l.marcas||[]).join(", "))}" placeholder="Dräger, Mindray, Malvestio, Samtronic"></div>
           <div class="f"><label for="e-monto">Monto de nuestra oferta</label><input id="e-monto" name="montoOferta" value="${esc(l.montoOferta||l.monto)}" placeholder="Gs. 1.250.000.000"></div>
+          <div class="f full"><label for="e-cot">Cotización del equipo (link de SharePoint)</label><div class="cotrow"><input id="e-cot" name="cotizacionLink" type="url" value="${esc(l.cotizacionLink)}" placeholder="https://casaboller.sharepoint.com/…" autocomplete="off"><a class="btn sm" id="cotOpen" href="${esc(urlSegura(l.cotizacionLink))}" target="_blank" rel="noopener noreferrer" ${urlSegura(l.cotizacionLink)?"":"hidden"}>Abrir ↗</a></div><p class="hint" style="margin-top:4px">Se abre solo para quien tenga permiso en SharePoint.</p></div>
           <div class="f full"><label for="e-link">Link de la DNCP</label><input id="e-link" name="link" type="url" value="${esc(l.link)}" placeholder="https://www.contrataciones.gov.py/licitaciones/convocatoria/…"></div>
           ${manualDates?`<div class="f"><label for="e-tope">Tope de consultas</label><input type="date" id="e-tope" name="fechaTopeConsultas" value="${esc(l.fechaTopeConsultas)}"></div>
           <div class="f"><label for="e-ap">Apertura de ofertas</label><input type="date" id="e-ap" name="fechaApertura" value="${esc(l.fechaApertura)}"></div>
@@ -943,9 +950,10 @@ async function save(){
   const l=llamados.find(x=>x.id===editing.id);if(!l)return;
   const f=$("#edForm"),g=n=>(f.elements[n]?.value||"").trim();
   const data={numero:g("numero"),estado:g("estado"),convocante:g("convocante"),responsable:g("responsable"),objeto:g("objeto"),items:g("items"),
-    marcas:g("marcas").split(/[,;]/).map(s=>s.trim()).filter(Boolean),montoOferta:g("montoOferta"),notas:g("notas"),
+    marcas:g("marcas").split(/[,;]/).map(s=>s.trim()).filter(Boolean),montoOferta:g("montoOferta"),cotizacionLink:urlSegura(g("cotizacionLink")),notas:g("notas"),
     consultas:readConsultas().filter(c=>c.tema||c.fechaEnvio||c.respuesta),actualizado:new Date().toISOString()};
   if(f.elements.fechaApertura){data.fechaTopeConsultas=g("fechaTopeConsultas");data.fechaApertura=g("fechaApertura")}
+  if(g("cotizacionLink")&&!data.cotizacionLink){toast("El link de la cotización debe empezar con https://");f.elements.cotizacionLink.focus();return}
   const newLink=g("link");let needSync=false;
   if(newLink!==(l.link||"")){
     if(newLink){const p=parseLink(newLink);if(!p){toast(LINK_ERR);return}
