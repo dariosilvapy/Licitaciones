@@ -9480,10 +9480,13 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f077875-19cd-69ce-b18b-2bdbdd25bdb3.html",
       "award_ids": [
         "1f0ab6fa-d28d-6d8a-8059-b9661bd591f6",
-        "75b8d5d4-e63a-47fe-99da-6627dc8f0844",
-        "1f0ab712-0880-694e-b8da-2d722eb89c57"
+        "1f0ab712-0880-694e-b8da-2d722eb89c57",
+        "75b8d5d4-e63a-47fe-99da-6627dc8f0844"
       ],
-      "fecha_apertura_real": "2025-09-23",
+      "enriquecido": true,
+      "monto_adjudicado": 118176000,
+      "monto_adjudicado_gs": 118176000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 228524664,
       "proveedores_montos": [
         {
@@ -9497,10 +9500,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 118176000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 118176000,
-      "enriquecido": true,
+      "fecha_apertura_real": "2025-09-23",
       "enriquecimiento_nota": "algunas adjudicaciones no se pudieron consultar"
     },
     "ocds-03ad3f-467685-1": {
@@ -32101,7 +32101,10 @@
         "1f06c7ca-57cc-67fe-a167-0393bf7648f1",
         "1f06c7ce-a812-6cdc-9507-bfddd54c4d08"
       ],
-      "fecha_apertura_real": "2025-06-25",
+      "enriquecido": true,
+      "monto_adjudicado": 15254125,
+      "monto_adjudicado_gs": 15254125,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 16488062,
       "proveedores_montos": [
         {
@@ -32115,10 +32118,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 15254125,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 15254125,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-06-25"
     },
     "ocds-03ad3f-476103-1": {
       "ocid": "ocds-03ad3f-476103-1",
@@ -32266,7 +32266,10 @@
       "award_ids": [
         "1f0bb0c9-1bb0-692c-92a4-3b4f7bcf8e52"
       ],
-      "fecha_apertura_real": "2025-10-16",
+      "enriquecido": true,
+      "monto_adjudicado": 14727270,
+      "monto_adjudicado_gs": 14727270,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 16364500,
       "proveedores_montos": [
         {
@@ -32275,10 +32278,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 14727270,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 14727270,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-10-16"
     },
     "ocds-03ad3f-475605-1": {
       "ocid": "ocds-03ad3f-475605-1",
@@ -34252,10 +34252,13 @@
       "proveedores_adjudicados": "EMPORIO FERRETERIA S.R.L., GEORGINA INES ISSEL ",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f036419-93af-689c-b64e-139fe8da0ea5.html",
       "award_ids": [
-        "1f06c79d-095b-67d2-a537-a79b086114e9",
-        "1f06c770-8ee8-6c2e-9fb6-7d5f8ac6427e"
+        "1f06c770-8ee8-6c2e-9fb6-7d5f8ac6427e",
+        "1f06c79d-095b-67d2-a537-a79b086114e9"
       ],
-      "fecha_apertura_real": "2025-07-01",
+      "enriquecido": true,
+      "monto_adjudicado": 5959120,
+      "monto_adjudicado_gs": 5959120,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 10259800,
       "proveedores_montos": [
         {
@@ -34269,10 +34272,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 5959120,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 5959120,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-07-01"
     },
     "ocds-03ad3f-473856-1": {
       "ocid": "ocds-03ad3f-473856-1",
@@ -149654,7 +149654,7 @@
       "nombre_licitacion": "ADQUISICIÓN DE  ARTICULOS ELECTRICOS, FERRETERÍA, CUBIERTAS Y OTROS",
       "convocante": "Circunscripción Judicial del Dpto. Concepción / Corte Suprema de Justicia",
       "estado": "Adjudicada",
-      "categoria": "Bienes - Maquinaria y Accesorios de Fabricacion y Transformacion Industrial",
+      "categoria": "Bienes - Suministros componentes y accesorios electricos y de iluminacion",
       "fecha_publicacion": "2025-07-14",
       "fecha_apertura_ofertas": "2025-08-07",
       "modalidad": "Menor cuantía nacional",
@@ -235618,7 +235618,7 @@
       "nombre_licitacion": "SERVICIO DE INFORMACION ESPECIALIZADA EN LOGISTICA PARA PETROPAR",
       "convocante": "Petróleos Paraguayos (PETROPAR)",
       "estado": "Adjudicada",
-      "categoria": "Servicios - Servicios de Gestion Profesionales de Empresa y Administrativos",
+      "categoria": "Servicios - Combustibles Aditivos para combustibles, Lubricantes y Materiales Anticorrosivos",
       "fecha_publicacion": "2025-10-13",
       "fecha_apertura_ofertas": "2025-11-19",
       "modalidad": "Menor cuantía internacional",
@@ -242136,7 +242136,10 @@
       "award_ids": [
         "1f0b3502-7d17-6848-be09-351cacab56f7"
       ],
-      "fecha_apertura_real": "2025-10-07",
+      "enriquecido": true,
+      "monto_adjudicado": 56280000,
+      "monto_adjudicado_gs": 56280000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 74901733,
       "proveedores_montos": [
         {
@@ -242145,10 +242148,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 56280000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 56280000,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-10-07"
     },
     "ocds-03ad3f-474974-1": {
       "ocid": "ocds-03ad3f-474974-1",
@@ -245271,7 +245271,10 @@
       "award_ids": [
         "1f0ab693-4dd2-62ba-866b-750b6752a07b"
       ],
-      "fecha_apertura_real": "2025-10-02",
+      "enriquecido": true,
+      "monto_adjudicado": 27298700,
+      "monto_adjudicado_gs": 27298700,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 28275349,
       "proveedores_montos": [
         {
@@ -245280,10 +245283,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 27298700,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 27298700,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-10-02"
     },
     "ocds-03ad3f-473809-1": {
       "ocid": "ocds-03ad3f-473809-1",
@@ -254230,7 +254230,10 @@
       "award_ids": [
         "1f0bf192-2915-6b30-96f9-0bf0d095ccf4"
       ],
-      "fecha_apertura_real": "2025-10-28",
+      "enriquecido": true,
+      "monto_adjudicado": 15425500,
+      "monto_adjudicado_gs": 15425500,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 15669566,
       "proveedores_montos": [
         {
@@ -254239,10 +254242,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 15425500,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 15425500,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-10-28"
     },
     "ocds-03ad3f-464463-1": {
       "ocid": "ocds-03ad3f-464463-1",
