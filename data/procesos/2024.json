@@ -1,6 +1,6 @@
 {
   "anio": "2024",
-  "last_updated": "2026-11-10",
+  "last_updated": "2026-11-11",
   "total": 9013,
   "procesos": {
     "ocds-03ad3f-452230": {
@@ -13260,7 +13260,10 @@
       "award_ids": [
         "437975-proteccion-medica-s-a-1"
       ],
-      "fecha_apertura_real": "2024-03-07",
+      "enriquecido": true,
+      "monto_adjudicado": 38400000000,
+      "monto_adjudicado_gs": 38400000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 38400000000,
       "proveedores_montos": [
         {
@@ -13269,10 +13272,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 38400000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 38400000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2024-03-07"
     },
     "ocds-03ad3f-451566-1": {
       "ocid": "ocds-03ad3f-451566-1",
@@ -20982,8 +20982,8 @@
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/428401-servicios-limpieza-sedes-servicio-nacional-promocion-profesional-plurianual-ad-refer-1.html",
       "award_ids": [
         "428401-mariela-carolina-molas-samudio-7",
-        "428401-poti-s-a-6",
-        "428401-mimbi-s-a-5"
+        "428401-mimbi-s-a-5",
+        "428401-poti-s-a-6"
       ],
       "enriquecido": true,
       "monto_adjudicado": 25546888588,
