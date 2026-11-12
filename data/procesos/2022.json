@@ -1,6 +1,6 @@
 {
   "anio": "2022",
-  "last_updated": "2026-11-11",
+  "last_updated": "2026-11-12",
   "total": 13365,
   "procesos": {
     "ocds-03ad3f-405062-1": {
@@ -114,8 +114,8 @@
       "fecha_publicacion": "2022-05-24",
       "fecha_apertura_ofertas": "2022-06-15",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 5781,
-      "cantidad_contratos": 5760,
+      "cantidad_adjudicaciones": 5785,
+      "cantidad_contratos": 5764,
       "proveedores_adjudicados": "AMITOUR S.A., Ace Tours SRL, BOARDING PASS SA, COMPAÑIA MARITIMA PARAGUAYA S.A., DIANA LORENA CABELLO ORTUZAR, DISCOVER PARAGUAY S.A., DISCOVERY TRAVEL SA, INTER-EXPRESS S.A., NOS VAMOOS SA, SENSICRED S.A., SERVI TRAVEL S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/415212-incorporacion-pasajes-aereos-tienda-virtual.html",
       "award_ids": [
@@ -5899,7 +5899,11 @@
         "1521-2026-43",
         "1006-2026-314",
         "1365-2026-52",
-        "1337-2026-185"
+        "1337-2026-185",
+        "1006-2026-315",
+        "1050-2026-786",
+        "1337-2026-186",
+        "1365-2026-53"
       ],
       "enriquecido": true,
       "monto_adjudicado": 73291252888,
@@ -27196,8 +27200,8 @@
       "fecha_publicacion": "2022-04-08",
       "fecha_apertura_ofertas": "2022-05-19",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 8336,
-      "cantidad_contratos": 8220,
+      "cantidad_adjudicaciones": 8353,
+      "cantidad_contratos": 8237,
       "proveedores_adjudicados": "222 S.A, Araceli Montserrat Ortigoza Caceres, COLOR SUR S.R.L., COMPAÑIA COMERCIAL DEL PARAGUAY SA, CONSTRUCTORA BAMETAL S.A. , DIEGO DEJESUS GONZALEZ CABAÑAS, ELECTRICIDAD YACYRETA S.A., ELECTRICIDAD, ELECTROMECANICA, ELECTRÓNICA Y COMUNICACIONES ELEMEC S.R.L., ELECTROPAR SA, EMPORIO FERRETERIA S.R.L., FERNANDO RAFAEL BENEGAS ALVAREZ, FERRETERIA QUINTA AVENIDA S.A., GUAINDUPAR S.A, IMUT SA (IMPORTADORA DE UTILIDADES SA), IN DESIGN S.R.L., INVERSIONES PARAGUAY SRL (INVEPAR SRL) , JOSE ARNALDO PEREIRA CARDENA, JUAN EDGAR FLEITAS VALDEZ , JUAN RODRIGUEZ, M.E.V. S.A., PIRO`Y S.A., PRESTIGIO DEL SUR S.R.L, RODRIGO JOEL ZACARIAS VAZQUEZ , TIGRE PARAGUAY S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/412997-incorporacion-articulos-ferreteria-electricidad-tienda-virtual.html",
       "award_ids": [
@@ -35536,7 +35540,24 @@
         "1050-2026-750",
         "1050-2026-751",
         "1040-2026-17",
-        "1903-2026-49"
+        "1903-2026-49",
+        "1174-2026-28",
+        "1174-2026-29",
+        "1024-2026-679",
+        "1024-2026-678",
+        "1025-2026-975",
+        "1002-2026-110",
+        "1002-2026-109",
+        "1870-2026-70",
+        "1870-2026-69",
+        "1870-2026-68",
+        "1870-2026-67",
+        "1870-2026-66",
+        "1028-2026-299",
+        "1028-2026-298",
+        "1024-2026-686",
+        "1025-2026-977",
+        "1024-2026-687"
       ],
       "enriquecido": true,
       "monto_adjudicado": null,
@@ -60655,7 +60676,10 @@
       "award_ids": [
         "414066-euroquimica-s-a-1"
       ],
-      "fecha_apertura_real": "2022-08-23",
+      "enriquecido": true,
+      "monto_adjudicado": 16812651600,
+      "monto_adjudicado_gs": 16812651600,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 48637374048,
       "proveedores_montos": [
         {
@@ -60664,10 +60688,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 16812651600,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 16812651600,
-      "enriquecido": true
+      "fecha_apertura_real": "2022-08-23"
     },
     "ocds-03ad3f-405328-1": {
       "ocid": "ocds-03ad3f-405328-1",
@@ -61833,7 +61854,10 @@
       "award_ids": [
         "404820-sur-salud-itapua-s-a-1"
       ],
-      "fecha_apertura_real": "2022-02-10",
+      "enriquecido": true,
+      "monto_adjudicado": 9562206000,
+      "monto_adjudicado_gs": 9562206000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 9562800000,
       "proveedores_montos": [
         {
@@ -61842,10 +61866,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 9562206000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 9562206000,
-      "enriquecido": true
+      "fecha_apertura_real": "2022-02-10"
     },
     "ocds-03ad3f-421219-1": {
       "ocid": "ocds-03ad3f-421219-1",
@@ -80241,15 +80262,18 @@
       "proveedores_adjudicados": "Consorcio Soluciones Hospitalares, EL ALAMO SA, ENDOTERAPIA SRL, G T SCIENTIFIC S.A., MATHER COMPANY SRL, Medical Supply Sociedad Anonima, PROSALUD FARMA S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/413042-lpn-27-22-adquisicion-batas-hospitalarias-no-esteriles-servicios-hospitalarios-labor-1.html",
       "award_ids": [
-        "413042-prosaludfarma-s-a-11",
+        "413042-consorcio-soluciones-hospitalares-7",
+        "413042-el-alamo-sa-8",
         "413042-endoterapia-srl-9",
         "413042-g-t-scientific-s-a-12",
-        "413042-el-alamo-sa-8",
         "413042-mather-company-srl-13",
         "413042-medical-supply-sociedad-anonima-10",
-        "413042-consorcio-soluciones-hospitalares-7"
+        "413042-prosaludfarma-s-a-11"
       ],
-      "fecha_apertura_real": "2022-07-12",
+      "enriquecido": true,
+      "monto_adjudicado": 23602488000,
+      "monto_adjudicado_gs": 23602488000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 26065156000,
       "proveedores_montos": [
         {
@@ -80288,10 +80312,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 23602488000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 23602488000,
-      "enriquecido": true
+      "fecha_apertura_real": "2022-07-12"
     },
     "ocds-03ad3f-408793-1": {
       "ocid": "ocds-03ad3f-408793-1",
