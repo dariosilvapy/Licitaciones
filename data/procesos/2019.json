@@ -1,6 +1,6 @@
 {
   "anio": "2019",
-  "last_updated": "2026-11-12",
+  "last_updated": "2026-11-13",
   "total": 15888,
   "procesos": {
     "ocds-03ad3f-364737-1": {
@@ -3052,7 +3052,10 @@
       "award_ids": [
         "371819-consorcio-ctc-1"
       ],
-      "fecha_apertura_real": "2019-12-30",
+      "enriquecido": true,
+      "monto_adjudicado": 532619090146,
+      "monto_adjudicado_gs": 532619090146,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 675137695376,
       "proveedores_montos": [
         {
@@ -3061,10 +3064,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 532619090146,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 532619090146,
-      "enriquecido": true
+      "fecha_apertura_real": "2019-12-30"
     },
     "ocds-03ad3f-366298-1": {
       "ocid": "ocds-03ad3f-366298-1",
