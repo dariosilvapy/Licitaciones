@@ -1,6 +1,6 @@
 {
   "anio": "2023",
-  "last_updated": "2026-11-17",
+  "last_updated": "2026-11-18",
   "total": 12657,
   "procesos": {
     "ocds-03ad3f-426070-1": {
@@ -52118,10 +52118,13 @@
       "proveedores_adjudicados": "Puro Limpio S.A., SERVINTEG S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/429132-servicio-limpieza-oficinas-sanitarios-tres-frentes-servicio-inc-1.html",
       "award_ids": [
-        "429132-puro-limpio-s-a-2",
-        "429132-apfg-3"
+        "429132-apfg-3",
+        "429132-puro-limpio-s-a-2"
       ],
-      "fecha_apertura_real": "2023-11-14",
+      "enriquecido": true,
+      "monto_adjudicado": 2431299996,
+      "monto_adjudicado_gs": 2431299996,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 2742017616,
       "proveedores_montos": [
         {
@@ -52135,10 +52138,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 2431299996,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 2431299996,
-      "enriquecido": true
+      "fecha_apertura_real": "2023-11-14"
     },
     "ocds-03ad3f-428526-1": {
       "ocid": "ocds-03ad3f-428526-1",
