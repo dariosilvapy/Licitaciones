@@ -25626,13 +25626,16 @@
       "fecha_apertura_ofertas": "2025-09-30",
       "modalidad": "Subasta a la baja electrónica nacional",
       "cantidad_adjudicaciones": 1,
-      "cantidad_contratos": 1,
+      "cantidad_contratos": 2,
       "proveedores_adjudicados": "CONSORCIO LIMPYC CENTRAL",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f036498-36cf-6d3c-9447-6901a1833c0d.html",
       "award_ids": [
         "1f0fd450-f3dc-6284-91e8-874baeca0df5"
       ],
-      "fecha_apertura_real": "2026-01-07",
+      "enriquecido": true,
+      "monto_adjudicado": 21870000000,
+      "monto_adjudicado_gs": 21870000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 20341164000,
       "proveedores_montos": [
         {
@@ -25641,10 +25644,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 21870000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 21870000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2026-01-07"
     },
     "ocds-03ad3f-462764-1": {
       "ocid": "ocds-03ad3f-462764-1",
@@ -37887,7 +37887,7 @@
       "nombre_licitacion": "LPN N° 02/2025 ADQUISICION DE ALIMENTOS PARA PERSONAS PRIVADAS DE LIBERTAD - PLURIANUAL",
       "convocante": "Ministerio de Justicia  (MJ)",
       "estado": "Adjudicada",
-      "categoria": "Bienes - Productos quimicos incluyendo los bio-quimicos y gases industriales",
+      "categoria": "Bienes - Alimentos Bebidas y Tabaco",
       "fecha_publicacion": "2025-06-10",
       "fecha_apertura_ofertas": "2025-09-08",
       "modalidad": "Licitación Pública Nacional",
@@ -235623,7 +235623,7 @@
       "nombre_licitacion": "SERVICIO DE INFORMACION ESPECIALIZADA EN LOGISTICA PARA PETROPAR",
       "convocante": "Petróleos Paraguayos (PETROPAR)",
       "estado": "Adjudicada",
-      "categoria": "Servicios - Servicios de Gestion Profesionales de Empresa y Administrativos",
+      "categoria": "Servicios - Combustibles Aditivos para combustibles, Lubricantes y Materiales Anticorrosivos",
       "fecha_publicacion": "2025-10-13",
       "fecha_apertura_ofertas": "2025-11-19",
       "modalidad": "Menor cuantía internacional",
