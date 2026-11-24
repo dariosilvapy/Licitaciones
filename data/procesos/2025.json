@@ -2171,9 +2171,9 @@
       "nombre_licitacion": "LPN N° 01/2026 -  CONTRATACIÓN DE SERVICIOS DE ALMACENAMIENTO Y OPERACIONES LOGÍSTICAS DE MEDICAMENTOS Y DISPOSITIVOS MÉDICOS DESTINADOS A LA D.G.G.I.E.S DEPENDIENTE DEL MSPYBS",
       "convocante": "Ministerio de Salud Pública y Bienestar Social (MSPBS)",
       "estado": "En Convocatoria (Abierta)",
-      "categoria": "Servicios - Servicios basados en ingenieria investigacion y tecnologia",
+      "categoria": "Servicios - Servicios de Gestion Profesionales de Empresa y Administrativos",
       "fecha_publicacion": "2025-11-19",
-      "fecha_apertura_ofertas": "2026-11-25",
+      "fecha_apertura_ofertas": "2026-12-02",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -6028,7 +6028,7 @@
       "nombre_licitacion": "ADQUISICIÓN DE SERVICIO DE INFORMACIÓN SOBRE MERCADOS ENERGÉTICOS PARA PETROPAR",
       "convocante": "Petróleos Paraguayos (PETROPAR)",
       "estado": "Adjudicada",
-      "categoria": "Servicios - Servicios Editoriales  de Diseño, Graficos y de Bellas Artes",
+      "categoria": "Servicios - Servicios basados en ingenieria investigacion y tecnologia",
       "fecha_publicacion": "2025-09-04",
       "fecha_apertura_ofertas": "2025-10-13",
       "modalidad": "Especiales\tSubasta a la baja electrónica internacional",
@@ -12921,7 +12921,10 @@
         "1f0c002b-606c-6a46-9023-7f0730ffbaa8",
         "1f0c0031-6514-6dcc-9810-63b23a00b59e"
       ],
-      "fecha_apertura_real": "2025-10-13",
+      "enriquecido": true,
+      "monto_adjudicado": 4110000000,
+      "monto_adjudicado_gs": 4110000000,
+      "monto_adjudicado_usd": 0,
       "monto_estimado": 4110000000,
       "proveedores_montos": [
         {
@@ -12940,10 +12943,7 @@
           "moneda": "PYG"
         }
       ],
-      "monto_adjudicado_gs": 4110000000,
-      "monto_adjudicado_usd": 0,
-      "monto_adjudicado": 4110000000,
-      "enriquecido": true
+      "fecha_apertura_real": "2025-10-13"
     },
     "ocds-03ad3f-478925-1": {
       "ocid": "ocds-03ad3f-478925-1",
@@ -16275,23 +16275,25 @@
       "tender_id_completo": "1f0cf7b5-35bc-6f6c-8d86-95d4b4e68f0f",
       "nombre_licitacion": "ADQUISICIÓN DE UPS – CONTRATO ABIERTO – PLURIANUAL – AD REFERÉNDUM",
       "convocante": "Corte Suprema de Justicia (CSJ)",
-      "estado": "Desierta",
+      "estado": "Suspendida",
       "categoria": "Bienes - Suministros componentes y accesorios electricos y de iluminacion",
       "fecha_publicacion": "2025-12-23",
       "fecha_apertura_ofertas": "2026-02-19",
       "modalidad": "Subasta a la baja electrónica nacional",
-      "cantidad_adjudicaciones": 0,
+      "cantidad_adjudicaciones": 1,
       "cantidad_contratos": 0,
-      "proveedores_adjudicados": "",
+      "proveedores_adjudicados": "SEGEL S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/1f0cf7b5-35bc-6f6c-8d86-95d4b4e68f0f.html",
-      "award_ids": [],
-      "fecha_apertura_real": "2026-02-19",
-      "monto_estimado": 1800554000,
-      "proveedores_montos": [],
+      "award_ids": [
+        "1f1dd0dc-e129-660a-b73d-e5d11a804231"
+      ],
+      "enriquecido": true,
+      "monto_adjudicado": null,
       "monto_adjudicado_gs": null,
       "monto_adjudicado_usd": null,
-      "monto_adjudicado": null,
-      "enriquecido": true
+      "monto_estimado": 1800554000,
+      "proveedores_montos": [],
+      "fecha_apertura_real": "2026-02-19"
     },
     "ocds-03ad3f-478996-1": {
       "ocid": "ocds-03ad3f-478996-1",
@@ -36711,7 +36713,7 @@
       "estado": "En Convocatoria (Abierta)",
       "categoria": "Bienes - Equipos Accesorios y Suministros Medicos",
       "fecha_publicacion": "2025-09-27",
-      "fecha_apertura_ofertas": "2026-11-25",
+      "fecha_apertura_ofertas": "2026-11-30",
       "modalidad": "Licitación Pública Nacional",
       "cantidad_adjudicaciones": 0,
       "cantidad_contratos": 0,
@@ -235665,7 +235667,7 @@
       "nombre_licitacion": "SERVICIO DE INFORMACION ESPECIALIZADA EN LOGISTICA PARA PETROPAR",
       "convocante": "Petróleos Paraguayos (PETROPAR)",
       "estado": "Adjudicada",
-      "categoria": "Servicios - Combustibles Aditivos para combustibles, Lubricantes y Materiales Anticorrosivos",
+      "categoria": "Servicios - Servicios de Gestion Profesionales de Empresa y Administrativos",
       "fecha_publicacion": "2025-10-13",
       "fecha_apertura_ofertas": "2025-11-19",
       "modalidad": "Menor cuantía internacional",
@@ -294867,8 +294869,8 @@
       "fecha_publicacion": "2025-08-01",
       "fecha_apertura_ofertas": "2025-09-02",
       "modalidad": "Licitación Pública Nacional",
-      "cantidad_adjudicaciones": 29,
-      "cantidad_contratos": 29,
+      "cantidad_adjudicaciones": 34,
+      "cantidad_contratos": 34,
       "proveedores_adjudicados": "J.P. REPRESENTACIONES S.A., MARIA JULIA PLANAS GOMEZ DE BENITEZ, PLASTICOS SA, TIGRE PARAGUAY S.A.",
       "link": "https://www.contrataciones.gov.py/licitaciones/convocatoria/473065-convenio-almacen-productos-servicios-estrategicos-commodities-licitacion-publica-nac.html",
       "award_ids": [
@@ -294900,7 +294902,12 @@
         "1326-2026-94",
         "1326-2026-97",
         "1326-2026-96",
-        "1326-2026-100"
+        "1326-2026-100",
+        "1326-2026-109",
+        "1326-2026-108",
+        "1326-2026-113",
+        "1326-2026-114",
+        "1326-2026-115"
       ]
     }
   }
